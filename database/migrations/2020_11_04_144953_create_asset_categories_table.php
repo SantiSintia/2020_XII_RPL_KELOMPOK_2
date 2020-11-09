@@ -15,7 +15,7 @@ class CreateAssetCategoriesTable extends Migration
     {
         Schema::create('asset_categories', function (Blueprint $table) {
             $table->bigIncrements('asc_id');
-            $table->unsignedBigInteger('asc_code');
+            $table->string('asc_code');
             $table->unsignedBigInteger('asc_original_code');
             $table->string('asc_name');
             $table->unsignedBigInteger('asc_parent_asset_categories_id');
