@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware(['auth']);
+         $this->middleware(['auth']);
+         
     }
 
     /**
@@ -25,5 +26,10 @@ class UserController extends Controller
     public function index()
     {
         return view('users.dashboard');
+    }
+
+    public function profile()
+    {
+        
     }
 }

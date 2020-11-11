@@ -36,5 +36,24 @@ Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::get('/dashboard', 'User\UserController@index')->name('dashboard.users');
+    Route::get('admin/dashboard', 'User\UserController@index')->name('dashboard.users');
+    Route::get('admin/profile', 'User\UserController@profile');
+    Route::get('asset', '');
+    Route::get('asset/{id}/detail', '');
+    Route::get('asset/tambah', '');
+    Route::get('asset/{id}/edit', '');
+    Route::get('asset/{id}/hapus', '');
+    Route::get('typeassets', '');
+    Route::get('typeassets/create', '');
+    Route::get('user', '');
+    Route::get('user/{id}/detail', '');
+    Route::get('user/{id}/{hapus}', '');
+    Route::get('borrow/{id}/verifikasi', '');
+    Route::get('borrow/{id}/pinjam', '');
+    Route::get('pengembalian', '');
+    Route::get('borrows/{id}/pengembalian', '');
+    Route::get('peminjaman', '');
+    Route::get('borrows/{id}/detail', '');
+    Route::get('borrows/{id}/lost', '');
+    Route::get('laporan', '');
 });

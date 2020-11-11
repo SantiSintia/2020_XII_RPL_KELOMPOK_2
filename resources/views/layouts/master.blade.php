@@ -33,7 +33,7 @@
   </div>
   <!-- /.content-wrapper -->
              <footer class="footer">
-                © 2019 Material Pro Admin by wrappixel.com
+                © 2020 SMKS MAHAPUTRA CERDAS UTAMA
             </footer>
 
   <!-- Control Sidebar -->
