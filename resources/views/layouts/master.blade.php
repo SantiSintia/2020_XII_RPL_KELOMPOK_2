@@ -24,12 +24,16 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="page-wrapper">
+     <div class="container-fluid">
+         
     <!-- Content Header (Page header) -->
     
 
     <!-- Main content -->
-
+@yield ('content')    
     <!-- /.content -->
+     
+      </div>
   </div>
   <!-- /.content-wrapper -->
              <footer class="footer">

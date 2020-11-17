@@ -4,7 +4,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{URL::to('admin/dashboard')}}">
                         <!-- Logo icon -->
                         <b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -82,7 +82,7 @@
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                                    <li><a href="{{URL::to('admin/profile')}}"><i class="ti-user"></i> My Profile</a></li>
                                     <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
                                     <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                     <li role="separator" class="divider"></li>

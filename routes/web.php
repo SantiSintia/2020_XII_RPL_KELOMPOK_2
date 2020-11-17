@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+
 
 Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');
 Route::get('/account/waiting-verification', 'Auth\AccountController@waitingVerification');
@@ -36,15 +36,24 @@ Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
 Route::group(['middleware' => ['auth', 'verified']], function () {
-    Route::get('admin/dashboard', 'User\UserController@index')->name('dashboard.users');
-    Route::get('admin/profile', 'User\UserController@profile');
-    Route::get('asset', '');
-    Route::get('asset/{id}/detail', '');
-    Route::get('asset/tambah', '');
-    Route::get('asset/{id}/edit', '');
-    Route::get('asset/{id}/hapus', '');
-    Route::get('typeassets', '');
-    Route::get('typeassets/create', '');
+    Route::get('admin/dashboard', 'Admin\AdminPageController@index')->name('dashboard.users');
+    Route::get('admin/profile', 'Admin\AdminPageController@profile');
+    Route::get('admin/reset-password', 'Admin\AdminPageController@resetPassword');
+    Route::get('asset', 'Admin\AdminPageController@asset');
+    Route::get('typeAssets', 'Admin\AdminPageController@typeAssets');
+    Route::get('manageAssets', 'Admin\AdminPageController@manageAssets');
+    Route::get('manageUsers', 'Admin\AdminPageController@manageUsers');
+    
+
+
+    Route::get('asset/{id}/detail', 'Admin\AdminAssetController@assetDetails');
+    Route::get('asset/tambah', 'Admin\AdminAssetController@assetCreate');
+    Route::post('asset/tambah', 'Admin\AdminAssetController@assetSaveCreate');
+    Route::get('asset/{id}/edit', 'Admin\AdminAssetController@assetEdit');
+    Route::get('asset/{id}/hapus', 'Admin\AdminAssetController@assetDelete');
+    Route::get('typeAssets/create', 'Admin\AdminAssetController@createTypeAssets');
+
+    /*
     Route::get('user', '');
     Route::get('user/{id}/detail', '');
     Route::get('user/{id}/{hapus}', '');
@@ -55,5 +64,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('peminjaman', '');
     Route::get('borrows/{id}/detail', '');
     Route::get('borrows/{id}/lost', '');
-    Route::get('laporan', '');
+    Route::get('laporan', '');*/
 });

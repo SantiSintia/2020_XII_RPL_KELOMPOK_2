@@ -13,21 +13,21 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> 
-                        <a class="waves-effect waves-dark" href="#" aria-expanded="false">
+                        <a class="waves-effect waves-dark" href="{{URL::to('admin/typeAssets')}}" aria-expanded="false">
                                 <i class="mdi mdi-laptop-windows"></i>
                                 <span class="hide-menu">Kelola Tipe Asset</span>
                         </a>
                         </li>
 
                         <li>
-                         <a class="waves-effect waves-dark" href="#" aria-expanded="false">
+                         <a class="waves-effect waves-dark" href="{{URL::to('admin/manageAssets')}}" aria-expanded="false">
                                 <i class="mdi mdi-laptop-windows"></i>
                             <span class="hide-menu">Kelola Asset</span>
                         </a>
                         </li>
 
                         <li>
-                        <a class="waves-effect waves-dark" href="#" aria-expanded="false">
+                        <a class="waves-effect waves-dark" href="{{URL::to('admin/manageUsers')}}" aria-expanded="false">
                                 <i class="mdi mdi-laptop-windows"></i>
                                 <span class="hide-menu">Kelola User</span>
                         </a>
