@@ -29,7 +29,7 @@ Route::get('/account/{resetVerificationToken}/forgot-password', 'Auth\AccountCon
 Route::post('/account/reset-password', 'Auth\AccountController@updatePassword')->name('password-reset');
 
 //Route untuk register teacher dan staff
-
+Route::get('/choose-register','Auth\RegisterController@chooseRegister');
 Route::get('/register-student', 'Auth\RegisterController@registerStudent');
 Route::get('/register-teacher', 'Auth\RegisterController@registerTeacher');
 Route::get('/register-staff', 'Auth\RegisterController@registerStaff');

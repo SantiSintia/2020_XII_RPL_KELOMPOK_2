@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/favicon.png')}}">
-    <title>Student Register | INVENTARIS SMKS MAHAPUTRA</title>
+    <title>Register | INVENTARIS SMKS MAHAPUTRA</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{URL::to('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -26,7 +26,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.assets/js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -44,42 +43,22 @@
             <div class="login-box card">
                 <div class="card-body">
                     <form class="form-horizontal form-material" id="loginform" action="https://www.wrappixel.com/demos/admin-templates/material-pro/minisidebar/index.html">
-                        <h3 class="box-title m-b-20">Sign In</h3>
-                        <div class="form-group ">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="text" required="" placeholder="Username"> </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input  id="usr_phone" value="{{ old('usr_phone') }}" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone" autocomplete="off" type="text" required="" placeholder="Phone Number"> </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password" required="" placeholder="Password"> </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password" required="" placeholder="Password"> </div>
-                        </div>                       
-                        <div class="form-group">
-                            <div class="d-flex no-block align-items-center">
-                                <div class="checkbox checkbox-primary p-t-0">
-                                    <input id="checkbox-signup" type="checkbox">
-                                    <label for="checkbox-signup"> Remember me </label>
+                        <h3 class="text-center">SELECT REGISTER</h3>
+                       <div class="row button-group">
+                                    <div class="col-lg-12 col-md-4">
+                                        <a href="{{ url('register-student') }}" type="button" class="btn btn-block btn-outline-info">Student</a>
+                                    </div>
+                                    <div class="col-lg-12 col-md-4">
+                                        <a href="{{ url('register-teacher') }}" type="button" class="btn btn-block btn-outline-success">Teacher</a>
+                                    </div>
+                                    <div class="col-lg-12 col-md-4">
+                                        <a href="{{ url('register-staff') }}" type="button" class="btn btn-block btn-outline-danger">Staff TU</a>
+                                    </div>
+                                   
                                 </div> 
-                                <div class="ml-auto">
-                                    <a href="javascript:void(0)" id="to-recover" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group text-center m-t-20">
-                            <div class="col-xs-12">
-                                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
-                            </div>
-                        </div>
                         <div class="form-group m-b-0">
                             <div class="col-sm-12 text-center">
-                                Don't have an account? <a href="pages-register.html" class="text-info m-l-5"><b>Sign Up</b></a>
+                                You have an account? <a href="{{route('login')}}" class="text-info m-l-5"><b>Sign In</b></a>
                             </div>
                         </div>
                     </form>
