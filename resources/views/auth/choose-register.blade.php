@@ -39,10 +39,11 @@
     <!-- ============================================================== -->
     <section id="wrapper">
 
-        <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
+        <div class="login-register" style="background-image:url(../assets/images/background/2.jpg);">
             <div class="login-box card">
                 <div class="card-body">
                     <form class="form-horizontal form-material" id="loginform" action="https://www.wrappixel.com/demos/admin-templates/material-pro/minisidebar/index.html">
+                    	<a href="javascript:void(0)" class="text-center db"><img src="{{ URL::to('assets/images/logo-mp.jpg')}}" alt="Home" /><br/><img src="{{ URL::to('assets/images/logo-asset2.png')}}" alt="Home" /></a>
                         <h3 class="text-center">SELECT REGISTER</h3>
                        <div class="row button-group">
                                     <div class="col-lg-12 col-md-4">

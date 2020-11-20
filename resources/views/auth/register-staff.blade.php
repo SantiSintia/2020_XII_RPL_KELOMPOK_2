@@ -26,22 +26,22 @@
     <script src="https://oss.maxcdn.com/libs/respond.assets/js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<header class="topbar">
-    @include('layouts.headerlanding')
-  </header>
+
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
+
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <section id="wrapper" class="login-register login-sidebar"  style="background-image:url(assets/images/background/login-register.jpg);">
+    <section id="wrapper" class="login-register login-sidebar"  style="background-image:url(assets/images/background/1.jpg);">
   <div class="login-box card">
     <div class="card-body">
       <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('register') }}">
       @csrf
-        <center><h4 class="box-title m-t-40 m-b-0">Register Staff TU </h4></center>
+      <a href="javascript:void(0)" class="text-center db"><img src="{{ URL::to('assets/images/reg.png')}}" alt="Home" /></a>
+        <h5 class="text-center">Staff Register </h5>
         <div class="form-group m-t-20">
           <div class="col-xs-12">
             <input id="usr_name" class="form-control @error('usr_name') is-invalid @enderror" type="text" required="" placeholder="Name" name="usr_name" value="{{ old('usr_name') }}" autocomplete="usr_name" autofocus>
@@ -52,7 +52,7 @@
                 @enderror
           </div>
         </div>
-        <div class="form-group ">
+        <div class="form-group m-t-20">
           <div class="col-xs-12">
             <input id="usr_email" class="form-control @error('usr_email') is-invalid @enderror" type="email" required="" placeholder="Email" name="usr_email" value="{{ old('usr_email') }}" autocomplete="usr_email">
                 @error('usr_email')
@@ -62,18 +62,7 @@
                 @enderror
           </div>
         </div>
-        <div class="form-group ">
-          <div class="col-xs-12">
-            <input id="usr_phone" value="{{ old('usr_phone') }}" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone" autocomplete="off" type="text" required="" placeholder="Phone Number">
-                @error('usr_phone')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-
-          </div>
-        </div>
-        <div class="form-group ">
+        <div class="form-group m-t-20">
           <div class="col-xs-12">
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" required="" placeholder="Password">
                 @error('usr_password')
@@ -84,26 +73,65 @@
 
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group m-t-20">
           <div class="col-xs-12">
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" required="" placeholder="Confirm Password">
           </div>
         </div>
-
+         <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" required="" placeholder="NIP">
+                @error('usr_password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" required="" placeholder="Jabatan">
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input id="usr_phone" value="{{ old('usr_phone') }}" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone" autocomplete="off" type="text" required="" placeholder="Phone Number">
+                @error('usr_phone')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+          </div>
+        </div>
+        <div class="btn-group" data-toggle="buttons" role="group">
+                                            <label class="btn btn-outline btn-info">
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio1" name="options" value="male" class="custom-control-input">
+                                                    <label class="custom-control-label" for="customRadio1"> <i class="ti-check text-active" aria-hidden="true"></i> Male</label>
+                                                </div>
+                                            </label>
+                                            <label class="btn btn-outline btn-info">
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="customRadio2" name="options" value="female" class="custom-control-input">
+                                                    <label class="custom-control-label" for="customRadio2"> <i class="ti-check text-active" aria-hidden="true"></i> Female</label>
+                                                </div>
+                                            </label>
+         </div>
         <div class="form-group row">
             <div class="col-md-2">
                 <input type="hidden" name="role" value="4">
             </div>
         </div>
-
-
-        <div class="form-group text-center ">
-          <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary" id="btnSubmit">
+        <div class="form-group text-left" style="font-size: 13px;">Don't have an account?
+            <a href="http://localhost:8000/choose-register" class="text-primary">
+            <b>Sign Up</b>
+        </a>
+         <div class="form-group text-right">
+            <button type="submit" class="btn btn-primary" id="btnSubmit">
                   {{ __('Register') }}
               </button>
-          </div>
-        </div>
+              </div>
+       </div>
       </form>
     </div>
   </div>
