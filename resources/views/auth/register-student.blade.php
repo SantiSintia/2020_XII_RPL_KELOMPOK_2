@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/logo-atas.png')}}">
     <title>Staff Register | INVENTARIS SMKS MAHAPUTRA</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{URL::to('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -122,9 +122,9 @@
                 <input type="hidden" name="role" value="4">
             </div>
         </div>
-        <div class="form-group text-left" style="font-size: 13px;">Don't have an account?
-            <a href="http://localhost:8000/choose-register" class="text-primary">
-            <b>Sign Up</b>
+        <div class="form-group text-left" style="font-size: 13px;">You have an account?
+            <a href="{{route('login')}}" class="text-primary">
+            <b>Sign In</b>
         </a>
          <div class="form-group text-right">
             <button type="submit" class="btn btn-primary" id="btnSubmit">
