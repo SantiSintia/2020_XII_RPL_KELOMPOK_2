@@ -25,7 +25,7 @@ class AdminPageController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        return view('index');
     }
 
     public function profile()
@@ -38,11 +38,6 @@ class AdminPageController extends Controller
     	return view('admin.reset-password');
     }
     
-    public function typeAssets()
-    {
-    	return view('admin.type-assets');
-    }
-
     public function createTypeAssets()
     {
     	return view('admin.create-type-assets');

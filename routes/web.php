@@ -40,9 +40,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('admin/profile', 'Admin\AdminPageController@profile');
     Route::get('admin/reset-password', 'Admin\AdminPageController@resetPassword');
     Route::get('asset', 'Admin\AdminPageController@asset');
-    Route::get('typeAssets', 'Admin\AdminPageController@typeAssets');
     Route::get('manageAssets', 'Admin\AdminPageController@manageAssets');
-    Route::get('manageUsers', 'Admin\AdminPageController@manageUsers');
+    Route::get('admin/manageUsers', 'Admin\AdminPageController@manageUsers');
     
 
 
