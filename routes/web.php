@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 
@@ -39,12 +39,20 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('admin/dashboard', 'Admin\AdminPageController@index')->name('dashboard.users');
     Route::get('admin/profile', 'Admin\AdminPageController@profile');
     Route::get('admin/reset-password', 'Admin\AdminPageController@resetPassword');
-    Route::get('asset', 'Admin\AdminPageController@asset');
+    /*Route::get('asset', 'Admin\AdminPageController@asset');
     Route::get('manageAssets', 'Admin\AdminPageController@manageAssets');
-    Route::get('admin/manageUsers', 'Admin\AdminPageController@manageUsers');
+    Route::get('admin/manageUsers', 'Admin\AdminPageController@manageUsers');*/
     
+    Route::get('categoryAsset', 'Admin\CategoryAssetController@index');   
+    Route::get('categoryAsset/create', 'Admin\CategoryAssetController@create');   
+    Route::get('categoryAsset/store', 'Admin\CategoryAssetController@store'); 
 
+    Route::get('typeAsset', 'Admin\TypeAssetController@index');   
+    Route::get('typeAsset/create', 'Admin\TypeAssetController@create');   
+    Route::get('typeAsset/store', 'Admin\TypeAssetController@store'); 
+    Route::get('typeAsset/delete', 'Admin\TypeAssetController@destroy');
 
+  /*
     Route::get('asset/{id}/detail', 'Admin\AdminAssetController@assetDetails');
     Route::get('asset/tambah', 'Admin\AdminAssetController@assetCreate');
     Route::post('asset/tambah', 'Admin\AdminAssetController@assetSaveCreate');
@@ -52,7 +60,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('asset/{id}/hapus', 'Admin\AdminAssetController@assetDelete');
     Route::get('typeAssets/create', 'Admin\AdminAssetController@createTypeAssets');
 
-    /*
+    
     Route::get('user', '');
     Route::get('user/{id}/detail', '');
     Route::get('user/{id}/{hapus}', '');
