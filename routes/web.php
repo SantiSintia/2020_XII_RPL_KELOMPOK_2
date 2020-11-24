@@ -52,6 +52,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('typeAsset/store', 'Admin\TypeAssetController@store'); 
     Route::get('typeAsset/delete', 'Admin\TypeAssetController@destroy');
 
+    Route::get('asset', 'Admin\AssetController@index');
+
   /*
     Route::get('asset/{id}/detail', 'Admin\AdminAssetController@assetDetails');
     Route::get('asset/tambah', 'Admin\AdminAssetController@assetCreate');

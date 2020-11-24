@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
             'usr_is_active' => true,
         ]);
 
-        $teacher->assignRole('teacher');
+  /*      $teacher->assignRole('teacher');
 
         $stafftu = User::create([
             'usr_name' => 'Rifka',
@@ -66,6 +66,6 @@ class UserSeeder extends Seeder
         ]);
 
         $stafftu->assignRole('staff');
-
+*/
     }
 }

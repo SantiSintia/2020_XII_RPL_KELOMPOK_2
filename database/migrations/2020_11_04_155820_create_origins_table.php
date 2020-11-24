@@ -17,6 +17,7 @@ class CreateOriginsTable extends Migration
             $table->bigIncrements('ori_id');
             $table->string('ori_code');
             $table->string('ori_name');
+            
             $table->unsignedBigInteger('ori_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('ori_updated_by')->unsigned()->nullable();
             $table->unsignedBigInteger('ori_deleted_by')->unsigned()->nullable();  

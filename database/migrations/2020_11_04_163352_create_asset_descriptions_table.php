@@ -16,8 +16,13 @@ class CreateAssetDescriptionsTable extends Migration
         Schema::create('asset_descriptions', function (Blueprint $table) {
             $table->bigIncrements('asd_id');
             $table->unsignedBigInteger('asd_ass_id');
-            $table->string('asd_key');
-            $table->string('asd_value');
+            $table->string('asd_inggridient')->nullable();
+            $table->string('asd_building_area')->nullable();
+            $table->string('asd_merk')->nullable();
+            $table->string('asd_spesification');
+            $table->string('asd_voltage')->nullable();
+            $table->string('asd_condition');
+                        
             $table->unsignedBigInteger('asd_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('asd_updated_by')->unsigned()->nullable();
             $table->unsignedBigInteger('asd_deleted_by')->unsigned()->nullable(); 

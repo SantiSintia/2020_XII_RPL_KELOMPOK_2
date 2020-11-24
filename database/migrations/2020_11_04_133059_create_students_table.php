@@ -15,14 +15,17 @@ class CreateStudentsTable extends Migration
     {
        Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('usr_id');
-            $table->unsignedBigInteger('std_usr_id');
-            $table->foreign('std_usr_id')->references('usr_id')->on('users')->onDelete('cascade'); 
-            $table->unsignedBigInteger('std_name');
-            $table->unsignedBigInteger('std_nis')->unique();
-            $table->unsignedBigInteger('std_class');
+            $table->unsignedBigInteger('std_usr_id'); 
+            $table->string('std_name');
+            $table->string('std_nis')->unique();
+            $table->string('std_class');
+
             $table->unsignedBigInteger('std_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('std_updated_by')->unsigned()->nullable();
             $table->unsignedBigInteger('std_deleted_by')->unsigned()->nullable();
+            
+            
+            $table->foreign('std_usr_id')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('std_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('std_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('std_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');
