@@ -54,7 +54,7 @@ class RegisterController extends Controller
                     $class  = $_POST['class'];
 
                     $user = new User();
-                    $user->role_id                = '2';
+                    $user->role_id                = '3';
                     $user->usr_name               = $nama;
                     $user->usr_email              = $email;
                     
@@ -108,7 +108,7 @@ class RegisterController extends Controller
                     $nip    = $_POST['nip'];
 
                     $user = new User();
-                    $user->role_id                = '3';
+                    $user->role_id                = '2';
                     $user->usr_name               = $nama;
                     $user->usr_email              = $email;
                     
@@ -195,13 +195,13 @@ class RegisterController extends Controller
             'usr_is_active' => true,
         ]);
 
-        if ($data['role'] == 1) {
+        if ($data['role'] == 3) {
             $user->assignRole('student');
             $user->created_by = $user->usr_id;
         } elseif ($data['role'] == 2) {
             $user->assignRole('teacher');
             $user->created_by = $user->usr_id;
-        } elseif ($data['role'] == 3) {
+        } elseif ($data['role'] == 4) {
             $user->assignRole('staff');
             $user->created_by = $user->usr_id;
         }

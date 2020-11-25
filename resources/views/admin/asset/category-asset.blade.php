@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Kategori Asset
+Kategori Asset
 @endpush
 
 @push('styles')

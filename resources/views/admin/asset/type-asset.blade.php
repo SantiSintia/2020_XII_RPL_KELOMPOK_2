@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Kategori Asset
+Type Asset
 @endpush
 
 @push('styles')
@@ -40,7 +40,6 @@
                                                 <th>Jenis Kategori</th>
                                                 <th>Kode Asli</th>
                                                 <th>Kode Tipe</th>
-                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,9 +49,6 @@
                                                 <td>Lantai 1</td>
                                                 <td>001</td>
                                                 <td>B01.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                                
                                             </tr>                                            
                                             <tr>
@@ -61,9 +57,6 @@
                                                 <td>Lantai 1</td>
                                                 <td>002</td>
                                                 <td>B01.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>3</td>
@@ -71,9 +64,6 @@
                                                 <td>Lantai 1</td>
                                                 <td>001</td>
                                                 <td>B02.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>4</td>
@@ -81,9 +71,6 @@
                                                 <td>Lantai 1</td>
                                                 <td>002</td>
                                                 <td>B02.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>5</td>
@@ -91,9 +78,6 @@
                                                 <td>Lantai 2</td>
                                                 <td>001</td>
                                                 <td>B03.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>6</td>
@@ -101,9 +85,6 @@
                                                 <td>Lantai 2</td>
                                                 <td>002</td>
                                                 <td>B03.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>7</td>
@@ -111,9 +92,6 @@
                                                 <td>Lantai 2</td>
                                                 <td>001</td>
                                                 <td>B04.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>8</td>
@@ -121,9 +99,6 @@
                                                 <td>Lantai 2</td>
                                                 <td>002</td>
                                                 <td>B04.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>9</td>
@@ -131,9 +106,6 @@
                                                 <td>Lantai 3</td>
                                                 <td>001</td>
                                                 <td>B05.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>  
                                             <tr>
                                                 <td>10</td>
@@ -141,9 +113,6 @@
                                                 <td>Lantai 3</td>
                                                 <td>001</td>
                                                 <td>B05.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>  
                                                                                       
                                             <tr>
@@ -152,9 +121,6 @@
                                                 <td>Lantai 3</td>
                                                 <td>001</td>
                                                 <td>B06.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>12</td>
@@ -162,9 +128,6 @@
                                                 <td>Lantai 3</td>
                                                 <td>002</td>
                                                 <td>B06.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>                                            
                                             <tr>
                                                 <td>13</td>
@@ -172,9 +135,6 @@
                                                 <td>Barang</td>
                                                 <td>001</td>
                                                 <td>P01.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>14</td>
@@ -182,9 +142,6 @@
                                                 <td>Barang</td>
                                                 <td>002</td>
                                                 <td>P01.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>15</td>
@@ -192,9 +149,6 @@
                                                 <td>Barang</td>
                                                 <td>003</td>
                                                 <td>P01.003</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>16</td>
@@ -202,9 +156,6 @@
                                                 <td>Barang</td>
                                                 <td>004</td>
                                                 <td>P01.004</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>17</td>
@@ -212,9 +163,6 @@
                                                 <td>Barang</td>
                                                 <td>001</td>
                                                 <td>P02.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                              <tr>
                                                 <td>18</td>
@@ -222,9 +170,6 @@
                                                 <td>Barang</td>
                                                 <td>002</td>
                                                 <td>P02.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                              <tr>
                                                 <td>19</td>
@@ -232,9 +177,6 @@
                                                 <td>Barang</td>
                                                 <td>001</td>
                                                 <td>P03.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                              <tr>
                                                 <td>20</td>
@@ -242,9 +184,6 @@
                                                 <td>Barang</td>
                                                 <td>002</td>
                                                 <td>P03.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                              <tr>
                                                 <td>21</td>
@@ -252,9 +191,6 @@
                                                 <td>Barang</td>
                                                 <td>001</td>
                                                 <td>P04.001</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                              <tr>
                                                 <td>22</td>
@@ -262,9 +198,6 @@
                                                 <td>Barang</td>
                                                 <td>002</td>
                                                 <td>P04.002</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                              <tr>
                                                 <td>23</td>
@@ -272,9 +205,6 @@
                                                 <td>Barang</td>
                                                 <td>003</td>
                                                 <td>P04.003</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                              <tr>
                                                 <td>24</td>
@@ -282,9 +212,6 @@
                                                 <td>Barang</td>
                                                 <td>004</td>
                                                 <td>P04.004</td>
-                                                <td>
-                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
-                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

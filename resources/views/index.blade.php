@@ -40,31 +40,6 @@
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
-                    <div class="col-md-5 col-8 align-self-center">
-                        <div class="d-flex m-t-10 justify-content-end">
-                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <div class="chart-text m-r-10">
-                                    <h6 class="m-b-0"><small>THIS MONTH</small></h6>
-                                    <h4 class="m-t-0 text-info">$58,356</h4></div>
-                                <div class="spark-chart">
-                                    <div id="monthchart"></div>
-                                </div>
-                            </div>
-                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <div class="chart-text m-r-10">
-                                    <h6 class="m-b-0"><small>LAST MONTH</small></h6>
-                                    <h4 class="m-t-0 text-primary">$48,356</h4></div>
-                                <div class="spark-chart">
-                                    <div id="lastmonthchart"></div>
-                                </div>
-                            </div>
-
-
-                            <div class="">
-                                <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -75,28 +50,48 @@
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-8 col-md-12">
-                        <div class="card">
+                    <div class="col-lg-6  col-md-4">
+                        <div class="card card-inverse card-primary">
                             <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="m-r-20 align-self-center">
+                                        <h1 class="text-white"><i class="mdi mdi-bank"></i></h1></div>
+                                    <div>
+                                        <h3 class="card-title">Jumlah Asset</h3>
+                                    </div>
+                                </div>
                                 <div class="row">
-                                    <div class="col-12">
-                                        <div class="d-flex flex-wrap">
-                                            <div>
-                                                <h3 class="card-title"><a href="{{URL::to('asset')}}">Kelola Aset</a></h3>
-                                              </div>
-                                        </div>
+                                    <div class="col-4 align-self-center">
+                                        <h2 class="font-light text-white">24 Asset</h2>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card">
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-6 col-md-4">
+                        <div class="card card-inverse card-success">
                             <div class="card-body">
-                                <h3 class="card-title"><a href="{{URL::to('user/detail')}}">Kelola User</h3>
+                                <div class="d-flex">
+                                    <div class="m-r-20 align-self-center">
+                                        <h1 class="text-white"><i class="mdi mdi-server"></i></h1></div>
+                                    <div>
+                                        <h3 class="card-title">Peminjaman</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 align-self-center">
+                                        <h2 class="font-light text-white">1 Asset Sedang di pinjam</h2>
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <!-- Column -->
                 </div>
             </div>
             <!-- ============================================================== -->

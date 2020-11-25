@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Beranda
+List Peminjaman
 @endpush
 
 @push('styles')

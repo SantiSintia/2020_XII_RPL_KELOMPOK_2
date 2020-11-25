@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Beranda
+Asset
 @endpush
 
 @push('styles')

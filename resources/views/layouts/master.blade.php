@@ -23,18 +23,6 @@
 
     @include ('includes.header');
 
-  <header class="topbar">
-    @if(Auth()->user()->hasRole('admin'))
-      @include ('includes.header')
-    @elseif(Auth()->user()->hasRole('staff'))
-      @include ('includes.header-staff')
-    @elseif(Auth()->user()->hasRole('teacher'))
-      @include ('includes.header-teacher')
-    @else
-      @include ('includes.header-student')
-    @endif
-  </header>
-
   <aside class="left-sidebar">
     @if(Auth()->user()->hasRole('admin'))
       @include ('includes.sidebar-admin')

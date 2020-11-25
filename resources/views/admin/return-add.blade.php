@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Beranda
+Pengembalian
 @endpush
 
 @push('styles')

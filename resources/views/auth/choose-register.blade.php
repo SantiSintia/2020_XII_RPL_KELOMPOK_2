@@ -52,9 +52,9 @@
                                     <div class="col-lg-12 col-md-4">
                                         <a href="{{ url('register-teacher') }}" type="button" class="btn btn-block btn-outline-success">Teacher</a>
                                     </div>
-                                    <div class="col-lg-12 col-md-4">
+                                   <!-- <div class="col-lg-12 col-md-4">
                                         <a href="{{ url('register-staff') }}" type="button" class="btn btn-block btn-outline-danger">Staff TU</a>
-                                    </div>
+                                    </div> -->
                                    
                                 </div> 
                         <div class="form-group m-b-0">

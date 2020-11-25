@@ -35,7 +35,7 @@ class AccountController extends Controller
         if (Auth::user()->usr_email_verified_at == null) {
             return view('auth/verify');
         } else {
-            return redirect('/dashboard');
+            return redirect('admin/dashboard');
         }
     }
 
