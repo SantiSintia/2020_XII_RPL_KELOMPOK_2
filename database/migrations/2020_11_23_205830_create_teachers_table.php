@@ -16,7 +16,7 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->bigIncrements('tc_id');
             $table->unsignedBigInteger('tc_usr_id');
-            $table->string('tc_nip')->unique();
+            $table->string('tc_nip')->nullable();
 
             $table->unsignedBigInteger('tc_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('tc_updated_by')->unsigned()->nullable();

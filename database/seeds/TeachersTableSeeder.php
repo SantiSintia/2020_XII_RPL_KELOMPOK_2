@@ -12,8 +12,8 @@ class TeachersTableSeeder extends Seeder
     public function run()
     {
           DB::table('teachers')->insert([
-            'tc_usr_id' => 3,
-            'tc_nip' => '16.17.003'
+            'tc_usr_id' => 8,
+         
             ]);
         
     }

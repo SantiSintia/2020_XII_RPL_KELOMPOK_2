@@ -21,6 +21,8 @@
     
     <div id="main-wrapper">
 
+    @include ('includes.header');
+
   <header class="topbar">
     @if(Auth()->user()->hasRole('admin'))
       @include ('includes.header')
