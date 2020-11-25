@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Kategori Asset
+- Beranda
 @endpush
 
 @push('styles')
@@ -22,50 +22,40 @@
 @endpush
 
 @section('content')
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-outline-info">
-                            <div class="card-header">
-                                <h4 class="m-b-0 text-white">Tambah Kategori Asset</h4>
-                            </div>
+                        <div class="card">
                             <div class="card-body">
-                                <form action="{{URL::to('typeAsset/store')}}" method="" class="form-horizontal form-bordered">
-
-                                    <div class="form-group row">
-                                        <label class="control-label text-right col-md-3">Jenis Kategori</label>
-                                        <div class="col-md-9">
-                                            <select name="" class="form-control custom-select">
-                                                <option value="">Bangunan</option>
-                                                <option value="">Peralatan</option>
-                                                <option value="">lantai 1</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-body">
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Nama Tipe</label>
-                                            <div class="col-md-9">
-                                                <input name="" type="text" placeholder="nama tipe" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-actions">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="offset-sm-3 col-md-9">
-                                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Submit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <h4 class="card-title">Data Kategori Asset</h4>
+                              
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Peminjam</th>
+                                                <th>Aset Barang yang dipinjam</th>
+                                                <th>Jumlah yang dipinjam</th>
+                                                <th>Pilihan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Rinaldi</td>
+                                                <td>Kursi 1</td>
+                                                <td>1</td>
+                                                <td>
+                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-primary">Detail</a>
+                                                    <a href="{{URL::to('lists-borrow/lost')}}" class="btn btn-danger">Hilang</a>
+                                                </td> 
+                                            </tr>                                            
+                                                                              
+                                         
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->

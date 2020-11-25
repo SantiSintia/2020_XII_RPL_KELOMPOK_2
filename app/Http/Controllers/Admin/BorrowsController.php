@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AssetController extends Controller
+class BorrowsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,27 @@ class AssetController extends Controller
      */
     public function index()
     {
-        return view('admin.asset.list-asset');
+        return view('admin.lists-borrow');
     }
-
-    public function list()
+    public function detail()
     {
-        return view('admin.asset.list-detail-asset');
+        return view('admin.lists-detail-borrow');
+    }
+    
+    public function borrowsItem()
+    {
+        return view('admin.borrows-item');
     }
 
+    public function returnAdd()
+    {
+        return view('admin.return-add');
+    }
+    public function returnHistory()
+    {
+        return view('admin.return-history');
+    }
+    
     
 
     /**
@@ -31,7 +44,7 @@ class AssetController extends Controller
      */
     public function create()
     {
-        return view('admin.asset.create-asset');
+        //
     }
 
     /**
@@ -48,10 +61,10 @@ class AssetController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(cr $cr)
     {
         //
     }
@@ -59,10 +72,10 @@ class AssetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(cr $cr)
     {
         //
     }
@@ -71,10 +84,10 @@ class AssetController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, cr $cr)
     {
         //
     }
@@ -82,10 +95,10 @@ class AssetController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(cr $cr)
     {
         //
     }

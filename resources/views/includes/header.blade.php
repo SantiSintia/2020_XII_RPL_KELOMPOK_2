@@ -73,16 +73,12 @@
                                         <div class="dw-user-box">
                                             <div class="u-img"><img src="../assets/images/users/avatar.png" alt="user"></div>
                                             <div class="u-text">
-                                                <h4>Steave Jobs</h4>
-                                                <p class="text-muted"><a href="https://www.wrappixel.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a4d2c5d6d1cae4c3c9c5cdc88ac7cbc9">[email&#160;protected]</a></p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <h4>Hamdan</h4>
+                                            </div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="{{URL::to('admin/profile')}}"><i class="ti-user"></i> My Profile</a></li>
-                                    <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="{{route('logout')}}" method="post" class="link"  data-toggle="tooltip" title="Logout" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

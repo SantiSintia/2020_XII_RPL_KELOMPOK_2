@@ -24,7 +24,7 @@
 @section('content')
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Kategori Asset</h4>
+                                <h4 class="card-title">Data Kategori Tipe Asset</h4>
                                 <div class="box-header">
                                     <p>
                                         <a href="{{URL::to('typeAsset/create')}}" class="btn btn-sm btn-flat btn-success"><i class="fa fa-plus"></i>Tambah</a>
@@ -134,9 +134,20 @@
                                                 <td>
                                                     <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
                                                 </td>
-                                            </tr>                                            
+                                            </tr>  
                                             <tr>
                                                 <td>10</td>
+                                                <td>Ruangan 2</td>
+                                                <td>Lantai 3</td>
+                                                <td>001</td>
+                                                <td>B05.002</td>
+                                                <td>
+                                                    <a href="{{URL::to('typeAsset/delete')}}" class="mdi mdi-delete" >
+                                                </td>
+                                            </tr>  
+                                                                                      
+                                            <tr>
+                                                <td>11</td>
                                                 <td>Toilet 1</td>
                                                 <td>Lantai 3</td>
                                                 <td>001</td>
@@ -146,7 +157,7 @@
                                                 </td>
                                             </tr>                                            
                                             <tr>
-                                                <td>11</td>
+                                                <td>12</td>
                                                 <td>Toilet 2</td>
                                                 <td>Lantai 3</td>
                                                 <td>002</td>
@@ -156,7 +167,7 @@
                                                 </td>
                                             </tr>                                            
                                             <tr>
-                                                <td>12</td>
+                                                <td>13</td>
                                                 <td>Kursi Siswa</td>
                                                 <td>Barang</td>
                                                 <td>001</td>
@@ -166,8 +177,8 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>13</td>
-                                                <td>Kursi Guru/td>
+                                                <td>14</td>
+                                                <td>Kursi Guru</td>
                                                 <td>Barang</td>
                                                 <td>002</td>
                                                 <td>P01.002</td>
@@ -176,7 +187,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>14</td>
+                                                <td>15</td>
                                                 <td>Kursi Tunggu</td>
                                                 <td>Barang</td>
                                                 <td>003</td>
@@ -186,7 +197,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>15</td>
+                                                <td>16</td>
                                                 <td>Kursi Set</td>
                                                 <td>Barang</td>
                                                 <td>004</td>
@@ -196,7 +207,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>16</td>
+                                                <td>17</td>
                                                 <td>Meja Guru</td>
                                                 <td>Barang</td>
                                                 <td>001</td>
@@ -206,7 +217,7 @@
                                                 </td>
                                             </tr>
                                              <tr>
-                                                <td>17</td>
+                                                <td>18</td>
                                                 <td>Meja Siswa</td>
                                                 <td>Barang</td>
                                                 <td>002</td>
@@ -216,7 +227,7 @@
                                                 </td>
                                             </tr>
                                              <tr>
-                                                <td>18</td>
+                                                <td>19</td>
                                                 <td>Lemari</td>
                                                 <td>Barang</td>
                                                 <td>001</td>
@@ -226,7 +237,7 @@
                                                 </td>
                                             </tr>
                                              <tr>
-                                                <td>19</td>
+                                                <td>20</td>
                                                 <td>Rak</td>
                                                 <td>Barang</td>
                                                 <td>002</td>
@@ -236,7 +247,7 @@
                                                 </td>
                                             </tr>
                                              <tr>
-                                                <td>20</td>
+                                                <td>21</td>
                                                 <td>TV</td>
                                                 <td>Barang</td>
                                                 <td>001</td>
@@ -246,7 +257,7 @@
                                                 </td>
                                             </tr>
                                              <tr>
-                                                <td>21</td>
+                                                <td>22</td>
                                                 <td>Laptop</td>
                                                 <td>Barang</td>
                                                 <td>002</td>
@@ -256,7 +267,7 @@
                                                 </td>
                                             </tr>
                                              <tr>
-                                                <td>22</td>
+                                                <td>23</td>
                                                 <td>Projector</td>
                                                 <td>Barang</td>
                                                 <td>003</td>
@@ -266,7 +277,7 @@
                                                 </td>
                                             </tr>
                                              <tr>
-                                                <td>23</td>
+                                                <td>24</td>
                                                 <td>AC</td>
                                                 <td>Barang</td>
                                                 <td>004</td>
@@ -324,7 +335,7 @@
  <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
-    <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+   
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{URL::to('assets/js/jquery.slimscroll.js')}}"></script>
     

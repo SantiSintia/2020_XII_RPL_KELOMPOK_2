@@ -29,26 +29,62 @@
                                 <h4 class="m-b-0 text-white">Tambah Kategori Asset</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{URL::to('typeAsset/store')}}" method="" class="form-horizontal form-bordered">
+                                <form action="{{URL::to('categoryAsset/store')}}" method="" class="form-horizontal form-bordered">
+
+
+                                    <div class="form-body">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Nama Aset</label>
+                                            <div class="col-md-9">
+                                                <input name="" type="text" placeholder="nama Aset" class="form-control">
+                                            </div>
+                                        </div>
 
                                     <div class="form-group row">
-                                        <label class="control-label text-right col-md-3">Jenis Kategori</label>
+                                        <label class="control-label text-right col-md-3">Kategori Aset</label>
                                         <div class="col-md-9">
                                             <select name="" class="form-control custom-select">
                                                 <option value="">Bangunan</option>
-                                                <option value="">Peralatan</option>
-                                                <option value="">lantai 1</option>
+                                                <option value="">Kursi</option>
+                                                <option value="">Meja</option>
+                                                <option value="">Lemari</option>
+                                                <option value="">Rak</option>
                                             </select>
                                         </div>
                                     </div>
-                                    
-                                    <div class="form-body">
+                                      
+                                  <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">Tipe Aset</label>
+                                        <div class="col-md-9">
+                                            <select name="" class="form-control custom-select">
+                                                <option value="">Kursi Siswa</option>
+                                                <option value="">Kursi Guru</option>
+                                                <option value="">Kursi Tunggu</option>
+                                                <option value="">Kursi Set</option>
+                                                <option value="">Meja Guru</option>
+                                                <option value="">Meja Siswa</option>
+                                                <option value="">Lemari</option>
+                                                <option value="">Rak</option>
+                                                <option value="">Tv</option>
+                                                <option value="">Laptop </option>
+                                                <option value="">Proyektor</option>
+                                                <option value="">AC</option>  
+                                            </select>
+                                        </div>
+                                    </div>
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Nama Tipe</label>
+                                            <label class="control-label text-right col-md-3">Tahun Pengayaan</label>
                                             <div class="col-md-9">
-                                                <input name="" type="text" placeholder="nama tipe" class="form-control">
+                                                <input name="" type="text" class="form-control" placeholder="Tahun Pengayaan">
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Harga</label>
+                                            <div class="col-md-9">
+                                                <input name="" type="text" class="form-control" placeholder="Harga">
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                     <div class="form-actions">
                                         <div class="row">

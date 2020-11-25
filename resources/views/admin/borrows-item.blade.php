@@ -31,22 +31,20 @@
                             <div class="card-body">
                                 <form action="{{URL::to('typeAsset/store')}}" method="" class="form-horizontal form-bordered">
 
-                                    <div class="form-group row">
-                                        <label class="control-label text-right col-md-3">Jenis Kategori</label>
-                                        <div class="col-md-9">
-                                            <select name="" class="form-control custom-select">
-                                                <option value="">Bangunan</option>
-                                                <option value="">Peralatan</option>
-                                                <option value="">lantai 1</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
+                                
                                     <div class="form-body">
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Nama Tipe</label>
+                                            <label class="control-label text-right col-md-3">Nama Aset</label>
                                             <div class="col-md-9">
-                                                <input name="" type="text" placeholder="nama tipe" class="form-control">
+                                                <input name="" type="text" placeholder="Nama Aset" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-body">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Jumlah Pinjam</label>
+                                            <div class="col-md-9">
+                                                <input name="" type="text" placeholder="Jumlah Pinjam" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +108,7 @@
  <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
-    <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+    
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{URL::to('assets/js/jquery.slimscroll.js')}}"></script>
     

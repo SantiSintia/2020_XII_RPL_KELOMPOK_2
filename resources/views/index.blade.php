@@ -58,6 +58,8 @@
                                     <div id="lastmonthchart"></div>
                                 </div>
                             </div>
+
+
                             <div class="">
                                 <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                             </div>
@@ -80,20 +82,9 @@
                                     <div class="col-12">
                                         <div class="d-flex flex-wrap">
                                             <div>
-                                                <h3 class="card-title">Sales Overview</h3>
-                                                <h6 class="card-subtitle">Ample Admin Vs Pixel Admin</h6> </div>
-                                            <div class="ml-auto">
-                                                <ul class="list-inline">
-                                                    <li>
-                                                        <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Ample</h6> </li>
-                                                    <li>
-                                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Pixel</h6> </li>
-                                                </ul>
-                                            </div>
+                                                <h3 class="card-title"><a href="{{URL::to('asset')}}">Kelola Aset</a></h3>
+                                              </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="amp-pxl" style="height: 360px;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -102,22 +93,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title">Our Visitors</h3>
-                                <h6 class="card-subtitle">Different Devices Used to Visit</h6>
-                                <div id="visitor" style="height:290px; width:100%;"></div>
-                            </div>
-                            <div>
-                                <hr class="m-t-0 m-b-0">
-                            </div>
-                            <div class="card-body text-center ">
-                                <ul class="list-inline m-b-0">
-                                    <li>
-                                        <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10 "></i>Mobile</h6> </li>
-                                    <li>
-                                        <h6 class="text-muted  text-primary"><i class="fa fa-circle font-10 m-r-10"></i>Desktop</h6> </li>
-                                    <li>
-                                        <h6 class="text-muted  text-success"><i class="fa fa-circle font-10 m-r-10"></i>Tablet</h6> </li>
-                                </ul>
+                                <h3 class="card-title"><a href="{{URL::to('user/detail')}}">Kelola User</h3>
                             </div>
                         </div>
                     </div>

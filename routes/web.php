@@ -58,10 +58,23 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('typeAsset/delete', 'Admin\TypeAssetController@destroy');
 
     Route::get('asset', 'Admin\AssetController@index');
+    Route::get('asset/detail', 'Admin\AssetController@list');
+    Route::get('asset/create', 'Admin\AssetController@create');
+    
+
+    Route::get('lists-borrow', 'Admin\BorrowsController@index');
+    Route::get('lists-borrow/detail', 'Admin\BorrowsController@detail');
+    Route::get('user/detail', 'Admin\AdminPageController@detail');
+    
+    Route::get('borrows-item', 'Admin\BorrowsController@borrowsItem');
+
+    Route::get('return/add', 'Admin\BorrowsController@returnAdd');
+    Route::get('return/history', 'Admin\BorrowsController@returnHistory');
+    
+    
 
   /*
     Route::get('asset/{id}/detail', 'Admin\AdminAssetController@assetDetails');
-    Route::get('asset/tambah', 'Admin\AdminAssetController@assetCreate');
     Route::post('asset/tambah', 'Admin\AdminAssetController@assetSaveCreate');
     Route::get('asset/{id}/edit', 'Admin\AdminAssetController@assetEdit');
     Route::get('asset/{id}/hapus', 'Admin\AdminAssetController@assetDelete');
@@ -72,7 +85,7 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('user/{id}/detail', '');
     Route::get('user/{id}/{hapus}', '');
     Route::get('borrow/{id}/verifikasi', '');
-    Route::get('borrow/{id}/pinjam', '');
+    
     Route::get('pengembalian', '');
     Route::get('borrows/{id}/pengembalian', '');
     Route::get('peminjaman', '');

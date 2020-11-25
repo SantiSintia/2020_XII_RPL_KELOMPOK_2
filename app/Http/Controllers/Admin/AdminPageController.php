@@ -53,4 +53,11 @@ class AdminPageController extends Controller
    		return view('admin.manage-users');
    	}
 
+    public function detail()
+    {
+      return view('admin.manage-detail-users');
+    }
+
+    
+
 }

@@ -26,7 +26,7 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('categoryAsset')}}">Kelola Kategori Asset</a></li>
                                 <li><a href="{{URL::to('typeAsset')}}">Kelola Tipe Asset</a></li>
-                                <li><a href="app-chat.html">Kelola Asset</a></li>
+                                <li><a href="{{URL::to('asset')}}">Kelola Asset</a></li>
                             </ul>
                         </li>
 
@@ -41,16 +41,16 @@
                             <i class="mdi mdi-server"></i>
                         <span class="hide-menu">Peminjaman</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="app-calendar.html">List Peminjaman</a></li>
-                                <li><a href="app-chat.html">Pinjam Barang</a></li>
+                                <li><a href="{{URL::to('lists-borrow')}}">List Peminjaman</a></li>
+                                <li><a href="{{URL::to('borrows-item')}}">Pinjam Barang</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                             <i class="mdi mdi-server"></i>
                         <span class="hide-menu">Pengembalian</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="app-email.html">List Pengembalian</a></li>
-                                <li><a href="app-email-detail.html">Histori Pengembalian</a></li>
+                                <li><a href="{{URL::to('return/add')}}">Tambah Pengembalian</a></li>
+                                <li><a href="{{URL::to('return/history')}}">Histori Pengembalian</a></li>
                             </ul>
                         </li>
                 </nav>

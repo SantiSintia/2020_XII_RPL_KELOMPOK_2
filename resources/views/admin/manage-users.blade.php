@@ -1,11 +1,12 @@
 @extends('layouts.master')
+
 @push('title')
-- Manage Users
+- Beranda
 @endpush
 
 @push('styles')
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/logo-atas.png')}}">
+   <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/logo-atas.png')}}">
     <!-- Bootstrap Core CSS -->
     <link href="{{URL::to('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- chartist CSS -->
@@ -21,94 +22,81 @@
 @endpush
 
 @section('content')
-
-<div class="page-wrapper" style="min-height: 586px;">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <div class="row page-titles">
-                    <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Manage Users</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Manage Users </li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                    <div class="card">
+                        <div class="card">
                             <div class="card-body">
+                                <h4 class="card-title">Data Management Users</h4>
+                              
                                 <div class="table-responsive m-t-40">
-                                    <div id="myTable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table id="myTable" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="myTable_info">
+                                    <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
-                                            <tr role="row">
-                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 190px;">Username
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 307px;">Email
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 143px;">Gender
-                                                </th>
-                                                <th class="text-center" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 143px;">Phone Number
-                                                </th>
-                                                <th class="text-center" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 143px;">Is Active
-                                                </th>
-                                                <th class="text-center" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 143px;">Action
-                                                </th>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
-                                    <tbody>             
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Vivian Harrell</td>
-                                                <td>Financial Controller</td>
-                                                <td>Male</td>
-                                                <td>088121323131</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Yuri Berry</td>
-                                                <td>Chief Marketing Officer (CMO)</td>
-                                                <td>Female</td>
-                                                <td>132312414242</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">Zenaida Frank</td>
-                                                <td>Software Engineer</td>
-                                                <td>Male</td>
-                                                <td>214124124124</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">Zorita Serrano</td>
-                                                <td>Software Engineer</td>
-                                                <td>Female</td>
-                                                <td>213124124421</td>
-                                                <td></td>
-                                                <td></td>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>student</td>
+                                                <td>student@gmail.com</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning">Active</a>
+                                                    <a href="#" class="btn btn-danger">Disabled</a>    
+                                                </td>
+                                                <td><a href="{{URL::to('user/detail')}}" class="btn btn-primary">Detail</td>
+                                                
+                                            </tr>                                            
+                                                                              
+                                         
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                           
-                                </div>
-                            </div>
                         </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script data-cfasync="false" src="../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/plugins/popper/popper.min.js"></script>
+
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- chartist chart -->
+    <script src="../assets/plugins/chartist-js/dist/chartist.min.js"></script>
+    <script src="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="../assets/plugins/d3/d3.min.js"></script>
+    <script src="../assets/plugins/c3-master/c3.min.js"></script>
+    <!-- Chart JS -->
+    <script src="js/dashboard1.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
 @push('scripts')
  <script data-cfasync="false" src="{{URL::to('cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}"></script>
  <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
@@ -144,7 +132,8 @@
     <!-- ============================================================== -->
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 
- <script src="{{URL::to('assets/plugins/datatables/datatables.min.js')}}"></script>
+
+    <script src="{{URL::to('assets/plugins/datatables/datatables.min.js')}}"></script>
 
     <script>
     $(document).ready(function() {
@@ -193,13 +182,5 @@
         ]
     });
     </script>
-
-@endpush
+@endpush   
 @endsection
-
-    
-
-
-
-
-                       
