@@ -38,7 +38,7 @@
     <section id="wrapper" class="login-register login-sidebar"  style="background-image:url(assets/images/background/1.jpg);">
   <div class="login-box card">
     <div class="card-body">
-      <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('register') }}">
+      <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ url('register-teacher') }}">
       @csrf
       <a href="javascript:void(0)" class="text-center db"><img src="{{ URL::to('assets/images/reg.png')}}" alt="Home" /></a>
         <h5 class="text-center">Register Teacher </h5>
@@ -80,7 +80,7 @@
         </div>
          <div class="form-group m-t-20">
           <div class="col-xs-12">
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" required="" placeholder="NIP">
+            <input id="password" type="text" class="form-control @error('password') is-invalid @enderror" name="nip" autocomplete="new-password" required="" placeholder="NIP">
                 @error('usr_password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -88,11 +88,7 @@
                 @enderror
           </div>
         </div>
-        <div class="form-group m-t-20">
-          <div class="col-xs-12">
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" required="" placeholder="Jabatan">
-          </div>
-        </div>
+        
         <div class="form-group m-t-20">
           <div class="col-xs-12">
             <input id="usr_phone" value="{{ old('usr_phone') }}" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone" autocomplete="off" type="text" required="" placeholder="Phone Number">

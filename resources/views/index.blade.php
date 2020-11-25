@@ -24,7 +24,7 @@
 @section('content')
     <div id="main-wrapper">
         <!-- ============================================================== -->
-        <div class="page-wrapper">
+        
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -40,7 +40,7 @@
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 col-4 align-self-center">
+                    <div class="col-md-5 col-8 align-self-center">
                         <div class="d-flex m-t-10 justify-content-end">
                             <div class="d-flex m-r-20 m-l-10 hidden-md-down">
                                 <div class="chart-text m-r-10">
@@ -73,7 +73,7 @@
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-8 col-md-7">
+                    <div class="col-lg-8 col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-5">
+                    <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">Our Visitors</h3>
@@ -146,10 +146,12 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script data-cfasync="false" src="../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script data-cfasync="false" src="../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+    </script>
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/plugins/popper/popper.min.js"></script>
-    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="js/jquery.slimscroll.js"></script>
     

@@ -14,7 +14,6 @@ class StudentsTableSeeder extends Seeder
         
           DB::table('students')->insert([
             'std_usr_id' => 2,
-            'std_name' => 'Student',
             'std_nis' => '1819.10.077',
             'std_class' => "XII-RPL"
             ]);

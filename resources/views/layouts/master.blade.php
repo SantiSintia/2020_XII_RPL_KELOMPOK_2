@@ -44,7 +44,8 @@
       @include ('includes.sidebar-student')
     @endif
   </aside>
-<div class="page-wrapper">
+
+  <div class="page-wrapper">
      <div class="container-fluid">        
     @yield ('content')      
       </div>

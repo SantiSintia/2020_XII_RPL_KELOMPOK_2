@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
 use Illuminate\Support\Str;
+use App\Student;
+use App\Teacher;
+
 
 class RegisterController extends Controller
 {
@@ -33,10 +36,107 @@ class RegisterController extends Controller
         return view('auth.register-student');
     }
 
+    public function registerSaveStudent()
+    {
+        $nama = $_POST['usr_name'];
+        if ($nama) 
+        {
+            $email = $_POST['usr_email'];
+            if ($email) 
+            {
+                $password   = $_POST['password'];
+                $rePassword = $_POST['password_confirmation'];
+                if ($rePassword == $password)
+                 {
+                    $phone  = $_POST['usr_phone'];
+                    $gender = $_POST['options'];
+                    $nis    = $_POST['nis'];
+                    $class  = $_POST['class'];
+
+                    $user = new User();
+                    $user->role_id                = '2';
+                    $user->usr_name               = $nama;
+                    $user->usr_email              = $email;
+                    
+                    $user->usr_password           = Hash::make($password);
+                    //$user->usr_profile_picture  = $picture;
+                    $user->usr_phone              = $phone;
+                    $user->usr_gender             = $gender;
+                    $user->usr_verification_token = str_replace('/', '', Hash::make(Str::random(12)));
+                    $user->usr_is_active          = true;
+                    //dd($user);
+                    $user->save();
+
+                     
+
+                    $student = new Student();
+                    $student->std_usr_id = $user->usr_id;
+                    $student->std_nis    = $nis;
+                    $student->std_class  = $class;
+                    $student->save();
+                    return redirect ('/');
+                    //Mail::to($data['usr_email'])->send(new SendMail($user));
+                    //return $user;
+
+                }
+            }
+         }
+    }
+
+
+  
+
     public function registerTeacher()
     {
         return view('auth.register-teacher');
     }
+
+      public function registerSaveTeacher()
+    {
+         $nama = $_POST['usr_name'];
+        if ($nama) 
+        {
+            $email = $_POST['usr_email'];
+            if ($email) 
+            {
+                $password   = $_POST['password'];
+                $rePassword = $_POST['password_confirmation'];
+                if ($rePassword == $password)
+                 {
+                    $phone  = $_POST['usr_phone'];
+                    $gender = $_POST['options'];
+                    $nip    = $_POST['nip'];
+
+                    $user = new User();
+                    $user->role_id                = '3';
+                    $user->usr_name               = $nama;
+                    $user->usr_email              = $email;
+                    
+                    $user->usr_password           = Hash::make($password);
+                    //$user->usr_profile_picture  = $picture;
+                    $user->usr_phone              = $phone;
+                    $user->usr_gender             = $gender;
+                    $user->usr_verification_token = str_replace('/', '', Hash::make(Str::random(12)));
+                    $user->usr_is_active          = true;
+                    //dd($user);
+                    $user->save();
+
+                     
+
+                    $student = new Teacher();
+                    $student->tc_usr_id  = $user->usr_id;
+                    $student->tc_nip     = $nip;
+                    $student->save();
+                    return redirect ('/');
+                    //Mail::to($data['usr_email'])->send(new SendMail($user));
+                    //return $user;
+                    
+                }
+            }
+         }
+    }
+
+
 
     public function registerStaff()
     {

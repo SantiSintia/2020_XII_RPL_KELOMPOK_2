@@ -30,18 +30,23 @@ Route::post('/account/reset-password', 'Auth\AccountController@updatePassword')-
 
 //Route untuk register teacher dan staff
 Route::get('/choose-register','Auth\RegisterController@chooseRegister');
+
 Route::get('/register-student', 'Auth\RegisterController@registerStudent');
+Route::post('/register-student', 'Auth\RegisterController@registerSaveStudent');
+
 Route::get('/register-teacher', 'Auth\RegisterController@registerTeacher');
+Route::post('/register-teacher', 'Auth\RegisterController@registerSaveTeacher');
+
 Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
-Route::group(['middleware' => ['auth', 'verified']], function () {
+Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('admin/dashboard', 'Admin\AdminPageController@index')->name('dashboard.users');
     Route::get('admin/profile', 'Admin\AdminPageController@profile');
     Route::get('admin/reset-password', 'Admin\AdminPageController@resetPassword');
     /*Route::get('asset', 'Admin\AdminPageController@asset');
-    Route::get('manageAssets', 'Admin\AdminPageController@manageAssets');
-    Route::get('admin/manageUsers', 'Admin\AdminPageController@manageUsers');*/
+    Route::get('manageAssets', 'Admin\AdminPageController@manageAssets');*/
+    Route::get('admin/manageUsers', 'Admin\AdminPageController@manageUsers');
     
     Route::get('categoryAsset', 'Admin\CategoryAssetController@index');   
     Route::get('categoryAsset/create', 'Admin\CategoryAssetController@create');   
