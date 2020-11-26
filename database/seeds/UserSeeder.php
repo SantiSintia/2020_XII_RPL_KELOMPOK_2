@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
 
         $teacher = User::create([
             'usr_name' => 'Dewi Astri Indriani',
-            'role_id'  =>   '4',
+            'role_id'  =>   '2',
             'usr_email' => 'indrianidewiastri@gmail.com',
             'usr_phone' => '082295205892',
             'usr_gender' => 'female',

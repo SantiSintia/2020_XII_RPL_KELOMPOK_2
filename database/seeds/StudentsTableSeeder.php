@@ -13,16 +13,10 @@ class StudentsTableSeeder extends Seeder
     {
         
           DB::table('students')->insert([
-            'std_usr_id' => 6,
+            'std_usr_id' => 3,
             'std_nis' => '1819.10.054',
             'std_class' => "XII-RPL"
             ]);
-        
-          DB::table('students')->insert([
-            'std_usr_id' => 7,
-            'std_nis' => '1819.10.065',
-            'std_class' => "XII-RPL"
-            ]);
-        
+   
     }
 }

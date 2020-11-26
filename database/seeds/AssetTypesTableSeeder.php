@@ -115,13 +115,7 @@ class AssetTypesTableSeeder extends Seeder
             'ast_name' => 'Kursi Siswa'
             ]);
         
-          DB::table('asset_types')->insert([
-            'ast_asset_categories_id' => 9,
-            'ast_code' => 'P01.001',
-            'ast_original_code' => 1,
-            'ast_name' => 'Kursi Siswa'
-            ]);
-        
+       
           DB::table('asset_types')->insert([
             'ast_asset_categories_id' => 9,
             'ast_code' => 'P01.002',
