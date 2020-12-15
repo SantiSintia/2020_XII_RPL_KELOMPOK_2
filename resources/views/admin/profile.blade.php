@@ -38,8 +38,7 @@
                             <div class="card-body"> 
                             <small class="text-muted">Email address </small>
                                 <h6>admin@gmail.com</h6>
-                            <small class="text-muted">Password </small>
-                                <h6>admin123123</h6>     
+
                                 <a href="{{URL::to('admin/reset-password')}}" class="btn btn-primary">Ganti Password</a>         
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-Detail Asset
+- Kategori Asset
 @endpush
 
 @push('styles')
@@ -17,289 +17,123 @@ Detail Asset
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
- 
+   
 @endpush
 
 @section('content')
+
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12 ">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Kategori Asset</h4>
-                                <div class="box-header">
-                                    <p>
-                                        <a href="{{URL::to('asset/create')}}" class="btn btn-sm btn-flat btn-success"><i class="fa fa-plus"></i>Tambah</a>
-                                    </p>
-                                </div>
+                                <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
+                                    <h4 class="card-title m-t-10">kursi siswa 1</h4>
 
-                                <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Asset</th>
-                                                <th>Kategori Asset</th>
-                                                <th>Tipe Asset</th>
-                                                <th>Asal Asset</th>
-                                                <th>Tahun Pengayaan</th>
-                                                <th>Kode Registrasi</th>
-                                                <th>Harga</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Kursi siswa 1</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Siswa</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/P01.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr>                                            
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Kursi siswa 2</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Siswa</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/P01.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Kursi siswa 3</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Siswa</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>003/P01.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Kursi Guru 1</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Guru</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/P01.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Kursi Guru 2</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Guru</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/P01.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Kursi Tunggu 1</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Tunggu</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/P01.003.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>7</td>
-                                                <td>Kursi Tunggu 2</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Siswa</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/P01.003.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>8</td>
-                                                <td>Kursi Set 1</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Set</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/P01.004.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>9</td>
-                                                <td>Kursi Set 2</td>
-                                                <td>Kursi</td>
-                                                <td>Kursi Set</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/P01.004.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>10</td>
-                                                <td>Meja Guru 1</td>
-                                                <td>Meja</td>
-                                                <td>Meja Guru</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/P02.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>11</td>
-                                                <td>Meja Guru 2</td>
-                                                <td>Meja</td>
-                                                <td>Meja Guru</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/P02.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>12</td>
-                                                <td>Meja Siswa 1</td>
-                                                <td>Meja</td>
-                                                <td>Meja Siswa</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/P02.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>13</td>
-                                                <td>Meja Siswa 2</td>
-                                                <td>Meja</td>
-                                                <td>Meja Siswa</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/P02.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>14</td>
-                                                <td>Lemari 1</td>
-                                                <td>Lemari</td>
-                                                <td>Lemari</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/P03.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>15</td>
-                                                <td>Lemari 2</td>
-                                                <td>Lemari</td>
-                                                <td>Lemari</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/P03.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>16</td>
-                                                <td>Rak 1</td>
-                                                <td>Rak</td>
-                                                <td>Rak</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/P03.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>17</td>
-                                                <td>Rak 2</td>
-                                                <td>Rak</td>
-                                                <td>Rak</td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/P03.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
-                                            </tr> 
-                                            <tr>
-                                                <td>18</td>
-                                                <td>Saung Fadillah</td>
-                                                <td>Bangunan</td>
-                                                <td></td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>001/B00.000.INV.YYS/2016</td>
-                                                <td>1.500.000</td>    
-                                            </tr> 
-                                             <tr>
-                                                <td>19</td>
-                                                <td>Saung Singgah</td>
-                                                <td>Bangunan</td>
-                                                <td></td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>002/B00.000.INV.YYS/2016</td>
-                                                <td>1.500.000</td>    
-                                            </tr> 
-                                             <tr>
-                                                <td>20</td>
-                                                <td>Gedung Sekolah</td>
-                                                <td>Bangunan</td>
-                                                <td></td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>003/B00.000.INV.YYS/2016</td>
-                                                <td>1.500.000</td>    
-                                            </tr> 
-                                             <tr>
-                                                <td>21</td>
-                                                <td>Masjid</td>
-                                                <td>Bangunan</td>
-                                                <td></td>
-                                                <td>Yayasan</td>
-                                                <td>2017</td>
-                                                <td>004/B00.000.INV.YYS/2017</td>
-                                                <td>2.050.000</td>    
-                                            </tr> 
-                                             <tr>
-                                                <td>22</td>
-                                                <td>Bale Mahaputra</td>
-                                                <td>Bangunan</td>
-                                                <td></td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>005/B00.000.INV.YYS/2018</td>
-                                                <td>1.050.000</td>    
-                                            </tr> 
-                                             <tr>
-                                                <td>23</td>
-                                                <td>BNB</td>
-                                                <td>Bangunan</td>
-                                                <td></td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>006/B00.000.INV.YYS/2019</td>
-                                                <td>2.650.000</td>    
-                                            </tr> 
-                                             <tr>
-                                                <td>24</td>
-                                                <td>SQUADRON 43</td>
-                                                <td>Bangunan</td>
-                                                <td></td>
-                                                <td>Yayasan</td>
-                                                <td>2016</td>
-                                                <td>007/B00.000.INV.YYS/2019</td>
-                                                <td>3.550.000</td>    
-                                            </tr> 
-                                           
-                                            
-                                            
-                                            
-                                            
-                                            
-                                                                                       
-                                                                                   
-                                          
-                                        </tbody>
-                                    </table>
-                                </div>
+                                   
+                                </center>
+                            </div>
+
+                            <div class="card-body">
+                            <h3> Detail Asset</h3><br/>
+                            <small class="text-muted">nama asset  </small>
+                                <h6>Kursi siswa 1</h6>
+                            <small class="text-muted">asset kategori </small>
+                                <h6>Kursi </h6>
+                              <small class="text-muted">type aset  </small>
+                                <h6>Kursi siswa</h6>
+                               <small class="text-muted">Asal asset  </small>
+                                <h6>yayasan</h6>
+                              <small class="text-muted">tahun pengayaan  </small>
+                                <h6>2016</h6>
+                              <small class="text-muted">kode registrasi  </small>
+                                <h6>001/P01.001.INV.YYS/2016</h6>
+                              <small class="text-muted">Harga  </small>
+                                <h6>50.000</h6>
+
                             </div>
                         </div>
- @push('scripts')
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <div class="right-sidebar" style="overflow: visible;">
+                    <div class="slimScrollDiv" style="position: relative; overflow: visible hidden; width: auto; height: 100%;"><div class="slimscrollright" style="overflow: hidden; width: auto; height: 100%;">
+                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+                        <div class="r-panel-body">
+                            <ul id="themecolors" class="m-t-20">
+                                <li><b>With Light sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
+                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
+                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
+                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
+                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
+                            </ul>
+                            <ul class="m-t-20 chatonline">
+                                <li><b>Chat option</b></li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                © 2019 Material Pro Admin by wrappixel.com
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        
+@push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
@@ -332,54 +166,5 @@ Detail Asset
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 
 
-    <script src="{{URL::to('assets/plugins/datatables/datatables.min.js')}}"></script>
-
-    <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "columnDefs": [{
-                    "visible": false,
-                    "targets": 2
-                }],
-                "order": [
-                    [2, 'asc']
-                ],
-                "displayLength": 25,
-                "drawCallback": function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(2, {
-                        page: 'current'
-                    }).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
-                            last = group;
-                        }
-                    });
-                }
-            });
-            // Order by the grouping
-            $('#example tbody').on('click', 'tr.group', function() {
-                var currentOrder = table.order()[0];
-                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-                    table.order([2, 'desc']).draw();
-                } else {
-                    table.order([2, 'asc']).draw();
-                }
-            });
-        });
-    });
-    $('#example23').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-    </script>
 @endpush   
 @endsection
