@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -30,32 +30,32 @@ class AdminPageController extends Controller
 
     public function profile()
     {
-        return view('admin.profile');
+        return view('profiles.profile');
     }
 
     public function resetPassword()
     {
-    	return view('admin.reset-password');
+    	return view('profiles.reset-password');
     }
     
     public function createTypeAssets()
     {
-    	return view('admin.create-type-assets');
+    	return view('assets.create-type-assets');
     }
 
    	public function manageAssets()
    	{
-   		return view('admin.manage-assets');
+   		return view('assets.manage-assets');
    	}
 
    	public function manageUsers()
    	{
-   		return view('admin.manage-users');
+   		return view('users.manage-users');
    	}
 
     public function detail()
     {
-      return view('admin.manage-detail-users');
+      return view('users.manage-detail-users');
     }
 
     

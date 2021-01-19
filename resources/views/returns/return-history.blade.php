@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-List Peminjaman
+History
 @endpush
 
 @push('styles')
@@ -17,35 +17,31 @@ List Peminjaman
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
 @endpush
 
 @section('content')
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Kategori Asset</h4>
+                                <h4 class="card-title">History Pengembalian</h4>
                               
+                                <a href="{{URL::to('return/history')}}" class="btn btn-primary">Print</a>
+
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
-                                                <th>Aset Barang yang dipinjam</th>
-                                                <th>Jumlah yang dipinjam</th>
-                                                <th>Pilihan</th>
+                                                <th>Aset Barang Yang Telah Dikembalikan</th>
+                                                <th>Jumlah Aset Barang Yang Dikembalikan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>Rinaldi</td>
-                                                <td>Kursi 1</td>
+                                                <td>kursi 1</td>
                                                 <td>1</td>
-                                                <td>
-                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-primary">Detail</a>
-                                                    <a href="{{URL::to('lists-borrow/lost')}}" class="btn btn-danger">Hilang</a>
-                                                </td> 
                                             </tr>                                            
                                                                               
                                          
@@ -55,7 +51,7 @@ List Peminjaman
                                 </div>
                             </div>
                         </div>
-@push('scripts')
+  @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>

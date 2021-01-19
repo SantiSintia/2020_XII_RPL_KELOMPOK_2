@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
-        return redirect()->route('dashboard.users');
+        return redirect()->route('dashboard');
     }
 
     public function username()

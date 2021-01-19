@@ -28,7 +28,6 @@ Asset
                                     <p>
                                         <a href="{{URL::to('asset/create')}}" class="btn btn-sm btn-flat btn-success"><i class="fa fa-plus"></i>Tambah</a><br>
                                         <br>
-                                        <a href="{{URL::to('asset/detail')}}" class="btn btn-sm btn-flat btn-success">Lihat Detail</a>
                                     </p>
                                 </div>
 
@@ -39,7 +38,7 @@ Asset
                                                 <th>No</th>
                                                 <th>Nama Asset</th>
                                                 <th>Kode Registrasi</th>
-                                                <th>Harga</th>
+                                                <th>Action</th>
                                                 
                                             </tr>
                                         </thead>
@@ -48,168 +47,139 @@ Asset
                                                 <td>1</td>
                                                 <td>Kursi siswa 1</td>
                                                 <td>001/P01.001.INV.YYS/2016</td>
-                                                <td>50.000</td>   
-
+                                                <td><a href="{{URL::to('asset/detail')}}" class="btn btn-sm btn-flat btn-success">Detail</a></td>
                                             </tr>                                            
                                             <tr>
                                                 <td>2</td>
                                                 <td>Kursi siswa 2</td>
                                                
                                                 <td>002/P01.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>3</td>
                                                 <td>Kursi siswa 3</td>
-                                                
                                                 <td>003/P01.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>4</td>
-                                                <td>Kursi Guru 1</td>
-                                                
+                                                <td>Kursi Guru 1</td>                                                
                                                 <td>001/P01.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>5</td>
-                                                <td>Kursi Guru 2</td>
-                                               
+                                                <td>Kursi Guru 2</td>                                              
                                                 <td>002/P01.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>6</td>
-                                                <td>Kursi Tunggu 1</td>
-                                               
+                                                <td>Kursi Tunggu 1</td>                                               
                                                 <td>001/P01.003.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>7</td>
-                                                <td>Kursi Tunggu 2</td>
-                                                
+                                                <td>Kursi Tunggu 2</td>                                                
                                                 <td>002/P01.003.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>8</td>
-                                                <td>Kursi Set 1</td>
-                                                
+                                                <td>Kursi Set 1</td>                                               
                                                 <td>001/P01.004.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>9</td>
-                                                <td>Kursi Set 2</td>
-                                                
+                                                <td>Kursi Set 2</td>                                               
                                                 <td>002/P01.004.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>10</td>
-                                                <td>Meja Guru 1</td>
-                                                
+                                                <td>Meja Guru 1</td>                                               
                                                 <td>001/P02.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>11</td>
-                                                <td>Meja Guru 2</td>
-                                                
+                                                <td>Meja Guru 2</td>                                               
                                                 <td>002/P02.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>12</td>
-                                                <td>Meja Siswa 1</td>
-                                                
+                                                <td>Meja Siswa 1</td>                                                
                                                 <td>001/P02.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>13</td>
-                                                <td>Meja Siswa 2</td>
-                                                
+                                                <td>Meja Siswa 2</td>                                               
                                                 <td>002/P02.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>14</td>
-                                                <td>Lemari 1</td>
-                                                
+                                                <td>Lemari 1</td>                                               
                                                 <td>001/P03.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>15</td>
-                                                <td>Lemari 2</td>
-                                                
+                                                <td>Lemari 2</td>                                                
                                                 <td>002/P03.001.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>16</td>
-                                                <td>Rak 1</td>
-                                                
+                                                <td>Rak 1</td>                                               
                                                 <td>001/P03.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>17</td>
                                                 <td>Rak 2</td>
                                                 <td>002/P03.002.INV.YYS/2016</td>
-                                                <td>50.000</td>    
+                                                    
                                             </tr> 
                                             <tr>
                                                 <td>18</td>
-                                                <td>Saung Fadillah</td>
-                                                
+                                                <td>Saung Fadillah</td>                                               
                                                 <td>001/B00.000.INV.YYS/2016</td>
-                                                <td>1.500.000</td>    
                                             </tr> 
                                              <tr>
                                                 <td>19</td>
-                                                <td>Saung Singgah</td>
-                                                
+                                                <td>Saung Singgah</td>                                               
                                                 <td>002/B00.000.INV.YYS/2016</td>
-                                                <td>1.500.000</td>    
                                             </tr> 
                                              <tr>
                                                 <td>20</td>
                                                 <td>Gedung Sekolah</td>
-                                                
                                                 <td>003/B00.000.INV.YYS/2016</td>
-                                                <td>1.500.000</td>    
                                             </tr> 
                                              <tr>
                                                 <td>21</td>
                                                 <td>Masjid</td>
-                                                
                                                 <td>004/B00.000.INV.YYS/2017</td>
-                                                <td>2.050.000</td>    
                                             </tr> 
                                              <tr>
                                                 <td>22</td>
                                                 <td>Bale Mahaputra</td>
-                                                
                                                 <td>005/B00.000.INV.YYS/2018</td>
-                                                <td>1.050.000</td>    
                                             </tr> 
                                              <tr>
                                                 <td>23</td>
-                                                <td>BNB</td>
-                                                
+                                                <td>BNB</td>                                                
                                                 <td>006/B00.000.INV.YYS/2019</td>
-                                                <td>2.650.000</td>    
                                             </tr> 
                                              <tr>
                                                 <td>24</td>
                                                 <td>SQUADRON 43</td>
-                                                
                                                 <td>007/B00.000.INV.YYS/2019</td>
-                                                <td>3.550.000</td>    
                                             </tr>
                                         </tbody>
                                     </table>

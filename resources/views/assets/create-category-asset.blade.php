@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-Pinjam Barang
+Tambah Kategori Asset
 @endpush
 
 @push('styles')
@@ -28,22 +28,39 @@ Pinjam Barang
                                 <h4 class="m-b-0 text-white">Tambah Kategori Asset</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{URL::to('typeAsset/store')}}" method="" class="form-horizontal form-bordered">
+                                <form action="{{URL::to('categoryAsset/store')}}" method="" class="form-horizontal form-bordered">
+                                @csrf
+                                    <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">Jenis Kategori</label>
+                                        <div class="col-md-9">
+                                            <select name="asc_parent_asset_categories_id" class="form-control custom-select">
+                                                <option value="">--pilih--</option>
+                                                <option value="">Tidak Ada</option>
+                                                @foreach($category as $kategori)
+                                                    <option value="">{{ $kategori->asc_name }}</option>
 
-                                
-                                    <div class="form-body">
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Nama Aset</label>
-                                            <div class="col-md-9">
-                                                <input name="" type="text" placeholder="Nama Aset" class="form-control">
-                                            </div>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
+                                    
                                     <div class="form-body">
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Jumlah Pinjam</label>
+                                            <label class="control-label text-right col-md-3">Kategori</label>
                                             <div class="col-md-9">
-                                                <input name="" type="text" placeholder="Jumlah Pinjam" class="form-control">
+                                                <input name="asc_name" type="text" placeholder="nama kategori" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Kode Asli</label>
+                                            <div class="col-md-9">
+                                                <input name="asc_original_code" type="text" class="form-control" placeholder="kode asli">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Kode Kategori</label>
+                                            <div class="col-md-9">
+                                                <input name="asc_code" type="text" class="form-control" placeholder="kode kategori">
                                             </div>
                                         </div>
                                     </div>
@@ -63,13 +80,6 @@ Pinjam Barang
                         </div>
                     </div>
                 </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    
 @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
@@ -101,9 +111,5 @@ Pinjam Barang
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
-
-
-
-
-@endpush     
+@endpush   
 @endsection

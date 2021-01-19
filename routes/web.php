@@ -41,35 +41,37 @@ Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
 Route::group(['middleware' => ['auth', 'verified' ]], function () {
-    Route::get('admin/dashboard', 'Admin\AdminPageController@index')->name('dashboard.users');
-    Route::get('admin/profile', 'Admin\AdminPageController@profile');
-    Route::get('admin/reset-password', 'Admin\AdminPageController@resetPassword');
-    /*Route::get('asset', 'Admin\AdminPageController@asset');
-    Route::get('manageAssets', 'Admin\AdminPageController@manageAssets');*/
-    Route::get('admin/manageUsers', 'Admin\AdminPageController@manageUsers');
+    Route::get('dashboard', 'AdminPageController@index')->name('dashboard');
+    Route::get('admin/profile', 'AdminPageController@profile');
+    Route::get('admin/reset-password', 'AdminPageController@resetPassword');
+    Route::get('admin/manageUsers', 'AdminPageController@manageUsers');
+    Route::get('user/detail', 'AdminPageController@detail');
+
     
-    Route::get('categoryAsset', 'Admin\CategoryAssetController@index');   
-    Route::get('categoryAsset/create', 'Admin\CategoryAssetController@create');   
-    Route::get('categoryAsset/store', 'Admin\CategoryAssetController@store'); 
+    Route::get('categoryAsset', 'CategoryAssetController@index');   
+    Route::get('categoryAsset/create', 'CategoryAssetController@create');   
+    Route::get('categoryAsset/store', 'CategoryAssetController@store'); 
 
-    Route::get('typeAsset', 'Admin\TypeAssetController@index');   
-    Route::get('typeAsset/create', 'Admin\TypeAssetController@create');   
-    Route::get('typeAsset/store', 'Admin\TypeAssetController@store'); 
-    Route::get('typeAsset/delete', 'Admin\TypeAssetController@destroy');
+    Route::get('typeAsset', 'TypeAssetController@index');   
+    Route::get('typeAsset/create', 'TypeAssetController@create');   
+    Route::get('typeAsset/store', 'TypeAssetController@store'); 
+    Route::get('typeAsset/delete', 'TypeAssetController@destroy');
 
-    Route::get('asset', 'Admin\AssetController@index');
-    Route::get('asset/detail', 'Admin\AssetController@list');
-    Route::get('asset/create', 'Admin\AssetController@create');
+    Route::get('asset', 'AssetController@index');
+    Route::get('asset/detail', 'AssetController@list');
+    Route::get('asset/create', 'AssetController@create');
     
 
-    Route::get('lists-borrow', 'Admin\BorrowsController@index');
-    Route::get('lists-borrow/detail', 'Admin\BorrowsController@detail');
-    Route::get('user/detail', 'Admin\AdminPageController@detail');
-    
-    Route::get('borrows-item', 'Admin\BorrowsController@borrowsItem');
+    Route::get('lists-borrow', 'BorrowsController@index');
+    Route::get('lists-borrow/verify', 'BorrowsController@verify');
+    Route::get('lists-borrow/detail', 'BorrowsController@detail');
 
-    Route::get('return/add', 'Admin\BorrowsController@returnAdd');
-    Route::get('return/history', 'Admin\BorrowsController@returnHistory');
+    
+    Route::get('borrows-item', 'BorrowsController@borrowsItem');
+
+    Route::get('return/add', 'BorrowsController@returnAdd');
+    Route::get('return/list-return', 'BorrowsController@listreturn');
+    Route::get('return/history', 'BorrowsController@returnHistory');
     
     
 

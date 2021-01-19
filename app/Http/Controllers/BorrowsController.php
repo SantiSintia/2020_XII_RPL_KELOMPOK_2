@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryAssetController extends Controller
+class BorrowsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,37 @@ class CategoryAssetController extends Controller
      */
     public function index()
     {
-        return view('admin.asset.category-asset');
+        return view('borrows.lists-borrow');
     }
+    public function verify()
+    {
+        return view('borrows.verify-borrow');
+    }
+    
+    public function detail()
+    {
+        return view('borrows.lists-detail-borrow');
+    }
+    
+    public function borrowsItem()
+    {
+        return view('borrows.borrows-item');
+    }
+
+    public function returnAdd()
+    {
+        return view('returns.return-add');
+    }
+    public function listreturn()
+    {
+        return view('returns.list-return');
+    }
+    public function returnHistory()
+    {
+        return view('returns.return-history');
+    }
+    
+    
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +53,7 @@ class CategoryAssetController extends Controller
      */
     public function create()
     {
-        return view('admin.asset.create-category-asset');
+        //
     }
 
     /**
@@ -35,16 +64,16 @@ class CategoryAssetController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('categoryAsset');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(cr $cr)
     {
         //
     }
@@ -52,10 +81,10 @@ class CategoryAssetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(cr $cr)
     {
         //
     }
@@ -64,10 +93,10 @@ class CategoryAssetController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, cr $cr)
     {
         //
     }
@@ -75,10 +104,10 @@ class CategoryAssetController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(cr $cr)
     {
         //
     }

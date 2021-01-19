@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AssetController extends Controller
+class TypeAssetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +14,8 @@ class AssetController extends Controller
      */
     public function index()
     {
-        return view('admin.asset.list-asset');
+        return view('assets.type-asset');
     }
-
-    public function list()
-    {
-        return view('admin.asset.list-detail-asset');
-    }
-
-    
 
     /**
      * Show the form for creating a new resource.
@@ -31,7 +24,7 @@ class AssetController extends Controller
      */
     public function create()
     {
-        return view('admin.asset.create-asset');
+        return view('assets.create-type-asset');
     }
 
     /**
@@ -42,7 +35,7 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect('typeAsset');
     }
 
     /**
@@ -85,8 +78,8 @@ class AssetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        return view('blank-page');
     }
 }

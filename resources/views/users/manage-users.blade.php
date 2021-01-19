@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-Pengembalian
+- Beranda
 @endpush
 
 @push('styles')
@@ -17,31 +17,36 @@ Pengembalian
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
-
+    <!-- You can change the theme colors from here -->
 @endpush
 
 @section('content')
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Tambah Pengembalian</h4>
+                                <h4 class="card-title">Data Management Users</h4>
                               
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Peminjam</th>
-                                                <th>Aset Barang yang dipinjam</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Rinaldi</td>
-                                                <td>Kursi 1</td>
-                                                <td><a href="{{URL::to('return/history')}}" class="btn btn-warning">Kembali barang aset</td>
+                                                <td>student</td>
+                                                <td>student@gmail.com</td>
+                                                <td><label class="label label-warning">Active</label></td>                                            
+                                                <td>
+                                                    <a href="" class="btn btn-primary">Non Active</a>
+                                                    <a href="{{URL::to('user/detail')}}" class="btn btn-primary">Detail</a>                                                  
+                                                </td>
                                                 
                                             </tr>                                            
                                                                               
@@ -52,7 +57,7 @@ Pengembalian
                                 </div>
                             </div>
                         </div>
-  @push('scripts')
+   @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>

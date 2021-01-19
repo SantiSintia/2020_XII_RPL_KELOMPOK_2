@@ -43,91 +43,17 @@ Kategori Asset
                                             </tr>
                                         </thead>
                                         <tbody>
+
+                                        @foreach($category as $e=>$category )
                                             <tr>
-                                                <td>1</td>
-                                                <td>Bangunan</td>
-                                                <td></td>
-                                                <td>B</td>
-                                                <td>B00</td>
-                                                
-                                            </tr>                                            
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Lantai 1</td>
-                                                <td>Bangunan</td>
-                                                <td>1</td>
-                                                <td>B01</td>
-                                            </tr>                                            
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Toilet L1</td>
-                                                <td>Lantai 1</td>
-                                                <td>2</td>
-                                                <td>B02</td>
-                                            </tr>                                            
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Lantai 2</td>
-                                                <td>Bangunan</td>
-                                                <td>3</td>
-                                                <td>B03</td>
-                                            </tr>                                            
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Toilet L2</td>
-                                                <td>Lantai 2</td>
-                                                <td>4</td>
-                                                <td>B04</td>
-                                            </tr>                                            
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Lantai 3</td>
-                                                <td>Bangunan</td>
-                                                <td>5</td>
-                                                <td>B05</td>
-                                            </tr>                                            
-                                            <tr>
-                                                <td>7</td>
-                                                <td>Toilet L3</td>
-                                                <td>Lantai 3</td>
-                                                <td>6</td>
-                                                <td>B06</td>
-                                            </tr>                                            
-                                            <tr>
-                                                <td>8</td>
-                                                <td>Barang</td>
-                                                <td></td>
-                                                <td>P</td>
-                                                <td>P00</td>
-                                            </tr>                                            
-                                            <tr>
-                                                <td>9</td>
-                                                <td>Kursi</td>
-                                                <td>Barang</td>
-                                                <td>1</td>
-                                                <td>P01</td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>Meja</td>
-                                                <td>Barang</td>
-                                                <td>2</td>
-                                                <td>P02</td>
-                                            </tr>
-                                            <tr>
-                                                <td>11</td>
-                                                <td>Lemari/Rak</td>
-                                                <td>Barang</td>
-                                                <td>3</td>
-                                                <td>P03</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>Elektornik</td>
-                                                <td>Barang</td>
-                                                <td>4</td>
-                                                <td>P04</td>
-                                            </tr>
+                                                <td>{{$e+1}}</td>
+                                                <td>{{$category->asc_name}}</td>
+                                                <td>{{$category->parent->asc_name}}</td>
+                                                <td>{{$category->asc_original_code}}</td>
+                                                <td>{{$category->asc_code}}</td>
+                                            </tr>   
+                                        @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

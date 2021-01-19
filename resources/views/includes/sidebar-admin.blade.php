@@ -41,7 +41,7 @@
                             <i class="mdi mdi-server"></i>
                         <span class="hide-menu">Peminjaman</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{URL::to('lists-borrow')}}">List Peminjaman</a></li>
+                                <li><a href="{{URL::to('lists-borrow')}}">Daftar Peminjaman</a></li>
                                 <li><a href="{{URL::to('borrows-item')}}">Pinjam Barang</a></li>
                             </ul>
                         </li>
@@ -49,7 +49,7 @@
                             <i class="mdi mdi-server"></i>
                         <span class="hide-menu">Pengembalian</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{URL::to('return/add')}}">Tambah Pengembalian</a></li>
+                                <li><a href="{{URL::to('return/list-return')}}">Daftar Pengembalian</a></li>
                                 <li><a href="{{URL::to('return/history')}}">Histori Pengembalian</a></li>
                             </ul>
                         </li>

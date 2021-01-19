@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-History
+List Peminjaman
 @endpush
 
 @push('styles')
@@ -17,12 +17,13 @@ History
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
 @endpush
 
 @section('content')
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">History Pengembalian</h4>
+                                <h4 class="card-title">Daftar Peminjaman</h4>
                               
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
@@ -30,18 +31,25 @@ History
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
-                                                <th>Aset Barang Yang Telah Dikembalikan</th>
-                                                <th>Jumlah Aset Barang Yang Dikembalikan</th>
-                                                <th>Action</th>
+                                                <th>Nama Asset</th>
+                                                <th>Jumlah Pinjam</th>
+                                                <th>Status</th>
+                                                <th>Tanggal Pinjam</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>Rinaldi</td>
-                                                <td>kursi 1</td>
+                                                <td>Kursi 1</td>
                                                 <td>1</td>
-                                                <td><a href="{{URL::to('return/history')}}" class="btn btn-primary">Print</a></td>
+                                                <td>01-01-2020</td>
+                                                <td><label class="label label-danger">Menunggu Verifikasi</label></td>
+                                                <td>
+                                                    <a href="{{URL::to('lists-borrow/verify')}}" class="btn btn-primary">Verifikasi</a>
+                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-success">Detail</a>
+                                                </td> 
                                             </tr>                                            
                                                                               
                                          
@@ -51,7 +59,7 @@ History
                                 </div>
                             </div>
                         </div>
-  @push('scripts')
+@push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>

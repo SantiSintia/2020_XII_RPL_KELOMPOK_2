@@ -1,7 +1,7 @@
-@extends('layouts.master')
+    @extends('layouts.master')
 
 @push('title')
-- Beranda
+List Peminjaman
 @endpush
 
 @push('styles')
@@ -23,31 +23,34 @@
 @section('content')
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Management Users</h4>
+                                <h4 class="card-title">Daftar Peminjaman</h4>
                               
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Username</th>
-                                                <th>Email</th>
+                                                <th>Nama Peminjam</th>
+                                                <th>Nama Asset</th>
+                                                <th>Jumlah Pinjam</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
-                                                
+                                                <th>Tanggal Pinjam</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>student</td>
-                                                <td>student@gmail.com</td>
+                                                <td>Rinaldi</td>
+                                                <td>Kursi 1</td>
+                                                <td>1</td>
+                                                <td><label class="label label-success">Sedang dipinjam</label></td>
+                                                <td>01-01-2020</td>
+
                                                 <td>
-                                                    <a href="#" class="btn btn-warning">Active</a>
-                                                    <a href="#" class="btn btn-danger">Disabled</a>    
-                                                </td>
-                                                <td><a href="{{URL::to('user/detail')}}" class="btn btn-primary">Detail</td>
-                                                
+                                                    <a href="{{URL::to('return/add')}}" class="btn btn-primary">tambah kembali</a>
+                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-success">detail peminjaman</a>
+                                                </td> 
                                             </tr>                                            
                                                                               
                                          
@@ -57,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-   @push('scripts')
+@push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>

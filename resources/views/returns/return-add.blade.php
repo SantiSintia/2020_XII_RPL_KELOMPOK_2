@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-Tambah Type Asset
+Pinjam Barang
 @endpush
 
 @push('styles')
@@ -17,6 +17,7 @@ Tambah Type Asset
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
 @endpush
 
 @section('content')
@@ -24,27 +25,37 @@ Tambah Type Asset
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Tambah Kategori Asset</h4>
+                                <h4 class="m-b-0 text-white">Tambah Pengembalian</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{URL::to('typeAsset/store')}}" method="" class="form-horizontal form-bordered">
+                                <form action="{{URL::to('return/list-return')}}" method="" class="form-horizontal form-bordered">
 
-                                    <div class="form-group row">
-                                        <label class="control-label text-right col-md-3">Jenis Kategori</label>
-                                        <div class="col-md-9">
-                                            <select name="" class="form-control custom-select">
-                                                <option value="">Bangunan</option>
-                                                <option value="">Peralatan</option>
-                                                <option value="">lantai 1</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
+                                
                                     <div class="form-body">
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Nama Tipe</label>
+                                            <label class="control-label text-right col-md-3">Nama Aset</label>
                                             <div class="col-md-9">
-                                                <input name="" type="text" placeholder="nama tipe" class="form-control">
+                                                <input name="" type="text" placeholder="Kursi 1" class="form-control" readonly="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-body">
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Jumlah Pinjam</label>
+                                            <div class="col-md-9">
+                                                <input name="" type="number" placeholder="1" class="form-control" readonly="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Jumlah kembali</label>
+                                            <div class="col-md-9">
+                                                <input name="" type="number"  class="form-control" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Jumlah hilang</label>
+                                            <div class="col-md-9">
+                                                <input name="" type="number"  class="form-control" >
                                             </div>
                                         </div>
                                     </div>
@@ -64,7 +75,14 @@ Tambah Type Asset
                         </div>
                     </div>
                 </div>
- @push('scripts')
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    
+@push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
@@ -95,5 +113,9 @@ Tambah Type Asset
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
-@endpush   
+
+
+
+
+@endpush     
 @endsection
