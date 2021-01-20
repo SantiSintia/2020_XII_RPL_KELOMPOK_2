@@ -34,7 +34,6 @@ List Peminjaman
                                                 <th>Nama Asset</th>
                                                 <th>Jumlah Pinjam</th>
                                                 <th>Status</th>
-                                                <th>Tanggal Pinjam</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -44,7 +43,6 @@ List Peminjaman
                                                 <td>Rinaldi</td>
                                                 <td>Kursi 1</td>
                                                 <td>1</td>
-                                                <td>01-01-2020</td>
                                                 <td><label class="label label-danger">Menunggu Verifikasi</label></td>
                                                 <td>
                                                     <a href="{{URL::to('lists-borrow/verify')}}" class="btn btn-primary">Verifikasi</a>

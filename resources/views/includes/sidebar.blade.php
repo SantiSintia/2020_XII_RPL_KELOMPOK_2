@@ -41,7 +41,7 @@
                             <i class="mdi mdi-server"></i>
                         <span class="hide-menu">Peminjaman</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="app-calendar.html">List Peminjaman</a></li>
+                                <li><a href="app-calendar.html">Daftar Peminjaman</a></li>
                                 <li><a href="app-chat.html">Pinjam Barang</a></li>
                             </ul>
                         </li>
@@ -49,7 +49,7 @@
                             <i class="mdi mdi-server"></i>
                         <span class="hide-menu">Pengembalian</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="app-email.html">List Pengembalian</a></li>
+                                <li><a href="app-email.html">Daftar Pengembalian</a></li>
                                 <li><a href="app-email-detail.html">Histori Pengembalian</a></li>
                             </ul>
                         </li>

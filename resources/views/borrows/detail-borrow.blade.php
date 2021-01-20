@@ -44,6 +44,8 @@
                                 <h6>Ruangan 1</h6>
                               <small class="text-muted">jumlah  </small>
                                 <h6>1</h6>
+                              <small class="text-muted">Tanggal Pinjam  </small>
+                                <h6>01-01-2020</h6>
 
                             </div>
                         </div>

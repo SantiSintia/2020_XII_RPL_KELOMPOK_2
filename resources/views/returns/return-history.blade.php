@@ -24,7 +24,6 @@ History
                             <div class="card-body">
                                 <h4 class="card-title">History Pengembalian</h4>
                               
-                                <a href="{{URL::to('return/history')}}" class="btn btn-primary">Print</a>
 
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
@@ -32,18 +31,35 @@ History
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
-                                                <th>Aset Barang Yang Telah Dikembalikan</th>
-                                                <th>Jumlah Aset Barang Yang Dikembalikan</th>
+                                                <th>Aset Asset</th>
+                                                <th>Jumlah Kembali</th>
+                                                <th>Jumlah Hilang</th>
+                                                <th>Tanggal Pinjam</th>
+                                                <th>Tanggal Kembali</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
                                                 <td>Rinaldi</td>
-                                                <td>kursi 1</td>
+                                                <td>Kursi 2</td>
                                                 <td>1</td>
+                                                <td></td>
+                                                <td>01-01-2020 </td>
+                                                <td>02-01-2020 </td>                                                
                                             </tr>                                            
-                                                                              
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Santi</td>
+                                                <td>Kursi 3</td>
+                                                <td>1</td>
+                                                <td></td>
+                                                <td>01-01-2020 </td>
+                                                <td>02-01-2020 </td>
+                                                
+                                            </tr>                                            
+                                                                             
                                          
                                             </tr>
                                         </tbody>

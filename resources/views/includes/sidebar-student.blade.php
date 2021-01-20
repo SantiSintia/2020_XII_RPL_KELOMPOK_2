@@ -13,7 +13,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> 
-                        <a class="waves-effect waves-dark" href="{{URL::to('admin/dashboard')}}" aria-expanded="false">
+                        <a class="waves-effect waves-dark" href="{{URL::to('dashboard')}}" aria-expanded="false">
                                 <i class="mdi mdi-home"></i>
                                 <span class="hide-menu">Dashboard</span>
                         </a>
@@ -24,7 +24,7 @@
                             <i class="mdi mdi-server"></i>
                         <span class="hide-menu">Peminjaman</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{URL::to('lists-borrow')}}">List Peminjaman</a></li>
+                                <li><a href="{{URL::to('lists-borrow')}}">Daftar Peminjaman</a></li>
                                 <li><a href="{{URL::to('borrows-item')}}">Pinjam Barang</a></li>
                             </ul>
                        

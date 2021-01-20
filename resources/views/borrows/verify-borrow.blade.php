@@ -34,7 +34,6 @@ List Peminjaman
                                                 <th>Nama Asset</th>
                                                 <th>Jumlah Pinjam</th>
                                                 <th>Status</th>
-                                                <th>Tanggal Pinjam</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -45,11 +44,10 @@ List Peminjaman
                                                 <td>Kursi 1</td>
                                                 <td>1</td>
                                                 <td><label class="label label-success">Sedang dipinjam</label></td>
-                                                <td>01-01-2020</td>
 
                                                 <td>
-                                                    <a href="{{URL::to('return/add')}}" class="btn btn-primary">tambah kembali</a>
-                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-success">detail peminjaman</a>
+                                                    <a href="{{URL::to('return/add')}}" class="btn btn-primary">tambah pengembalian</a>
+                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-success">detail</a>
                                                 </td> 
                                             </tr>                                            
                                                                               

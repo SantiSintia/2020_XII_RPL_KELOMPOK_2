@@ -23,7 +23,7 @@ class BorrowsController extends Controller
     
     public function detail()
     {
-        return view('borrows.lists-detail-borrow');
+        return view('borrows.detail-borrow');
     }
     
     public function borrowsItem()

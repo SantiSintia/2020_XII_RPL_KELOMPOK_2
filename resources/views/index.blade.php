@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8 align-self-center">
-                                        <h2 class="font-light text-white">1 Asset Sedang di pinjam</h2>
+                                        <h2 class="font-light text-white">1 Peminjaman</h2>
                                     </div>
                                     
                                 </div>
