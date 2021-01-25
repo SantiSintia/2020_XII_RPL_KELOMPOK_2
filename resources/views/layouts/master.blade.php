@@ -21,7 +21,7 @@
     
     <div id="main-wrapper">
 
-    @include ('includes.header');
+    @include ('includes.header')
 
   <aside class="left-sidebar">
     @if(Auth()->user()->hasRole('admin'))
