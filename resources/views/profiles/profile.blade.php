@@ -28,7 +28,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
-                                    <h4 class="card-title m-t-10">Hamdan Firmansyah</h4>
+                                    <h4 class="card-title m-t-10">{{ Auth::user()->usr_name }}</h4>
                                     <h6 class="card-subtitle">Admin</h6>
                                    
                                 </center>
@@ -37,7 +37,7 @@
                                 <hr> </div>
                             <div class="card-body"> 
                             <small class="text-muted">Email address </small>
-                                <h6>admin@gmail.com</h6>
+                                <h6>{{ Auth::user()->usr_email }}</h6>
 
                                 <a href="{{URL::to('admin/reset-password')}}" class="btn btn-primary">Ganti Password</a>         
                             </div>

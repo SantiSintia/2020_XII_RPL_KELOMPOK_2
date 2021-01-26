@@ -31,24 +31,33 @@ Tambah Kategori Asset
                                 <form action="{{URL::to('categoryAsset/store')}}" method="" class="form-horizontal form-bordered">
                                 @csrf
                                     <div class="form-group row">
-                                        <label class="control-label text-right col-md-3">Jenis Kategori</label>
+                                        <label class="control-label text-right col-md-3">Tipe Kategori</label>
                                         <div class="col-md-9">
-                                            <select name="asc_parent_asset_categories_id" class="form-control custom-select">
+                                            <select name="type_categories" class="form-control custom-select" id="types">
                                                 <option value="">--pilih--</option>
                                                 <option value="">Tidak Ada</option>
                                                 @foreach($category as $kategori)
-                                                    <option value="">{{ $kategori->asc_name }}</option>
-
+                                                    @if($kategori->asc_parent_asset_categories_id == null)
+                                                    <option value="{{$kategori->asc_id}}">{{ $kategori->asc_name }}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="control-label text-right col-md-3"> Jenis Kategori</label>
+                                        <div class="col-md-9">
+                                            <select name="categories" class="form-control custom-select" id="categories">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     
-                                    <div class="form-body">
+                                   
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Kategori</label>
+                                            <label class="control-label text-right col-md-3">Nama Kategori</label>
                                             <div class="col-md-9">
-                                                <input name="asc_name" type="text" placeholder="nama kategori" class="form-control">
+                                                <input name="asc_name" type="text" class="form-control" placeholder="Nama Kategori">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -80,7 +89,25 @@ Tambah Kategori Asset
                         </div>
                     </div>
                 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+    $('#types').on('change', function (e) {
+        console.log(e);
+        var asc_id = e.target.value;
+        $.get('{{URL::to('api/json-categories')}}/'+ asc_id  , function (data) {
+            console.log('data');
+            $('#categories').empty();
+            $('#categories').append('<option value="">--pilih--</option>');
+            $.each(data.categories, function (val, categoriesObj) {
+                $('#categories').append('<option value="'+categoriesObj.asc_id+'">'+categoriesObj.asc_name+'</option>');
+            });
+        });
+    });
+        </script>
+
 @push('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{URL::to('assets/js/jquery.min.js')}}"></script>
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
@@ -113,3 +140,5 @@ Tambah Kategori Asset
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 @endpush   
 @endsection
+
+

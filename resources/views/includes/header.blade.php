@@ -73,7 +73,7 @@
                                         <div class="dw-user-box">
                                             <div class="u-img"><img src="../assets/images/users/avatar.png" alt="user"></div>
                                             <div class="u-text">
-                                                <h4>Hamdan</h4>
+                                                <h4>{{ Auth::user()->usr_name }}</h4>
                                             </div>
                                         </div>
                                     </li>

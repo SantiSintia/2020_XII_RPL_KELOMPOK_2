@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\asset_categories;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryAssetController extends Controller
 {
@@ -41,14 +42,50 @@ class CategoryAssetController extends Controller
             'asc_code'           => 'required|max:3'
         ]);
 
-        $category = new asset_categories;
-        $category->asc_parent_asset_categories_id = $request->asc_parent_asset_categories_id;
-        $category->asc_name = $request->asc_name;      
-        $category->asc_original_code = $request->asc_original_code;
-        $category->asc_code = $request->asc_code;
-        $category->save();
+        $code = $request->asc_code;
+        $data = asset_categories::whereAscCode($code)->first();
+       
+         //dd($data);
+        if ($data) 
+        {
+            return back()->withToastError('Kode Kategori Sudah ada');
 
-        return redirect('categoryAsset');
+        }else{
+                if ($request->categories)
+                 {
+                    $category = new asset_categories;
+                    $category->asc_parent_asset_categories_id = $request->categories;
+                    $category->asc_name = $request->asc_name;      
+                    $category->asc_original_code = $request->asc_original_code;
+                    $category->asc_code = $request->asc_code;
+                    $category->save();
+                    return redirect('categoryAsset');
+                }elseif($request->type_categories)
+                {
+                    $category = new asset_categories;
+                    $category->asc_parent_asset_categories_id = $request->type_categories;
+                    $category->asc_name = $request->asc_name;      
+                    $category->asc_original_code = $request->asc_original_code;
+                    $category->asc_code = $request->asc_code;
+                    $category->save();
+                    return redirect('categoryAsset');
+                }elseif($request->asc_name){
+                    $category = new asset_categories;
+                    $category->asc_parent_asset_categories_id = null;
+                    $category->asc_name = $request->asc_name;      
+                    $category->asc_original_code = $request->asc_original_code;
+                    $category->asc_code = $request->asc_code;
+                    $category->save();
+                    return redirect('categoryAsset');
+                }else{
+                    return back()->withInfo('Isi data terlebih dahulu');
+                }
+
+        }
+
+        
+
+       
     }
 
     /**
@@ -94,6 +131,11 @@ class CategoryAssetController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function JsonCategories($id){
+        $data['categories'] = asset_categories::whereAscParentAssetCategoriesId($id)->get();
+        return response()->json($data);
     }
 
 }

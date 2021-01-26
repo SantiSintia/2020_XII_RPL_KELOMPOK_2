@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/test', function (){
+    return view('test');
+});
+Route::post('/test', function (){
+    return back()->withError('Gagal');
+});
+
 
 
 Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +47,9 @@
        © 2020 SMKS MAHAPUTRA CERDAS UTAMA
     </footer>
   </div>
+ @include('sweetalert::alert')  
 
 @stack('scripts')
 </body>
+
 </html>
