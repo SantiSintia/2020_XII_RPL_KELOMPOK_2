@@ -4,15 +4,42 @@
  <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Ganti Password</h4>
+                                <h4 class="card-title">Ganti Profile</h4>
                                 
-                                <form class="form-horizontal p-t-20">
+                                <form method="POST" class="form-horizontal p-t-20">
                                     @csrf
+
+                                    <input type="hidden" value="{{Auth::user()->usr_id}}" name="id">
+                                    <div class="form-group row">
+                                        <label for="pass3" class="col-sm-3 control-label">Username*</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <input type="text" name="usr_name" class="form-control" id="name" value="{{Auth::user()->usr_name}}" placeholder="Enter Username">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="basic-addon2">
+                                                    <i class="ti-account"></i>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="form-group row">
+                                        <label for="pass3" class="col-sm-3 control-label">Phone*</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group">
+                                                <input type="text" name="usr_phone" class="form-control" id="phone" value="{{Auth::user()->usr_phone}}" placeholder="Enter Phone">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="basic-addon2">
+                                                    <i class="ti-"></i>
+                                                </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label for="pass3" class="col-sm-3 control-label">Password*</label>
                                         <div class="col-sm-9">
                                             <div class="input-group">
-                                                <input type="password" class="form-control" id="pass3" placeholder="Enter pwd">
+                                                <input type="password" class="form-control" name="usr_password" id="pass3" placeholder="Enter pwd">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text" id="basic-addon2">
                                                     <i class="ti-lock"></i>
@@ -25,7 +52,7 @@
                                         <label for="pass4" class="col-sm-3 control-label">Re-Password*</label>
                                         <div class="col-sm-9">
                                             <div class="input-group">
-                                                <input type="password" class="form-control" id="pass4" placeholder="Re Enter pwd">
+                                                <input type="password" class="form-control" name="re_password"  id="pass4" placeholder="Re Enter pwd">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text" id="basic-addon2">
                                                     <i class="ti-lock"></i>
@@ -34,17 +61,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-3 col-sm-9">
-                                            <div class="checkbox checkbox-success">
-                                                <input id="checkbox35" type="checkbox">
-                                                <label for="checkbox35">Check me out !</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                     <div class="form-group row m-b-0">
                                         <div class="offset-sm-3 col-sm-9 ">
-                                            <button type="submit" class="btn btn-info waves-effect waves-light">Sign in</button>
+                                            <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
                                         </div>
                                     </div>
                                 </form>

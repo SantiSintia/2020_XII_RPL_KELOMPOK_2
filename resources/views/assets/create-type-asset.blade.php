@@ -27,14 +27,18 @@ Tambah Type Asset
                                 <h4 class="m-b-0 text-white">Tambah Type Asset</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{URL::to('typeAsset/store')}}" method="" class="form-horizontal form-bordered">
-
+                                <form action="{{URL::to('typeAsset/store')}}" method="post" class="form-horizontal form-bordered">
+                                @csrf
                                     <div class="form-group row">
                                         <label class="control-label text-right col-md-3">Jenis Kategori</label>
                                         <div class="col-md-9">
-                                            <select name="" class="form-control custom-select">
-                                                <option value="">Bangunan</option>
-                                                <option value="">Peralatan</option>
+                                            <select name="asc_name" class="form-control custom-select">
+                                                <option value="">--pilih--</option>
+                                                @foreach($categories as $data)
+                                                @if($data->asc_parent_asset_categories_id > 0)
+                                                <option value="{{$data->asc_id}}">{{$data->asc_name}}</option>
+                                                @endif
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -43,13 +47,13 @@ Tambah Type Asset
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Nama Tipe</label>
                                             <div class="col-md-9">
-                                                <input name="" type="text" placeholder="Nama Type" class="form-control">
+                                                <input name="ast_name" type="text" placeholder="Nama Type" class="form-control">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Kode Asli</label>
                                             <div class="col-md-9">
-                                                <input name="" type="number" class="form-control" placeholder="">
+                                                <input name="ast_original_code" type="number" class="form-control" placeholder="">
                                             </div>
                                         </div>
 

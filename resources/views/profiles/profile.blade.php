@@ -38,8 +38,10 @@
                             <div class="card-body"> 
                             <small class="text-muted">Email address </small>
                                 <h6>{{ Auth::user()->usr_email }}</h6>
+                            <small class="text-muted">Phone </small>
+                                <h6>{{ Auth::user()->usr_phone }}</h6>
 
-                                <a href="{{URL::to('admin/reset-password')}}" class="btn btn-primary">Ganti Password</a>         
+                                <a href="{{URL::to('admin/change-profile')}}" class="btn btn-primary">Ganti Profil</a>         
                             </div>
                         </div>
                     </div>

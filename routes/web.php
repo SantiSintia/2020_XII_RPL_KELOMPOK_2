@@ -21,7 +21,7 @@ Route::get('/test', function (){
     return view('test');
 });
 Route::post('/test', function (){
-    return back()->withError('Gagal');
+    return back()->withToastError('Gagal');
 });
 
 
@@ -50,7 +50,8 @@ Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('dashboard', 'AdminPageController@index')->name('dashboard');
     Route::get('admin/profile', 'AdminPageController@profile');
-    Route::get('admin/reset-password', 'AdminPageController@resetPassword');
+    Route::get('admin/change-profile', 'AdminPageController@changeProfile');
+    Route::post('admin/change-profile', 'AdminPageController@saveChangeProfile');
     Route::get('admin/manageUsers', 'AdminPageController@manageUsers');
     Route::get('user/detail', 'AdminPageController@detail');
 
@@ -61,7 +62,7 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
 
     Route::get('typeAsset', 'TypeAssetController@index');   
     Route::get('typeAsset/create', 'TypeAssetController@create');   
-    Route::get('typeAsset/store', 'TypeAssetController@store'); 
+    Route::post('typeAsset/store', 'TypeAssetController@store'); 
     Route::get('typeAsset/delete', 'TypeAssetController@destroy');
 
     Route::get('asset', 'AssetController@index');

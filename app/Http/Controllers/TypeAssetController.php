@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\asset_categories;
+use App\asset_types;
 
 class TypeAssetController extends Controller
 {
@@ -14,7 +16,9 @@ class TypeAssetController extends Controller
      */
     public function index()
     {
-        return view('assets.type-asset');
+        $type = asset_types::join('asset_categories','asc_id','=','ast_asset_categories_id')->get();
+        //dd($type);
+        return view('assets.type-asset',compact('type'));
     }
 
     /**
@@ -24,7 +28,9 @@ class TypeAssetController extends Controller
      */
     public function create()
     {
-        return view('assets.create-type-asset');
+        $categories = asset_categories::all();
+        //dd($categories);
+        return view('assets.create-type-asset',compact('categories'));
     }
 
     /**
@@ -34,7 +40,17 @@ class TypeAssetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+         $id = $request->asc_name;
+         $data = asset_types::join('asset_categories','asc_id','=','ast_asset_categories_id')
+                            ->whereAstAssetCategoriesId($id)
+                            ->first();
+         $code = $data->asc_code;
+         $originCode = asset_types::OrderBy('ast_original_code','DESC')->first();
+          //dd($originCode);
+         $t = $code.'.'.str_pad('2'+1,'3',"0",STR_PAD_LEFT);
+    
+         
         return redirect('typeAsset');
     }
 
