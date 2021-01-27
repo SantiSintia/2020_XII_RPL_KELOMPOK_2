@@ -19,7 +19,11 @@ class AssetController extends Controller
      */
     public function index()
     {
-        return view('assets.list-asset');
+        $assets = Asset::join('asset_categories','ass_asset_category_id','=','asc_id')
+                       ->join('asset_types','ass_asset_type_id','=','ast_id')
+                       ->join('origins','ass_origin_id','=','ori_id')
+                       ->get();
+        return view('assets.list-asset',compact('assets'));
     }
 
     public function list()
@@ -66,6 +70,7 @@ class AssetController extends Controller
         $asset->ass_price = $request->input('asset_price');
         $asset->ass_created_by  =  Auth::user()->usr_id;
         $asset->save();
+        return redirect('asset')->withSuccess($request->input('asset_name'). '  berhasil disimpan');
 
     }
 

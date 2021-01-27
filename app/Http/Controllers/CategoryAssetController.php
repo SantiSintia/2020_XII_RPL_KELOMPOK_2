@@ -78,6 +78,7 @@ class CategoryAssetController extends Controller
             $check = asset_categories::whereAscParentAssetCategoriesId($request->input('type_categories'))
                 ->OrderBy('asc_original_code','DESC')
                 ->first();
+                //dd($check);
                 if($check){
                     $max_code   = $check->asc_original_code + 1;
                 } else {

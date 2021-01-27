@@ -17,7 +17,9 @@ class TypeAssetController extends Controller
      */
     public function index()
     {
-        $type = $category = asset_categories::whereNotNull('asc_parent_asset_categories_id')->get();
+        $type = $category = asset_categories::join('asset_types','asc_id','=','ast_asset_categories_id')
+                                            ->whereNotNull('asc_parent_asset_categories_id')
+                                            ->get();
         //dd($type);
         return view('assets.type-asset',compact('type'));
     }
@@ -63,7 +65,7 @@ class TypeAssetController extends Controller
         $create->ast_name = $request->input('ast_name') ;
         $create->ast_created_by = Auth::user()->usr_id;
         $create->save();
-        return redirect('typeAsset');
+        return redirect('typeAsset')->withSuccess($request->input('ast_name'). '  berhasil disimpan');
     }
 
     /**

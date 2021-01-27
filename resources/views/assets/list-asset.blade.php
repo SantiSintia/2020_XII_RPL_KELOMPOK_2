@@ -43,144 +43,14 @@ Asset
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($assets as $no => $data)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Kursi siswa 1</td>
-                                                <td>001/P01.001.INV.YYS/2016</td>
+                                                <td>{{$no++}}</td>
+                                                <td>{{$data->ass_name}}</td>
+                                                <td>{{$data->ass_registration_code}}</td>
                                                 <td><a href="{{URL::to('asset/detail')}}" class="btn btn-sm btn-flat btn-success">Detail</a></td>
                                             </tr>                                            
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Kursi siswa 2</td>
-                                               
-                                                <td>002/P01.001.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Kursi siswa 3</td>
-                                                <td>003/P01.001.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Kursi Guru 1</td>                                                
-                                                <td>001/P01.002.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Kursi Guru 2</td>                                              
-                                                <td>002/P01.002.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Kursi Tunggu 1</td>                                               
-                                                <td>001/P01.003.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>7</td>
-                                                <td>Kursi Tunggu 2</td>                                                
-                                                <td>002/P01.003.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>8</td>
-                                                <td>Kursi Set 1</td>                                               
-                                                <td>001/P01.004.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>9</td>
-                                                <td>Kursi Set 2</td>                                               
-                                                <td>002/P01.004.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>10</td>
-                                                <td>Meja Guru 1</td>                                               
-                                                <td>001/P02.001.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>11</td>
-                                                <td>Meja Guru 2</td>                                               
-                                                <td>002/P02.001.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>12</td>
-                                                <td>Meja Siswa 1</td>                                                
-                                                <td>001/P02.002.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>13</td>
-                                                <td>Meja Siswa 2</td>                                               
-                                                <td>002/P02.002.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>14</td>
-                                                <td>Lemari 1</td>                                               
-                                                <td>001/P03.001.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>15</td>
-                                                <td>Lemari 2</td>                                                
-                                                <td>002/P03.001.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>16</td>
-                                                <td>Rak 1</td>                                               
-                                                <td>001/P03.002.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>17</td>
-                                                <td>Rak 2</td>
-                                                <td>002/P03.002.INV.YYS/2016</td>
-                                                    
-                                            </tr> 
-                                            <tr>
-                                                <td>18</td>
-                                                <td>Saung Fadillah</td>                                               
-                                                <td>001/B00.000.INV.YYS/2016</td>
-                                            </tr> 
-                                             <tr>
-                                                <td>19</td>
-                                                <td>Saung Singgah</td>                                               
-                                                <td>002/B00.000.INV.YYS/2016</td>
-                                            </tr> 
-                                             <tr>
-                                                <td>20</td>
-                                                <td>Gedung Sekolah</td>
-                                                <td>003/B00.000.INV.YYS/2016</td>
-                                            </tr> 
-                                             <tr>
-                                                <td>21</td>
-                                                <td>Masjid</td>
-                                                <td>004/B00.000.INV.YYS/2017</td>
-                                            </tr> 
-                                             <tr>
-                                                <td>22</td>
-                                                <td>Bale Mahaputra</td>
-                                                <td>005/B00.000.INV.YYS/2018</td>
-                                            </tr> 
-                                             <tr>
-                                                <td>23</td>
-                                                <td>BNB</td>                                                
-                                                <td>006/B00.000.INV.YYS/2019</td>
-                                            </tr> 
-                                             <tr>
-                                                <td>24</td>
-                                                <td>SQUADRON 43</td>
-                                                <td>007/B00.000.INV.YYS/2019</td>
-                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
