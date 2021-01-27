@@ -32,7 +32,7 @@ Tambah Kategori Asset
                                 @csrf
                                     <div class="form-group row">
                                         <label class="control-label text-right col-md-3">Tipe Kategori</label>
-                                        <div class="col-md-9">
+                                        <div class="col-md-5">
                                             <select name="type_categories" class="form-control custom-select" id="types">
                                                 <option value="">--pilih--</option>
                                                 <option value="">Tidak Ada</option>
@@ -43,35 +43,38 @@ Tambah Kategori Asset
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="control-label text-right col-md-3"> Jenis Kategori</label>
-                                        <div class="col-md-9">
-                                            <select name="categories" class="form-control custom-select" id="categories">
-                                                <option></option>
-                                            </select>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn  btn-dark" data-toggle="modal" data-target="#createPrimaryCat">Tambah kategori Utama</button>
                                         </div>
                                     </div>
-                                    
-                                   
+{{--                                    <div class="form-group row">--}}
+{{--                                        <label class="control-label text-right col-md-3"> Jenis Kategori</label>--}}
+{{--                                        <div class="col-md-9">--}}
+{{--                                            <select name="categories" class="form-control custom-select" id="categories">--}}
+{{--                                                <option></option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+
+
                                         <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Nama Kategori</label>
+                                            <label class="control-label text-right col-md-3">Nama Sub Kategori</label>
                                             <div class="col-md-9">
-                                                <input name="asc_name" type="text" class="form-control" placeholder="Nama Kategori">
+                                                <input name="asc_name" type="text" class="form-control" placeholder="Nama Sub Kategori">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Kode Asli</label>
-                                            <div class="col-md-9">
-                                                <input name="asc_original_code" type="text" class="form-control" placeholder="kode asli">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Kode Kategori</label>
-                                            <div class="col-md-9">
-                                                <input name="asc_code" type="text" class="form-control" placeholder="kode kategori">
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <label class="control-label text-right col-md-3">Kode Asli</label>--}}
+{{--                                            <div class="col-md-9">--}}
+{{--                                                <input name="asc_original_code" type="text" class="form-control" placeholder="kode asli">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="form-group row">--}}
+{{--                                            <label class="control-label text-right col-md-3">Kode Kategori</label>--}}
+{{--                                            <div class="col-md-9">--}}
+{{--                                                <input name="asc_code" type="text" class="form-control" placeholder="kode kategori">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                     </div>
                                     <div class="form-actions">
                                         <div class="row">
@@ -114,7 +117,7 @@ Tambah Kategori Asset
     <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{URL::to('assets/js/jquery.slimscroll.js')}}"></script>
-    
+
     <!--Wave Effects -->
     <script src="{{URL::to('assets/js/waves.js')}}"></script>
     <!--Menu sidebar -->
@@ -129,7 +132,7 @@ Tambah Kategori Asset
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-   
+
     <!--c3 JavaScript -->
     <script src="{{URL::to('assets/plugins/d3/d3.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/c3-master/c3.min.js')}}"></script>
@@ -138,7 +141,42 @@ Tambah Kategori Asset
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
-@endpush   
+@endpush
 @endsection
+<form action="{{URL::to('/create/categori-primary')}}" method="postweb">
+    @csrf
+<div class="modal fade" id="createPrimaryCat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori Utama</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label class="control-label text-right col-md-3">Nama Kategori</label>
+                    <div class="col-md-9">
+                        <input name="asc_name" type="text" class="form-control" placeholder="Nama Kategori" required>
+                    </div>
+                </div>
 
+                <div class="form-group row">
+                    <label class="control-label text-right col-md-3">Kode Kategori</label>
+                    <div class="col-md-9">
+                        <input name="asc_original_code" type="text" class="form-control" placeholder="Kode Kategori" required>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
 

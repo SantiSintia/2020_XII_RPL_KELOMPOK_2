@@ -32,7 +32,7 @@ Tambah Type Asset
                                     <div class="form-group row">
                                         <label class="control-label text-right col-md-3">Jenis Kategori</label>
                                         <div class="col-md-9">
-                                            <select name="asc_name" class="form-control custom-select">
+                                            <select name="ast_type" class="form-control custom-select">
                                                 <option value="">--pilih--</option>
                                                 @foreach($categories as $data)
                                                 @if($data->asc_parent_asset_categories_id > 0)
@@ -42,7 +42,7 @@ Tambah Type Asset
                                             </select>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-body">
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Nama Tipe</label>
@@ -50,12 +50,7 @@ Tambah Type Asset
                                                 <input name="ast_name" type="text" placeholder="Nama Type" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="control-label text-right col-md-3">Kode Asli</label>
-                                            <div class="col-md-9">
-                                                <input name="ast_original_code" type="number" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
+
 
                                     </div>
                                     <div class="form-actions">
@@ -81,7 +76,7 @@ Tambah Type Asset
     <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{URL::to('assets/js/jquery.slimscroll.js')}}"></script>
-    
+
     <!--Wave Effects -->
     <script src="{{URL::to('assets/js/waves.js')}}"></script>
     <!--Menu sidebar -->
@@ -96,7 +91,7 @@ Tambah Type Asset
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-   
+
     <!--c3 JavaScript -->
     <script src="{{URL::to('assets/plugins/d3/d3.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/c3-master/c3.min.js')}}"></script>
@@ -105,5 +100,5 @@ Tambah Type Asset
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
-@endpush   
+@endpush
 @endsection

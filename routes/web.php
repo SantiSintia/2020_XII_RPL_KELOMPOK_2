@@ -46,7 +46,7 @@ Route::post('/register-teacher', 'Auth\RegisterController@registerSaveTeacher');
 
 Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
-//Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
+//Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini
 Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('dashboard', 'AdminPageController@index')->name('dashboard');
     Route::get('admin/profile', 'AdminPageController@profile');
@@ -55,33 +55,35 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('admin/manageUsers', 'AdminPageController@manageUsers');
     Route::get('user/detail', 'AdminPageController@detail');
 
-    
-    Route::get('categoryAsset', 'CategoryAssetController@index');   
-    Route::get('categoryAsset/create', 'CategoryAssetController@create');   
-    Route::get('categoryAsset/store', 'CategoryAssetController@store'); 
+    Route::get('/create/categori-primary','CategoryAssetController@StoreCatPrimary');
+    Route::get('categoryAsset', 'CategoryAssetController@index');
+    Route::get('categoryAsset/create', 'CategoryAssetController@create');
+    Route::get('categoryAsset/store', 'CategoryAssetController@store');
 
-    Route::get('typeAsset', 'TypeAssetController@index');   
-    Route::get('typeAsset/create', 'TypeAssetController@create');   
-    Route::post('typeAsset/store', 'TypeAssetController@store'); 
+    Route::get('typeAsset', 'TypeAssetController@index');
+    Route::get('typeAsset/create', 'TypeAssetController@create');
+    Route::post('typeAsset/store', 'TypeAssetController@store');
     Route::get('typeAsset/delete', 'TypeAssetController@destroy');
 
     Route::get('asset', 'AssetController@index');
     Route::get('asset/detail', 'AssetController@list');
     Route::get('asset/create', 'AssetController@create');
-    
+    Route::post('asset/create', 'AssetController@store');
+
+
 
     Route::get('lists-borrow', 'BorrowsController@index');
     Route::get('lists-borrow/verify', 'BorrowsController@verify');
     Route::get('lists-borrow/detail', 'BorrowsController@detail');
 
-    
+
     Route::get('borrows-item', 'BorrowsController@borrowsItem');
 
     Route::get('return/add', 'BorrowsController@returnAdd');
     Route::get('return/list-return', 'BorrowsController@listreturn');
     Route::get('return/history', 'BorrowsController@returnHistory');
-    
-    
+
+
 
   /*
     Route::get('asset/{id}/detail', 'Admin\AdminAssetController@assetDetails');
@@ -90,12 +92,12 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('asset/{id}/hapus', 'Admin\AdminAssetController@assetDelete');
     Route::get('typeAssets/create', 'Admin\AdminAssetController@createTypeAssets');
 
-    
+
     Route::get('user', '');
     Route::get('user/{id}/detail', '');
     Route::get('user/{id}/{hapus}', '');
     Route::get('borrow/{id}/verifikasi', '');
-    
+
     Route::get('pengembalian', '');
     Route::get('borrows/{id}/pengembalian', '');
     Route::get('peminjaman', '');

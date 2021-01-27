@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\asset_categories;
 use App\asset_types;
+use Illuminate\Support\Facades\Auth;
 
 class TypeAssetController extends Controller
 {
@@ -16,7 +17,7 @@ class TypeAssetController extends Controller
      */
     public function index()
     {
-        $type = asset_types::join('asset_categories','asc_id','=','ast_asset_categories_id')->get();
+        $type = $category = asset_categories::whereNotNull('asc_parent_asset_categories_id')->get();
         //dd($type);
         return view('assets.type-asset',compact('type'));
     }
@@ -28,7 +29,7 @@ class TypeAssetController extends Controller
      */
     public function create()
     {
-        $categories = asset_categories::all();
+        $categories = asset_categories::whereNotNull('asc_parent_asset_categories_id')->get();
         //dd($categories);
         return view('assets.create-type-asset',compact('categories'));
     }
@@ -40,17 +41,28 @@ class TypeAssetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-         $id = $request->asc_name;
-         $data = asset_types::join('asset_categories','asc_id','=','ast_asset_categories_id')
-                            ->whereAstAssetCategoriesId($id)
-                            ->first();
-         $code = $data->asc_code;
-         $originCode = asset_types::OrderBy('ast_original_code','DESC')->first();
-          //dd($originCode);
-         $t = $code.'.'.str_pad('2'+1,'3',"0",STR_PAD_LEFT);
-    
-         
+    {
+        $this->validate($request,[
+            'ast_type'           => 'required',
+            'ast_name'           => 'required|min:1'
+        ]);
+        $type = asset_types::where('ast_asset_categories_id' , $request->input('ast_type'))
+            ->OrderBy('ast_original_code' , 'DESC')
+            ->first();
+        if ($type){
+            $max_num_type = $type->ast_original_code + 1 ;
+        } else {
+            $max_num_type = 1 ;
+        }
+
+        $cat = asset_categories::whereAscId($request->input('ast_type'))->first();
+        $create = new  asset_types();
+        $create->ast_asset_categories_id = $cat->asc_id;
+        $create->ast_code =  $cat->asc_code . '.' . str_pad($max_num_type, 3, '0', STR_PAD_LEFT) ;
+        $create->ast_original_code = $max_num_type ;
+        $create->ast_name = $request->input('ast_name') ;
+        $create->ast_created_by = Auth::user()->usr_id;
+        $create->save();
         return redirect('typeAsset');
     }
 
