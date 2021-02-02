@@ -17,11 +17,21 @@
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
+    <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
    
 @endpush
 
 @section('content')
-
+<div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">Profile</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Profile</a></li>
+                            <li class="breadcrumb-item active">My Profile</li>
+                        </ol>
+                    </div>
+                </div>
                 <div class="row">
                     <!-- Column -->
                     <div class="col-lg-12 ">
@@ -117,9 +127,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer">
-                © 2019 Material Pro Admin by wrappixel.com
-            </footer>
+           
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

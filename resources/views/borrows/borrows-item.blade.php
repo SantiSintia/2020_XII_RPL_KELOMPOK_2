@@ -18,9 +18,20 @@ Pinjam Barang
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
+    <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
 @endpush
 
 @section('content')
+<div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">Peminjaman</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Peminjaman</a></li>
+                            <li class="breadcrumb-item active">Kelola Pinjam Barang</li>
+                        </ol>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card card-outline-info">
@@ -63,6 +74,7 @@ Pinjam Barang
                         </div>
                     </div>
                 </div>
+</div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->

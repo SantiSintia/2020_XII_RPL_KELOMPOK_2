@@ -17,9 +17,20 @@ History
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
+    <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
 @endpush
 
 @section('content')
+<div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">Pengembalian</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Pengembalian</a></li>
+                            <li class="breadcrumb-item active">Histori Pengembalian</li>
+                        </ol>
+                    </div>
+                </div>
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">History Pengembalian</h4>
@@ -67,6 +78,7 @@ History
                                 </div>
                             </div>
                         </div>
+</div>
   @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->

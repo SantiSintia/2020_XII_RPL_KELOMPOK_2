@@ -22,6 +22,17 @@ Kategori Asset
 @endpush
 
 @section('content')
+<div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">Asset</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
+                            <li class="breadcrumb-item active">Kelola Kategori Asset</li>
+                        </ol>
+                    </div>
+                </div>
+
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Data Kategori Asset</h4>
@@ -59,6 +70,7 @@ Kategori Asset
                                 </div>
                             </div>
                         </div>
+</div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->

@@ -18,6 +18,7 @@ List Peminjaman
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
+    <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
 @endpush
 
 @section('content')

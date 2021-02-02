@@ -18,9 +18,20 @@ List Peminjaman
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
+    <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
 @endpush
 
 @section('content')
+<div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">Peminjaman</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Peminjaman</a></li>
+                            <li class="breadcrumb-item active">Daftar Peminjaman</li>
+                        </ol>
+                    </div>
+                </div>
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Daftar Peminjaman</h4>
@@ -57,6 +68,7 @@ List Peminjaman
                                 </div>
                             </div>
                         </div>
+</div>
 @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
