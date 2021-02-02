@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Kategori Asset
+- Detail Asset
 @endpush
 
 @push('styles')
@@ -36,20 +36,23 @@
 
                             <div class="card-body">
                             <h3> Detail Asset</h3><br/>
+                            @foreach($asset as $assets)
+
                             <small class="text-muted">nama asset  </small>
-                                <h6>Kursi siswa 1</h6>
+                                <h6>{{$assets->ass_name}}</h6>
                             <small class="text-muted">asset kategori </small>
-                                <h6>Kursi </h6>
+                                <h6>{{$assets->asc_name}} </h6>
                               <small class="text-muted">type aset  </small>
-                                <h6>Kursi siswa</h6>
+                                <h6>{{$assets->ast_name}}</h6>
                                <small class="text-muted">Asal asset  </small>
-                                <h6>yayasan</h6>
+                                <h6>{{$assets->ori_name}}</h6>
                               <small class="text-muted">tahun pengayaan  </small>
-                                <h6>2016</h6>
+                                <h6>{{$assets->ass_year}}</h6>
                               <small class="text-muted">kode registrasi  </small>
-                                <h6>001/P01.001.INV.YYS/2016</h6>
+                                <h6>{{$assets->ass_registration_code}}</h6>
                               <small class="text-muted">Harga  </small>
-                                <h6>50.000</h6>
+                                <h6>{{$assets->ass_price}}</h6>
+                            @endforeach
 
                             </div>
                         </div>

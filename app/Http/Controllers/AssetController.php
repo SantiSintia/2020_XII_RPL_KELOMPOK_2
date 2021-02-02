@@ -26,10 +26,10 @@ class AssetController extends Controller
         return view('assets.list-asset',compact('assets'));
     }
 
-    public function list()
-    {
-        return view('assets.list-detail-asset');
-    }
+    // public function list()
+    // {
+    //     return view('assets.list-detail-asset');
+    // }
 
 
 
@@ -82,7 +82,12 @@ class AssetController extends Controller
      */
     public function show($id)
     {
-        //
+        $asset = Asset::join('asset_categories','ass_asset_category_id','=','asc_id')
+                      ->join('asset_types','ass_asset_type_id','=','ast_id')
+                      ->join('origins','ass_origin_id','=','ori_id')
+                      ->whereAssId($id)->first();
+        dd($asset);
+        return view('assets.list-detail-asset', compact('asset'));
     }
 
     /**

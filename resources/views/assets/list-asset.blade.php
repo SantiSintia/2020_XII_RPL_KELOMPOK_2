@@ -23,7 +23,7 @@ Asset
 @section('content')
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Kategori Asset</h4>
+                                <h4 class="card-title">Data Asset</h4>
                                 <div class="box-header">
                                     <p>
                                         <a href="{{URL::to('asset/create')}}" class="btn btn-sm btn-flat btn-success"><i class="fa fa-plus"></i>Tambah</a><br>
@@ -48,7 +48,7 @@ Asset
                                                 <td>{{$no++}}</td>
                                                 <td>{{$data->ass_name}}</td>
                                                 <td>{{$data->ass_registration_code}}</td>
-                                                <td><a href="{{URL::to('asset/detail')}}" class="btn btn-sm btn-flat btn-success">Detail</a></td>
+                                                <td><a href="{{URL::to('asset/'.$data->ass_id)}}" class="btn btn-sm btn-flat btn-success">Detail</a></td>
                                             </tr>                                            
                                         @endforeach
                                         </tbody>
