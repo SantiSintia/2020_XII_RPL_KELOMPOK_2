@@ -37,23 +37,36 @@
 
                             <div class="card-body">
                             <h3> Detail Asset</h3><br/>
-                            @foreach($asset as $assets)
+                        
 
                             <small class="text-muted">nama asset  </small>
-                                <h6>{{$assets->ass_name}}</h6>
+                                <h6>{{$asset->ass_name}}</h6>
                             <small class="text-muted">asset kategori </small>
-                                <h6>{{$assets->asc_name}} </h6>
+                                <h6>{{$asset->asc_name}} </h6>
                               <small class="text-muted">type aset  </small>
-                                <h6>{{$assets->ast_name}}</h6>
+                                <h6>{{$asset->ast_name}}</h6>
                                <small class="text-muted">Asal asset  </small>
-                                <h6>{{$assets->ori_name}}</h6>
+                                <h6>{{$asset->ori_name}}</h6>
                               <small class="text-muted">tahun pengayaan  </small>
-                                <h6>{{$assets->ass_year}}</h6>
+                                <h6>{{$asset->ass_year}}</h6>
                               <small class="text-muted">kode registrasi  </small>
-                                <h6>{{$assets->ass_registration_code}}</h6>
+                                <h6>{{$asset->ass_registration_code}}</h6>
+                            <small class="text-muted">Material  </small>
+                                <h6>{{$asset->asd_inggridient}}</h6>
+                                  <small class="text-muted">Merk  </small>
+                                <h6>{{$asset->asd_merk}}</h6>
+                                  <small class="text-muted">spesifikasi  </small>
+                                <h6>{{$asset->asd_spesification}}</h6>
+                                @if($asset->asd_voltage != null)
+                                     <small class="text-muted">Material  </small>
+                                <h6>{{$asset->asd_inggridient}}</h6>
+                                @endif
+                                  <small class="text-muted">Kondisi  </small>
+                                <h6>{{$asset->asd_condition}}</h6> 
                               <small class="text-muted">Harga  </small>
-                                <h6>{{$assets->ass_price}}</h6>
-                            @endforeach
+                                <h6>{{$asset->ass_price}}</h6>
+                          
+                     
 
                             </div>
                         </div>
