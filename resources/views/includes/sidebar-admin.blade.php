@@ -31,7 +31,7 @@
                         </li>
 
                         <li>
-                        <a class="waves-effect waves-dark" href="{{URL::to('admin/manageUsers')}}" aria-expanded="false">
+                        <a class="waves-effect waves-dark" href="{{URL::to('admin/user')}}" aria-expanded="false">
                                 <i class="mdi mdi-account"></i>
                                 <span class="hide-menu">Kelola User</span>
                         </a>

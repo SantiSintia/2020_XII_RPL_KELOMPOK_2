@@ -49,17 +49,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($users as $no => $user)
                                             <tr>
-                                                <td>1</td>
-                                                <td>student</td>
-                                                <td>student@gmail.com</td>
+                                                <td>{{$no+1}}</td>
+                                                <td>{{$user->usr_name}}</td>
+                                                <td>{{$user->usr_email}}</td>
                                                 <td><label class="label label-warning">Active</label></td>                                            
                                                 <td>
                                                     <a href="" class="btn btn-primary">Non Active</a>
-                                                    <a href="{{URL::to('user/detail')}}" class="btn btn-primary">Detail</a>                                                  
+                                                    <a href="{{URL::to('admin/detailUser/'.$user->usr_id)}}" class="btn btn-primary">Detail</a>                                                  
                                                 </td>
-                                                
-                                            </tr>                                            
+                                            </tr>  
+                                        @endforeach                                          
                                                                               
                                          
                                             </tr>
