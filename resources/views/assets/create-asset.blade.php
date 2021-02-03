@@ -81,10 +81,42 @@
                                        placeholder="Tahun Pengayaan">
                             </div>
                         </div>
+                        <div class="form-group row" >
+                              <label class="control-label text-right col-md-3">Kategori</label>
+                               <div class="col-md-9">
+                                <select id="kategori" onchange="myFunction()" name="kategori" class="form-control custom-select">
+                                    <option selected="true" checked="true">Pilih</option>
+                                    @foreach($asset_categories as $data)
+                                        <option value="{{$data->asc_name}}">{{$data->asc_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        
+                            
+                        </div>
+
+                        <div id="jk">   </div>
+                        <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Kondisi</label>
+                            <div class="col-md-9">
+                                <select name="asset_condition" class="form-control custom-select">
+                                    <option selected="true" checked="true">Pilih </option>
+                                     <option selected="true" checked="true">Baru</option>
+                                     <option selected="true" checked="true">bekas</option>
+                                   
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Harga</label>
                             <div class="col-md-9">
                                 <input name="asset_price" type="number" class="form-control" placeholder="Harga">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Jumlah</label>
+                            <div class="col-md-9">
+                                <input name="total" type="number" class="form-control" placeholder="Jumlah">
                             </div>
                         </div>
 
@@ -106,6 +138,18 @@
             </div>
         </div>
     </div>
+
+    <script >
+        function myFunction() {
+            var x = document.getElementById("kategori").value;
+            if (x == "Elektronik") {
+                document.getElementById("jk").innerHTML = '<div class="form-group row"><label class="control-label text-right col-md-3">bahan</label><div class="col-md-9"><input name="asd_inggridient" type="text" class="form-control" placeholder="Bahan"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">Merk</label><div class="col-md-9"><input name="asd_merk" type="text" class="form-control" placeholder="Merk"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">spesifikasi</label><div class="col-md-9"><input name="asd_spesification" type="text" class="form-control" placeholder="Spesifikasi"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">voltase</label><div class="col-md-9"><input name="asd_voltage" type="text" class="form-control" placeholder="Voltase"></div></div></div>';
+            }else{
+                 document.getElementById("jk").innerHTML = '<div class="form-group row"><label class="control-label text-right col-md-3">bahan</label><div class="col-md-9"><input name="asd_inggridient" type="text" class="form-control" placeholder="Bahan"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">Merk</label><div class="col-md-9"><input name="asd_merk" type="text" class="form-control" placeholder="Merk"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">spesifikasi</label><div class="col-md-9"><input name="asd_spesification" type="text" class="form-control" placeholder="Spesifikasi"></div></div></div>';
+            }
+        }
+        
+    </script>
 
     @push('scripts')
         <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>

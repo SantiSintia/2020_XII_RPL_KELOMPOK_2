@@ -58,8 +58,8 @@
                                   <small class="text-muted">spesifikasi  </small>
                                 <h6>{{$asset->asd_spesification}}</h6>
                                 @if($asset->asd_voltage != null)
-                                     <small class="text-muted">Material  </small>
-                                <h6>{{$asset->asd_inggridient}}</h6>
+                                     <small class="text-muted">Voltase  </small>
+                                <h6>{{$asset->asd_voltage}}</h6>
                                 @endif
                                   <small class="text-muted">Kondisi  </small>
                                 <h6>{{$asset->asd_condition}}</h6> 

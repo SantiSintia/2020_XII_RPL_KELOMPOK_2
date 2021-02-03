@@ -7,6 +7,7 @@ use App\asset_categories;
 use App\asset_types;
 use App\Http\Controllers\Controller;
 use App\Origin;
+use App\asset_description;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,6 +43,7 @@ class AssetController extends Controller
     {
         $data ['origin'] = Origin::select('ori_id' , 'ori_name')->get();
         $data ['assets'] = asset_types::select('ast_id' , 'ast_name')->get();
+        $data ['asset_categories']=asset_categories::select('asc_id','asc_name')->get();
         return view('assets.create-asset', $data);
     }
 
@@ -53,13 +55,21 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
+
+       
+        $jumlah=$request->input('total');
+        for ($i=0; $i <$jumlah ; $i++) { 
+            // dd($i);
+        
         $type = asset_types::whereAstId($request->input('type_asset'))->first();
         $origin  = Origin::whereOriId($request->input('asset_origin'))->first();
+        // dd($request->input('asset_origin'));
         $assets = Asset::whereAssAssetTypeId($request->input('type_asset'))
             ->count();
         $reg_code = str_pad($assets + 1 , 3, '0', STR_PAD_LEFT);
 
-
+        
+        
         $asset = new Asset();
         $asset->ass_asset_category_id = $type->ast_asset_categories_id;
         $asset->ass_asset_type_id = $request->input('type_asset');
@@ -70,7 +80,19 @@ class AssetController extends Controller
         $asset->ass_price = $request->input('asset_price');
         $asset->ass_created_by  =  Auth::user()->usr_id;
         $asset->save();
+        $last_ass_id=$asset->id;
+        $descriptions= new asset_description();
+        $descriptions->asd_ass_id=$last_ass_id;
+        $descriptions->asd_inggridient=$request->input('asd_inggridient');
+        $descriptions->asd_merk=$request->input('asd_merk');
+        $descriptions->asd_spesification=$request->input('asd_spesification');
+        $descriptions->asd_condition=$request->input('asset_condition');
+         $descriptions->asd_voltage=$request->input('asd_voltage');
+         $descriptions->save();
+        // $descriptions->ass_id;
+     }
         return redirect('asset')->withSuccess($request->input('asset_name'). '  berhasil disimpan');
+    
 
     }
 
