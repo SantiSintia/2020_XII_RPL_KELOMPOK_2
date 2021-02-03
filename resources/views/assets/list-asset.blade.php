@@ -22,7 +22,7 @@ Asset
 @endpush
 
 @section('content')
-<div class="container-fluid">
+
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Asset</h3>
@@ -37,8 +37,7 @@ Asset
                                 <h4 class="card-title">Data Asset</h4>
                                 <div class="box-header">
                                     <p>
-                                        <a href="{{URL::to('asset/create')}}" class="btn btn-sm btn-flat btn-success"><i class="fa fa-plus"></i>Tambah</a><br>
-                                        <br>
+                                        <a href="{{URL::to('asset/create')}}" class="btn btn-success btn-rounded m-t-10 float-right"><i class="fa fa-plus"></i>Tambah</a>
                                     </p>
                                 </div>
 
@@ -67,7 +66,7 @@ Asset
                                 </div>
                             </div>
                         </div>
-</div>
+
 @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->

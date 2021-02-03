@@ -22,7 +22,7 @@ Pinjam Barang
 @endpush
 
 @section('content')
-<div class="container-fluid">
+
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Peminjaman</h3>
@@ -74,7 +74,7 @@ Pinjam Barang
                         </div>
                     </div>
                 </div>
-</div>
+
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->

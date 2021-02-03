@@ -1,98 +1,111 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register Siswa') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" id="submitForm">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="usr_name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="usr_name" type="text" class="form-control @error('usr_name') is-invalid @enderror" name="usr_name" value="{{ old('usr_name') }}" autocomplete="usr_name" autofocus>
-
-                                @error('usr_name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+<div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <center class="m-t-30"> <img src="../assets/images/users/5.jpg" class="img-circle" width="150">
+                                    <h4 class="card-title m-t-10">{{ Auth::user()->usr_name }}</h4>
+                                    <h6 class="card-subtitle">Admin</h6>
+                                    <div class="row text-center justify-content-md-center">
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div>
+                                <hr> </div>
+                            <div class="card-body"> 
+                                <small class="text-muted">Email address </small>
+                                    <h6>{{ Auth::user()->usr_email }}</h6> 
+                                <small class="text-muted p-t-30 db">Phone</small>
+                                    <h6>{{ Auth::user()->usr_phone }}</h6> 
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="usr_email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="usr_email" type="email" class="form-control @error('usr_email') is-invalid @enderror" name="usr_email" value="{{ old('usr_email') }}" autocomplete="usr_email">
-
-                                @error('usr_email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs profile-tab" role="tablist">
+                                <li class="nav-item"> <a class="nav-link show active" data-toggle="tab" href="#profile" role="tab" aria-selected="true">Profile</a> </li>
+                                <li class="nav-item"> <a class="nav-link show" data-toggle="tab" href="#settings" role="tab" aria-selected="false">Settings</a> </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane show active" id="profile" role="tabpanel">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Nama</strong>
+                                                <br>
+                                                <p class="text-muted">{{ Auth::user()->usr_name }}</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Jenis Kelamin</strong>
+                                                <br>
+                                                <p class="text-muted">{{ Auth::user()->usr_gender }}</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Status</strong>
+                                                <br>
+                                                <p class="text-muted">{{ Auth::user()->usr_is_active }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane show" id="settings" role="tabpanel">
+                                    <div class="card-body">
+                                        <form class="form-horizontal form-material">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Full Name</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="example-email" class="col-md-12">Email</label>
+                                                <div class="col-md-12">
+                                                    <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Password</label>
+                                                <div class="col-md-12">
+                                                    <input type="password" value="password" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Phone No</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Message</label>
+                                                <div class="col-md-12">
+                                                    <textarea rows="5" class="form-control form-control-line"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-12">Select Country</label>
+                                                <div class="col-sm-12">
+                                                    <select class="form-control form-control-line">
+                                                        <option>London</option>
+                                                        <option>India</option>
+                                                        <option>Usa</option>
+                                                        <option>Canada</option>
+                                                        <option>Thailand</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <button class="btn btn-success">Update Profile</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="usr_phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
-
-                            <div class="col-md-6" id="only-number">
-                                <input id="usr_phone" value="{{ old('usr_phone') }}" type="text" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone" autocomplete="off">
-
-                                @error('usr_phone')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
-
-                                @error('usr_password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6">
-                                <input type="hidden" name="role" value="1">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" id="btnSubmit">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
+                    <!-- Column -->
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection

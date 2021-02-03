@@ -21,7 +21,7 @@ Tambah Type Asset
 @endpush
 
 @section('content')
-<div class="container-fluid">
+
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Asset</h3>
@@ -81,7 +81,7 @@ Tambah Type Asset
                         </div>
                     </div>
                 </div>
-</div>
+
  @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->

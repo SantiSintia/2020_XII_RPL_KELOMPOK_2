@@ -22,7 +22,7 @@ Tambah Kategori Asset
 @endpush
 
 @section('content')
-<div class="container-fluid">
+
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Asset</h3>
@@ -104,7 +104,7 @@ Tambah Kategori Asset
                         </div>
                     </div>
                 </div>
-</div>
+                
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
     $('#types').on('change', function (e) {

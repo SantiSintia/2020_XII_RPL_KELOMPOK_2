@@ -22,7 +22,6 @@ Kategori Asset
 @endpush
 
 @section('content')
-<div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Asset</h3>
@@ -38,7 +37,7 @@ Kategori Asset
                                 <h4 class="card-title">Data Kategori Asset</h4>
                                 <div class="box-header">
                                     <p>
-                                        <a href="{{URL::to('categoryAsset/create')}}" class="btn btn-sm btn-flat btn-success"><i class="fa fa-plus"></i>Tambah</a>
+                                        <a href="{{URL::to('categoryAsset/create')}}" class="btn btn-success btn-rounded m-t-10 float-right"><i class="fa fa-plus"></i>Tambah</a>
                                     </p>
                                 </div>
 
@@ -70,7 +69,6 @@ Kategori Asset
                                 </div>
                             </div>
                         </div>
-</div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
