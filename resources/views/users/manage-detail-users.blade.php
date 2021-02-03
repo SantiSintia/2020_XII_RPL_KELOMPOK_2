@@ -22,6 +22,7 @@
 @endpush
 
 @section('content')
+<<<<<<< HEAD
 
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
@@ -32,40 +33,48 @@
                         </ol>
                     </div>
                 </div>
+=======
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12 ">
+>>>>>>> e3bf7af130d084805e00674da96ca53840a7237d
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Detail Users</h4>
-                              
-                                <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Username</th>
-                                                <th>Email</th>
-                                                <th>Nis</th>
-                                                <th>Kelas</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>student</td>
-                                                <td>student@gmail.com</td>
-                                                <td>1819.10.222</td>
-                                                <td>XII</td>
-                                                
-                                            </tr>                                            
-                                                                              
-                                         
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
+                                    <h4 class="card-title m-t-10">kursi siswa 1</h4>
+
+                                   
+                                </center>
+                            </div>
+
+                            <div class="card-body">
+                            <h3> Detail User</h3><br/>
+                        
+
+                            <small class="text-muted">Nama  </small>
+                                <h6>{{$user->usr_name}}</h6>
+                            <small class="text-muted">Jabatan  </small>
+                                <h6>{{$role->name}}</h6>
+                            <small class="text-muted">NIP/NiS  </small>
+                                <h6>{{$user->tc_nip}}</h6>
+                            <small class="text-muted">Email </small>
+                                <h6>{{$user->usr_email}} </h6>
+                            <small class="text-muted">Jenis Kelamin</small>
+                                <h6>{{$user->usr_gender}}</h6>
+                            <small class="text-muted">Status</small>
+                                <h6>{{$user->usr_is_active}}</h6>
+                                
                             </div>
                         </div>
+<<<<<<< HEAD
 
+=======
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <!-- Column -->
+                </div>
+>>>>>>> e3bf7af130d084805e00674da96ca53840a7237d
   @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->

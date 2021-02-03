@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Teacher;
+use App\Student;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -58,19 +60,32 @@ class AdminPageController extends Controller
     	
     }
 
-   	public function manageAssets()
-   	{
-   		return view('assets.manage-assets');
-   	}
+   	// public function manageAssets()
+   	// {
+   	// 	return view('assets.manage-assets');
+   	// }
 
    	public function manageUsers()
    	{
-   		return view('users.manage-users');
+      $users = User::all();
+   		return view('users.manage-users', compact('users'));
    	}
 
-    public function detail()
+    public function detail($id)
     {
-      return view('users.manage-detail-users');
+      $role    = User::join('roles', 'usr_id', '=' , 'id')
+                     ->whereUsrId($id)->first();
+      if($role->name == "teacher")
+      {
+      $user = User::join('teachers','usr_id','=','tc_usr_id')
+                     ->whereUsrId($id)->first();
+      }else
+      {
+      $user = User::join('students','usr_id','=','std_usr_id')
+                     ->whereUsrId($id)->first();
+      }
+      
+      return view('users.manage-detail-users', compact('user','role'));
     }
 
     
