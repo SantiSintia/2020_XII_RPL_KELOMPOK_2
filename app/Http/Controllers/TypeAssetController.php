@@ -48,24 +48,32 @@ class TypeAssetController extends Controller
             'ast_type'           => 'required',
             'ast_name'           => 'required|min:1'
         ]);
-        $type = asset_types::where('ast_asset_categories_id' , $request->input('ast_type'))
-            ->OrderBy('ast_original_code' , 'DESC')
-            ->first();
-        if ($type){
-            $max_num_type = $type->ast_original_code + 1 ;
-        } else {
-            $max_num_type = 1 ;
-        }
+        $ast_name = asset_types::whereAstName($request->ast_name)->first();
+        if($ast_name)
+        {
+            Alert::error('Gagal', $request->input('ast_name') .  ' sudah Tersedia');
+            return back();
+        }else{
 
-        $cat = asset_categories::whereAscId($request->input('ast_type'))->first();
-        $create = new  asset_types();
-        $create->ast_asset_categories_id = $cat->asc_id;
-        $create->ast_code =  $cat->asc_code . '.' . str_pad($max_num_type, 3, '0', STR_PAD_LEFT) ;
-        $create->ast_original_code = $max_num_type ;
-        $create->ast_name = $request->input('ast_name') ;
-        $create->ast_created_by = Auth::user()->usr_id;
-        $create->save();
-        return redirect('typeAsset')->withSuccess($request->input('ast_name'). '  berhasil disimpan');
+            $type = asset_types::where('ast_asset_categories_id' , $request->input('ast_type'))
+                ->OrderBy('ast_original_code' , 'DESC')
+                ->first();
+            if ($type){
+                $max_num_type = $type->ast_original_code + 1 ;
+            } else {
+                $max_num_type = 1 ;
+            }
+
+            $cat = asset_categories::whereAscId($request->input('ast_type'))->first();
+            $create = new  asset_types();
+            $create->ast_asset_categories_id = $cat->asc_id;
+            $create->ast_code =  $cat->asc_code . '.' . str_pad($max_num_type, 3, '0', STR_PAD_LEFT) ;
+            $create->ast_original_code = $max_num_type ;
+            $create->ast_name = $request->input('ast_name') ;
+            $create->ast_created_by = Auth::user()->usr_id;
+            $create->save();
+            return redirect('typeAsset')->withSuccess($request->input('ast_name'). '  berhasil disimpan');
+        }
     }
 
     /**
