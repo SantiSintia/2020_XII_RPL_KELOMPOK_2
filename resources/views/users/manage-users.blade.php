@@ -54,9 +54,13 @@
                                                 <td>{{$no+1}}</td>
                                                 <td>{{$user->usr_name}}</td>
                                                 <td>{{$user->usr_email}}</td>
-                                                <td><label class="label label-warning">Active</label></td>                                            
+                                                <td><label class="label {{ ($user->usr_is_active == 1) ? 'label-success' : 'label-danger'}}">{{ ($user->usr_is_active == 1) ? 'Aktif' : 'Tidak Aktif' }}</label></td>                                            
                                                 <td>
-                                                    <a href="" class="btn btn-primary">Non Active</a>
+                                                    @if($user->usr_is_active == 1)
+                                                    <a href="{{url('admin/user/status/'.$user->usr_id)}}" class="btn btn-danger">Non Active</a>
+                                                    @else
+                                                    <a href="{{url('admin/user/status/'.$user->usr_id)}}" class="btn btn-success">Active</a>
+                                                    @endif
                                                     <a href="{{URL::to('admin/detailUser/'.$user->usr_id)}}" class="btn btn-primary">Detail</a>                                                  
                                                 </td>
                                             </tr>  

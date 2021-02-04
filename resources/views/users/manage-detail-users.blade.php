@@ -22,22 +22,19 @@
 @endpush
 
 @section('content')
-<<<<<<< HEAD
 
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Users</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-                            <li class="breadcrumb-item active">Kelola Detail User</li>
+                            <li class="breadcrumb-item active">Detail User</li>
                         </ol>
                     </div>
                 </div>
-=======
                 <div class="row">
                     <!-- Column -->
                     <div class="col-lg-12 ">
->>>>>>> e3bf7af130d084805e00674da96ca53840a7237d
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
@@ -66,15 +63,11 @@
                                 
                             </div>
                         </div>
-<<<<<<< HEAD
-
-=======
                     </div>
                     <!-- Column -->
                     <!-- Column -->
                     <!-- Column -->
                 </div>
->>>>>>> e3bf7af130d084805e00674da96ca53840a7237d
   @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->

@@ -9,6 +9,8 @@ use App\Student;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class AdminPageController extends Controller
 {
     /**
@@ -67,7 +69,7 @@ class AdminPageController extends Controller
 
    	public function manageUsers()
    	{
-      $users = User::all();
+      $users =User::where('role_id',2)->orwhere('role_id',3)->get();
    		return view('users.manage-users', compact('users'));
    	}
 
@@ -77,15 +79,33 @@ class AdminPageController extends Controller
                      ->whereUsrId($id)->first();
       if($role->name == "teacher")
       {
-      $user = User::join('teachers','usr_id','=','tc_usr_id')
-                     ->whereUsrId($id)->first();
+      $user = User::join('teachers','users.usr_id','=','tc_usr_id')
+                     ->where('users.usr_id',$id)->first();
       }else
       {
-      $user = User::join('students','usr_id','=','std_usr_id')
-                     ->whereUsrId($id)->first();
+      $user = User::join('students','users.usr_id','=','std_usr_id')
+                     ->where('users.usr_id',$id)->first();
       }
       
-      return view('users.manage-detail-users', compact('user','role'));
+      return view('users.manage-detail-users', compact(['user','role']));
+    }
+
+    public function status($id)
+    {
+      $data = \DB::table('users')->where('usr_id',$id)->first();
+
+      $status_sekarang = $data->usr_is_active;
+
+      if ($status_sekarang == 1) {
+         \DB::table('users')->where('usr_id',$id)->update([
+            'usr_is_active'=>0
+         ]);
+      }else{
+        \DB::table('users')->where('usr_id',$id)->update([
+            'usr_is_active'=>1
+         ]);
+      }
+      return redirect('admin/user')->withSuccess('Data telah di ubah');;
     }
 
     

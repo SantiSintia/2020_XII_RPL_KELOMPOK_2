@@ -54,6 +54,8 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::post('admin/change-profile', 'AdminPageController@saveChangeProfile');
     Route::get('admin/user', 'AdminPageController@manageUsers');
     Route::get('admin/detailUser/{id}', 'AdminPageController@detail');
+    Route::get('admin/user/status/{id}', 'AdminPageController@status');
+
 
     Route::get('/create/categori-primary','CategoryAssetController@StoreCatPrimary');
     Route::get('categoryAsset', 'CategoryAssetController@index');

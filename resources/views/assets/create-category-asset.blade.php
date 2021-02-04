@@ -59,14 +59,14 @@ Tambah Kategori Asset
                                             <button type="button" class="btn  btn-dark" data-toggle="modal" data-target="#createPrimaryCat">Tambah kategori Utama</button>
                                         </div>
                                     </div>
-{{--                                    <div class="form-group row">--}}
-{{--                                        <label class="control-label text-right col-md-3"> Jenis Kategori</label>--}}
-{{--                                        <div class="col-md-9">--}}
-{{--                                            <select name="categories" class="form-control custom-select" id="categories">--}}
-{{--                                                <option></option>--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    <div class="form-group row">
+                                        <label class="control-label text-right col-md-3"> Jenis Kategori</label>--}}
+                                        <div class="col-md-9">
+                                            <select name="categories" class="form-control custom-select" id="categories">--}}
+                                                <option></option>
+                                            </select>
+                                            </div>
+                                        </div>
 
 
                                         <div class="form-group row">
@@ -75,18 +75,18 @@ Tambah Kategori Asset
                                                 <input name="asc_name" type="text" class="form-control" placeholder="Nama Sub Kategori">
                                             </div>
                                         </div>
-{{--                                        <div class="form-group row">--}}
-{{--                                            <label class="control-label text-right col-md-3">Kode Asli</label>--}}
-{{--                                            <div class="col-md-9">--}}
-{{--                                                <input name="asc_original_code" type="text" class="form-control" placeholder="kode asli">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="form-group row">--}}
-{{--                                            <label class="control-label text-right col-md-3">Kode Kategori</label>--}}
-{{--                                            <div class="col-md-9">--}}
-{{--                                                <input name="asc_code" type="text" class="form-control" placeholder="kode kategori">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Kode Asli</label>--}}
+                                            <div class="col-md-9">
+                                                <input name="asc_original_code" type="text" class="form-control" placeholder="kode asli">--}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="control-label text-right col-md-3">Kode Kategori</label>--}}
+                                            <div class="col-md-9">
+                                                <input name="asc_code" type="text" class="form-control" placeholder="kode kategori">--}}
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-actions">
                                         <div class="row">
