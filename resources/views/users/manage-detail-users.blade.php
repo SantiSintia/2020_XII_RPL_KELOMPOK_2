@@ -38,7 +38,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
-                                    <h4 class="card-title m-t-10">kursi siswa 1</h4>
+                                    <h4 class="card-title m-t-10">Detail User</h4>
 
                                    
                                 </center>
