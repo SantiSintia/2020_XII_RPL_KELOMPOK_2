@@ -90,10 +90,21 @@
                                         <option value="{{$data->asc_name}}">{{$data->asc_name}}</option>
                                     @endforeach
                                 </select>
-                            </div>
-                        
-                            
+                            </div>                           
                         </div>
+
+                        <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Status</label>
+                            <div class="col-md-9">
+                                <select name="ass_status" class="form-control custom-select">
+                                    <option selected="true" checked="true">Pilih </option>
+                                     <option selected="true" checked="true" value="0">TIdak Bisa dipinjam</option>
+                                     <option selected="true" checked="true" value="1">Bisa dipinjam</option>
+                                   
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div id="jk">   </div>
                         <div class="form-group row">

@@ -29,7 +29,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
-                                    <h4 class="card-title m-t-10">kursi siswa 1</h4>
+                                    <h4 class="card-title m-t-10">{{$asset->ast_name}}</h4>
 
                                    
                                 </center>
@@ -39,9 +39,9 @@
                             <h3> Detail Asset</h3><br/>
                         
 
-                            <small class="text-muted">nama asset  </small>
+                              <small class="text-muted">nama asset  </small>
                                 <h6>{{$asset->ass_name}}</h6>
-                            <small class="text-muted">asset kategori </small>
+                              <small class="text-muted">asset kategori </small>
                                 <h6>{{$asset->asc_name}} </h6>
                               <small class="text-muted">type aset  </small>
                                 <h6>{{$asset->ast_name}}</h6>
@@ -51,17 +51,26 @@
                                 <h6>{{$asset->ass_year}}</h6>
                               <small class="text-muted">kode registrasi  </small>
                                 <h6>{{$asset->ass_registration_code}}</h6>
-                            <small class="text-muted">Material  </small>
+                              <small class="text-muted">Status</small>
+                                @if($asset->ass_status == 0)
+                                <h6>TIdak bisa dipinjam</label></h6>
+                                @endif
+
+                                @if($asset->ass_status == 1)
+                                <h6>Bisa dipinjam</h6>
+                                @endif
+
+                              <small class="text-muted">Material  </small>
                                 <h6>{{$asset->asd_inggridient}}</h6>
-                                  <small class="text-muted">Merk  </small>
+                              <small class="text-muted">Merk  </small>
                                 <h6>{{$asset->asd_merk}}</h6>
-                                  <small class="text-muted">spesifikasi  </small>
+                              <small class="text-muted">spesifikasi  </small>
                                 <h6>{{$asset->asd_spesification}}</h6>
                                 @if($asset->asd_voltage != null)
-                                     <small class="text-muted">Voltase  </small>
+                              <small class="text-muted">Voltase  </small>
                                 <h6>{{$asset->asd_voltage}}</h6>
                                 @endif
-                                  <small class="text-muted">Kondisi  </small>
+                              <small class="text-muted">Kondisi  </small>
                                 <h6>{{$asset->asd_condition}}</h6> 
                               <small class="text-muted">Harga  </small>
                                 <h6>{{$asset->ass_price}}</h6>

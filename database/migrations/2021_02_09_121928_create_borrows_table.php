@@ -17,10 +17,6 @@ class CreateBorrowsTable extends Migration
             $table->bigIncrements('brw_id');
             $table->unsignedBigInteger('brw_usr_id');
             $table->unsignedBigInteger('brw_ass_id');
-            $table->unsignedBigInteger('brw_amount');
-            $table->date('brw_date');
-            $table->string('brw_licensor');
-            $table->boolean('brw_status');
 
             $table->unsignedBigInteger('brw_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('brw_updated_by')->unsigned()->nullable();

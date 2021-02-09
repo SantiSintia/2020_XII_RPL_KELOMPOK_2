@@ -75,11 +75,12 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
 
 
     Route::get('lists-borrow', 'BorrowsController@index');
-    Route::get('lists-borrow/verify', 'BorrowsController@verify');
+    Route::get('borrows-asset', 'BorrowsController@borrowsItem');
+    Route::get('borrows-asset/{id}', 'BorrowsController@save');
+    Route::get('borrows-asset/verify/{id}', 'BorrowsController@verify');
     Route::get('lists-borrow/detail', 'BorrowsController@detail');
 
 
-    Route::get('borrows-item', 'BorrowsController@borrowsItem');
 
     Route::get('return/add', 'BorrowsController@returnAdd');
     Route::get('return/list-return', 'BorrowsController@listreturn');

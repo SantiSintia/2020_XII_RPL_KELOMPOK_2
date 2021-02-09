@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Borrow extends Model
 {
     protected $guarded = [];
-    protected $primaryKey = 'std_id';
+    protected $primaryKey = 'brw_id';
 
 }

@@ -43,23 +43,36 @@ List Peminjaman
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
                                                 <th>Nama Asset</th>
-                                                <th>Jumlah Pinjam</th>
                                                 <th>Status</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($borrows as $no => $borrow)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Rinaldi</td>
-                                                <td>Kursi 1</td>
-                                                <td>1</td>
-                                                <td><label class="label label-danger">Menunggu Verifikasi</label></td>
+                                                <td>{{$no+1}}</td>
+                                                <td>{{$borrow->usr_name}}</td>
+                                                <td>{{$borrow->ass_name}}</td>
+
+                                                @if($borrow->ass_status == 2)
+                                                <td><label class="label label-warning">Menunggu Verifikasi</label></td>
+                                                @endif
+
+                                                @if($borrow->ass_status == 3)
+                                                <td><label class="label label-success">Sedang dipinjam</label></td>
+                                                @endif
+
                                                 <td>
-                                                    <a href="{{URL::to('lists-borrow/verify')}}" class="btn btn-primary">Verifikasi</a>
-                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-success">Detail</a>
+                                                @if($borrow->ass_status == 2)
+                                                    <a href="{{URL::to('borrows-asset/verify/'.$borrow->ass_id)}}" class="btn btn-primary">Verifikasi</a>
+                                                @else($borrow->ass_status == 3)
+                                                    <a href="" class="btn btn-success">kembalikan</a>
+                                                @endif
+                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-primary">Detail</a>
                                                 </td> 
-                                            </tr>                                            
+
+                                            </tr>  
+                                        @endforeach                                          
                                                                               
                                          
                                             </tr>

@@ -22,6 +22,7 @@ class CreateAssetsTable extends Migration
             $table->string('ass_registration_code')->unique();
             $table->string('ass_name');
             $table->string('ass_price')->nullable();
+            $table->boolean('ass_status');
 
             $table->unsignedBigInteger('ass_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('ass_updated_by')->unsigned()->nullable();

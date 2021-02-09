@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+use App\Asset;
+use App\Borrow;
+use Illuminate\Support\Facades\Auth;
+
 
 class BorrowsController extends Controller
 {
@@ -14,13 +19,15 @@ class BorrowsController extends Controller
      */
     public function index()
     {
-        return view('borrows.lists-borrow');
+        $borrows = Borrow::join('users','brw_usr_id','=','usr_id')
+                         ->join('assets','brw_ass_id','=','ass_id')
+                         ->get();
+
+        // dd($borrows);
+        return view('borrows.lists-borrow', compact('borrows'));
+        
     }
-    public function verify()
-    {
-        return view('borrows.verify-borrow');
-    }
-    
+
     public function detail()
     {
         return view('borrows.detail-borrow');
@@ -28,7 +35,33 @@ class BorrowsController extends Controller
     
     public function borrowsItem()
     {
-        return view('borrows.borrows-item');
+        $assets = Asset::where('ass_status',1)->orwhere('ass_status',2)->get();
+        return view('borrows.borrows-item', compact('assets'));
+    }
+
+    public function save(Request $request, $id)
+    {
+        $assets = Asset::whereAssId($id)->first();
+        $assets->ass_status = 2;
+
+        $borrow = new Borrow();
+        $borrow->brw_ass_id = $id;
+        $borrow->brw_usr_id = Auth::user()->usr_id;
+        $borrow->save();
+
+        $assets->save();
+        return redirect('lists-borrow');
+
+    }
+
+    public function verify($id)
+    {
+        
+        $assets = Asset::whereAssId($id)->first();
+        $assets->ass_status = 3;
+        $assets->save();
+        return redirect('lists-borrow');
+
     }
 
     public function returnAdd()

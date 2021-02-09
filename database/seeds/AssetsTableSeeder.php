@@ -19,7 +19,8 @@ class AssetsTableSeeder extends Seeder
             'ass_year' => '2016',
             'ass_registration_code' => '001/P01.001/INV.YYS/2016',
             'ass_name' => 'Kursi Siswa ke 1',
-            'ass_price' => '50000'
+            'ass_price' => '50000',
+            'ass_status'=> 1
             ]);
     	
        DB::table('assets')->insert([
@@ -29,7 +30,8 @@ class AssetsTableSeeder extends Seeder
             'ass_year' => '2016',
             'ass_registration_code' => '002/P01.001/INV.YYS/2016',
             'ass_name' => 'Kursi Siswa ke 2',
-            'ass_price' => '50000'
+            'ass_price' => '50000',
+            'ass_status'=> 1
             ]);
     	
        DB::table('assets')->insert([
@@ -39,7 +41,8 @@ class AssetsTableSeeder extends Seeder
             'ass_year' => '2016',
             'ass_registration_code' => '001/P01.002/INV.YYS/2016',
             'ass_name' => 'Kursi Guru ke 1',
-            'ass_price' => '50000'
+            'ass_price' => '50000',
+            'ass_status'=> 1
             ]);
     	
        DB::table('assets')->insert([
@@ -49,7 +52,8 @@ class AssetsTableSeeder extends Seeder
             'ass_year' => '2016',
             'ass_registration_code' => '002/P01.002/INV.YYS/2016',
             'ass_name' => 'Kursi Guru ke 2',
-            'ass_price' => '50000'
+            'ass_price' => '50000',
+            'ass_status'=> 1
             ]);
     	
        DB::table('assets')->insert([
@@ -59,7 +63,8 @@ class AssetsTableSeeder extends Seeder
             'ass_year' => '2016',
             'ass_registration_code' => '001/P01.003/INV.YYS/2016',
             'ass_name' => 'Kursi Tunggu ke 1',
-            'ass_price' => '50000'
+            'ass_price' => '50000',
+            'ass_status'=> 1
             ]);
 
        DB::table('assets')->insert([
@@ -69,7 +74,8 @@ class AssetsTableSeeder extends Seeder
             'ass_year' => '2016',
             'ass_registration_code' => '002/P01.003/INV.YYS/2016',
             'ass_name' => 'Kursi Tunggu ke 2',
-            'ass_price' => '50000'
+            'ass_price' => '50000',
+            'ass_status'=> 1
             ]);
 
        DB::table('assets')->insert([
@@ -79,7 +85,8 @@ class AssetsTableSeeder extends Seeder
             'ass_year' => '2016',
             'ass_registration_code' => '001/P01.004/INV.YYS/2016',
             'ass_name' => 'Kursi Set ke 1',
-            'ass_price' => '50000'
+            'ass_price' => '50000',
+            'ass_status'=> 1
             ]);
 
        DB::table('assets')->insert([
@@ -89,7 +96,8 @@ class AssetsTableSeeder extends Seeder
             'ass_year' => '2016',
             'ass_registration_code' => '002/P01.004/INV.YYS/2016',
             'ass_name' => 'Kursi Set ke 2',
-            'ass_price' => '50000'
+            'ass_price' => '50000',
+            'ass_status'=> 2
             ]);
     }
 }

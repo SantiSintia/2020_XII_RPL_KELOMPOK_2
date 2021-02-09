@@ -13,11 +13,7 @@ class BorrowsTableSeeder extends Seeder
     {
          DB::table('borrows')->insert([
             'brw_usr_id' => 3,
-            'brw_ass_id' => 1,
-            'brw_amount' => 1,
-            'brw_date' => '2021/02/09',
-            'brw_licensor' => 'Bu Rifka',
-            'brw_status' => 1
+            'brw_ass_id' => 8,
             ]);
         
     }

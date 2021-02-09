@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 namespace App\Http\Controllers;
 
@@ -84,13 +84,14 @@ class AssetController extends Controller
         $asset = new Asset();
         $asset->ass_asset_category_id = $type->ast_asset_categories_id;
         $asset->ass_asset_type_id = $request->input('type_asset');
-        $asset->ass_origin_id   =  $request->input('asset_origin') ;
+        $asset->ass_origin_id   =  $request->input('asset_origin');
         $asset->ass_year   = $request->input('asset_year') ;
         $asset->ass_registration_code   = $reg_code .'/'. $type->ast_code . '/' . $origin->ori_code . '/' . $request->input('asset_year'); // 001/P01.001/INV.YYS/2016
         if ($count > 0) {
             if ($check_name == null) {
         $asset->ass_name   = $request->input('asset_name') . ' ke ' . $i;
         $asset->ass_price = $request->input('asset_price');
+        $asset->ass_status = $request->input('ass_status');
         $asset->ass_created_by  =  Auth::user()->usr_id;
         //dd($asset);
         $asset->save();
