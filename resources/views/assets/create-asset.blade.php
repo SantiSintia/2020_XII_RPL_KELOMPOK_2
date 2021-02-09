@@ -47,14 +47,14 @@
                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nama Aset</label>
                             <div class="col-md-9">
-                                <input name="asset_name" type="text" placeholder="Nama Aset" class="form-control">
+                                <input name="asset_name" type="text" placeholder="Nama Aset" class="form-control" required="">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Tipe Aset</label>
                             <div class="col-md-9">
-                                <select name="type_asset" class="form-control custom-select">
+                                <select name="type_asset" class="form-control custom-select" required="">
                                     <option selected="true" checked="true">Pilih</option>
                                     @foreach($assets as $data)
                                         <option value="{{$data->ast_id}}">{{$data->ast_name}}</option>
@@ -77,14 +77,14 @@
                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Tahun Pengayaan</label>
                             <div class="col-md-9">
-                                <input name="asset_year" type="number" class="form-control"
+                                <input name="asset_year" required="" type="number" class="form-control"
                                        placeholder="Tahun Pengayaan">
                             </div>
                         </div>
                         <div class="form-group row" >
                               <label class="control-label text-right col-md-3">Kategori</label>
                                <div class="col-md-9">
-                                <select id="kategori" onchange="myFunction()" name="kategori" class="form-control custom-select">
+                                <select id="kategori" onchange="myFunction()" name="kategori" required="" class="form-control custom-select">
                                     <option selected="true" checked="true">Pilih</option>
                                     @foreach($asset_categories as $data)
                                         <option value="{{$data->asc_name}}">{{$data->asc_name}}</option>
@@ -110,7 +110,7 @@
                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Harga</label>
                             <div class="col-md-9">
-                                <input name="asset_price" type="number" class="form-control" placeholder="Harga">
+                                <input name="asset_price" type="number" class="form-control" placeholder="Harga" required="">
                             </div>
                         </div>
                         <div class="form-group row">

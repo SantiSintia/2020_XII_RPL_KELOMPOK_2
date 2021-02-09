@@ -59,7 +59,7 @@ Tambah Type Asset
                                         <div class="form-group row">
                                             <label class="control-label text-right col-md-3">Nama Tipe</label>
                                             <div class="col-md-9">
-                                                <input name="ast_name" type="text" placeholder="Nama Type" class="form-control">
+                                                <input name="ast_name" type="text" placeholder="Nama Type" class="form-control" required>
                                             </div>
                                         </div>
 

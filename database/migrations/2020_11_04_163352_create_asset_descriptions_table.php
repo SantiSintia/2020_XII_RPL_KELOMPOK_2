@@ -19,7 +19,7 @@ class CreateAssetDescriptionsTable extends Migration
             $table->string('asd_inggridient')->nullable();
             $table->string('asd_building_area')->nullable();
             $table->string('asd_merk')->nullable();
-            $table->string('asd_spesification');
+            $table->string('asd_spesification')->nullable();
             $table->string('asd_voltage')->nullable();
             $table->string('asd_condition');
                         

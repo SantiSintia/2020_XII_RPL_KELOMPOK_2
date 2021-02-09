@@ -58,7 +58,13 @@ class AssetController extends Controller
 
        
         $jumlah=$request->input('total');
-        for ($i=0; $i <$jumlah ; $i++) { 
+        //dd($jumlah);
+
+        if ($jumlah < 0) {
+            return back()->withToastError('Jumlah tidak boleh minus');
+        }else{
+
+        for ($i=1; $i <= $jumlah ; $i++) { 
             // dd($i);
         
         $type = asset_types::whereAstId($request->input('type_asset'))->first();
@@ -67,8 +73,13 @@ class AssetController extends Controller
         $assets = Asset::whereAssAssetTypeId($request->input('type_asset'))
             ->count();
         $reg_code = str_pad($assets + 1 , 3, '0', STR_PAD_LEFT);
-
+        $count = Asset::whereAssAssetTypeId($request->input('type_asset'))->count();
+        $reg_name = str_pad($count + 1 , STR_PAD_RIGHT);
+        //dd($reg_name);
         
+        $check_name = Asset::whereAssName($request->input('assert_name'))->first();
+        //dd($check_name);
+
         
         $asset = new Asset();
         $asset->ass_asset_category_id = $type->ast_asset_categories_id;
@@ -76,9 +87,12 @@ class AssetController extends Controller
         $asset->ass_origin_id   =  $request->input('asset_origin') ;
         $asset->ass_year   = $request->input('asset_year') ;
         $asset->ass_registration_code   = $reg_code .'/'. $type->ast_code . '/' . $origin->ori_code . '/' . $request->input('asset_year'); // 001/P01.001/INV.YYS/2016
-        $asset->ass_name   = $request->input('asset_name');
+        if ($count > 0) {
+            if ($check_name == null) {
+        $asset->ass_name   = $request->input('asset_name') . ' ke ' . $i;
         $asset->ass_price = $request->input('asset_price');
         $asset->ass_created_by  =  Auth::user()->usr_id;
+        //dd($asset);
         $asset->save();
         $last_ass_id=$asset->id;
         $descriptions= new asset_description();
@@ -89,10 +103,48 @@ class AssetController extends Controller
         $descriptions->asd_condition=$request->input('asset_condition');
          $descriptions->asd_voltage=$request->input('asd_voltage');
          $descriptions->save();
+            }else{
+        $asset->ass_name   = $request->input('asset_name') . ' ke ' . $reg_name;
+        //dd($asset);
+        $asset->ass_price = $request->input('asset_price');
+        $asset->ass_created_by  =  Auth::user()->usr_id;
+        //dd($asset);
+        $asset->save();
+        $last_ass_id=$asset->id;
+        $descriptions= new asset_description();
+        $descriptions->asd_ass_id=$last_ass_id;
+        $descriptions->asd_inggridient=$request->input('asd_inggridient');
+        $descriptions->asd_merk=$request->input('asd_merk');
+        $descriptions->asd_spesification=$request->input('asd_spesification');
+        $descriptions->asd_condition=$request->input('asset_condition');
+         $descriptions->asd_voltage=$request->input('asd_voltage');
+         $descriptions->save();
+            }
+      
+        }else{
+        $asset->ass_name   = $request->input('asset_name') . ' ke ' . $i;
+        $asset->ass_price = $request->input('asset_price');
+        $asset->ass_created_by  =  Auth::user()->usr_id;
+        //dd($asset);
+        $asset->save();
+        $last_ass_id=$asset->id;
+        $descriptions= new asset_description();
+        $descriptions->asd_ass_id=$last_ass_id;
+        $descriptions->asd_inggridient=$request->input('asd_inggridient');
+        $descriptions->asd_merk=$request->input('asd_merk');
+        $descriptions->asd_spesification=$request->input('asd_spesification');
+        $descriptions->asd_condition=$request->input('asset_condition');
+         $descriptions->asd_voltage=$request->input('asd_voltage');
+         $descriptions->save();
+        }
+       
         // $descriptions->ass_id;
-     }
+         }
         return redirect('asset')->withSuccess($request->input('asset_name'). '  berhasil disimpan');
     
+        }
+       
+
 
     }
 
