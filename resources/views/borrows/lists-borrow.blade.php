@@ -68,7 +68,7 @@ List Peminjaman
                                                 @else($borrow->ass_status == 3)
                                                     <a href="" class="btn btn-success">kembalikan</a>
                                                 @endif
-                                                    <a href="{{URL::to('lists-borrow/detail')}}" class="btn btn-primary">Detail</a>
+                                                    <a href="{{URL::to('lists-borrow/'.$borrow->brw_id)}}" class="btn btn-primary">Detail</a>
                                                 </td> 
 
                                             </tr>  

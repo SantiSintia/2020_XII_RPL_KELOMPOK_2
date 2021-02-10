@@ -32,6 +32,7 @@ class CreateAssetsTable extends Migration
             $table->foreign('ass_asset_type_id')->references('ast_id')->on('asset_types')->onDelete('cascade');
             $table->foreign('ass_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('ass_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->foreign('ass_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');   
 
             $table->timestamps();
@@ -47,5 +48,6 @@ class CreateAssetsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('assets');
+        $table->dropSoftDeletes();
     }
 }

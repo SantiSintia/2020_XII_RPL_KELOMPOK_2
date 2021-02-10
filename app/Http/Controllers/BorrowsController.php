@@ -27,11 +27,6 @@ class BorrowsController extends Controller
         return view('borrows.lists-borrow', compact('borrows'));
         
     }
-
-    public function detail()
-    {
-        return view('borrows.detail-borrow');
-    }
     
     public function borrowsItem()
     {
@@ -59,6 +54,7 @@ class BorrowsController extends Controller
         
         $assets = Asset::whereAssId($id)->first();
         $assets->ass_status = 3;
+        $assets->ass_updated_by = Auth::user()->usr_id;
         $assets->save();
         return redirect('lists-borrow');
 
@@ -106,9 +102,13 @@ class BorrowsController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function show(cr $cr)
+    public function show($id)
     {
-        //
+        $borrows = Borrow::join('users','brw_usr_id','=','usr_id')
+                         ->join('assets','brw_ass_id','=','ass_id')
+                         ->whereBrwId($id)->first();
+                         //dd($borrows);
+        return view('borrows.detail-borrow', compact(['borrows']));
     }
 
     /**

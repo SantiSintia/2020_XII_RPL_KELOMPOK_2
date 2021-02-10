@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('asset/create', 'AssetController@create');
     Route::get('asset/{id}', 'AssetController@show');
     Route::post('asset/create', 'AssetController@store');
+    Route::get('asset/{id}/destroy', 'AssetController@destroy');
 
 
 
@@ -78,7 +79,7 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('borrows-asset', 'BorrowsController@borrowsItem');
     Route::get('borrows-asset/{id}', 'BorrowsController@save');
     Route::get('borrows-asset/verify/{id}', 'BorrowsController@verify');
-    Route::get('lists-borrow/detail', 'BorrowsController@detail');
+    Route::get('lists-borrow/{id}', 'BorrowsController@show');
 
 
 

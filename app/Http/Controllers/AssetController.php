@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -87,6 +87,7 @@ class AssetController extends Controller
         $asset->ass_origin_id   =  $request->input('asset_origin');
         $asset->ass_year   = $request->input('asset_year') ;
         $asset->ass_registration_code   = $reg_code .'/'. $type->ast_code . '/' . $origin->ori_code . '/' . $request->input('asset_year'); // 001/P01.001/INV.YYS/2016
+        $asset->ass_status = $request->input('ass_status');
         if ($count > 0) {
             if ($check_name == null) {
         $asset->ass_name   = $request->input('asset_name') . ' ke ' . $i;
@@ -95,7 +96,7 @@ class AssetController extends Controller
         $asset->ass_created_by  =  Auth::user()->usr_id;
         //dd($asset);
         $asset->save();
-        $last_ass_id=$asset->id;
+        $last_ass_id=$asset->ass_id;
         $descriptions= new asset_description();
         $descriptions->asd_ass_id=$last_ass_id;
         $descriptions->asd_inggridient=$request->input('asd_inggridient');
@@ -111,7 +112,7 @@ class AssetController extends Controller
         $asset->ass_created_by  =  Auth::user()->usr_id;
         //dd($asset);
         $asset->save();
-        $last_ass_id=$asset->id;
+        $last_ass_id=$asset->ass_id;
         $descriptions= new asset_description();
         $descriptions->asd_ass_id=$last_ass_id;
         $descriptions->asd_inggridient=$request->input('asd_inggridient');
@@ -128,7 +129,7 @@ class AssetController extends Controller
         $asset->ass_created_by  =  Auth::user()->usr_id;
         //dd($asset);
         $asset->save();
-        $last_ass_id=$asset->id;
+        $last_ass_id=$asset->ass_id;
         $descriptions= new asset_description();
         $descriptions->asd_ass_id=$last_ass_id;
         $descriptions->asd_inggridient=$request->input('asd_inggridient');
@@ -197,6 +198,9 @@ class AssetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Asset::find($id);
+        $data->delete();
+ 
+        return redirect('/asset');
     }
 }

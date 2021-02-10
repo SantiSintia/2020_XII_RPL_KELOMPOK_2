@@ -58,7 +58,10 @@ Asset
                                                 <td>{{$no+1}}</td>
                                                 <td>{{$data->ass_name}}</td>
                                                 <td>{{$data->ass_registration_code}}</td>
-                                                <td><a href="{{URL::to('asset/'.$data->ass_id)}}" class="btn btn-sm btn-flat btn-success">Detail</a></td>
+                                                <td>
+                                                    <a href="{{URL::to('asset/'.$data->ass_id)}}" class="btn btn-sm btn-flat btn-success">Detail</a>
+                                                    <a href="{{URL::to('asset/'.$data->ass_id.'/destroy')}}" class="btn btn-sm btn-flat btn-danger">Hapus</a>
+                                                </td>
                                             </tr>                                            
                                         @endforeach
                                         </tbody>
