@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -174,7 +174,16 @@ class AssetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $asset=Asset::join('asset_descriptions','asd_ass_id','=','ass_id')
+        ->join('asset_types','ass_asset_type_id','=','ast_id')
+        ->join('origins','ass_origin_id','=','ori_id')
+        ->where('ass_id',$id)->first();
+        // dd($asset->)
+        // dd($asset);
+         $data ['origin'] = Origin::select('ori_id' , 'ori_name')->get();
+        $data ['assets'] = asset_types::select('ast_id' , 'ast_name')->get();
+        $data ['asset_categories']=asset_categories::select('asc_id','asc_name')->get();
+        return view('assets.edit-asset', $data,compact(['asset']));
     }
 
     /**
@@ -186,7 +195,61 @@ class AssetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            // dd($request->input('asd_inggridient'));
+
+        if($request->asset_price<0){
+             return back()->withToastError('Jumlah tidak boleh minus');
+         }else{
+
+             $type = asset_types::whereAstId($request->input('type_asset'))->first();
+        $origin  = Origin::whereOriId($request->input('asset_origin'))->first();
+        // dd($request->input('asset_origin'));
+        $assets = Asset::whereAssAssetTypeId($request->input('type_asset'))
+            ->count();
+        $reg_code = str_pad($assets + 1 , 3, '0', STR_PAD_LEFT);
+        $count = Asset::whereAssAssetTypeId($request->input('type_asset'))->count();
+        $reg_name = str_pad($count + 1 , STR_PAD_RIGHT);
+        //dd($reg_name);
+        
+        $check_name = Asset::whereAssName($request->input('assert_name'))->first();
+            $asset=Asset::where('ass_id',$id)->first();
+            $asset->ass_name=$request->input('asset_name');
+        $asset->ass_asset_type_id = $request->input('type_asset');
+        $asset->ass_origin_id   =  $request->input('asset_origin');
+        $asset->ass_year   = $request->input('asset_year') ;
+        $asset->ass_price =$request->input('asset_price');
+         $asset->ass_registration_code   = $reg_code .'/'. $type->ast_code . '/' . $origin->ori_code . '/' . $request->input('asset_year');
+         $asset->update();
+
+         $ased= asset_description::where('asd_ass_id',$id)->first();
+         $asd=asset_description::where('asd_id',$ased->asd_id)->first();
+         // dd($asd);
+
+         if($request->input('asd_voltage')== null){
+            if ($request->input('asd_inggridient')==null) {
+                
+            }else{
+                 $asd->asd_inggridient=$request->input('asd_inggridient');
+         $asd->asd_merk=$request->input('asd_merk');
+         $asd->asd_spesification=$request->input('asd_spesification');
+        
+         $asd->asd_condition=$request->input('asset_condition');
+         $asd->update();
+         return redirect('asset')->withSuccess($request->input('asset_name'). '  berhasil disimpan');
+
+            }
+         }
+
+
+         $asd->asd_inggridient=$request->input('asd_inggridient');
+         $asd->asd_merk=$request->input('asd_merk');
+         $asd->asd_spesification=$request->input('asd_spesification');
+         $asd->asd_voltage=$request->input('asd_voltage');
+         $asd->asd_condition=$request->input('asset_condition');
+         $asd->update();
+         return redirect('asset')->withSuccess($request->input('asset_name'). '  berhasil disimpan');
+         
+         }
     }
 
     /**

@@ -71,6 +71,8 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('asset/create', 'AssetController@create');
     Route::get('asset/{id}', 'AssetController@show');
     Route::post('asset/create', 'AssetController@store');
+     Route::get('asset/{id}/edit', 'AssetController@edit');
+       Route::post('asset/{id}/edit', 'AssetController@update');
 
 
 

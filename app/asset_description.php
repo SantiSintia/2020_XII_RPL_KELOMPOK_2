@@ -8,4 +8,5 @@ class asset_description extends Model
 {
 	// protected $table='asset_description';
     protected $guarded=[''];
+    protected $primaryKey='asd_id';
 }
