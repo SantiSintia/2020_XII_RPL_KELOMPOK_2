@@ -90,7 +90,7 @@ class AssetController extends Controller
         $asset->ass_status = $request->input('ass_status');
         if ($count > 0) {
             if ($check_name == null) {
-        $asset->ass_name   = $request->input('asset_name') . ' ke ' . $i;
+        $asset->ass_name   = $request->input('asset_name') . $reg_name;
         $asset->ass_price = $request->input('asset_price');
         $asset->ass_status = $request->input('ass_status');
         $asset->ass_created_by  =  Auth::user()->usr_id;

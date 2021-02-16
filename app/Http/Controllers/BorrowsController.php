@@ -8,6 +8,7 @@ use App\User;
 use App\Asset;
 use App\Borrow;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 
 class BorrowsController extends Controller
@@ -63,6 +64,11 @@ class BorrowsController extends Controller
     public function returnAdd()
     {
         return view('returns.return-add');
+    }
+    public function print()
+    {
+      $pdf = PDF::loadview('returns/list-return')->setPaper('A4' ,'potrait');
+        return $pdf->stream();
     }
     public function listreturn()
     {

@@ -36,7 +36,7 @@ Pengembalian
                             <div class="card-body">
                                 <h4 class="card-title">Daftar Pengembalian</h4>
 
-                                <a href="{{URL::to('return/history')}}" class="btn btn-primary">Print</a>
+                                <a href="{{URL::to('return/print')}}" class="btn btn-primary">Print</a>
                                 <a href="{{URL::to('return/history')}}" class="btn btn-danger">Hapus</a>
 
 
