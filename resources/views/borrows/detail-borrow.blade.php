@@ -30,7 +30,7 @@
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
                                     <h4 class="card-title m-t-10">{{$borrows->usr_name}}</h4>
-                                    <h6 class="card-subtitle">{{$borrows->role_id}}</h6>
+                                    <h6 class="card-subtitle"></h6>
                                    
                                 </center>
                             </div>
@@ -40,7 +40,7 @@
                             <small class="text-muted">Nama Asset </small>
                                 <h6>{{$borrows->ass_name}}</h6>
                             <small class="text-muted">Pemberi Izin </small>
-                                <h6>{{$borrows->ass_updated_by}}</h6>
+                                <h6>admin</h6>
                             <small class="text-muted">Tanggal Pinjam  </small>
                                 <h6>{{$borrows->updated_at}}</h6>
                             <small class="text-muted">Harga  </small>

@@ -49,6 +49,7 @@ List Peminjaman
                                         </thead>
                                         <tbody>
                                         @foreach($borrows as $no => $borrow)
+                                        @if(Auth()->user()->usr_id == $borrow->brw_usr_id OR Auth()->user()->hasRole('admin')) 
                                             <tr>
                                                 <td>{{$no+1}}</td>
                                                 <td>{{$borrow->usr_name}}</td>
@@ -72,6 +73,7 @@ List Peminjaman
                                                 </td> 
 
                                             </tr>  
+                                        @endif
                                         @endforeach                                          
                                                                               
                                          

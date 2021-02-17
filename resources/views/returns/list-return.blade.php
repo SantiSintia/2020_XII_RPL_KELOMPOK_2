@@ -35,6 +35,7 @@ Pengembalian
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Daftar Pengembalian</h4>
+                                 <a href="{{URL::to('return/print')}}" class="btn btn-primary">Print</a>
 
                                 
 
@@ -64,8 +65,9 @@ Pengembalian
                                                 <td>{{$list->rst_condition}}</td>
                                                 <td>{{$list->f}}</td>
                                                 <td>{{$list->rst_date}}</td>
-                                                <td> <a href="{{URL::to('return/print')}}" class="btn btn-primary">Print</a>
-                                <a href="{{URL::to('return/'.$list->rst_id.'/delete')}}" class="btn btn-danger">Hapus</a>   </td>
+                                                <td>
+                                                <a href="{{URL::to('return/'.$list->rst_id.'/delete')}}" class="btn btn-danger">Hapus</a>
+                                                </td>
                                                 
                                               
                                             </tr>                                            

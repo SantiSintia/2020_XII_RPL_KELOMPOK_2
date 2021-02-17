@@ -47,7 +47,7 @@ Route::post('/register-teacher', 'Auth\RegisterController@registerSaveTeacher');
 Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini
-Route::group(['middleware' => ['auth', 'verified' ]], function () {
+Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack' ]], function () {
     Route::get('dashboard', 'AdminPageController@index')->name('dashboard');
     Route::get('admin/profile', 'AdminPageController@profile');
     Route::get('admin/change-profile', 'AdminPageController@changeProfile');
@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
 
     Route::get('return/add', 'BorrowsController@returnAdd');
     Route::get('return/list-return', 'BorrowsController@listreturn');
-    Route::get('return/print', 'BorrowsController@print')->name('print');
+    Route::get('return/print', 'BorrowsController@print');
     Route::get('return/history', 'BorrowsController@returnHistory');
     Route::get('return/{id}/delete','BorrowsController@destroy');
 
