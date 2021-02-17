@@ -46,7 +46,6 @@ History
                                                 <th> Kondisi </th>
                                                 <th>Tanggal Pinjam</th>
                                                 <th>Tanggal Kembali</th>
-                                                <th>Action</th>
                                                 
                                             </tr>
                                         </thead>
@@ -60,8 +59,6 @@ History
                                                 <td>{{$list->rst_condition}}</td>
                                                 <td>{{$list->f}}</td>
                                                 <td>{{$list->rst_date}}</td>
-                                                <td> <a href="{{URL::to('return/print')}}" class="btn btn-primary">Print</a>
-                                <a href="{{URL::to('return/'.$list->rst_id.'/delete')}}" class="btn btn-danger">Hapus</a>   </td>
                                                 
                                               
                                             </tr>                                            

@@ -66,11 +66,7 @@ class BorrowsController extends Controller
     {
         return view('returns.return-add');
     }
-    public function print()
-    {
-      $pdf = PDF::loadview('returns/list-return')->setPaper('A4' ,'potrait');
-        return $pdf->stream();
-    }
+
     public function listreturn()
     {
         $list= Restore::join('users','rst_usr_id','=','usr_id')
@@ -80,6 +76,11 @@ class BorrowsController extends Controller
                          ->get();
                          // dd($list);
         return view('returns.list-return',compact(['list']));
+    }
+    public function print()
+    {
+      $pdf = PDF::loadview('returns.pdf')->setPaper('A4' ,'potrait');
+        return $pdf->stream();
     }
     public function returnHistory()
     {
@@ -161,7 +162,7 @@ class BorrowsController extends Controller
      */
     public function destroy($id)
     {
-        $data=Borrow::find($id);
+        $data=restores::find($id);
         $data->delete();
         return redirect('return/list-return');
     }
