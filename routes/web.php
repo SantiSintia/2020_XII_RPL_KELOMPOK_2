@@ -88,6 +88,7 @@ Route::group(['middleware' => ['auth', 'verified' ]], function () {
     Route::get('return/print', 'BorrowsController@print')->name('print');
     Route::get('return/list-return', 'BorrowsController@listreturn');
     Route::get('return/history', 'BorrowsController@returnHistory');
+    Route::get('return/{id}/delete','BorrowsController@destroy');
 
 
 

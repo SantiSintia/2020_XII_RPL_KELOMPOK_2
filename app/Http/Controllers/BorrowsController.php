@@ -9,6 +9,7 @@ use App\Asset;
 use App\Borrow;
 use Illuminate\Support\Facades\Auth;
 use PDF;
+use App\Restore;
 
 
 class BorrowsController extends Controller
@@ -72,11 +73,23 @@ class BorrowsController extends Controller
     }
     public function listreturn()
     {
-        return view('returns.list-return');
+        $list= Restore::join('users','rst_usr_id','=','usr_id')
+                         ->join('assets','rst_ass_id','=','ass_id')
+                         ->join('borrows','rst_brw_id','=','brw_id')
+                         ->select('restores.*','users.*','assets.*','borrows.created_at as f')
+                         ->get();
+                         // dd($list);
+        return view('returns.list-return',compact(['list']));
     }
     public function returnHistory()
     {
-        return view('returns.return-history');
+        $list= Restore::join('users','rst_usr_id','=','usr_id')
+                         ->join('assets','rst_ass_id','=','ass_id')
+                         ->join('borrows','rst_brw_id','=','brw_id')
+                         ->select('restores.*','users.*','assets.*','borrows.created_at as f')
+                         ->onlyTrashed()
+                         ->get();
+        return view('returns.return-history',compact(['list']));
     }
     
     
@@ -146,8 +159,10 @@ class BorrowsController extends Controller
      * @param  \App\cr  $cr
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cr $cr)
+    public function destroy($id)
     {
-        //
+        $data=Borrow::find($id);
+        $data->delete();
+        return redirect('return/list-return');
     }
 }

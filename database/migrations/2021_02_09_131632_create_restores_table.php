@@ -32,7 +32,7 @@ class CreateRestoresTable extends Migration
             $table->foreign('rst_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('rst_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('rst_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');
-
+             $table->softDeletes();
             $table->string('asd_sys_note')->nullable();
 
 

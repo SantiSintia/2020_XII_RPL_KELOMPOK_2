@@ -36,8 +36,7 @@ Pengembalian
                             <div class="card-body">
                                 <h4 class="card-title">Daftar Pengembalian</h4>
 
-                                <a href="{{URL::to('return/print')}}" class="btn btn-primary">Print</a>
-                                <a href="{{URL::to('return/history')}}" class="btn btn-danger">Hapus</a>
+                                
 
 
                               
@@ -48,36 +47,32 @@ Pengembalian
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
                                                 <th>Aset Asset</th>
-                                                <th>Jumlah Kembali</th>
-                                                <th>Jumlah Hilang</th>
+                                                <th> Kondisi </th>
                                                 <th>Tanggal Pinjam</th>
                                                 <th>Tanggal Kembali</th>
+                                                <th>Action</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
+
+                                            @foreach($list as $no =>$list)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Rinaldi</td>
-                                                <td>Kursi 2</td>
-                                                <td>1</td>
-                                                <td></td>
-                                                <td>01-01-2020 </td>
-                                                <td>02-01-2020 </td>                                                
-                                            </tr>                                            
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Santi</td>
-                                                <td>Kursi 3</td>
-                                                <td>1</td>
-                                                <td></td>
-                                                <td>01-01-2020 </td>
-                                                <td>02-01-2020 </td>
+                                                <td>{{$no+1}}</td>
+                                                <td>{{$list->usr_name}}</td>
+                                                <td>{{$list->ass_name}}</td>
+                                                <td>{{$list->rst_condition}}</td>
+                                                <td>{{$list->f}}</td>
+                                                <td>{{$list->rst_date}}</td>
+                                                <td> <a href="{{URL::to('return/print')}}" class="btn btn-primary">Print</a>
+                                <a href="{{URL::to('return/'.$list->rst_id.'/delete')}}" class="btn btn-danger">Hapus</a>   </td>
                                                 
+                                              
                                             </tr>                                            
-                                                                             
+                                                                                    
+                                            @endforeach                                 
                                          
-                                            </tr>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
