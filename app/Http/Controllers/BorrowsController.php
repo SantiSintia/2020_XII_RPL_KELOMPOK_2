@@ -62,9 +62,19 @@ class BorrowsController extends Controller
 
     }
 
-    public function returnAdd()
+    public function returnAdd($id)
     {
-        return view('returns.return-add');
+        $assets = Asset::whereAssId($id)->first();
+        $assets->ass_status = 1;
+
+        $restore = new Restore();
+        $restore->rst_ass_id = $id;
+        $restore->rst_usr_id = Auth::user()->usr_id;
+        $restore->save();
+
+        $assets->save();
+        return redirect('lists-borrow');
+
     }
 
     public function listreturn()
@@ -77,11 +87,19 @@ class BorrowsController extends Controller
                          // dd($list);
         return view('returns.list-return',compact(['list']));
     }
+
     public function print()
     {
-      $pdf = PDF::loadview('returns.pdf')->setPaper('A4' ,'potrait');
+    $list= Restore::join('users','rst_usr_id','=','usr_id')
+                         ->join('assets','rst_ass_id','=','ass_id')
+                         ->join('borrows','rst_brw_id','=','brw_id')
+                         ->select('restores.*','users.*','assets.*','borrows.created_at as f')
+                         ->get();
+
+    $pdf = PDF::loadview('returns.pdf', compact('list'))->setPaper('A4' ,'potrait');
         return $pdf->stream();
     }
+
     public function returnHistory()
     {
         $list= Restore::join('users','rst_usr_id','=','usr_id')

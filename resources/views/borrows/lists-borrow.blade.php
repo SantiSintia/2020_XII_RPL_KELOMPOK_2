@@ -64,13 +64,17 @@ List Peminjaman
                                                 @endif
 
                                                 <td>
+                                                @if(Auth()->user()->hasRole('admin'))
                                                 @if($borrow->ass_status == 2)
                                                     <a href="{{URL::to('borrows-asset/verify/'.$borrow->ass_id)}}" class="btn btn-primary">Verifikasi</a>
                                                 @else($borrow->ass_status == 3)
-                                                    <a href="" class="btn btn-success">kembalikan</a>
+                                                    <a href="{{URL::to('return/add')}}" class="btn btn-success">kembalikan</a>
+                                                @else
+
                                                 @endif
                                                     <a href="{{URL::to('lists-borrow/'.$borrow->brw_id)}}" class="btn btn-primary">Detail</a>
                                                 </td> 
+                                                @endif
 
                                             </tr>  
                                         @endif
