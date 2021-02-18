@@ -43,9 +43,6 @@ History
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
                                                 <th>Aset Asset</th>
-                                                <th> Kondisi </th>
-                                                <th>Tanggal Pinjam</th>
-                                                <th>Tanggal Kembali</th>
                                                 
                                             </tr>
                                         </thead>
@@ -56,9 +53,6 @@ History
                                                 <td>{{$no+1}}</td>
                                                 <td>{{$list->usr_name}}</td>
                                                 <td>{{$list->ass_name}}</td>
-                                                <td>{{$list->rst_condition}}</td>
-                                                <td>{{$list->f}}</td>
-                                                <td>{{$list->rst_date}}</td>
                                                 
                                               
                                             </tr>                                            

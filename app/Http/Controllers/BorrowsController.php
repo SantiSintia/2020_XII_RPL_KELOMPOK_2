@@ -64,7 +64,18 @@ class BorrowsController extends Controller
 
     public function returnAdd($id)
     {
- 
+        $assets = Asset::whereAssId($id)->first();
+        $assets->ass_status = 1;
+
+        $restore = new Restore();
+        $restore->rst_brw_id = $id;
+        $restore->rst_ass_id = $id;
+        $restore->rst_usr_id = Auth::user()->usr_id;
+        $restore->save();
+
+        $assets->save();
+        return redirect('return/list-return');
+
 
     }
 
@@ -73,7 +84,7 @@ class BorrowsController extends Controller
         $list= Restore::join('users','rst_usr_id','=','usr_id')
                          ->join('assets','rst_ass_id','=','ass_id')
                          ->join('borrows','rst_brw_id','=','brw_id')
-                         ->select('restores.*','users.*','assets.*','borrows.created_at as f')
+                         ->select('restores.*','users.*','assets.*','borrows.updated_at as f')
                          ->get();
                          // dd($list);
         return view('returns.list-return',compact(['list']));
@@ -171,7 +182,7 @@ class BorrowsController extends Controller
      */
     public function destroy($id)
     {
-        $data=restores::find($id);
+        $data=Restore::find($id);
         $data->delete();
         return redirect('return/list-return');
     }

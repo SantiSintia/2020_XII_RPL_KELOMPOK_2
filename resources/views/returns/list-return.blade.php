@@ -48,9 +48,6 @@ Pengembalian
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
                                                 <th>Aset Asset</th>
-                                                <th> Kondisi </th>
-                                                <th>Tanggal Pinjam</th>
-                                                <th>Tanggal Kembali</th>
                                                 <th>Action</th>
                                                 
                                             </tr>
@@ -62,9 +59,6 @@ Pengembalian
                                                 <td>{{$no+1}}</td>
                                                 <td>{{$list->usr_name}}</td>
                                                 <td>{{$list->ass_name}}</td>
-                                                <td>{{$list->rst_condition}}</td>
-                                                <td>{{$list->f}}</td>
-                                                <td>{{$list->rst_date}}</td>
                                                 <td>
                                                 <a href="{{URL::to('return/'.$list->rst_id.'/delete')}}" class="btn btn-danger">Hapus</a>
                                                 </td>

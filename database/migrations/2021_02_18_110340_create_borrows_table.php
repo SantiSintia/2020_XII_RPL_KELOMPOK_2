@@ -16,20 +16,20 @@ class CreateBorrowsTable extends Migration
         Schema::create('borrows', function (Blueprint $table) {
             $table->bigIncrements('brw_id');
             $table->unsignedBigInteger('brw_usr_id');
-            $table->unsignedBigInteger('brw_ass_id');
+            $table->unsignedBigInteger('brw_brs_id');
 
             $table->unsignedBigInteger('brw_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('brw_updated_by')->unsigned()->nullable();
             $table->unsignedBigInteger('brw_deleted_by')->unsigned()->nullable();
             
-            $table->foreign('brw_usr_id')->references('usr_id')->on('users')->onDelete('cascade'); 
-            $table->foreign('brw_ass_id')->references('ass_id')->on('assets')->onDelete('cascade');         
+            $table->foreign('brw_usr_id')->references('usr_id')->on('users')->onDelete('cascade');  
+            $table->foreign('brw_brs_id')->references('brs_id')->on('borrows_statuses')->onDelete('cascade');         
             
             $table->foreign('brw_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('brw_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('brw_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');
 
-            $table->string('asd_sys_note')->nullable();
+            $table->string('brw_sys_note')->nullable();
             $table->timestamps();
         });
     }

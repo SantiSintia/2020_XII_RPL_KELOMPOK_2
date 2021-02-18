@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class BorrowsTableSeeder extends Seeder
+class BorrowStatusesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,10 +11,9 @@ class BorrowsTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('borrows')->insert([
-            'brw_usr_id' => 3,
-            'brw_brs_id' => 1,
+        DB::table('borrows_statuses')->insert([
+            'brs_id' => 1,
+            'brs_status' => 0,
             ]);
-        
     }
 }

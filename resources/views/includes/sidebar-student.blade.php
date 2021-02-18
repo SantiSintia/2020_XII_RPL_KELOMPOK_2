@@ -25,7 +25,7 @@
                         <span class="hide-menu">Peminjaman</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('lists-borrow')}}">Daftar Peminjaman</a></li>
-                                <li><a href="{{URL::to('borrows-item')}}">Pinjam Barang</a></li>
+                                <li><a href="{{URL::to('borrows-asset')}}">Pinjam Barang</a></li>
                             </ul>
                        
                 </nav>
