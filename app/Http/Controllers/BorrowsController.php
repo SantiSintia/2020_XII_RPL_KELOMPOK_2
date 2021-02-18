@@ -64,16 +64,7 @@ class BorrowsController extends Controller
 
     public function returnAdd($id)
     {
-        $assets = Asset::whereAssId($id)->first();
-        $assets->ass_status = 1;
-
-        $restore = new Restore();
-        $restore->rst_ass_id = $id;
-        $restore->rst_usr_id = Auth::user()->usr_id;
-        $restore->save();
-
-        $assets->save();
-        return redirect('lists-borrow');
+ 
 
     }
 
