@@ -19,50 +19,76 @@ Asset
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 @endpush
 
 @section('content')
 
-                <div class="row page-titles">
-                    <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor">Asset</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
-                            <li class="breadcrumb-item active">Kelola Asset</li>
-                        </ol>
-                    </div>
-                </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Data Asset</h4>
-
-                                <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Asset</th>
-                                                <th>Kode Registrasi</th>
-                                                <th>Action</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        @foreach($assets as $no => $data)
-                                            <tr>
-                                                <td>{{$no+1}}</td>
-                                                <td>{{$data->ass_name}}</td>
-                                                <td>{{$data->ass_registration_code}}</td>
-                                                <td><a href="{{URL::to('borrows-asset/'.$data->ass_id)}}" class="btn btn-sm btn-flat btn-success">pinjam</a></td>
-                                            </tr>                                            
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
+<div class="row page-titles">
+    <div class="col-md-5 col-8 align-self-center">
+        <h3 class="text-themecolor">Asset</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
+            <li class="breadcrumb-item active">Kelola Asset</li>
+        </ol>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Pinjam asset</h4>
+        <br>
+      
+            <input id="addRow" class="btn btn-success" type="button" value="Tambah Barang" />&nbsp <input id="deleteRow" type="button" class="btn btn-danger" value="hapus Kolom" />
+            <form>
+            <table border="0" id="rowTable" style="width: 50%;">
+                <tbody>
+                    <tr>
+                      <td>Pinja barang</td>
+                        <td><select class="form-control"  name="state">
+                            @foreach($assets as $asset)
+                            <option>{{$asset->ass_name}}</option>
+                            @endforeach
+                          
+                        </select>  </td>
+                    </tr>
+                    <!-- <tr><td><input type="submit" class="btn btn-success" name=""></td></tr> -->
+                </tbody>
+            </table>
+            <input type="submit" class="btn btn-success" name="">
+       
+        </form>
+        
+    </div>
+</div>
 @push('scripts')
+<script type="text/javascript" >
+            $('#addRow').click( function() {
+        var tableID = "rowTable";
+        var table = document.getElementById(tableID);
+        var rowCount = table.rows.length;
+        
+        if(rowCount <=4){
+            var row = table.insertRow(rowCount);
+          // var  row=table.insertCell(rowCount);
+          var tblBodyObj = document.getElementById(tableID).tBodies[0];
+
+  
+        var element1 = '<select class="form-control">  @foreach($assets as $asset)<option>{{$asset->ass_name}}</option> @endforeach </select> ';
+        // row.innerHTML="fbkdashkfshdkhfsfklfah";  
+        row.innerHTML = element1;
+        }
+        });
+        $('#deleteRow').click( function() {
+        var tableID = "rowTable";
+        var table = document.getElementById(tableID);
+        var rowCount = table.rows.length;
+        console.log(rowCount);
+        if(rowCount != 1) {
+        rowCount = rowCount - 1;
+        table.deleteRow(rowCount);
+        }
+        });
+        </script>
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
