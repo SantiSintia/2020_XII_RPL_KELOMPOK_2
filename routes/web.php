@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack' ]], func
 
     Route::get('lists-borrow', 'BorrowsController@index');
     Route::get('borrows-asset', 'BorrowsController@borrowsItem');
-    Route::get('borrows-asset/{id}', 'BorrowsController@save');
+    Route::post('borrows-asset', 'BorrowsController@save');
     Route::get('borrows-asset/verify/{id}', 'BorrowsController@verify');
     Route::get('lists-borrow/{id}', 'BorrowsController@show');
 

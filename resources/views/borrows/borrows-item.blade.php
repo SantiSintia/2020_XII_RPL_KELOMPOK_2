@@ -39,14 +39,46 @@ Asset
         <br>
       
             <input id="addRow" class="btn btn-success" type="button" value="Tambah Barang" />&nbsp <input id="deleteRow" type="button" class="btn btn-danger" value="hapus Kolom" />
-            <form>
-            <table border="0" id="rowTable" style="width: 50%;">
+            <form action="{{URL::to('borrows-asset')}}" method="post">
+                @csrf
+            <table border="0" id="rowTable" style="width: 100%;">
                 <tbody>
                     <tr>
-                      <td>Pinja barang</td>
-                        <td><select class="form-control"  name="state">
+                        <td><br>Nama peminjam  </td>
+                    </tr>
+                     <tr>
+                        <td><br><select required=""  class="form-control"  name="name">
+                            <option></option>
+                            @foreach($name as $name)
+                            <option value="{{$name->usr_id}}">{{$name->usr_name}}</option>
+                            @endforeach
+                          
+                        </select> </td>
+                    </tr>
+                      <tr>
+                        <td><br>Asset yang di pinjam  </td>
+                    </tr>
+
+                    <tr>
+                      
+                        <td><br><select required="" class="form-control"  name="asset[]">
+                            <option></option>
                             @foreach($assets as $asset)
-                            <option>{{$asset->ass_name}}</option>
+                            @if($hitung_asset>0)
+                                <?php $no = 0 ?>
+                                @foreach($borrow_asset as $brs)
+                                @if($asset->ass_id==$brs->bas_ass_id)
+                                @else
+                                <?php $no++ ?>
+                                @if($no==$hitung_asset)
+                                 <option value="{{$asset->ass_id}}">{{$asset->ass_name}}</option>
+                                @endif
+                                @endif
+                                @endforeach
+                            @else
+                            <option value="{{$asset->ass_id}}">{{$asset->ass_name}}</option>
+                            @endif
+                            
                             @endforeach
                           
                         </select>  </td>
@@ -54,7 +86,7 @@ Asset
                     <!-- <tr><td><input type="submit" class="btn btn-success" name=""></td></tr> -->
                 </tbody>
             </table>
-            <input type="submit" class="btn btn-success" name="">
+            <br><input type="submit" class="btn btn-success" >
        
         </form>
         
@@ -67,13 +99,13 @@ Asset
         var table = document.getElementById(tableID);
         var rowCount = table.rows.length;
         
-        if(rowCount <=4){
+        if(rowCount <=7){
             var row = table.insertRow(rowCount);
           // var  row=table.insertCell(rowCount);
           var tblBodyObj = document.getElementById(tableID).tBodies[0];
 
   
-        var element1 = '<select class="form-control">  @foreach($assets as $asset)<option>{{$asset->ass_name}}</option> @endforeach </select> ';
+        var element1 = '<br><select required="" name ="asset[]" class="form-control"><option></option>  @foreach($assets as $asset)<option value= "{{$asset->ass_id}}">{{$asset->ass_name}}</option> @endforeach </select> ';
         // row.innerHTML="fbkdashkfshdkhfsfklfah";  
         row.innerHTML = element1;
         }
@@ -83,7 +115,7 @@ Asset
         var table = document.getElementById(tableID);
         var rowCount = table.rows.length;
         console.log(rowCount);
-        if(rowCount != 1) {
+        if(rowCount != 4) {
         rowCount = rowCount - 1;
         table.deleteRow(rowCount);
         }

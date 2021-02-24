@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Asset;
 use App\Borrow;
+use App\borrows_statuse;
+use App\borrow_asset;
 use Illuminate\Support\Facades\Auth;
 use PDF;
 use App\Restore;
@@ -32,22 +34,57 @@ class BorrowsController extends Controller
     
     public function borrowsItem()
     {
+        $name = user::join('roles','role_id','=','id')->where('name','student')->select('users.usr_name','users.usr_id')->get();
+        $borrow_asset=borrow_asset::join('borrows_statuses','bas_brs_id','=','brs_id')->where('brs_status',1)->orWhere('brs_status',2)->get();
+        // dd($borrow_asset);
+
+         $hitung_asset=borrow_asset::join('borrows_statuses','bas_brs_id','=','brs_id')->where('brs_status',1)->orWhere('brs_status',2)->count();
+         // dd($hitung_asset);
         $assets = Asset::where('ass_status',1)->orwhere('ass_status',2)->get();
-        return view('borrows.borrows-item', compact('assets'));
+        return view('borrows.borrows-item', compact(['assets','name','borrow_asset','hitung_asset']));
     }
 
-    public function save(Request $request, $id)
+    public function save(Request $request)
     {
-        $assets = Asset::whereAssId($id)->first();
-        $assets->ass_status = 2;
+        $cek=borrow_asset::join('borrows','bas_brw_id','=','brw_id')
+                        ->join('borrows_statuses','bas_brs_id','brs_id')
+                        ->where('brw_usr_id',$request->input('name'))
+                        ->where('brs_status',0)
+                        ->orWhere('brs_status',1)->first();
+                        if($cek){
+                            return back()->withToastError('peminjam masih punya histori peminjaman belum selesai');
+                        }
 
-        $borrow = new Borrow();
-        $borrow->brw_ass_id = $id;
-        $borrow->brw_usr_id = Auth::user()->usr_id;
-        $borrow->save();
+        foreach ($request->input('asset') as $asset) {
+            # code...
+        
 
-        $assets->save();
-        return redirect('lists-borrow');
+           $brs = new borrows_statuse();
+           $brs->brs_status = 0;
+           $brs->save();
+          $id= $brs->brs_id;
+
+
+           $brw= new borrow();
+           $brw->brw_usr_id = $request->input('name');
+           $brw->brw_brs_id = $id;
+           $brw->save();
+           $brw_id=$brw->brw_id; 
+
+
+           $brra= new borrow_asset();
+           $brra->bas_ass_id=$asset;
+           $brra->bas_brw_id=$brw_id;
+           $brra->bas_brs_id=$id;
+           $brra->save();
+          
+          
+
+
+}
+  return redirect('borrows-asset')->withSuccess('  berhasil meminjam');
+
+        // return redirect('lists-borrow');
 
     }
 
