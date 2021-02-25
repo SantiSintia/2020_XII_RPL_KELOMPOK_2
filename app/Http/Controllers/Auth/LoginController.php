@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
+use Auth;
 
 class LoginController extends Controller
 {
@@ -44,10 +44,11 @@ class LoginController extends Controller
     {
        // dd($user->usr_is_active);
         if ($user->usr_is_active == 0) {
+              Auth::logout();
               return redirect('/')->withToastError('Gagal login karena akun sudah tidak aktif');
          }elseif($user->usr_is_active == 1){
               return redirect()->route('dashboard');     
-         }       
+         }
            
 
         
