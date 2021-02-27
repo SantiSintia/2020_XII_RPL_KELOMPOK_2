@@ -10,6 +10,8 @@ use App\Borrow;
 use App\borrows_statuse;
 use App\borrow_asset;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 use PDF;
 use App\Restore;
 
@@ -21,12 +23,23 @@ class BorrowsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private function ListBorrow(){
+        return  borrow_asset::join('borrows','bas_brw_id','=','brw_id')
+       ->join('users','bas_brw_id','=','brw_id')
+       ->join('assets','bas_ass_id','=','ass_id');
+       
+    }
+
     public function index()
     {
-        $borrows = Borrow::join('users','brw_usr_id','=','usr_id')
-                         ->join('assets','brw_ass_id','=','ass_id')
-                         ->get();
-
+       $borrows = borrow_asset::join('assets' , 'borrow_assets.bas_ass_id' , '=' , 'assets.ass_id')
+       ->join('borrows', 'borrow_assets.bas_brw_id' , '=' , 'borrows.brw_id')
+       ->join('users' , 'borrows.brw_usr_id' , '=' , 'users.usr_id')
+       ->where('borrows.brw_status', '=' , 1)
+       ->select('borrow_assets.bas_brw_id','users.usr_name', DB::raw('count(*) as total'))
+       ->groupBy('borrow_assets.bas_brw_id')
+       ->get() ;
+       //return $borrows;
         // dd($borrows);
         return view('borrows.lists-borrow', compact('borrows'));
         
@@ -35,47 +48,36 @@ class BorrowsController extends Controller
     public function borrowsItem()
     {
         $name = user::join('roles','role_id','=','id')->where('name','student')->select('users.usr_name','users.usr_id')->get();
-        $borrow_asset=borrow_asset::join('borrows_statuses','bas_brs_id','=','brs_id')->where('brs_status',1)->orWhere('brs_status',2)->get();
+        $borrow_asset=borrow_asset::where('bas_status',1)->get();
         // dd($borrow_asset);
 
-         $hitung_asset=borrow_asset::join('borrows_statuses','bas_brs_id','=','brs_id')->where('brs_status',1)->orWhere('brs_status',2)->count();
+         $hitung_asset=borrow_asset::where('bas_status',1)->count();
          // dd($hitung_asset);
-        $assets = Asset::where('ass_status',1)->orwhere('ass_status',2)->get();
+        $assets = Asset::where('ass_status',1)->get();
         return view('borrows.borrows-item', compact(['assets','name','borrow_asset','hitung_asset']));
     }
 
     public function save(Request $request)
     {
         $cek=borrow_asset::join('borrows','bas_brw_id','=','brw_id')
-                        ->join('borrows_statuses','bas_brs_id','brs_id')
                         ->where('brw_usr_id',$request->input('name'))
-                        ->where('brs_status',0)
-                        ->orWhere('brs_status',1)->first();
+                        ->where('bas_status',0)
+                        ->first();
                         if($cek){
                             return back()->withToastError('peminjam masih punya histori peminjaman belum selesai');
                         }
 
-        foreach ($request->input('asset') as $asset) {
-            # code...
-        
-
-           $brs = new borrows_statuse();
-           $brs->brs_status = 0;
-           $brs->save();
-          $id= $brs->brs_id;
-
-
-           $brw= new borrow();
+         $brw= new borrow();
            $brw->brw_usr_id = $request->input('name');
-           $brw->brw_brs_id = $id;
+           $brw->brw_status = '1';
            $brw->save();
            $brw_id=$brw->brw_id; 
 
-
+        foreach ($request->input('asset') as $asset) {
            $brra= new borrow_asset();
            $brra->bas_ass_id=$asset;
            $brra->bas_brw_id=$brw_id;
-           $brra->bas_brs_id=$id;
+           $brra->bas_status='1';
            $brra->save();
           
           
@@ -181,10 +183,13 @@ class BorrowsController extends Controller
      */
     public function show($id)
     {
-        $borrows = Borrow::join('users','brw_usr_id','=','usr_id')
-                         ->join('assets','brw_ass_id','=','ass_id')
-                         ->whereBrwId($id)->first();
-                         //dd($borrows);
+       $borrows = borrow_asset::where('bas_brw_id', $id)
+       ->join('assets' , 'borrow_assets.bas_ass_id' , '=' , 'assets.ass_id')
+       ->join('borrows', 'borrow_assets.bas_brw_id' , '=' , 'borrows.brw_id')
+       ->join('users' , 'borrows.brw_usr_id' , '=' , 'users.usr_id')
+       ->where('bas_status' , 1)
+       ->get() ;
+         //return $borrows;
         return view('borrows.detail-borrow', compact(['borrows']));
     }
 

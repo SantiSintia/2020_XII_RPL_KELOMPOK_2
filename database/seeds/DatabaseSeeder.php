@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AssetsTableSeeder::class);
         $this->call(AssetDescriptionsTableSeeder::class);
         $this->call(OriginsTableSeeder::class); 
-        $this->call(BorrowStatusesTableSeeder::class);
+        //$this->call(BorrowStatusesTableSeeder::class);
         $this->call(BorrowsTableSeeder::class);
         $this->call(BorrowAssetsTableSeeder::class);
         $this->call(RestoresTableSeeder::class);

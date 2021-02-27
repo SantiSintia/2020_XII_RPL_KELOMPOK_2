@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Kategori Asset
+List Peminjaman
 @endpush
 
 @push('styles')
@@ -17,41 +17,91 @@
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
     <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
-   
 @endpush
 
 @section('content')
 
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-12 ">
-                        <div class="card">
-                            <div class="card-body">
-                                <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
-                                    <h4 class="card-title m-t-10">{{$borrows->usr_name}}</h4>
-                                    <h6 class="card-subtitle"></h6>
-                                   
-                                </center>
-                            </div>
-
-                            <div class="card-body">
-                            <h3> Detail peminjaman</h3><br/>
-                            <small class="text-muted">Nama Asset </small>
-                                <h6>{{$borrows->ass_name}}</h6>
-                            <small class="text-muted">Pemberi Izin </small>
-                                <h6>admin</h6>
-                            <small class="text-muted">Tanggal Pinjam  </small>
-                                <h6>{{$borrows->updated_at}}</h6>
-                            <small class="text-muted">Harga  </small>
-                                <h6>{{$borrows->ass_price}}</h6>
-
-                            </div>
-                        </div>
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">Peminjaman</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Peminjaman</a></li>
+                            <li class="breadcrumb-item active">Daftar Peminjaman</li>
+                        </ol>
                     </div>
                 </div>
-            </div>
-        
+                        <div class="card">
+                        <div class="card-header">
+                        <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kembalikan Semua
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Baik</a>
+                                <a class="dropdown-item" href="#">Rusak</a>
+                                <a class="dropdown-item" href="#">Hilang</a>
+                              </div>
+                            </div>
+                        </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Daftar Peminjaman</h4>
+                              
+                                <div class="table-responsive m-t-40">
+                                    <table id="myTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Peminjam</th>
+                                                <th>Status</th>
+                                                <th>Kondisi</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($borrows as $no => $borrow)
+                                                <tr>
+                                                <th>{{$no + 1}}</th>
+                                                <th>{{$borrow->ass_name}}</th>
+                                                    @if($borrow->bas_status == 1)
+                                                    <th>Belum Kembali</th>
+                                                    <th>-</th>
+                                                    @elseif($borrow->bas_status == 3)
+                                                    <th>Sudah Kembali</th>
+                                                    <th>Baik</th>
+                                                    @elseif($borrow->bas_status == 4)
+                                                    <th>Sudah Kembali</th>
+                                                    <th>Rusak</th>
+                                                    @elseif($borrow->bas_status == 5)
+                                                    <th>Sudah Kembali</th>
+                                                    <th>Hilang</th>
+                                                    @endif
+
+                                                <th>
+                                                @if ($borrow->bas_status == 1)
+                                                    <div class="dropdown">
+                                                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Kembalikan
+                                                      </button>
+                                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <a class="dropdown-item" href="#">Baik</a>
+                                                        <a class="dropdown-item" href="#">Rusak</a>
+                                                        <a class="dropdown-item" href="#">Hilang</a>
+                                                      </div>
+                                                    </div>
+                                                    @endif
+                                                </th>
+                                                </tr>
+                                        @endforeach                                          
+                                                                              
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
 @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
@@ -85,5 +135,54 @@
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 
 
+    <script src="{{URL::to('assets/plugins/datatables/datatables.min.js')}}"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function() {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+    });
+    $('#example23').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+    </script>
 @endpush   
 @endsection

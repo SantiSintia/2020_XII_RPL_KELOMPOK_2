@@ -15,7 +15,7 @@ class BorrowAssetsTableSeeder extends Seeder
             'bas_id' => 1,
             'bas_ass_id' => 3,
             'bas_brw_id' => 1,
-            'bas_brs_id' => 1,
+            'bas_status' => 1,
             ]);
     }
 }

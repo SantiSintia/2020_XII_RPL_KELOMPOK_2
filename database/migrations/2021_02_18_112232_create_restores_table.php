@@ -17,7 +17,6 @@ class CreateRestoresTable extends Migration
             $table->bigIncrements('rst_id');
             $table->unsignedBigInteger('rst_usr_id');
             $table->unsignedBigInteger('rst_ass_id');
-            $table->unsignedBigInteger('rst_brs_id');
             $table->unsignedBigInteger('rst_brw_id');
             $table->unsignedBigInteger('rst_bas_id');
             $table->date('rst_date')->nullable();
@@ -29,7 +28,6 @@ class CreateRestoresTable extends Migration
             
             $table->foreign('rst_usr_id')->references('usr_id')->on('users')->onDelete('cascade'); 
             $table->foreign('rst_ass_id')->references('ass_id')->on('assets')->onDelete('cascade');
-            $table->foreign('rst_brs_id')->references('brs_id')->on('borrows_statuses')->onDelete('cascade'); 
             $table->foreign('rst_brw_id')->references('brw_id')->on('borrows')->onDelete('cascade'); 
             $table->foreign('rst_bas_id')->references('bas_id')->on('borrow_assets')->onDelete('cascade');         
             

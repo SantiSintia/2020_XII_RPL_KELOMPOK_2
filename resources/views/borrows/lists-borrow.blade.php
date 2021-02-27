@@ -42,51 +42,22 @@ List Peminjaman
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
-                                                <th>Nama Asset</th>
+                                                <th>Jumlah Pinjam</th>
                                                 <th>Status</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($borrows as $no => $borrow)
-                                        @if(Auth()->user()->usr_id == $borrow->brw_usr_id OR Auth()->user()->hasRole('admin')) 
-                                            <tr>
-                                            @if($borrow->ass_status != 1)
-                                                <td>{{$no+1}}</td>
-                                                <td>{{$borrow->usr_name}}</td>
-                                                <td>{{$borrow->ass_name}}</td>
-
-                                                @if($borrow->ass_status == 2)
-                                                <td><label class="label label-warning">Menunggu Verifikasi</label></td>
-                                                @endif
-
-                                                @if($borrow->ass_status == 3)
-                                                <td><label class="label label-success">Sedang dipinjam</label></td>
-                                                @endif
-
-                                                @if($borrow->ass_status == 1)
-                                                <td><label class="label label-success">Sudah dikembalikan</label></td>
-                                                @endif
-
-                                                <td>
-                                                @if(Auth()->user()->hasRole('admin'))
-                                                @if($borrow->ass_status == 2)
-                                                    <a href="{{URL::to('borrows-asset/verify/'.$borrow->ass_id)}}" class="btn btn-primary">Verifikasi</a>
-                                                @else($borrow->ass_status == 3)
-                                                    <a href="{{URL::to('return/add/'.$borrow->brw_id)}}" class="btn btn-success">kembalikan</a>
-                                                
-
-                                                @endif
-                                                    <a href="{{URL::to('lists-borrow/'.$borrow->brw_id)}}" class="btn btn-primary">Detail</a>
-                                                </td> 
-                                                @endif
-                                            @endif
-
-                                            </tr>  
-                                        @endif
+                                                <th>{{$no + 1}}</th>
+                                                <th>{{$borrow->usr_name}}</th>
+                                                <th>{{$borrow->total}}</th>
+                                                <th>Masih dipinjam</th>
+                                                <th>
+                                                    <a href="{{URL::to('lists-borrow/'.$borrow->bas_brw_id)}}" class="btn btn-sm btn-flat btn-success">lihat</a>
+                                                </th>
                                         @endforeach                                          
                                                                               
-                                         
                                             </tr>
                                         </tbody>
                                     </table>

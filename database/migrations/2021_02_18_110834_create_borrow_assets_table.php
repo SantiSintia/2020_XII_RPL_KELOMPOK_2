@@ -17,7 +17,7 @@ class CreateBorrowAssetsTable extends Migration
             $table->bigIncrements('bas_id');
             $table->unsignedBigInteger('bas_ass_id');
             $table->unsignedBigInteger('bas_brw_id');
-            $table->unsignedBigInteger('bas_brs_id');
+            $table->boolean('bas_status');
 
             $table->unsignedBigInteger('bas_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('bas_updated_by')->unsigned()->nullable();
@@ -25,7 +25,6 @@ class CreateBorrowAssetsTable extends Migration
              
             $table->foreign('bas_ass_id')->references('ass_id')->on('assets')->onDelete('cascade'); 
             $table->foreign('bas_brw_id')->references('brw_id')->on('borrows')->onDelete('cascade');         
-            $table->foreign('bas_brs_id')->references('brs_id')->on('borrows_statuses')->onDelete('cascade');         
             
             $table->foreign('bas_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('bas_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
