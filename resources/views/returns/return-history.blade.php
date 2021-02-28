@@ -34,7 +34,7 @@ History
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">History Pengembalian</h4>
-                              
+
 
                                  <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
@@ -42,24 +42,40 @@ History
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Peminjam</th>
-                                                <th>Aset Asset</th>
-                                                
+                                                <th>Nama Barang</th>
+                                                <th>Petugas Penyarahan</th>
+                                                <th>Tgl Pinjam</th>
+                                                <th>Kondisi Barang</th>
+                                                <th>Petugas Pengembalian</th>
+                                                <th>Tgl Pengembalian</th>
+                                                <th>Kondisi Barang</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            @foreach($list as $no =>$list)
-                                            <tr>
-                                                <td>{{$no+1}}</td>
-                                                <td>{{$list->usr_name}}</td>
-                                                <td>{{$list->ass_name}}</td>
-                                                
-                                              
-                                            </tr>                                            
-                                                                                    
-                                            @endforeach                                 
-                                         
-                                            
+                                            @foreach($history as $no => $data)
+                                                <tr>
+                                                    <th>{{$no+1}}</th>
+                                                    <th>{{$data->UserByName}}</th>
+                                                    <th>{{$data->ass_name}}</th>
+                                                    <th>{{$data->CreatedByName}}</th>
+                                                    <th>{{date('d-m-Y - H:i:s', strtotime($data->CreatedAt))}}</th>
+                                                    <th>Baik</th>
+                                                    <th>{{$data->UpdatedByName}}</th>
+                                                    <th>{{date('d-m-Y - H:i:s', strtotime($data->UpdatedAt))}}</th>
+                                                    @if($data->bas_status == 3)
+                                                        <td class="text-center">Baik</td>
+                                                    @elseif($data->bas_status == 4)
+                                                        <td class="text-center">Rusak</td>
+                                                    @elseif($data->bas_status == 5)
+                                                        <td class="text-center">Hilang</td>
+                                                        @endif
+
+                                                </tr>
+
+                                            @endforeach
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -73,7 +89,7 @@ History
     <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{URL::to('assets/js/jquery.slimscroll.js')}}"></script>
-    
+
     <!--Wave Effects -->
     <script src="{{URL::to('assets/js/waves.js')}}"></script>
     <!--Menu sidebar -->
@@ -88,7 +104,7 @@ History
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-   
+
     <!--c3 JavaScript -->
     <script src="{{URL::to('assets/plugins/d3/d3.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/c3-master/c3.min.js')}}"></script>
@@ -148,5 +164,5 @@ History
         ]
     });
     </script>
-@endpush   
+@endpush
 @endsection

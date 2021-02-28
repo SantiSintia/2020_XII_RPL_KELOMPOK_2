@@ -35,7 +35,7 @@ List Peminjaman
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Daftar Peminjaman</h4>
-                              
+
                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
@@ -49,6 +49,7 @@ List Peminjaman
                                         </thead>
                                         <tbody>
                                         @foreach($borrows as $no => $borrow)
+                                            <tr>
                                                 <th>{{$no + 1}}</th>
                                                 <th>{{$borrow->usr_name}}</th>
                                                 <th>{{$borrow->total}}</th>
@@ -56,15 +57,16 @@ List Peminjaman
                                                 <th>
                                                     <a href="{{URL::to('lists-borrow/'.$borrow->bas_brw_id)}}" class="btn btn-sm btn-flat btn-success">lihat</a>
                                                 </th>
-                                        @endforeach                                          
-                                                                              
-                                            </tr>
+                                                <tr>
+                                        @endforeach
+
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        
+
 @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
@@ -72,7 +74,7 @@ List Peminjaman
     <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{URL::to('assets/js/jquery.slimscroll.js')}}"></script>
-    
+
     <!--Wave Effects -->
     <script src="{{URL::to('assets/js/waves.js')}}"></script>
     <!--Menu sidebar -->
@@ -87,7 +89,7 @@ List Peminjaman
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-   
+
     <!--c3 JavaScript -->
     <script src="{{URL::to('assets/plugins/d3/d3.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/c3-master/c3.min.js')}}"></script>
@@ -147,5 +149,5 @@ List Peminjaman
         ]
     });
     </script>
-@endpush   
+@endpush
 @endsection

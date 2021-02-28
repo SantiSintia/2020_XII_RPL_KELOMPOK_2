@@ -67,65 +67,66 @@
             <hr>
 
 
-
-            <div class="table-responsive m-t-40">
-                <table id="myTable" class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Barang</th>
-                        <th>Nama Petugas</th>
-                        <th class="text-center">Tgl Pinjam</th>
-                        <th class="text-center">Status Peminjaman</th>
-                        <th class="text-center">Kondisi</th>
-                        <th class="text-center" style="width: 10%;">Aksi</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($borrows as $no => $borrow)
-                        <tr>
-                            <td>{{$no + 1}}</td>
-                            <td>{{$borrow->ass_name}}</td>
-                            <td>{{$borrow->usr_name}}</td>
-                            <td class="text-center">{{date('d-m-Y - H:i:s', strtotime($borrow->brw_created_at))}}</td>
-                            @if($borrow->bas_status == 1)
-                                <td class="text-center">Belum Kembali</td>
-                                <td class="text-center">-</td>
-                            @elseif($borrow->bas_status == 3)
-                                <td class="text-center">Sudah Kembali</td>
-                                <td class="text-center">Baik</td>
-                            @elseif($borrow->bas_status == 4)
-                                <td class="text-center">Sudah Kembali</td>
-                                <td class="text-center">Rusak</td>
-                            @elseif($borrow->bas_status == 5)
-                                <td class="text-center">Sudah Kembali</td>
-                                <td class="text-center">Hilang</td>
-                            @endif
-
-                            <td>
-                                @if ($borrow->bas_status == 1)
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle text-center" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                            Kembalikan
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{{URL::to('/return/'. $borrow->bas_id .  '/3')}}">Baik</a>
-                                            <a class="dropdown-item" href="{{URL::to('/return/'. $borrow->bas_id .  '/4')}}">Rusak</a>
-                                            <a class="dropdown-item" href="{{URL::to('/return/'. $borrow->bas_id .  '/5')}}">Hilang</a>
-                                        </div>
-                                    </div>
-                                @endif
-                            </td>
-                        </tr>
-                    @endforeach
-
-
-                    </tbody>
-                </table>
-            </div>
         </div>
+
+        <div class="table-responsive m-t-40">
+            <table id="myTable" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Barang</th>
+                    <th>Nama Petugas</th>
+                    <th class="text-center">Tgl Pinjam</th>
+                    <th class="text-center">Status Peminjaman</th>
+                    <th class="text-center">Kondisi</th>
+                    <th class="text-center" style="width: 10%;">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($borrows as $no => $borrow)
+                    <tr>
+                        <td>{{$no + 1}}</td>
+                        <td>{{$borrow->ass_name}}</td>
+                        <td>{{$borrow->usr_name}}</td>
+                        <td class="text-center">{{date('d-m-Y - H:i:s', strtotime($borrow->brw_updated_at))}}</td>
+                        @if($borrow->bas_status == 1)
+                            <td class="text-center">Belum Kembali</td>
+                            <td class="text-center">-</td>
+                        @elseif($borrow->bas_status == 3)
+                            <td class="text-center">Sudah Kembali</td>
+                            <td class="text-center">Baik</td>
+                        @elseif($borrow->bas_status == 4)
+                            <td class="text-center">Sudah Kembali</td>
+                            <td class="text-center">Rusak</td>
+                        @elseif($borrow->bas_status == 5)
+                            <td class="text-center">Sudah Kembali</td>
+                            <td class="text-center">Hilang</td>
+                        @endif
+
+                        <td>
+                            @if ($borrow->bas_status == 1)
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle text-center" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                        Kembalikan
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="{{URL::to('/return/'. $borrow->bas_id .  '/3')}}">Baik</a>
+                                        <a class="dropdown-item" href="{{URL::to('/return/'. $borrow->bas_id .  '/4')}}">Rusak</a>
+                                        <a class="dropdown-item" href="{{URL::to('/return/'. $borrow->bas_id .  '/5')}}">Hilang</a>
+                                    </div>
+                                </div>
+                            @endif
+                        </td>
+                    </tr>
+                @endforeach
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
     </div>
 
     @push('scripts')

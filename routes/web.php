@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack' ]], func
     Route::get('asset/{id}/destroy', 'AssetController@destroy');
     Route::get('asset/{id}/edit', 'AssetController@edit');
     Route::post('asset/{id}/edit', 'AssetController@update');
-    
+
 
     Route::get('lists-borrow', 'BorrowsController@index');
     Route::get('borrows-asset', 'BorrowsController@borrowsItem');
@@ -86,9 +86,15 @@ Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack' ]], func
 
     Route::get('return/add/{id}', 'BorrowsController@returnAdd');
     Route::get('return/list-return', 'BorrowsController@listreturn');
+    Route::get('return/list-return/{id}', 'BorrowsController@listreturnDetail');
+
     Route::get('return/print', 'BorrowsController@print');
-    Route::get('return/history', 'BorrowsController@returnHistory');
+    Route::get('return/history', 'BorrowsController@History');
+
+
     Route::get('return/{id}/delete','BorrowsController@destroy');
+    Route::get('/return/{id}/{slug}', 'BorrowsController@Return');
+    Route::get('/return/{id}/all/{slug}', 'BorrowsController@ReturnAll');
 
 
 
