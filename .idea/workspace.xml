@@ -20,52 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77d04c7e-410c-42c5-9787-a51dee6b49cf" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/returns/list-return-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/2020_XII_RPL_KELOMPOK_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/2020_XII_RPL_KELOMPOK_2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Borrow.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Borrow.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BorrowsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BorrowsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/DisablePreventBack.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/DisablePreventBack.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Origin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Origin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Restore.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Restore.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/asset_description.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/asset_description.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/borrow_asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/borrow_asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/borrows_statuse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/borrows_statuse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_18_110340_create_borrows_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_18_110340_create_borrows_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_18_110834_create_borrow_assets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_18_110834_create_borrow_assets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_18_112232_create_restores_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_18_112232_create_restores_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/BorrowAssetsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BorrowAssetsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/BorrowsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BorrowsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/RestoresTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RestoresTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/material-pro/minisidebar/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/material-pro/minisidebar/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/assets/edit-asset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/edit-asset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backup/backup3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backup/backup3.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/borrows/borrows-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/borrows/borrows-item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/borrows/detail-borrow.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/borrows/detail-borrow.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/borrows/lists-borrow.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/borrows/lists-borrow.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/returns/list-return.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/returns/list-return.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/returns/return-history.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/returns/return-history.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

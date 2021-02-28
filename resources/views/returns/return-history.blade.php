@@ -39,9 +39,11 @@ History
                                  <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th>No</th>
-                                                <th>Nama Peminjam</th>
+                                                <th class="text-left">Nama Peminjam</th>
+                                                <th>NIS</th>
+                                                <th>Kelas</th>
                                                 <th>Nama Barang</th>
                                                 <th>Petugas Penyarahan</th>
                                                 <th>Tgl Pinjam</th>
@@ -55,21 +57,23 @@ History
 
                                             @foreach($history as $no => $data)
                                                 <tr>
-                                                    <th>{{$no+1}}</th>
+                                                    <th class="text-center">{{$no+1}}</th>
                                                     <th>{{$data->UserByName}}</th>
-                                                    <th>{{$data->ass_name}}</th>
-                                                    <th>{{$data->CreatedByName}}</th>
-                                                    <th>{{date('d-m-Y - H:i:s', strtotime($data->CreatedAt))}}</th>
-                                                    <th>Baik</th>
-                                                    <th>{{$data->UpdatedByName}}</th>
-                                                    <th>{{date('d-m-Y - H:i:s', strtotime($data->UpdatedAt))}}</th>
+                                                    <th>{{$data->std_nis}}</th>
+                                                    <th class="text-center">{{$data->std_class}}</th>
+                                                    <th class="text-center">{{$data->ass_name}}</th>
+                                                    <th class="text-center">{{$data->CreatedByName}}</th>
+                                                    <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->CreatedAt))}}</th>
+                                                    <th class="text-center">Baik</th>
+                                                    <th class="text-center">{{$data->UpdatedByName}}</th>
+                                                    <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->UpdatedAt))}}</th>
                                                     @if($data->bas_status == 3)
-                                                        <td class="text-center">Baik</td>
+                                                        <td class="text-center text-white" style="background-color: #0b6e16">Baik</td>
                                                     @elseif($data->bas_status == 4)
-                                                        <td class="text-center">Rusak</td>
+                                                        <td class="text-center text-white" style="background-color: #911313">Rusak</td>
                                                     @elseif($data->bas_status == 5)
-                                                        <td class="text-center">Hilang</td>
-                                                        @endif
+                                                        <td class="text-center text-white" style="background-color: #cf8d1a">Hilang</td>
+                                                    @endif
 
                                                 </tr>
 
