@@ -84,7 +84,7 @@ Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack' ]], func
 
 
 
-    Route::get('return/add/{id}', 'BorrowsController@returnAdd');
+    //Route::get('return/add/{id}', 'BorrowsController@returnAdd');
     Route::get('return/list-return', 'BorrowsController@listreturn');
     Route::get('return/list-return/{id}', 'BorrowsController@listreturnDetail');
 

@@ -25,16 +25,20 @@
 
     <div class="row page-titles">
         <div class="col-md-5 col-8 align-self-center">
-            <h3 class="text-themecolor">Peminjaman</h3>
+            <h3 class="text-themecolor">Pengembalian</h3>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Peminjaman</a></li>
-                <li class="breadcrumb-item active">Daftar Peminjaman</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Pengembalian</a></li>
+                <li class="breadcrumb-item active">Daftar Pengembalian</li>
             </ol>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Daftar Peminjaman</h4>
+            <h4 class="card-title">Daftar Pengembalian</h4>
+          <p>
+            <a href="{{URL::to('return/print')}}" target="_blank" class="btn btn-sm btn-flat btn-default"><i class="fa fa-print"></i> Print</a>
+          </p>
+
 
             <div class="table-responsive m-t-40">
                 <table id="myTable" class="table table-bordered table-striped">

@@ -27,16 +27,16 @@
 
     <div class="row page-titles">
         <div class="col-md-5 col-8 align-self-center">
-            <h3 class="text-themecolor">Asset</h3>
+            <h3 class="text-themecolor">Peminjaman</h3>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
-                <li class="breadcrumb-item active">Kelola Asset</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Peminjaman</a></li>
+                <li class="breadcrumb-item active">Pinjam Asset</li>
             </ol>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Pinjam asset</h4>
+            <h4 class="card-title">Pinjam Asset</h4>
             <br>
 
             <input id="addRow" class="btn btn-success" type="button" value="Tambah Barang"/>&nbsp <input id="deleteRow"

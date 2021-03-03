@@ -47,6 +47,27 @@ class BorrowsController extends Controller
 
     }
 
+    public function show($id)
+    {
+        $data ['borrows'] = borrow_asset::where('bas_brw_id', $id)
+            ->join('assets', 'borrow_assets.bas_ass_id', '=', 'assets.ass_id')
+            ->join('borrows', 'borrow_assets.bas_brw_id', '=', 'borrows.brw_id')
+            ->join('users', 'borrows.brw_created_by', '=', 'users.usr_id')
+            ->where('bas_status', 1)
+            ->select(
+                'borrows.*' , 'borrow_assets.*','assets.*' , 'users.*','borrows.created_at as brw_created_at'
+            )
+            ->get();
+        $data ['borrowId'] = Borrow::whereBrwId($id)->first();
+        $cek_user = Borrow::whereBrwId($id)->first();
+        $data ['user'] = Student::whereStdUsrId($cek_user->brw_usr_id)
+            ->join('users' , 'students.std_usr_id' , '=' , 'users.usr_id')
+            ->first();
+
+        return view('borrows.detail-borrow', $data);
+    }
+
+
     public function borrowsItem()
     {
         $name = user::join('roles', 'role_id', '=', 'id')->where('name', 'student')->select('users.usr_name', 'users.usr_id')->get();
@@ -66,7 +87,7 @@ class BorrowsController extends Controller
             ->where('bas_status', 0)
             ->first();
         if ($cek) {
-            return back()->withToastError('peminjam masih punya histori peminjaman belum selesai');
+            return back()->withToastError('peminjam masih punya histori peminjaman yang belum selesai');
         }
 
         $brw = new borrow();
@@ -92,33 +113,33 @@ class BorrowsController extends Controller
 
     }
 
-    public function verify($id)
-    {
+    // public function verify($id)
+    // {
 
-        $assets = Asset::whereAssId($id)->first();
-        $assets->ass_status = 3;
-        $assets->ass_updated_by = Auth::user()->usr_id;
-        $assets->save();
-        return redirect('lists-borrow');
+    //     $assets = Asset::whereAssId($id)->first();
+    //     $assets->ass_status = 3;
+    //     $assets->ass_updated_by = Auth::user()->usr_id;
+    //     $assets->save();
+    //     return redirect('lists-borrow');
 
-    }
+    // }
 
-    public function returnAdd($id)
-    {
-        $assets = Asset::whereAssId($id)->first();
-        $assets->ass_status = 1;
+    // public function returnAdd($id)
+    // {
+    //     $assets = Asset::whereAssId($id)->first();
+    //     $assets->ass_status = 1;
 
-        $restore = new Restore();
-        $restore->rst_brw_id = $id;
-        $restore->rst_ass_id = $id;
-        $restore->rst_usr_id = Auth::user()->usr_id;
-        $restore->save();
+    //     $restore = new Restore();
+    //     $restore->rst_brw_id = $id;
+    //     $restore->rst_ass_id = $id;
+    //     $restore->rst_usr_id = Auth::user()->usr_id;
+    //     $restore->save();
 
-        $assets->save();
-        return redirect('return/list-return');
+    //     $assets->save();
+    //     return redirect('return/list-return');
 
 
-    }
+    // }
 
     public function listreturn()
     {
@@ -137,74 +158,37 @@ class BorrowsController extends Controller
 
     public function print()
     {
-        $list = Restore::join('users', 'rst_usr_id', '=', 'usr_id')
-            ->join('assets', 'rst_ass_id', '=', 'ass_id')
-            ->join('borrows', 'rst_brw_id', '=', 'brw_id')
-            ->select('restores.*', 'users.*', 'assets.*', 'borrows.created_at as f')
+        $data ['history'] = borrow_asset::join('borrows' , 'borrow_assets.bas_brw_id' , '=' , 'borrows.brw_id')
+            ->join('assets' , 'borrow_assets.bas_ass_id' , '=' , 'assets.ass_id')
+            ->join('users as UserId' ,  'borrows.brw_usr_id' ,  '='  , 'UserId.usr_id')
+            ->join('users as CreatedBy' ,  'borrow_assets.bas_created_by' ,  '='  , 'CreatedBy.usr_id')
+            ->join('users as UpdatedBy' ,  'borrow_assets.bas_updated_by' ,  '='  , 'UpdatedBy.usr_id')
+            ->join('students' , 'borrows.brw_usr_id' , '=' , 'students.std_usr_id')
+            ->select(
+                'CreatedBy.usr_name as CreatedByName','UpdatedBy.usr_name as UpdatedByName' ,  'UserId.usr_name  as UserByName',
+                'borrows.*'  ,  'assets.*' , 'borrow_assets.*',
+                'borrow_assets.created_at as  CreatedAt', 'borrow_assets.updated_at as  UpdatedAt',
+                'students.*'
+            )
+            ->orderBy('bas_id'  , 'DESC')
             ->get();
 
-        $pdf = PDF::loadview('returns.pdf', compact('list'))->setPaper('A4', 'potrait');
+        $pdf = PDF::loadview('returns.pdf', $data)->setPaper('A4', 'landscape');
         return $pdf->stream();
     }
 
-    public function returnHistory()
-    {
-        $list = Restore::join('users', 'rst_usr_id', '=', 'usr_id')
-            ->join('assets', 'rst_ass_id', '=', 'ass_id')
-            ->join('borrows', 'rst_brw_id', '=', 'brw_id')
-            ->select('restores.*', 'users.*', 'assets.*', 'borrows.created_at as f')
-            ->onlyTrashed()
-            ->get();
-        return view('returns.return-history', compact(['list']));
-    }
+    // public function returnHistory()
+    // {
+    //     $list = Restore::join('users', 'rst_usr_id', '=', 'usr_id')
+    //         ->join('assets', 'rst_ass_id', '=', 'ass_id')
+    //         ->join('borrows', 'rst_brw_id', '=', 'brw_id')
+    //         ->select('restores.*', 'users.*', 'assets.*', 'borrows.created_at as f')
+    //         ->onlyTrashed()
+    //         ->get();
+    //     return view('returns.return-history', compact(['list']));
+    // }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\cr $cr
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $data ['borrows'] = borrow_asset::where('bas_brw_id', $id)
-            ->join('assets', 'borrow_assets.bas_ass_id', '=', 'assets.ass_id')
-            ->join('borrows', 'borrow_assets.bas_brw_id', '=', 'borrows.brw_id')
-            ->join('users', 'borrows.brw_created_by', '=', 'users.usr_id')
-            ->where('bas_status', 1)
-            ->select(
-                'borrows.*' , 'borrow_assets.*','assets.*' , 'users.*','borrows.created_at as brw_created_at'
-            )
-            ->get();
-        $data ['borrowId'] = Borrow::whereBrwId($id)->first();
-        $cek_user = Borrow::whereBrwId($id)->first();
-        $data ['user'] = Student::whereStdUsrId($cek_user->brw_usr_id)
-            ->join('users' , 'students.std_usr_id' , '=' , 'users.usr_id')
-            ->first();
-
-        return view('borrows.detail-borrow', $data);
-    }
     public function listreturnDetail($id)
     {
         $data ['borrows'] = borrow_asset::where('bas_brw_id', $id)
@@ -227,29 +211,6 @@ class BorrowsController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param \App\cr $cr
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(cr $cr)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\cr $cr
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, cr $cr)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
      *
      * @param \App\cr $cr
      * @return \Illuminate\Http\Response
