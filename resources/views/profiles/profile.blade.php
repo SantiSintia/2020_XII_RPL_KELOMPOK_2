@@ -80,56 +80,43 @@
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Status</strong>
                                                 <br>
-                                                <p class="text-muted">{{ Auth::user()->usr_is_active }}</p>
+                                                <p class="text-muted">aktif</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane show" id="settings" role="tabpanel">
                                     <div class="card-body">
-                                        <form class="form-horizontal form-material">
+                                        <form action="{{ url ('admin/change-profile')}}" method="POST" class="form-horizontal form-material">
+                                        @csrf
+                                         <input type="hidden" value="{{Auth::user()->usr_id}}" name="id">
                                             <div class="form-group">
-                                                <label class="col-md-12">Full Name</label>
+                                                <label class="col-md-12">Username</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="example-email" class="col-md-12">Email</label>
-                                                <div class="col-md-12">
-                                                    <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Password</label>
-                                                <div class="col-md-12">
-                                                    <input type="password" value="password" class="form-control form-control-line">
+                                                    <input type="text" name="usr_name" class="form-control form-control-line" id="name" value="{{Auth::user()->usr_name}}" placeholder="Enter Username">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-12">Phone No</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                                    <input type="text" name="usr_phone" class="form-control form-control-line" id="phone" value="{{Auth::user()->usr_phone}}" placeholder="Enter Phone">
                                                 </div>
-                                            </div>
+                                            </div> 
                                             <div class="form-group">
-                                                <label class="col-md-12">Message</label>
+                                                <label class="col-md-12">Password</label>
                                                 <div class="col-md-12">
-                                                    <textarea rows="5" class="form-control form-control-line"></textarea>
+                                                    <input type="password" name="usr_password" placeholder="Enter Password" class="form-control form-control-line">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-12">Select Country</label>
-                                                <div class="col-sm-12">
-                                                    <select class="form-control form-control-line">
-                                                        <option>London</option>
-                                                        <option>India</option>
-                                                        <option>Usa</option>
-                                                        <option>Canada</option>
-                                                        <option>Thailand</option>
-                                                    </select>
+                                                <label class="col-md-12">Re-Password</label>
+                                                <div class="col-md-12">
+                                                   <input type="password" class="form-control form-control-line" name="re_password"  id="pass4" placeholder="Re Enter pwd">
                                                 </div>
                                             </div>
+
+                                            
+                                            
                                             <div class="form-group">
                                                 <div class="col-sm-12">
                                                     <button class="btn btn-success">Update Profile</button>

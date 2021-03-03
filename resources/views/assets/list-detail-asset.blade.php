@@ -54,10 +54,12 @@
                               <small class="text-muted">Status</small>
                                 @if($asset->ass_status == 0)
                                 <h6>TIdak bisa dipinjam</label></h6>
-                                @endif
 
-                                @if($asset->ass_status == 1)
+                                @elseif($asset->ass_status == 1)
                                 <h6>Bisa dipinjam</h6>
+
+                                @else($asset->ass_status == 2)
+                                <h6>sedang dipinjam</h6>
                                 @endif
 
                               <small class="text-muted">Material  </small>
