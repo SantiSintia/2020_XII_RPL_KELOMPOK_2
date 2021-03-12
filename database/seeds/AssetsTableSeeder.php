@@ -97,7 +97,7 @@ class AssetsTableSeeder extends Seeder
             'ass_registration_code' => '002/P01.004/INV.YYS/2016',
             'ass_name' => 'Kursi Set ke 2',
             'ass_price' => '50000',
-            'ass_status'=> 2
+            'ass_status'=> 1
             ]);
     }
 }

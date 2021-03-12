@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-Asset
+History
 @endpush
 
 @push('styles')
@@ -17,7 +17,6 @@ Asset
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
     <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
 @endpush
 
@@ -25,85 +24,68 @@ Asset
 
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor">Asset</h3>
+                        <h3 class="text-themecolor">Kelola User</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
-                            <li class="breadcrumb-item active">Kelola Asset</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+                            <li class="breadcrumb-item active">Detail User</li>
+                            <li class="breadcrumb-item active">History User</li>
                         </ol>
                     </div>
                 </div>
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Asset</h4>
-                                <div class="box-header">
-                                    <p>
-                                        <a href="{{URL::to('asset/create')}}" class="btn btn-success btn-rounded m-t-10 float-right"><i class="fa fa-plus"></i>Tambah</a>
-                                    </p>
-                                </div>
+                            <center>
+                                <h4 class="card-title">History User</h4>
+                            </center>
 
-                                <div class="table-responsive m-t-40">
+                                 <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th>No</th>
-                                                <th>Nama Asset</th>
-                                                <th>Kode Registrasi</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                                
+                                                <th class="text-left">Nama Asset</th>
+                                                <th>Tgl Pinjam</th>
+                                                <th>Kondisi Barang</th>
+                                                <th>Tgl Pengembalian</th>
+                                                <th>Kondisi Barang</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($assets as $no => $data)
-                                            <tr>
-                                                <td>{{$no+1}}</td>
-                                                <td>{{$data->ass_name}}</td>
-                                                <td>{{$data->ass_registration_code}}</td>
 
-                                                <td>
-                                                @if($data->ass_status == 0)
-                                                TIdak bisa dipinjam</label>
+                                            @foreach($user as $no => $data)
+                                                <tr>
+                                                    <th class="text-center">{{$no+1}}</th>
+                                                    <th>{{$data->ass_name}}</th>
+                                                    <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->CreatedAt))}}</th>
+                                                    <th class="text-center">Baik</th>
+                                                    <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->UpdatedAt))}}</th>
+                                                    @if($data->bas_status == 3)
+                                                        <td class="text-center text">Baik</td>
+                                                    @elseif($data->bas_status == 4)
+                                                        <td class="text-center text">Rusak</td>
+                                                    @elseif($data->bas_status == 5)
+                                                        <td class="text-center text">Hilang</td>
+                                                    @endif
+                                                    
+                                                </tr>
 
-                                                @elseif($data->ass_status == 1)
-                                                Bisa dipinjam
+                                            @endforeach
 
-                                                @elseif($data->ass_status == 2)
-                                                Sedang dipinjam
-                                                
-                                                @elseif($data->ass_status == 4)
-                                                Rusak
-                                                
-                                                @elseif($data->ass_status == 5)
-                                                Hilang
 
-                                                @elseif($data->ass_status == 6)
-                                                Asset Pengganti
-
-                                                @endif
-
-                                                </td>
-
-                                                <td>
-                                                    <a href="{{URL::to('asset/'.$data->ass_id)}}" class="btn btn-sm btn-flat btn-success">Detail</a>
-                                                    <a href="{{URL::to('asset/'.$data->ass_id.'/destroy')}}" class="btn btn-sm btn-flat btn-danger">Hapus</a>
-                                                    <a href="{{URL::to('asset/'.$data->ass_id).'/edit'}}" class="btn btn-sm btn-flat btn-primary">Edit</a></td>
-                                                </td>
-                                            </tr>                                            
-                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
 
-@push('scripts')
+  @push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{URL::to('assets/js/jquery.slimscroll.js')}}"></script>
-    
+
     <!--Wave Effects -->
     <script src="{{URL::to('assets/js/waves.js')}}"></script>
     <!--Menu sidebar -->
@@ -118,7 +100,7 @@ Asset
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-   
+
     <!--c3 JavaScript -->
     <script src="{{URL::to('assets/plugins/d3/d3.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/c3-master/c3.min.js')}}"></script>
@@ -178,5 +160,5 @@ Asset
         ]
     });
     </script>
-@endpush   
+@endpush
 @endsection

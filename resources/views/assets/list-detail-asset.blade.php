@@ -28,58 +28,88 @@
                     <div class="col-lg-12 ">
                         <div class="card">
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
-                                    <h4 class="card-title m-t-10">{{$asset->ast_name}}</h4>
+                                <center>
+                                    <h4 class="card-title m-t-10">{{$asset->ass_name}}</h4>
+                                    <h5 class="card-title m-t-10">{{$asset->ass_registration_code}}</h5>
 
                                    
                                 </center>
+                                    <hr>
+
                             </div>
+                                    <table id="myTable" class="table table-bordered table-striped">
 
-                            <div class="card-body">
-                            <h3> Detail Asset</h3><br/>
-                        
+                                    <tr>
+                                        <td>
+                                            <small class="text-muted">Kategori Asset </small>
+                                                <h6>{{$asset->asc_name}} </h6>
+                                            <small class="text-muted">Type Asset  </small>
+                                                <h6>{{$asset->ast_name}}</h6>
+                                            <small class="text-muted">Asal Asset  </small>
+                                                <h6>{{$asset->ori_name}}</h6>
+                                            <small class="text-muted">Tahun Pengayaan  </small>
+                                                <h6>{{$asset->ass_year}}</h6>
+                                            <small class="text-muted">Status</small>
+                                                @if($asset->ass_status == 0)
+                                                <h6>TIdak bisa dipinjam</label></h6>
 
-                              <small class="text-muted">nama asset  </small>
-                                <h6>{{$asset->ass_name}}</h6>
-                              <small class="text-muted">asset kategori </small>
-                                <h6>{{$asset->asc_name}} </h6>
-                              <small class="text-muted">type aset  </small>
-                                <h6>{{$asset->ast_name}}</h6>
-                               <small class="text-muted">Asal asset  </small>
-                                <h6>{{$asset->ori_name}}</h6>
-                              <small class="text-muted">tahun pengayaan  </small>
-                                <h6>{{$asset->ass_year}}</h6>
-                              <small class="text-muted">kode registrasi  </small>
-                                <h6>{{$asset->ass_registration_code}}</h6>
-                              <small class="text-muted">Status</small>
-                                @if($asset->ass_status == 0)
-                                <h6>TIdak bisa dipinjam</label></h6>
+                                                @elseif($asset->ass_status == 1)
+                                                <h6>Bisa dipinjam</h6>
 
-                                @elseif($asset->ass_status == 1)
-                                <h6>Bisa dipinjam</h6>
+                                                @elseif($asset->ass_status == 2)
+                                                <h6>Sedang dipinjam</h6>
+                                                
+                                                @elseif($asset->ass_status == 4)
+                                                <h6>Rusak</h6>
+                                                
+                                                @elseif($asset->ass_status == 5)
+                                                <h6>Hilang</h6>
 
-                                @else($asset->ass_status == 2)
-                                <h6>sedang dipinjam</h6>
-                                @endif
+                                                @elseif($asset->ass_status == 6)
+                                                <h6>Asset Pengganti</h6>
 
-                              <small class="text-muted">Material  </small>
-                                <h6>{{$asset->asd_inggridient}}</h6>
-                              <small class="text-muted">Merk  </small>
-                                <h6>{{$asset->asd_merk}}</h6>
-                              <small class="text-muted">spesifikasi  </small>
-                                <h6>{{$asset->asd_spesification}}</h6>
-                                @if($asset->asd_voltage != null)
-                              <small class="text-muted">Voltase  </small>
-                                <h6>{{$asset->asd_voltage}}</h6>
-                                @endif
-                              <small class="text-muted">Kondisi  </small>
-                                <h6>{{$asset->asd_condition}}</h6> 
-                              <small class="text-muted">Harga  </small>
-                                <h6>{{$asset->ass_price}}</h6>
+                                                @endif
+
+
+                                        </td>
+
+                                        <td>
+                                            <small class="text-muted">Harga  </small>
+                                                <h6>{{$asset->ass_price}}</h6>
+                                            <small class="text-muted">Material  </small>
+                                                <h6>{{$asset->asd_inggridient}}</h6>
+                                            <small class="text-muted">Merk  </small>
+                                                <h6>{{$asset->asd_merk}}</h6>
+                                            <small class="text-muted">Spesifikasi  </small>
+                                                <h6>{{$asset->asd_spesification}}</h6>
+                                                @if($asset->asd_voltage != null)
+                                            <small class="text-muted">Voltase  </small>
+                                                <h6>{{$asset->asd_voltage}}</h6>
+                                                @endif
+                                            <small class="text-muted">Kondisi  </small>
+                                                <h6>{{$asset->asd_condition}}</h6> 
+                                        </td>
+                                    </tr>
+
+                                    </table>
+                            </div>
+                            
+                                     <a href="{{URL::to('asset/historyasset/'.$asset->ass_id)}}" class="btn btn-sm btn-flat btn-primary">History</a>
+
+                                     @if($asset->ass_status == 4)
+                                     <a href="{{URL::to('asset/repair/'.$asset->ass_id)}}" class="btn btn-sm btn-flat btn-warning">Perbaiki</a>
+
+                                     @elseif($asset->ass_status == 5)
+                                     <a href="" class="btn btn-sm btn-flat btn-warning">Penggantian</a>
+
+                                     @endif
+
+                    
+
+                              
                           
                      
 
-                            </div>
                         </div>
                     </div>
                     <!-- Column -->

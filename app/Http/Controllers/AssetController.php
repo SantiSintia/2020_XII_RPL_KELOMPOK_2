@@ -8,6 +8,8 @@ use App\asset_types;
 use App\Http\Controllers\Controller;
 use App\Origin;
 use App\asset_description;
+use App\borrow_asset;
+use App\Borrow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -173,6 +175,37 @@ class AssetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function historyasset($id)
+    {
+        $data ['asset'] = borrow_asset::where('bas_ass_id', $id)
+            ->join('borrows' , 'borrow_assets.bas_brw_id' , '=' , 'borrows.brw_id')
+            ->join('assets' , 'borrow_assets.bas_ass_id' , '=' , 'assets.ass_id')
+            ->join('users as UserId' ,  'borrows.brw_usr_id' ,  '='  , 'UserId.usr_id')
+            ->join('users as CreatedBy' ,  'borrow_assets.bas_created_by' ,  '='  , 'CreatedBy.usr_id')
+            ->join('users as UpdatedBy' ,  'borrow_assets.bas_updated_by' ,  '='  , 'UpdatedBy.usr_id')
+            ->join('students' , 'borrows.brw_usr_id' , '=' , 'students.std_usr_id')
+            ->select(
+                'CreatedBy.usr_name as CreatedByName','UpdatedBy.usr_name as UpdatedByName' ,  'UserId.usr_name  as UserByName',
+                'borrows.*'  ,  'assets.*' , 'borrow_assets.*',
+                'borrow_assets.created_at as  CreatedAt', 'borrow_assets.updated_at as  UpdatedAt',
+                'students.*'
+            )
+            ->orderBy('bas_id'  , 'DESC')
+            ->get();
+        return view ('assets.history-asset', $data);
+    }
+
+    public function repair($id)
+    {
+        $asset = Asset::whereAssId($id)->first();
+        $asset->ass_status = 1;
+        $asset->save();
+        return back()->withSuccess('berhasil diperbaiki');
+
+    }
+
+
     public function edit($id)
     {
         $asset=Asset::join('asset_descriptions','asd_ass_id','=','ass_id')
