@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Beranda
+- Detail User
 @endpush
 
 @push('styles')
@@ -37,31 +37,83 @@
                     <div class="col-lg-12 ">
                         <div class="card">
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
-                                    <h4 class="card-title m-t-10">Detail User</h4>
+                                <center class="m-t-250"> <img src="{{URL::to('../assets/images/users/5.jpg')}}" class="img-circle" width="150">
+                                    <h4 class="card-title m-t-10">{{$user->usr_name}}</h4>
+                                    @if($user->role_id == 2)
+                                    <h5 class="card-title m-t-10">Guru</h5>
+                                    @elseif($user->role_id == 3)
+                                    <h5 class="card-title m-t-10">Siswa</h5>
+                                    @endif
 
                                    
                                 </center>
                             </div>
 
                             <div class="card-body">
-                            <h3> Detail User</h3><br/>
-                        
-
-                            <small class="text-muted">Nama  </small>
-                                <h6>{{$user->usr_name}}</h6>
-                            <small class="text-muted">Jabatan  </small>
-                                <h6>{{$role->name}}</h6>
-                            <small class="text-muted">NIP/NiS  </small>
-                                <h6>{{$user->tc_nip}}</h6>
-                            <small class="text-muted">Email </small>
-                                <h6>{{$user->usr_email}} </h6>
-                            <small class="text-muted">Jenis Kelamin</small>
-                                <h6>{{$user->usr_gender}}</h6>
-                            <small class="text-muted">Status</small>
-                                <h6>{{$user->usr_is_active}}</h6>
-                                
+                                    @if($user->role_id == 2)
+                                    <div class="row">
+                                        <div class="col-2">
+                                          <h6>NIP</h6>  
+                                        </div>
+                                        <div class="col-10">
+                                            <h6>{{$user->tc_nip}}</h6>
+                                        </div>
+                                    </div>
+                                    @elseif($user->role_id == 3)
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <h6>NIS</h6>
+                                        </div>
+                                        <div class="col-10">
+                                            <h6>{{$user->std_nis}}</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <h6>Kelas </h6>
+                                        </div>
+                                        <div class="col-10">
+                                            <h6>{{$user->std_class}}</h6>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <h6>Email</h6>
+                                        </div>
+                                        <div class="col-10">
+                                            <h6>{{$user->usr_email}}</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <h6>Jenis Kelamin</h6>
+                                        </div>
+                                        <div class="col-10">
+                                            <h6>{{$user->usr_gender}}</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <h6>Status</h6>
+                                        </div>
+                                        <div class="col-10">
+                                            @if($user->usr_is_active == 1)
+                                                <h6>Aktif</h6>
+                                            @elseif($user->usr_is_active == 0)
+                                                <h6>Tidak Aktif</h6>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row"> 
+                                        <div class="col-2">
+                                            <h6><a href="{{URL::to('admin/user-borrows/'.$user->usr_id)}}" class="btn btn-sm btn-flat btn-primary">History</a></h6> 
+                                        </div> 
+                                    </div>
                             </div>
+                            </div>
+                                  
                         </div>
                     </div>
                     <!-- Column -->

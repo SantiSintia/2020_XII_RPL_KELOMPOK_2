@@ -27,14 +27,14 @@ class AssetCategoriesTableSeeder extends Seeder
         
         DB::table('asset_categories')->insert([
             'asc_code' => 'B02',
-            'asc_original_code' => '3',
+            'asc_original_code' => '2',
             'asc_name' => 'Lantai 2',
             'asc_parent_asset_categories_id' => 1
             ]);
         
         DB::table('asset_categories')->insert([
             'asc_code' => 'B03',
-            'asc_original_code' => '5',
+            'asc_original_code' => '3',
             'asc_name' => 'lantai 3',
             'asc_parent_asset_categories_id' => 1
             ]);

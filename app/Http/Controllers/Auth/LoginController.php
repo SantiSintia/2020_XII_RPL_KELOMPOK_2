@@ -47,7 +47,16 @@ class LoginController extends Controller
               Auth::logout();
               return redirect('/')->withToastError('Gagal login karena akun sudah tidak aktif');
          }elseif($user->usr_is_active == 1){
-              return redirect()->route('dashboard');     
+            if ($user->role_id == 1) {
+                 return redirect()->route('admin/dashboard');
+            }elseif($user->role_id == 2){
+                 return redirect()->route('teacher/dashboard');
+            }elseif($user->role_id == 3){
+                 return redirect()->route('student/dashboard');
+             }else{
+                 return redirect()->route('staff/dashboard');
+             }
+
          }
            
 

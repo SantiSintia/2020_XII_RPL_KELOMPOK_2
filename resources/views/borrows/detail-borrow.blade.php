@@ -44,6 +44,7 @@
                     Nis
                 </div>
                 <div class="col-10">
+                    {{$user->tc_nip}}
                     {{$user->std_nis}}
                 </div>
             </div>

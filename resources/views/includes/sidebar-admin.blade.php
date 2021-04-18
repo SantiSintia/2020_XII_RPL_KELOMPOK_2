@@ -13,7 +13,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> 
-                        <a class="waves-effect waves-dark" href="{{URL::to('dashboard')}}" aria-expanded="false">
+                        <a class="waves-effect waves-dark" href="{{URL::to('admin/dashboard')}}" aria-expanded="false">
                                 <i class="mdi mdi-home"></i>
                                 <span class="hide-menu">Dashboard</span>
                         </a>

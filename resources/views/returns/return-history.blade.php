@@ -34,9 +34,9 @@ History
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">History Pengembalian</h4>
-                                    <p>
+                                    <!-- <p>
                                         <a href="{{URL::to('return/print')}}" target="_blank" class="btn btn-sm btn-flat btn-default"><i class="fa fa-print"></i> Print</a>
-                                    </p>
+                                    </p> -->
                             
 
                                  <div class="table-responsive m-t-40">

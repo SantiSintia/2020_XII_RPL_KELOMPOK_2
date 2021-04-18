@@ -39,7 +39,16 @@
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="../assets/images/users/5.jpg" class="img-circle" width="150">
                                     <h4 class="card-title m-t-10">{{ Auth::user()->usr_name }}</h4>
+                                    @if(Auth()->user()->hasRole('admin'))
                                     <h6 class="card-subtitle">Admin</h6>
+                                    @elseif(Auth()->user()->hasRole('student'))
+                                    <h6 class="card-subtitle">Student</h6>
+                                    @elseif(Auth()->user()->hasRole('staff'))
+                                    <h6 class="card-subtitle">Staff</h6>
+                                    @elseif(Auth()->user()->hasRole('teacher'))
+                                    <h6 class="card-subtitle">Teacher</h6>
+                                    @endif
+
                                     <div class="row text-center justify-content-md-center">
                                         <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
                                         <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
@@ -85,7 +94,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane show" id="settings" role="tabpanel">
+                                 @if(Auth()->user()->hasRole('admin'))
+                                     <div class="tab-pane show" id="settings" role="tabpanel">
                                     <div class="card-body">
                                         <form action="{{ url ('admin/change-profile')}}" method="POST" class="form-horizontal form-material">
                                         @csrf
@@ -130,6 +140,146 @@
                     </div>
                     <!-- Column -->
                 </div>
+                                    @elseif(Auth()->user()->hasRole('student'))
+                                     <div class="tab-pane show" id="settings" role="tabpanel">
+                                    <div class="card-body">
+                                        <form action="{{ url ('student/change-profile')}}" method="POST" class="form-horizontal form-material">
+                                        @csrf
+                                         <input type="hidden" value="{{Auth::user()->usr_id}}" name="id">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Username</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="usr_name" class="form-control form-control-line" id="name" value="{{Auth::user()->usr_name}}" placeholder="Enter Username">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Phone No</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="usr_phone" class="form-control form-control-line" id="phone" value="{{Auth::user()->usr_phone}}" placeholder="Enter Phone">
+                                                </div>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label class="col-md-12">Password</label>
+                                                <div class="col-md-12">
+                                                    <input type="password" name="usr_password" placeholder="Enter Password" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Re-Password</label>
+                                                <div class="col-md-12">
+                                                   <input type="password" class="form-control form-control-line" name="re_password"  id="pass4" placeholder="Re Enter pwd">
+                                                </div>
+                                            </div>
+
+                                            
+                                            
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <button class="btn btn-success">Update Profile</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                                    @elseif(Auth()->user()->hasRole('staff'))
+                                     <div class="tab-pane show" id="settings" role="tabpanel">
+                                    <div class="card-body">
+                                        <form action="{{ url ('staff/change-profile')}}" method="POST" class="form-horizontal form-material">
+                                        @csrf
+                                         <input type="hidden" value="{{Auth::user()->usr_id}}" name="id">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Username</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="usr_name" class="form-control form-control-line" id="name" value="{{Auth::user()->usr_name}}" placeholder="Enter Username">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Phone No</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="usr_phone" class="form-control form-control-line" id="phone" value="{{Auth::user()->usr_phone}}" placeholder="Enter Phone">
+                                                </div>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label class="col-md-12">Password</label>
+                                                <div class="col-md-12">
+                                                    <input type="password" name="usr_password" placeholder="Enter Password" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Re-Password</label>
+                                                <div class="col-md-12">
+                                                   <input type="password" class="form-control form-control-line" name="re_password"  id="pass4" placeholder="Re Enter pwd">
+                                                </div>
+                                            </div>
+
+                                            
+                                            
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <button class="btn btn-success">Update Profile</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                                    @elseif(Auth()->user()->hasRole('teacher'))
+                                     <div class="tab-pane show" id="settings" role="tabpanel">
+                                    <div class="card-body">
+                                        <form action="{{ url ('teacher/change-profile')}}" method="POST" class="form-horizontal form-material">
+                                        @csrf
+                                         <input type="hidden" value="{{Auth::user()->usr_id}}" name="id">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Username</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="usr_name" class="form-control form-control-line" id="name" value="{{Auth::user()->usr_name}}" placeholder="Enter Username">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Phone No</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" name="usr_phone" class="form-control form-control-line" id="phone" value="{{Auth::user()->usr_phone}}" placeholder="Enter Phone">
+                                                </div>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label class="col-md-12">Password</label>
+                                                <div class="col-md-12">
+                                                    <input type="password" name="usr_password" placeholder="Enter Password" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Re-Password</label>
+                                                <div class="col-md-12">
+                                                   <input type="password" class="form-control form-control-line" name="re_password"  id="pass4" placeholder="Re Enter pwd">
+                                                </div>
+                                            </div>
+
+                                            
+                                            
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <button class="btn btn-success">Update Profile</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                                    @endif
+                               
                 <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->

@@ -46,55 +46,61 @@ Route::post('/register-teacher', 'Auth\RegisterController@registerSaveTeacher');
 
 Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
+
+
 //Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini
-Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack' ]], function () {
-    Route::get('dashboard', 'AdminPageController@index')->name('dashboard');
-    Route::get('admin/profile', 'AdminPageController@profile');
-    Route::get('admin/change-profile', 'AdminPageController@changeProfile');
-    Route::post('admin/change-profile', 'AdminPageController@saveChangeProfile');
-    Route::get('admin/user', 'AdminPageController@manageUsers');
-    Route::get('admin/detailUser/{id}', 'AdminPageController@detail');
-    Route::get('admin/user/status/{id}', 'AdminPageController@status');
+Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventBack']], function () {
+    Route::get('/admin/dashboard', 'AdminPageController@index')->name('admin/dashboard');
+    Route::get('/admin/profile', 'AdminPageController@profile');
+    Route::get('/admin/change-profile', 'AdminPageController@changeProfile');
+    Route::post('/admin/change-profile', 'AdminPageController@saveChangeProfile');
+    Route::get('/admin/user', 'AdminPageController@manageUsers');
+    Route::get('/admin/detailUser/{id}', 'AdminPageController@detail');
+    Route::get('/admin/user/status/{id}', 'AdminPageController@status');
+    Route::get('/admin/user-borrows/{id}', 'AdminPageController@userBorrows');
 
 
     Route::get('/create/categori-primary','CategoryAssetController@StoreCatPrimary');
-    Route::get('categoryAsset', 'CategoryAssetController@index');
-    Route::get('categoryAsset/create', 'CategoryAssetController@create');
-    Route::get('categoryAsset/store', 'CategoryAssetController@store');
+    Route::get('/categoryAsset', 'CategoryAssetController@index');
+    Route::get('/categoryAsset/create', 'CategoryAssetController@create');
+    Route::get('/categoryAsset/store', 'CategoryAssetController@store');
 
-    Route::get('typeAsset', 'TypeAssetController@index');
-    Route::get('typeAsset/create', 'TypeAssetController@create');
-    Route::post('typeAsset/store', 'TypeAssetController@store');
-    Route::get('typeAsset/delete', 'TypeAssetController@destroy');
+    Route::get('/typeAsset', 'TypeAssetController@index');
+    Route::get('/typeAsset/create', 'TypeAssetController@create');
+    Route::post('/typeAsset/store', 'TypeAssetController@store');
+    Route::get('/typeAsset/delete', 'TypeAssetController@destroy');
 
-    Route::get('asset', 'AssetController@index');
-    Route::get('asset/create', 'AssetController@create');
-    Route::post('asset/create', 'AssetController@store');
-    Route::get('asset/{id}', 'AssetController@show');
-    Route::get('asset/historyasset/{id}', 'AssetController@historyasset');
-    Route::get('asset/repair/{id}', 'AssetController@repair');
-    Route::get('asset/{id}/destroy', 'AssetController@destroy');
-    Route::get('asset/{id}/edit', 'AssetController@edit');
-    Route::post('asset/{id}/edit', 'AssetController@update');
+    Route::get('/asset', 'AssetController@index');
+    Route::get('/asset/create', 'AssetController@create');
+    Route::post('/asset/create', 'AssetController@store');
+    Route::get('/asset/{id}', 'AssetController@show');
+    Route::get('/asset/historyasset/{id}', 'AssetController@historyasset');
+    Route::get('/asset/repair/{id}', 'AssetController@repair');
+    Route::get('/asset/{id}/destroy', 'AssetController@destroy');
+    Route::get('/asset/{id}/edit', 'AssetController@edit');
+    Route::post('/asset/{id}/edit', 'AssetController@update');
 
 
-    Route::get('lists-borrow', 'BorrowsController@index');
-    Route::get('borrows-asset', 'BorrowsController@borrowsItem');
-    Route::post('borrows-asset', 'BorrowsController@save');
-    Route::get('borrows-asset/verify/{id}', 'BorrowsController@verify');
-    Route::get('lists-borrow/{id}', 'BorrowsController@show');
+    Route::get('/lists-borrow', 'BorrowsController@index');
+    Route::get('/borrows-asset', 'BorrowsController@borrowsItem');
+    Route::post('/borrows-asset', 'BorrowsController@save');
+    Route::get('/borrows-asset/verify/{id}', 'BorrowsController@verify');
+    Route::get('/lists-borrow/{id}', 'BorrowsController@show');
 
 
 
     //Route::get('return/add/{id}', 'BorrowsController@returnAdd');
-    Route::get('return/list-return', 'BorrowsController@listreturn');
-    Route::get('return/list-return/{id}', 'BorrowsController@listreturnDetail');
-
-    Route::get('return/print', 'BorrowsController@print');
-    Route::get('return/history', 'BorrowsController@History');
+    Route::get('/return/list-return', 'BorrowsController@listreturn');
+    Route::get('/return/list-return/{id}', 'BorrowsController@listreturnDetail');
+    
 
 
-    Route::get('return/{id}/delete','BorrowsController@destroy');
+
+    Route::get('/return/print', 'BorrowsController@print');
+    Route::get('/return/history', 'BorrowsController@History');
+
+
+    Route::get('/return/{id}/delete','BorrowsController@destroy');
     Route::get('/return/{id}/{slug}', 'BorrowsController@Return');
     Route::get('/return/{id}/all/{slug}', 'BorrowsController@ReturnAll');
 
@@ -119,4 +125,12 @@ Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack' ]], func
     Route::get('borrows/{id}/detail', '');
     Route::get('borrows/{id}/lost', '');
     Route::get('laporan', '');*/
+});
+
+Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack','role:student' ]], function () {
+     Route::get('/student/dashboard', 'User\UserController@index')->name('student/dashboard');
+     Route::get('/student/profile', 'User\UserController@profile');
+    Route::get('/student/change-profile', 'User\UserController@changeProfile');
+    Route::post('/student/change-profile', 'User\UserController@saveChangeProfile');
+
 });

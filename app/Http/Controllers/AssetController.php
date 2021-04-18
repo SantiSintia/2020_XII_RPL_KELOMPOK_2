@@ -196,15 +196,6 @@ class AssetController extends Controller
         return view ('assets.history-asset', $data);
     }
 
-    public function repair($id)
-    {
-        $asset = Asset::whereAssId($id)->first();
-        $asset->ass_status = 1;
-        $asset->save();
-        return back()->withSuccess('berhasil diperbaiki');
-
-    }
-
 
     public function edit($id)
     {

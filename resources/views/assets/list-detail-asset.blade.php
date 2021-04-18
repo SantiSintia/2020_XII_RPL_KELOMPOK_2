@@ -94,21 +94,7 @@
                                     </table>
                             </div>
                             
-                                     <a href="{{URL::to('asset/historyasset/'.$asset->ass_id)}}" class="btn btn-sm btn-flat btn-primary">History</a>
-
-                                     @if($asset->ass_status == 4)
-                                     <a href="{{URL::to('asset/repair/'.$asset->ass_id)}}" class="btn btn-sm btn-flat btn-warning">Perbaiki</a>
-
-                                     @elseif($asset->ass_status == 5)
-                                     <a href="" class="btn btn-sm btn-flat btn-warning">Penggantian</a>
-
-                                     @endif
-
-                    
-
-                              
-                          
-                     
+                                     <a href="{{URL::to('asset/historyasset/'.$asset->ass_id)}}" class="btn btn-sm btn-flat btn-primary">History</a>                     
 
                         </div>
                     </div>

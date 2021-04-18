@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-Asset
+- Asset
 @endpush
 
 @push('styles')
@@ -66,19 +66,7 @@ Asset
 
                                                 @elseif($data->ass_status == 1)
                                                 Bisa dipinjam
-
-                                                @elseif($data->ass_status == 2)
-                                                Sedang dipinjam
-                                                
-                                                @elseif($data->ass_status == 4)
-                                                Rusak
-                                                
-                                                @elseif($data->ass_status == 5)
-                                                Hilang
-
-                                                @elseif($data->ass_status == 6)
-                                                Asset Pengganti
-
+                                        
                                                 @endif
 
                                                 </td>
@@ -87,6 +75,8 @@ Asset
                                                     <a href="{{URL::to('asset/'.$data->ass_id)}}" class="btn btn-sm btn-flat btn-success">Detail</a>
                                                     <a href="{{URL::to('asset/'.$data->ass_id.'/destroy')}}" class="btn btn-sm btn-flat btn-danger">Hapus</a>
                                                     <a href="{{URL::to('asset/'.$data->ass_id).'/edit'}}" class="btn btn-sm btn-flat btn-primary">Edit</a></td>
+
+
                                                 </td>
                                             </tr>                                            
                                         @endforeach

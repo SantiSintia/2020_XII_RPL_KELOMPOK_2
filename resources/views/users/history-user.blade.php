@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-History
+- History User
 @endpush
 
 @push('styles')
@@ -44,9 +44,6 @@ History
                                             <tr class="text-center">
                                                 <th>No</th>
                                                 <th class="text-left">Nama Asset</th>
-                                                <th>Tgl Pinjam</th>
-                                                <th>Kondisi Barang</th>
-                                                <th>Tgl Pengembalian</th>
                                                 <th>Kondisi Barang</th>
                                             </tr>
                                         </thead>
@@ -56,15 +53,14 @@ History
                                                 <tr>
                                                     <th class="text-center">{{$no+1}}</th>
                                                     <th>{{$data->ass_name}}</th>
-                                                    <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->CreatedAt))}}</th>
-                                                    <th class="text-center">Baik</th>
-                                                    <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->UpdatedAt))}}</th>
-                                                    @if($data->bas_status == 3)
-                                                        <td class="text-center text">Baik</td>
+                                                    @if($data->bas_status == 1)
+                                                     <td class="text-center text-white" style="background-color: #17a2b8">Sedang Dipinjam</td>
+                                                    @elseif($data->bas_status == 3)
+                                                        <td class="text-center text-white" style="background-color: #28a745">Baik</td>
                                                     @elseif($data->bas_status == 4)
-                                                        <td class="text-center text">Rusak</td>
+                                                        <td class="text-center text-white" style="background-color: #ffc107">Rusak</td>
                                                     @elseif($data->bas_status == 5)
-                                                        <td class="text-center text">Hilang</td>
+                                                        <td class="text-center text-white" style="background-color: #dc3545">Hilang</td>
                                                     @endif
                                                     
                                                 </tr>

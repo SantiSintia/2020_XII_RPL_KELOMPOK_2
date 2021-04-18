@@ -16,5 +16,10 @@ class TeachersTableSeeder extends Seeder
          
             ]);
         
+          // DB::table('teachers')->insert([
+          //   'tc_usr_id' => 5,
+         
+          //   ]);
+        
     }
 }

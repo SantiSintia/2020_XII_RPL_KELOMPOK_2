@@ -12,9 +12,19 @@ class BorrowsTableSeeder extends Seeder
     public function run()
     {
          DB::table('borrows')->insert([
+            'brw_usr_id' => 2,
+            'brw_status' => 1,
+            ]);
+
+         DB::table('borrows')->insert([
             'brw_usr_id' => 3,
             'brw_status' => 1,
             ]);
+
+         // DB::table('borrows')->insert([
+         //    'brw_usr_id' => 4,
+         //    'brw_status' => 1,
+         //    ]);
         
     }
 }

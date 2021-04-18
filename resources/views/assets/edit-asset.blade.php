@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-    Tambah Asset
+- Edit Asset
 @endpush
 
 @push('styles')
@@ -30,7 +30,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Kelola Asset</a></li>
-                            <li class="breadcrumb-item active">Tambah Asset</li>
+                            <li class="breadcrumb-item active">Edit Asset</li>
                         </ol>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         <div class="col-lg-12">
             <div class="card card-outline-info">
                 <div class="card-header">
-                    <h4 class="m-b-0 text-white">Tambah Asset</h4>
+                    <h4 class="m-b-0 text-white">Edit Asset</h4>
                 </div>
                 <div class="card-body">
                     <form method="post" class="form-horizontal form-bordered">

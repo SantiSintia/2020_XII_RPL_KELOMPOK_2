@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Student;
+use App\Teacher;
 use Illuminate\Http\Request;
 use App\User;
 use App\Asset;
@@ -60,9 +61,22 @@ class BorrowsController extends Controller
             ->get();
         $data ['borrowId'] = Borrow::whereBrwId($id)->first();
         $cek_user = Borrow::whereBrwId($id)->first();
-        $data ['user'] = Student::whereStdUsrId($cek_user->brw_usr_id)
-            ->join('users' , 'students.std_usr_id' , '=' , 'users.usr_id')
-            ->first();
+        $role =  User::join('roles', 'usr_id', '=' , 'id')
+                     ->whereUsrId($cek_user->brw_usr_id)->first();
+                     //dd($role);
+
+        if($role->name == "teacher")
+        {
+            $data ['user'] = Teacher::whereTcUsrId($cek_user->brw_usr_id)
+                ->join('users' , 'teachers.tc_usr_id' , '=' , 'users.usr_id')
+                ->first();
+        }else
+        {
+
+            $data ['user'] = Student::whereStdUsrId($cek_user->brw_usr_id)
+                ->join('users' , 'students.std_usr_id' , '=' , 'users.usr_id')
+                ->first();
+        }
 
         return view('borrows.detail-borrow', $data);
     }

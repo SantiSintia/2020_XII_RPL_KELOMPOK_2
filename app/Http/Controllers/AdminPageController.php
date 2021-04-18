@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Teacher;
 use App\Student;
 use App\User;
+use App\Borrow;
+use App\borrows_statuse;
+use App\borrow_asset;
 use Illuminate\Support\Facades\Hash;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -41,12 +44,13 @@ class AdminPageController extends Controller
 
     public function changeProfile()
     {
-    	return view('profiles.reset-password');
+      return view('profiles.reset-password');
     }
     
     public function saveChangeProfile(Request $request)
     {
-      if ($request->usr_password == $request->re_password) {
+      if ($request->usr_password) {
+         if ($request->usr_password == $request->re_password) {
          $edit = User::whereUsrId($request->id)->first();
          $edit->usr_name     = $request->usr_name;
          $edit->usr_phone    = $request->usr_phone;
@@ -57,26 +61,36 @@ class AdminPageController extends Controller
       }else{
         return back()->withError('Password tidak sama');
       }
+      }else{
+         $edit = User::whereUsrId($request->id)->first();
+         $edit->usr_name     = $request->usr_name;
+         $edit->usr_phone    = $request->usr_phone;
+         $edit->save();
+         return redirect('admin/profile')->withSuccess('Data telah disimpan');     
+      }
+    
 
 
       
     }
 
-   	// public function manageAssets()
-   	// {
-   	// 	return view('assets.manage-assets');
-   	// }
+    // public function manageAssets()
+    // {
+    //  return view('assets.manage-assets');
+    // }
 
-   	public function manageUsers()
-   	{
+    public function manageUsers()
+    {
       $users =User::where('role_id',2)->orwhere('role_id',3)->get();
-   		return view('users.manage-users', compact('users'));
-   	}
+      return view('users.manage-users', compact('users'));
+    }
 
     public function detail($id)
     {
       $role    = User::join('roles', 'usr_id', '=' , 'id')
                      ->whereUsrId($id)->first();
+                     //dd($role);
+
       if($role->name == "teacher")
       {
       $user = User::join('teachers','users.usr_id','=','tc_usr_id')
@@ -108,6 +122,18 @@ class AdminPageController extends Controller
       return redirect('admin/user')->withSuccess('Data telah di ubah');;
     }
 
+    public function userBorrows($id)
+    {
+      $user = borrow_asset::join('borrows','bas_brw_id','=','brw_id')
+                          ->join('assets','bas_ass_id','=','ass_id')
+                          ->join('users','brw_usr_id','=','usr_id')
+                          ->where('brw_usr_id',$id)
+                          ->select('assets.ass_name','users.usr_name','borrow_assets.bas_status')
+                          ->get();
+         // dd($user);
+        return view('users.history-user',compact('user'));
+
+    }
     
 
 }
