@@ -75,12 +75,12 @@
         </div>
         <div class="form-group m-t-20">
           <div class="col-xs-12">
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" required="" placeholder="Confirm Password">
+            <input id="password-confirmation" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" required="" placeholder="Confirm Password">
           </div>
         </div>
          <div class="form-group m-t-20">
           <div class="col-xs-12">
-            <input id="password" type="text" class="form-control @error('password') is-invalid @enderror" name="nis" autocomplete="" required="" placeholder="NIS">
+            <input id="nis" type="text" class="form-control @error('password') is-invalid @enderror" name="nis" autocomplete="" required="" placeholder="NIS">
                 @error('usr_password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -90,7 +90,7 @@
         </div>
         <div class="form-group m-t-20">
           <div class="col-xs-12">
-            <input id="password-confirm" type="text" class="form-control" name="class" autocomplete="" required="" placeholder="Kelas">
+            <input id="class" type="text" class="form-control" name="class" autocomplete="" required="" placeholder="Kelas">
           </div>
         </div>
         <div class="form-group m-t-20">

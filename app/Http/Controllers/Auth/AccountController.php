@@ -25,7 +25,8 @@ class AccountController extends Controller
             $user->usr_email_verified_at = now();
             $user->save();
 
-            return redirect('/dashboard')->with(['success' => 'Selamat akun anda berhasil diverifikasi']);;
+
+            return redirect('/')->with(['success' => 'Selamat akun anda berhasil diverifikasi']);;
         }
     }
 

@@ -8,9 +8,12 @@ use App\Teacher;
 use Illuminate\Http\Request;
 use App\User;
 use App\Asset;
+use App\asset_description;
 use App\Borrow;
 use App\borrows_statuse;
 use App\borrow_asset;
+use App\Replacement;
+use App\Replacement_asset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -238,6 +241,8 @@ class BorrowsController extends Controller
 
 
     public function Return  ($id, $slug){
+
+
         $brw = borrow_asset::whereBasId($id)->first();
 
         //update Borrow Assets
@@ -252,7 +257,7 @@ class BorrowsController extends Controller
             ]);
         } else {
             Asset::whereAssId($brw->bas_ass_id)->update([
-                'ass_status' => $slug,
+                'ass_status' => '0',
                 'ass_updated_by' => Auth::user()->usr_id
             ]);
         }
@@ -287,4 +292,65 @@ class BorrowsController extends Controller
             ->get();
         return view ('returns.return-history', $data);
     }
+
+    public function replacement($id,$ass_id){
+        $borrow = Borrow::join('borrow_assets','brw_id','=','bas_brw_id')
+                         ->whereBrwId($id)
+                         ->whereBasAssId($ass_id)->first();
+        //dd($borrow);
+        return view('returns.replacement',compact('borrow','ass_id'));
+    }
+
+    public function saveReplacement(Request $request){
+        //Create New Replacement Asset
+        $asd = new asset_description();
+        $asd->asd_ass_id = $request->ass_id;
+        $asd->asd_inggridient = $request->asd_inggridient;
+        $asd->asd_merk = $request->asd_merk;
+        $asd->asd_spesification = $request->asd_spesification;  
+        $asd->asd_condition = $request->asd_condition;
+        //dd($asd);
+        $asd->save();
+
+        //Create Replacement_asset
+        $ra = new Replacement_asset();
+        $ra->ra_asd_id = $asd->asd_id;
+        $ra->ra_status    = '1';
+        //dd($ra);
+        $ra->save();
+
+        //Create Replacement
+        $replacement = new Replacement();
+        $replacement->r_usr_id  = $request->usr_id;
+        $replacement->r_bas_id  = $request->bas_id;
+        $replacement->r_ra_id   = $ra->ra_id;
+        //dd($replacement);
+        $replacement->save();
+
+        //Update Borrow Asset
+        $brw = borrow_asset::whereBasId($request->bas_id)->first();
+        $brw->bas_status = '6';
+        $brw->save();
+
+        //Update Asset
+        $asset = Asset::whereAssId($request->ass_id)->first();
+        $asset->ass_status = '1';
+        $asset->save();
+
+        return redirect('/return/history');
+
+    }
+
+    public function fix($id , $ass_id)
+    {
+         $borrow = borrow_asset::whereBasAssId($ass_id)->first();
+         $borrow->bas_status = '7';
+         $borrow->save();
+
+         $asset = Asset::whereAssId($ass_id)->first();
+         $asset->ass_status ='1';
+         $asset->save();
+         return back();
+    }
+
 }

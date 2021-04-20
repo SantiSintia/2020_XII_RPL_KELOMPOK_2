@@ -73,6 +73,22 @@ class UserSeeder extends Seeder
 
         $student2->assignRole('student'); 
 
+        $student3 = User::create([
+            'usr_name' => 'Candra',
+            'role_id'  => '3',
+            'usr_email' => 'candra@gmail.com',
+            'usr_phone' => '085671344035',
+            'usr_gender' => 'male',
+            'usr_password' => Hash::make('candra123123'),
+            'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
+        ]);
+
+        $student3->assignRole('student'); 
+
+
+
 
         // $student3 = User::create([
         //     'usr_name' => 'Tia Anggraeni',

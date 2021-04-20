@@ -24,11 +24,11 @@ class StudentsTableSeeder extends Seeder
             'std_class' => "XII RPL 2"
             ]);
    
-          // DB::table('students')->insert([
-          //   'std_usr_id' => 5,
-          //   'std_nis' => '1819.10.080',
-          //   'std_class' => "XII MM"
-          //   ]);
+          DB::table('students')->insert([
+             'std_usr_id' => 5,
+             'std_nis' => '1819.10.030',
+             'std_class' => "XII RPL 1"
+             ]);
    
     }
 }

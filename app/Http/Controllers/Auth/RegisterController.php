@@ -64,19 +64,20 @@ class RegisterController extends Controller
                     $user->usr_gender             = $gender;
                     $user->usr_verification_token = str_replace('/', '', Hash::make(Str::random(12)));
                     $user->usr_is_active          = true;
-                    //dd($user);
-                    $user->save();
+                    //dd($email);
+                    // $user->save();
 
-                     
 
                     $student = new Student();
                     $student->std_usr_id = $user->usr_id;
                     $student->std_nis    = $nis;
                     $student->std_class  = $class;
                     $student->save();
-                    return redirect ('/');
-                    //Mail::to($data['usr_email'])->send(new SendMail($user));
-                    //return $user;
+
+                     Mail::to($email)->send(new SendMail($user));
+                    return $user;
+                    // return redirect ('/');
+                    
 
                 }
             }

@@ -54,6 +54,8 @@ History
                                                 <th>Petugas Pengembalian</th>
                                                 <th>Tgl Pengembalian</th>
                                                 <th>Kondisi Barang</th>
+                                                <th>Action</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -72,10 +74,18 @@ History
                                                     <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->UpdatedAt))}}</th>
                                                     @if($data->bas_status == 3)
                                                         <td class="text-center text-white" style="background-color: #0b6e16">Baik</td>
+                                                        @elseif($data->bas_status == 6)
+                                                        <td class="text-center text-white" style="background-color: #17a2b8">Telah diganti</td>
+                                                        @elseif($data->bas_status == 7)
+                                                        <td class="text-center text-white" style="background-color: #6c757d">Telah diperbaiki</td>
+
                                                     @elseif($data->bas_status == 4)
                                                         <td class="text-center text-white" style="background-color: #911313">Rusak</td>
+                                                        <td><a href="{{URL::to('admin/fix')}}/{{$data->brw_id}}/{{$data->ass_id}}" class="btn btn-warning">Perbaiki</a></td>
+
                                                     @elseif($data->bas_status == 5)
                                                         <td class="text-center text-white" style="background-color: #cf8d1a">Hilang</td>
+                                                        <td><a href="{{URL::to('admin/replacement')}}/{{$data->brw_id}}/{{$data->ass_id}}" class="btn btn-warning">Ganti</a></td>
                                                     @endif
 
                                                 </tr>

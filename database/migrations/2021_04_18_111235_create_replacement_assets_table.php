@@ -17,7 +17,7 @@ class CreateReplacementAssetsTable extends Migration
             $table->bigIncrements('ra_id');
             $table->unsignedBigInteger('ra_asd_id');
             $table->boolean('ra_status');
-            
+            $table->timestamps();
             $table->unsignedBigInteger('ra_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('ra_updated_by')->unsigned()->nullable();
             $table->unsignedBigInteger('ra_deleted_by')->unsigned()->nullable();

@@ -61,6 +61,10 @@
                                                         <td class="text-center text-white" style="background-color: #ffc107">Rusak</td>
                                                     @elseif($data->bas_status == 5)
                                                         <td class="text-center text-white" style="background-color: #dc3545">Hilang</td>
+                                                    @elseif($data->bas_status == 6)
+                                                        <td class="text-center text-white" style="background-color: #17a2b8">Telah diganti</td>
+                                                    @elseif($data->bas_status == 7)
+                                                        <td class="text-center text-white" style="background-color: #6c757d">Telah diperbaiki</td>
                                                     @endif
                                                     
                                                 </tr>

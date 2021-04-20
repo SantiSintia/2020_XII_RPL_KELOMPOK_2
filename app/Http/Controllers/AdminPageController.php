@@ -87,7 +87,7 @@ class AdminPageController extends Controller
 
     public function detail($id)
     {
-      $role    = User::join('roles', 'usr_id', '=' , 'id')
+      $role    = User::join('roles', 'role_id', '=' , 'id')
                      ->whereUsrId($id)->first();
                      //dd($role);
 

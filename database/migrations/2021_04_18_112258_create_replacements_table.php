@@ -18,7 +18,7 @@ class CreateReplacementsTable extends Migration
             $table->unsignedBigInteger('r_usr_id');
             $table->unsignedBigInteger('r_bas_id');
             $table->unsignedBigInteger('r_ra_id');
-            
+            $table->timestamps();
             $table->unsignedBigInteger('r_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('r_updated_by')->unsigned()->nullable();
             $table->unsignedBigInteger('r_deleted_by')->unsigned()->nullable();

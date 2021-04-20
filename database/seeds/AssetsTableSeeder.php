@@ -33,6 +33,18 @@ class AssetsTableSeeder extends Seeder
             'ass_price' => '50000',
             'ass_status'=> 1
             ]);
+
+       DB::table('assets')->insert([
+            'ass_asset_category_id' => 6,
+            'ass_asset_type_id' =>13,
+            'ass_origin_id' => 1,
+            'ass_year' => '2016',
+            'ass_registration_code' => '003/P01.001/INV.YYS/2016',
+            'ass_name' => 'Kursi Siswa ke 3',
+            'ass_price' => '50000',
+            'ass_status'=> 1
+            ]);
+
     	
        DB::table('assets')->insert([
             'ass_asset_category_id' => 6,
