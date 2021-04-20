@@ -143,7 +143,7 @@
                                     @elseif(Auth()->user()->hasRole('student'))
                                      <div class="tab-pane show" id="settings" role="tabpanel">
                                     <div class="card-body">
-                                        <form action="{{ url ('student/change-profile')}}" method="POST" class="form-horizontal form-material">
+                                        <form action="{{ url ('user/change-profile')}}" method="POST" class="form-horizontal form-material">
                                         @csrf
                                          <input type="hidden" value="{{Auth::user()->usr_id}}" name="id">
                                             <div class="form-group">
@@ -235,7 +235,7 @@
                                     @elseif(Auth()->user()->hasRole('teacher'))
                                      <div class="tab-pane show" id="settings" role="tabpanel">
                                     <div class="card-body">
-                                        <form action="{{ url ('teacher/change-profile')}}" method="POST" class="form-horizontal form-material">
+                                        <form action="{{ url ('user/change-profile')}}" method="POST" class="form-horizontal form-material">
                                         @csrf
                                          <input type="hidden" value="{{Auth::user()->usr_id}}" name="id">
                                             <div class="form-group">

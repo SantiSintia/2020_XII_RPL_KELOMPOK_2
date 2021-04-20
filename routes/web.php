@@ -132,11 +132,14 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('borrows/{id}/lost', '');
     Route::get('laporan', '');*/
 });
+Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack','role:student|teacher' ]], function () {
+     Route::get('/user/dashboard', 'User\UserController@index')->name('user/dashboard');
+     Route::get('/user/profile', 'User\UserController@profile');
+    Route::get('/user/change-profile', 'User\UserController@changeProfile');
+    Route::post('/user/change-profile', 'User\UserController@saveChangeProfile');
+  /*  Route::get('/borrows-asset', 'BorrowsController@borrowsItem');
+    Route::post('/borrows-asset', 'BorrowsController@save');
+    Route::get('/borrows-asset/verify/{id}', 'BorrowsController@verify'); */
 
-Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack','role:student' ]], function () {
-     Route::get('/student/dashboard', 'User\UserController@index')->name('student/dashboard');
-     Route::get('/student/profile', 'User\UserController@profile');
-    Route::get('/student/change-profile', 'User\UserController@changeProfile');
-    Route::post('/student/change-profile', 'User\UserController@saveChangeProfile');
 
 });

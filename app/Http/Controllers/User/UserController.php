@@ -33,7 +33,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('users.index-user');
     }
 
    public function profile()
@@ -58,7 +58,7 @@ class UserController extends Controller
                  $edit->usr_password = hash::make($request->usr_password);
                  //dd($edit);
                  $edit->save();
-                 return redirect('student/profile')->withSuccess('Data telah disimpan');     
+                 return redirect('user/profile')->withSuccess('Data telah disimpan');     
       }else{
         return back()->withError('Password tidak sama');
       }
@@ -67,7 +67,7 @@ class UserController extends Controller
                  $edit->usr_name     = $request->usr_name;
                  $edit->usr_phone    = $request->usr_phone;
                  $edit->save();
-                return redirect('student/profile')->withSuccess('Data telah disimpan');
+                return redirect('user/profile')->withSuccess('Data telah disimpan');
             }
           
         }elseif(Auth()->user()->hasRole('teacher')){
@@ -79,7 +79,7 @@ class UserController extends Controller
                  $edit->usr_password = hash::make($request->usr_password);
                  //dd($edit);
                  $edit->save();
-                 return redirect('teacher/profile')->withSuccess('Data telah disimpan');     
+                 return redirect('user/profile')->withSuccess('Data telah disimpan');     
       }else{
         return back()->withError('Password tidak sama');
       }
@@ -88,7 +88,7 @@ class UserController extends Controller
                  $edit->usr_name     = $request->usr_name;
                  $edit->usr_phone    = $request->usr_phone;
                  $edit->save();
-                return redirect('student/profile')->withSuccess('Data telah disimpan');
+                return redirect('user/profile')->withSuccess('Data telah disimpan');
             }
             
         }elseif(Auth()->user()->hasRole('staff')){
@@ -109,7 +109,7 @@ class UserController extends Controller
                  $edit->usr_name     = $request->usr_name;
                  $edit->usr_phone    = $request->usr_phone;
                  $edit->save();
-                return redirect('student/profile')->withSuccess('Data telah disimpan');
+                return redirect('staff/profile')->withSuccess('Data telah disimpan');
             }
         }
 

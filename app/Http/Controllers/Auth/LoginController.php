@@ -50,9 +50,9 @@ class LoginController extends Controller
             if ($user->role_id == 1) {
                  return redirect()->route('admin/dashboard');
             }elseif($user->role_id == 2){
-                 return redirect()->route('teacher/dashboard');
+                 return redirect()->route('user/dashboard');
             }elseif($user->role_id == 3){
-                 return redirect()->route('student/dashboard');
+                 return redirect()->route('user/dashboard');
              }else{
                  return redirect()->route('staff/dashboard');
              }

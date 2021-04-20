@@ -82,11 +82,11 @@
                                     @if(Auth()->user()->hasRole('admin'))
                                      <li><a href="{{URL::to('admin/profile')}}"><i class="ti-user"></i> My Profile</a></li>
                                     @elseif(Auth()->user()->hasRole('student'))
-                                     <li><a href="{{URL::to('student/profile')}}"><i class="ti-user"></i> My Profile</a></li>
+                                     <li><a href="{{URL::to('user/profile')}}"><i class="ti-user"></i> My Profile</a></li>
                                     @elseif(Auth()->user()->hasRole('staff'))
                                      <li><a href="{{URL::to('staff/profile')}}"><i class="ti-user"></i> My Profile</a></li>
                                     @elseif(Auth()->user()->hasRole('teacher'))
-                                     <li><a href="{{URL::to('teacher/profile')}}"><i class="ti-user"></i> My Profile</a></li>
+                                     <li><a href="{{URL::to('user/profile')}}"><i class="ti-user"></i> My Profile</a></li>
                                     @endif
                                     <li role="separator" class="divider"></li>
                                     <li><a href="{{route('logout')}}" method="post" class="link"  data-toggle="tooltip" title="Logout" onclick="event.preventDefault();
