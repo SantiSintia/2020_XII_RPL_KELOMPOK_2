@@ -28,22 +28,42 @@
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Tambah Lokasi Asset</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Tambah Lokasi Asset</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Lokasi Asset</a></li>
+                            <li class="breadcrumb-item active">Tambah Lokasi Asset</a></li>
                         </ol>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Tambah Lokasi Asset</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="#">
+                                    <div class="form-body">
+                                        <form class="form-horizontal m-t-40">
+                                            <div class="form-group">
+                                                <label>Nama Lokasi</label>
+                                                <input type="text" class="form-control" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Deskripsi Lokasi</label>
+                                                <textarea class="form-control" rows="5"></textarea>
+                                            </div>
+                                        </form>
+                                     
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                        <button type="button" class="btn btn-inverse">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <script >
-        function myFunction() {
-            var x = document.getElementById("kategori").value;
-            if (x == "Elektronik") {
-                document.getElementById("jk").innerHTML = '<div class="form-group row"><label class="control-label text-right col-md-3">bahan</label><div class="col-md-9"><input name="asd_inggridient" type="text" class="form-control" placeholder="Bahan"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">Merk</label><div class="col-md-9"><input name="asd_merk" type="text" class="form-control" placeholder="Merk"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">spesifikasi</label><div class="col-md-9"><input name="asd_spesification" type="text" class="form-control" placeholder="Spesifikasi"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">voltase</label><div class="col-md-9"><input name="asd_voltage" type="text" class="form-control" placeholder="Voltase"></div></div></div>';
-            }else{
-                 document.getElementById("jk").innerHTML = '<div class="form-group row"><label class="control-label text-right col-md-3">bahan</label><div class="col-md-9"><input name="asd_inggridient" type="text" class="form-control" placeholder="Bahan"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">Merk</label><div class="col-md-9"><input name="asd_merk" type="text" class="form-control" placeholder="Merk"></div></div></div><div class="form-group row"><label class="control-label text-right col-md-3">spesifikasi</label><div class="col-md-9"><input name="asd_spesification" type="text" class="form-control" placeholder="Spesifikasi"></div></div></div>';
-            }
-        }
-        
-    </script>
 
     @push('scripts')
         <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>

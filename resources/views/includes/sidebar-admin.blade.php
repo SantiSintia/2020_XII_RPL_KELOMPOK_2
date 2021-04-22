@@ -58,7 +58,7 @@
                         <span class="hide-menu">Report Inventaris</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('/report-asset')}}">Asset</a></li>
-                                <li><a href="">Lokasi Asset</a></li>
+                                <li><a href="{{URL::to('asset-location')}}">Lokasi Asset</a></li>
                                 <li><a href="{{URL::to('report-borrow')}}">Pinjam dan Kembali</a></li>
                             </ul>
                         </li>

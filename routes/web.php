@@ -80,9 +80,9 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('/asset/{id}/edit', 'AssetController@edit');
     Route::post('/asset/{id}/edit', 'AssetController@update');
 
-    Route::get('/asset-location', 'AssetLocationController@index');
-    Route::get('/asset-location/create', 'AssetLocationController@create');
-    Route::post('/asset-location/create', 'AssetLocationController@store');
+    Route::get('/asset-location', 'ReportController@location');
+    Route::get('/asset-location/create', 'ReportController@create');
+    Route::post('/asset-location/create', 'ReportController@store');
 
 
     Route::get('/lists-borrow', 'BorrowsController@index');

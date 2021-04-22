@@ -83,4 +83,13 @@ class ReportController extends Controller
         $pdf = PDF::loadview('report.borrow-pdf', $data)->setPaper('A4', 'landscape');
         return $pdf->stream();
     }
+
+    public function location()
+    {
+        return view('asset-location.list-location');
+    }
+    public function create()
+    {
+        return view('asset-location.create-location');
+    }
 }
