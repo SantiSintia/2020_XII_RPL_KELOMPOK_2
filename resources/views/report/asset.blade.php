@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- History Asset
+- Asset
 @endpush
 
 @push('styles')
@@ -17,6 +17,7 @@
     <link href="{{URL::to('assets/plugins/c3-master/c3.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
     <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
 @endpush
 
@@ -28,75 +29,71 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
                             <li class="breadcrumb-item active">Kelola Asset</li>
-                            <li class="breadcrumb-item active">History Asset</li>
                         </ol>
                     </div>
                 </div>
                         <div class="card">
                             <div class="card-body">
-                            <center>
-                                <h4 class="card-title">History Asset</h4>
-                            </center>
+                                <h4 class="card-title">Data Asset</h4>
+                                <div class="box-header">
+                                    <p> 
+                                        <a href="{{URL::to('asset-lost')}}" class="btn btn-danger btn-rounded m-t-10 float-right">asset hilang</a>
+                                        <a href="{{URL::to('asset-broken')}}" class="btn btn-warning btn-rounded m-t-10 float-right">asset rusak</a>
+                                        <a href="{{URL::to('asset-good')}}" class="btn btn-primary btn-rounded m-t-10 float-right">asset baik</a>
+                                        <a href="{{URL::to('asset-all')}}" class="btn btn-success btn-rounded m-t-10 float-right">semua asset</a>
+                                    </p>
+                                </div>
 
-                                 <div class="table-responsive m-t-40">
+                                <div class="table-responsive m-t-40">
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
-                                            <tr class="text-center">
+                                            <tr>
                                                 <th>No</th>
-                                                <th class="text-left">Nama Peminjam</th>
-                                                <th>Kelas</th>
-                                                <th>Tgl Pinjam</th>
-                                                <th>Kondisi Barang</th>
-                                                <th>Tgl Pengembalian</th>
-                                                <th>Kondisi Barang</th>
+                                                <th>Nama Asset</th>
+                                                <th>Kode Registrasi</th>
+                                                <th>Status</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($assets as $no => $data)
+                                            <tr>
+                                                <td>{{$no+1}}</td>
+                                                <td>{{$data->ass_name}}</td>
+                                                <td>{{$data->ass_registration_code}}</td>
 
-                                            @foreach($asset as $no => $data)
-                                                <tr>
-                                                    <th class="text-center">{{$no+1}}</th>
-                                                    <th>{{$data->UserByName}}</th>
-                                                    <th class="text-center">{{$data->std_class}}</th>
-                                                    <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->CreatedAt))}}</th>
-                                                    <th class="text-center">Baik</th>
-                                                    <th class="text-center">{{date('d-m-Y - H:i:s', strtotime($data->UpdatedAt))}}</th>
-                                                    @if($data->bas_status == 3)
-                                                        <td class="text-center text-white" style="background-color: #0b6e16">Baik</td>
-                                                        @elseif($data->bas_status == 6)
-                                                        <td class="text-center text-white" style="background-color: #17a2b8">Telah diganti</td>
-                                                        @elseif($data->bas_status == 7)
-                                                        <td class="text-center text-white" style="background-color: #6c757d">Telah diperbaiki</td>
+                                                <td>
+                                                @if($data->ass_status == 0)
+                                                TIdak bisa dipinjam</label>
 
-                                                    @elseif($data->bas_status == 4)
-                                                        <td class="text-center text-white" style="background-color: #911313">Rusak</td>
-                                                        <td><a href="{{URL::to('admin/fix')}}/{{$data->brw_id}}/{{$data->ass_id}}" class="btn btn-warning">Perbaiki</a></td>
+                                                @elseif($data->ass_status == 1)
+                                                Bisa dipinjam
 
-                                                    @elseif($data->bas_status == 5)
-                                                        <td class="text-center text-white" style="background-color: #cf8d1a">Hilang</td>
-                                                        <td><a href="{{URL::to('admin/replacement')}}/{{$data->brw_id}}/{{$data->ass_id}}" class="btn btn-warning">Ganti</a></td>
-                                                    @endif
+                                                @elseif($data->ass_status == 4)
+                                                Rusak
+                                                
+                                                @elseif($data->ass_status == 5)
+                                                Hilang
 
-                                                    
-                                                </tr>
+                                                @endif
 
-                                            @endforeach
-
-
+                                                </td>
+                                            </tr>                                            
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
 
-  @push('scripts')
+@push('scripts')
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{URL::to('assets/js/jquery.slimscroll.js')}}"></script>
-
+    
     <!--Wave Effects -->
     <script src="{{URL::to('assets/js/waves.js')}}"></script>
     <!--Menu sidebar -->
@@ -111,7 +108,7 @@
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-
+   
     <!--c3 JavaScript -->
     <script src="{{URL::to('assets/plugins/d3/d3.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/c3-master/c3.min.js')}}"></script>
@@ -171,5 +168,5 @@
         ]
     });
     </script>
-@endpush
+@endpush   
 @endsection

@@ -66,7 +66,13 @@
 
                                                 @elseif($data->ass_status == 1)
                                                 Bisa dipinjam
-                                        
+
+                                                @elseif($data->ass_status == 4)
+                                                Rusak
+                                                
+                                                @elseif($data->ass_status == 5)
+                                                Hilang
+
                                                 @endif
 
                                                 </td>

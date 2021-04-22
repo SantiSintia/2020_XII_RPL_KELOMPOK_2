@@ -64,8 +64,8 @@ class BorrowsController extends Controller
             ->get();
         $data ['borrowId'] = Borrow::whereBrwId($id)->first();
         $cek_user = Borrow::whereBrwId($id)->first();
-        $role =  User::join('roles', 'usr_id', '=' , 'id')
-                     ->whereUsrId($cek_user->brw_usr_id)->first();
+        $role    = User::join('roles', 'role_id', '=' , 'id')
+                     ->whereUsrId($id)->first();
                      //dd($role);
 
         if($role->name == "teacher")
@@ -241,8 +241,6 @@ class BorrowsController extends Controller
 
 
     public function Return  ($id, $slug){
-
-
         $brw = borrow_asset::whereBasId($id)->first();
 
         //update Borrow Assets
@@ -257,7 +255,7 @@ class BorrowsController extends Controller
             ]);
         } else {
             Asset::whereAssId($brw->bas_ass_id)->update([
-                'ass_status' => '0',
+                'ass_status' => $slug,
                 'ass_updated_by' => Auth::user()->usr_id
             ]);
         }

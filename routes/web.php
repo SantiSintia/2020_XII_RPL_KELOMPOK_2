@@ -96,18 +96,24 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
 
 
 
-    Route::get('return/print', 'BorrowsController@print');
-    Route::get('return/history', 'BorrowsController@History');
+    Route::get('/return/print', 'BorrowsController@print');
+    Route::get('/return/history', 'BorrowsController@History');
 
 
-    Route::get('return/{id}/delete','BorrowsController@destroy');
+    Route::get('/return/{id}/delete','BorrowsController@destroy');
     Route::get('/return/{id}/{slug}', 'BorrowsController@Return');
     Route::get('/return/{id}/all/{slug}', 'BorrowsController@ReturnAll');
 
     Route::get('/admin/replacement/{id}/{ass_id}', 'BorrowsController@replacement');
     Route::post('/admin/replacement', 'BorrowsController@saveReplacement');
-
     Route::get('/admin/fix/{id}/{ass_id}', 'BorrowsController@fix');
+
+    Route::get('/report-asset', 'ReportController@asset');
+    Route::get('/asset-all', 'ReportController@allconditionPDF');
+    Route::get('/asset-good', 'ReportController@goodconditionPDF');
+    Route::get('/asset-broken', 'ReportController@brokenconditionPDF');
+    Route::get('/asset-lost', 'ReportController@lostconditionPDF');
+    Route::get('/report-borrow', 'ReportController@borrowPDF');
 
 
 

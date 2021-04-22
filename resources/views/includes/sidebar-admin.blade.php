@@ -53,6 +53,15 @@
                                 <li><a href="{{URL::to('return/history')}}">Histori Pengembalian</a></li>
                             </ul>
                         </li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                            <i class="mdi mdi-server"></i>
+                        <span class="hide-menu">Report Inventaris</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{URL::to('/report-asset')}}">Asset</a></li>
+                                <li><a href="">Lokasi Asset</a></li>
+                                <li><a href="{{URL::to('report-borrow')}}">Pinjam dan Kembali</a></li>
+                            </ul>
+                        </li>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
