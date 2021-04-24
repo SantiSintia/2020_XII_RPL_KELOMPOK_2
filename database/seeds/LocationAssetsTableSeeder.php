@@ -10,16 +10,16 @@ class LocationAssetsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
+
         DB::table('location_assets')->insert([
-            'la_asc_id' => 2,
-            'la_ast_id' => 1,
-            'la_ass_id' => 1
+            'location_name' => "lantai 1"
+        
             ]);
 
         DB::table('location_assets')->insert([
-            'la_asc_id' => 2,
-            'la_ast_id' => 2,
+            'location_name' => "ruangan 1",
+            'parent_id' => 1,
             'la_ass_id' => 2
             ]);
 

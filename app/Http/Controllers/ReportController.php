@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Student;
+use App\location_asset;
 use App\Teacher;
 use Illuminate\Http\Request;
 use App\User;
@@ -16,7 +17,7 @@ use App\Replacement;
 use App\Replacement_asset;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use App\asset_categories;
 use PDF;
 
 class ReportController extends Controller
@@ -86,10 +87,24 @@ class ReportController extends Controller
 
     public function location()
     {
-        return view('asset-location.list-location');
+
+        $location=location_asset::where('parent_id','=',null)->get();
+
+         // dd($location);
+        return view('asset-location.list-location',compact(['location']));
     }
+
+    public function JsonLokasi($id)
+    {
+        $lokasi=location_asset::where('parent_id','=',$id)->get();
+        return response()->json(compact(['lokasi']));
+
+    }
+
+
     public function create()
     {
+       
         return view('asset-location.create-location');
     }
 }

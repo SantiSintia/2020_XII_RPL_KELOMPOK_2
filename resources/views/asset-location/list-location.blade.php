@@ -85,72 +85,51 @@ List Lokasi Asset
                             </div>
                         </div>
                         <!-- Row -->
-                        <div class="row">
+                        
                             <!-- column -->
-                            <div class="col-lg-3 col-md-6">
-                                <!-- Card -->
-                                <div class="card">
-                                    <img class="card-img-top img-responsive" src="../assets/images/big/img1.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4 class="card-title">TU</h4>
-                                        <p class="card-text">Deskripsi Tentang Ruangan</p>
-                                        <a href="#" class="btn btn-primary">Visit</a>
-                                    </div>
-                                </div>
-                                <!-- Card -->
+                            
+                            <!-- column -->
+                            <!-- column -->
+                           <div class="form-group row">
+                            
+                            <div class="col-md-24">
+                                <select id="lokasi" name="asset_origin" class="form-control custom-select">
+                                    <option selected="true" checked="true">Pilih lokasi</option>
+                                    @foreach($location as $lokasi)
+                                        <option value="{{$lokasi->la_id}}">{{$lokasi->location_name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <!-- column -->
-                            <!-- column -->
-                            <div class="col-lg-3 col-md-6">
-                                <!-- Card -->
-                                <div class="card">
-                                    <img class="card-img-top img-responsive" src="../assets/images/big/img2.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Ruangan 1</h4>
-                                        <p class="card-text">Deskripsi Tentang Ruangan</p>
-                                        <a href="#" class="btn btn-primary">Visit</a>
-                                    </div>
-                                </div>
-                                <!-- Card -->
-                            </div>
-                            <!-- column -->
-                            <!-- column -->
-                            <div class="col-lg-3 col-md-6">
-                                <!-- Card -->
-                                <div class="card">
-                                    <img class="card-img-top img-responsive" src="../assets/images/big/img3.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Ruangan 2</h4>
-                                        <p class="card-text">Deskripsi Tentang Ruangan</p>
-                                        <a href="#" class="btn btn-primary">Visit</a>
-                                    </div>
-                                </div>
-                                <!-- Card -->
-                            </div>
-                            <!-- column -->
-                            <!-- column -->
-                            <div class="col-lg-3 col-md-6 img-responsive">
-                                <!-- Card -->
-                                <div class="card">
-                                    <img class="card-img-top img-responsive" src="../assets/images/big/img4.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Ruangan 3</h4>
-                                        <p class="card-text">Deskripsi Tentang Ruangan</p>
-                                        <a href="#" class="btn btn-primary">Visit</a>
-                                    </div>
-                                </div>
-                                <!-- Card -->
-                            </div>
-                            <!-- column -->
                         </div>
-                        <!-- Row -->
-                    </div>
+                            <!-- column -->
+                            
+                                        <div id="gg"></div>
+
+                
                 
         </div>
     </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $('#lokasi').on('change', function (e) {
+        console.log(e);
+        var lokasi_id=e.target.value;
+        $.get('{{URL::to('api/json-lokasi')}}/'+lokasi_id,function (variable){
+            console.log(variable);
+                $('#gg').empty()
+            $.each(variable.lokasi, function(val,lokasiObj){
+             $('#gg').append(' <div class="col-lg-3 col-md-6 img-responsive"><!-- Card --><div class="card"> <!-- <img class="card-img-top img-responsive" src="../assets/images/big/img4.jpg" alt="Card image cap"> --><div class="card-body"><h4 class="card-title">'+lokasiObj.location_name+'</h4><p class="card-text">Deskripsi Tentang Ruangan</p><a href="#" class="btn btn-primary">Visit</a></div></div> <!-- Card --></div><!-- column -->');
+            });
+        });
+       }); 
+
+
+    </script>
 
 
 @push('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{URL::to('assets/js/jquery.min.js')}}"></script>
      <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
