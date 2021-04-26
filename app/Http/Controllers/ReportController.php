@@ -95,6 +95,7 @@ class ReportController extends Controller
     public function JsonLokasi($id)
     {
         $lokasi=location_asset::where('parent_id','=',$id)->get();
+
         return response()->json(compact(['lokasi']));
 
     }
@@ -102,7 +103,39 @@ class ReportController extends Controller
 
     public function create()
     {
-       
-        return view('asset-location.create-location');
+        $lokasi=location_asset::where('parent_id','=',null)->get();
+        return view('asset-location.create-location',compact(['lokasi']));
+    }
+    public function store(request $request)
+    {
+        $induk= $request->input('induk');
+        $sub=$request->input('lokasi');
+        $status=$request->input('status');
+
+        $cek1=location_asset::where('location_name',$sub)->where('parent_id',$induk)->first();
+        $cek=location_asset::where('location_name',$sub)->where('parent_id',null)->first();
+
+        // dd($induk);
+        if ( $status== 1) {
+            if($cek){
+                return redirect('/asset-location')->withToastError('lokasi tersebut sudah terdaftar');
+            }else{
+                $create= new location_asset();
+        $create->parent_id=$induk;
+        $create->location_name=$sub;
+        $create->save();
+        return redirect('/asset-location')->withSuccess('tambah lokasi berhasil');
+            }
+        }else{
+
+        if($cek1){ return redirect('/asset-location')->withToastError('lokasi tersebut sudah terdaftar'); }
+        else{
+        $create= new location_asset();
+        $create->parent_id=$induk;
+        $create->location_name=$sub;
+        $create->save();
+        return redirect('/asset-location')->withSuccess('tambah lokasi berhasil');
+        }
+    }
     }
 }
