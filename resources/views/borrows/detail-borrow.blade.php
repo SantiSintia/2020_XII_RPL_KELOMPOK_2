@@ -79,7 +79,9 @@
                         <th class="text-center">Tgl Pinjam</th>
                         <th class="text-center">Status Peminjaman</th>
                         <th class="text-center">Kondisi</th>
+                        @if(Auth()->user()->hasRole('admin'))
                         <th class="text-center" style="width: 10%;">Aksi</th>
+                        @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -103,6 +105,7 @@
                                 <td class="text-center">Hilang</td>
                             @endif
 
+                            @if(Auth()->user()->hasRole('admin'))
                             <td>
                                 @if ($borrow->bas_status == 1)
                                     <div class="dropdown">
@@ -119,6 +122,7 @@
                                     </div>
                                 @endif
                             </td>
+                            @endif
                         </tr>
                     @endforeach
 

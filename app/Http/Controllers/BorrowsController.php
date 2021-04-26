@@ -67,19 +67,11 @@ class BorrowsController extends Controller
         $role    = User::join('roles', 'role_id', '=' , 'id')
                      ->whereUsrId($id)->first();
                      //dd($role);
-
-        if($role->name == "teacher")
-        {
-            $data ['user'] = Teacher::whereTcUsrId($cek_user->brw_usr_id)
-                ->join('users' , 'teachers.tc_usr_id' , '=' , 'users.usr_id')
-                ->first();
-        }else
-        {
-
+ 
             $data ['user'] = Student::whereStdUsrId($cek_user->brw_usr_id)
                 ->join('users' , 'students.std_usr_id' , '=' , 'users.usr_id')
                 ->first();
-        }
+
 
         return view('borrows.detail-borrow', $data);
     }
@@ -327,7 +319,7 @@ class BorrowsController extends Controller
 
         //Update Borrow Asset
         $brw = borrow_asset::whereBasId($request->bas_id)->first();
-        $brw->bas_status = '6';
+        $brw->bas_status = '5';
         $brw->save();
 
         //Update Asset
@@ -342,7 +334,7 @@ class BorrowsController extends Controller
     public function fix($id , $ass_id)
     {
          $borrow = borrow_asset::whereBasAssId($ass_id)->first();
-         $borrow->bas_status = '7';
+         $borrow->bas_status = '4';
          $borrow->save();
 
          $asset = Asset::whereAssId($ass_id)->first();

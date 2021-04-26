@@ -16,6 +16,7 @@ class CreateLocationAssetsTable extends Migration
         Schema::create('location_assets', function (Blueprint $table) {
             $table->bigIncrements('la_id');
             $table->string('location_name');
+            
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->unsignedBigInteger('la_ass_id')->nullable();
             

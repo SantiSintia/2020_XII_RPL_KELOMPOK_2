@@ -86,11 +86,11 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
 
 
     Route::get('/lists-borrow', 'BorrowsController@index');
+    Route::get('/lists-borrow/{id}', 'BorrowsController@show');
     Route::get('/borrows-asset', 'BorrowsController@borrowsItem');
     Route::post('/borrows-asset', 'BorrowsController@save');
     Route::get('/borrows-asset/verify/{id}', 'BorrowsController@verify');
-    Route::get('/lists-borrow/{id}', 'BorrowsController@show');
-
+    
 
 
     //Route::get('return/add/{id}', 'BorrowsController@returnAdd');
@@ -142,9 +142,11 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('borrows/{id}/lost', '');
     Route::get('laporan', '');*/
 });
-Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack','role:student|teacher' ]], function () {
-     Route::get('/user/dashboard', 'User\UserController@index')->name('user/dashboard');
-     Route::get('/user/profile', 'User\UserController@profile');
+//Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack','role:student|teacher' ]], function () {
+    Route::get('/user/dashboard', 'User\UserController@index')->name('user/dashboard');
+    Route::get('/user/lists-borrow', 'User\UserController@listBorrows');
+    Route::get('/user/lists-borrow/{id}', 'User\UserController@show');
+    Route::get('/user/profile', 'User\UserController@profile');
     Route::get('/user/change-profile', 'User\UserController@changeProfile');
     Route::post('/user/change-profile', 'User\UserController@saveChangeProfile');
   /*  Route::get('/borrows-asset', 'BorrowsController@borrowsItem');
@@ -152,4 +154,4 @@ Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack','role:st
     Route::get('/borrows-asset/verify/{id}', 'BorrowsController@verify'); */
 
 
-});
+//});
