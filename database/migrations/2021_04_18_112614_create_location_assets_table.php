@@ -31,7 +31,7 @@ class CreateLocationAssetsTable extends Migration
             $table->foreign('la_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('la_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('la_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');
-
+            $table->timestamps();
             $table->string('la_sys_note')->nullable();
         });
     }
