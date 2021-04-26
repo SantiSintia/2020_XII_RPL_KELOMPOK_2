@@ -97,6 +97,7 @@ class ReportController extends Controller
     public function JsonLokasi($id)
     {
         $lokasi=location_asset::where('parent_id','=',$id)->get();
+
         return response()->json(compact(['lokasi']));
 
     }
@@ -104,7 +105,13 @@ class ReportController extends Controller
 
     public function create()
     {
-       
-        return view('asset-location.create-location');
+        $lokasi=location_asset::where('parent_id','=',null)->get();
+        return view('asset-location.create-location',compact(['lokasi']));
+    }
+    public function store($request)
+    {
+        $induk= $request->input('induk');
+        $sub=$request->input('lokasi');
+        return redirect('/asset-location');
     }
 }

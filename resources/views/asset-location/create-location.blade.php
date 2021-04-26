@@ -40,29 +40,36 @@
                                 <h4 class="m-b-0 text-white">Tambah Lokasi Asset</h4>
                             </div>
                             <div class="card-body">
-                                <form action="#">
-                                    <div class="form-body">
-                                        <form class="form-horizontal m-t-40">
-                                            <div class="form-group">
-                                                <label>Nama Lokasi</label>
-                                                <input type="text" class="form-control" value="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Deskripsi Lokasi</label>
-                                                <textarea class="form-control" rows="5"></textarea>
-                                            </div>
-                                        </form>
-                                     
-                                    </div>
-                                    <div class="form-actions">
-                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                                        <button type="button" class="btn btn-inverse">Cancel</button>
-                                    </div>
+                                <select id="location" onchange="lokasi()">
+                                    <option value="i" >........</option>
+                                    <option value="1">induk lokasi</option>
+                                    <option value="2">sub lokasi</option>
+                                </select>
+                                <form method="POST">
+                                <div id="g"><button type="button" class="btn btn-inverse">Cancel</button></div>
                                 </form>
+                              
                             </div>
                         </div>
                     </div>
                 </div>
+
+            <script type="text/javascript">
+                function lokasi() {
+                    var lokasi = document.getElementById("location").value;
+                    if (lokasi == 1) {
+                        document.getElementById('g').innerHTML='   <div class="form-body"><div class="form-group"><label>Nama Lokasi</label><input type="text" name="lokasi" class="form-control" value=""> </div> <input type="hidden" name="status" value="1"> </div><div class="form-actions"><button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button><button type="button" class="btn btn-inverse">Cancel</button> </div>'
+                 } else if(lokasi== "i"){
+                    document.getElementById('g').innerHTML='<button type="button" class="btn btn-inverse">Cancel</button>'
+                 }
+
+                    else{
+                        document.getElementById('g').innerHTML='   <div class="form-body"><div class="form-group"><label>Nama Lokasi</label>  <select name="induk" class="form-control">    <option>.....</option>@foreach($lokasi as $lokasi)<option>{{$lokasi->location_name}}</option>@endforeach</select><label>Nama Sublokasi</label> <input type="text" name="lokasi" class="form-control" value=""> </div> <input type="hidden" name="status" value="1"> </div><div class="form-actions"><button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button><button type="button" class="btn btn-inverse">Cancel</button> </div>'
+                    }
+
+                }
+
+            </script>
 
 
     @push('scripts')
