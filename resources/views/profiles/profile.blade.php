@@ -37,27 +37,32 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <center class="m-t-30"> <img src="../assets/images/users/5.jpg" class="img-circle" width="150">
-                                    <h4 class="card-title m-t-10">{{ Auth::user()->usr_name }}</h4>
-                                    @if(Auth()->user()->hasRole('admin'))
-                                    <h6 class="card-subtitle">Admin</h6>
-                                    @elseif(Auth()->user()->hasRole('student'))
-                                    <h6 class="card-subtitle">Student</h6>
-                                    @elseif(Auth()->user()->hasRole('staff'))
-                                    <h6 class="card-subtitle">Staff</h6>
-                                    @elseif(Auth()->user()->hasRole('teacher'))
-                                    <h6 class="card-subtitle">Teacher</h6>
-                                    @endif
+                                <div class="text-center">
+                                      <form action="" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                            <img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" id="tampil_picture" style="object-fit: cover; height: 200px; width: 200px; border-radius:5px;" />
+                                                <input type="file" name="usr_profile_picture" id="preview_gambar" class="img-circle" width="150" style="display:none; border-radius: 5px;" onchange="document.getElementById('usr_profile_picture').value=this.value" /><br>
+                                                 <h4 class="card-title m-t-10">{{ Auth::user()->usr_name }}</h4>
+                                                    @if(Auth()->user()->hasRole('admin'))
+                                                    <h6 class="card-subtitle">Admin</h6>
+                                                    @elseif(Auth()->user()->hasRole('student'))
+                                                    <h6 class="card-subtitle">Student</h6>
+                                                    @elseif(Auth()->user()->hasRole('staff'))
+                                                    <h6 class="card-subtitle">Staff</h6>
+                                                    @elseif(Auth()->user()->hasRole('teacher'))
+                                                    <h6 class="card-subtitle">Teacher</h6>
+                                                    @endif
+                                        <button type="button" id="usr_profile_picture" class="btn btn-primary btn-sm m-2 "  onclick="document.getElementById('preview_gambar').click()"><i class="fas fa-camera"></i></button>
 
-                                    <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
-                                    </div>
-                                </center>
+                                        <button type="submit" value="" class="btn btn-success btn-sm m-2"><i class="fas fa-check-circle"></i></button>
+                                        <!--<input type="submit" value="Simpan" class="btn btn-success btn-sm">-->
+                                      </form>   
+                                </div>
                             </div>
                             <div>
                                 <hr> </div>
                             <div class="card-body"> 
+
                                 <small class="text-muted">Email address </small>
                                     <h6>{{ Auth::user()->usr_email }}</h6> 
                                 <small class="text-muted p-t-30 db">Phone</small>
@@ -384,7 +389,22 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{URL::to('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+    <script>
+    function bacaGambar(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function(e) {
+                $('#tampil_picture').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#preview_gambar").change(function() {
+        bacaGambar(this);
+    });
+</script>
 
 @endpush   
 @endsection

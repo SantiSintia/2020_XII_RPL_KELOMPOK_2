@@ -52,7 +52,7 @@ Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventBack']], function () {
     Route::get('/admin/dashboard', 'AdminPageController@index')->name('admin/dashboard');
     Route::get('/admin/profile', 'AdminPageController@profile');
-    Route::get('/admin/change-profile', 'AdminPageController@changeProfile');
+    Route::post('/admin/profile', 'AdminPageController@changeProfile');
     Route::post('/admin/change-profile', 'AdminPageController@saveChangeProfile');
     Route::get('/admin/user', 'AdminPageController@manageUsers');
     Route::get('/admin/detailUser/{id}', 'AdminPageController@detail');
@@ -83,6 +83,7 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('/asset-location', 'ReportController@location');
     Route::get('/asset-location/create', 'ReportController@create');
     Route::post('/asset-location/create', 'ReportController@store');
+    Route::get('/asset-location/room', 'ReportController@room');
     
 
 

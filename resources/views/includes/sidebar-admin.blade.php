@@ -4,7 +4,7 @@
                 <!-- User profile -->
                 <div class="user-profile" style="background: url(/assets/images/background/logo-info.jpg) no-repeat;">
                     <!-- User profile image -->
-                    <div class="profile-img"> <img src="{{URL::to('assets/images/users/avatar.png')}}" alt="user" /> </div>
+                    <div class="profile-img"> <img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" alt="null" /> </div>
                     <!-- User profile text-->
                    
                 </div>

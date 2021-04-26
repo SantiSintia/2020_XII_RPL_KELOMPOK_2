@@ -12,6 +12,8 @@ use App\Borrow;
 use App\borrows_statuse;
 use App\borrow_asset;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -45,12 +47,29 @@ class AdminPageController extends Controller
 
     public function profile()
     {
+      $user = User::join('roles', 'users.role_id', '=', 'roles.id')
+            ->select('roles.name as role_name', 'roles.*', 'users.usr_id as id_user', 'users.*')
+            ->where('users.usr_id', Auth()->user()->id)->first();
         return view('profiles.profile');
     }
 
-    public function changeProfile()
+    public function changeProfile(Request $request)
     {
-      return view('profiles.reset-password');
+       $user = User::where('usr_id',Auth()->user()->usr_id)->first();
+
+        if ($request->hasFile('usr_profile_picture')) {
+            $files = $request->file('usr_profile_picture');
+            $path = public_path('usr_profile_picture' . '/' . Auth::user()->name);
+            if (!File::isDirectory($path)) {
+                File::makeDirectory($path, 0777, true, true);
+            }
+            $files_name = date('Ymd') . '_' . $files->getClientOriginalName();
+            $files->move($path, $files_name);
+            $user->usr_profile_picture = $files_name;
+            $user->update();
+
+            return redirect()->back();
+        }
     }
     
     public function saveChangeProfile(Request $request)

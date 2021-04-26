@@ -138,4 +138,8 @@ class ReportController extends Controller
         }
     }
     }
+    public function room()
+    {
+        return view('asset-location.list-asset-location');
+    }
 }
