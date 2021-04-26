@@ -28,45 +28,44 @@ class ReportController extends Controller
                        ->join('asset_types','ass_asset_type_id','=','ast_id')
                        ->join('origins','ass_origin_id','=','ori_id')
                        ->get();
-        return view('report.asset',compact('assets'));
+        $totalasset= Asset::count();
+        $totalharga= Asset::sum('ass_price');
+
+        return view('report.asset',compact('assets','totalasset', 'totalharga'));
 	}
 
-	public function allconditionPDF()
+	public function allcondition()
 	{
-		$data ['assets'] = Asset::all();
+		$assets= Asset::all();
 
-		$pdf = PDF::loadview('report.asset-all', $data)->setPaper('A4', 'landscape');
-        return $pdf->stream();
+        return view('report.asset-all', compact('assets'));
 	}
 
-	public function goodconditionPDF()
+	public function goodcondition()
 	{
-		$data ['assets'] = Asset::where('ass_status', 1)->get();
+		$assets = Asset::where('ass_status', 1)->get();
 
-		$pdf = PDF::loadview('report.asset-good', $data)->setPaper('A4', 'landscape');
-        return $pdf->stream();
+        return view('report.asset-good', compact('assets'));
 	}
 
-	public function brokenconditionPDF()
+	public function brokencondition()
 	{
-		$data ['assets'] = Asset::where('ass_status', 4)->get();
+		$assets = Asset::where('ass_status', 4)->get();
 
-		$pdf = PDF::loadview('report.asset-broken', $data)->setPaper('A4', 'landscape');
-        return $pdf->stream();
+        return view('report.asset-broken', compact('assets'));
 	}
 
-	public function lostconditionPDF()
+	public function lostcondition()
 	{
-		$data ['assets'] = Asset::where('ass_status', 5)->get();
+		$assets = Asset::where('ass_status', 5)->get();
 
-		$pdf = PDF::loadview('report.asset-lost', $data)->setPaper('A4', 'landscape');
-        return $pdf->stream();
+        return view('report.asset-lost', compact('assets'));
 
 	}
 
-    public function borrowPDF()
+    public function borrow()
     {
-        $data ['history'] = borrow_asset::join('borrows' , 'borrow_assets.bas_brw_id' , '=' , 'borrows.brw_id')
+        $borrow = borrow_asset::join('borrows' , 'borrow_assets.bas_brw_id' , '=' , 'borrows.brw_id')
             ->join('assets' , 'borrow_assets.bas_ass_id' , '=' , 'assets.ass_id')
             ->join('users as UserId' ,  'borrows.brw_usr_id' ,  '='  , 'UserId.usr_id')
             ->join('users as CreatedBy' ,  'borrow_assets.bas_created_by' ,  '='  , 'CreatedBy.usr_id')
@@ -81,8 +80,7 @@ class ReportController extends Controller
             ->orderBy('bas_id'  , 'DESC')
             ->get();
 
-        $pdf = PDF::loadview('report.borrow-pdf', $data)->setPaper('A4', 'landscape');
-        return $pdf->stream();
+        return view('report.borrow-pdf', compact('borrow'));
     }
 
     public function location()

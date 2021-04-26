@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-- Asset
+- Report Asset
 @endpush
 
 @push('styles')
@@ -25,23 +25,38 @@
 
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor">Asset</h3>
+                        <h3 class="text-themecolor">Report Inventaris</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
-                            <li class="breadcrumb-item active">Kelola Asset</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Report Inventaris</a></li>
+                            <li class="breadcrumb-item active">Asset</li>
                         </ol>
                     </div>
                 </div>
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Asset</h4>
                                 <div class="box-header">
                                     <p> 
-                                        <a href="{{URL::to('asset-lost')}}" class="btn btn-danger btn-rounded m-t-10 float-right">asset hilang</a>
+<!--                                         <a href="{{URL::to('asset-lost')}}" class="btn btn-danger btn-rounded m-t-10 float-right">asset hilang</a>
                                         <a href="{{URL::to('asset-broken')}}" class="btn btn-warning btn-rounded m-t-10 float-right">asset rusak</a>
                                         <a href="{{URL::to('asset-good')}}" class="btn btn-primary btn-rounded m-t-10 float-right">asset baik</a>
                                         <a href="{{URL::to('asset-all')}}" class="btn btn-success btn-rounded m-t-10 float-right">semua asset</a>
-                                    </p>
+ --> 
+                                    <a href="" class="btn btn-success float-left" data-toggle="modal" data-target="#verticalcenter">Total Dana Inventaris</a>
+
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary float-left dropdown-toggle text-center" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                            laporan
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="{{URL::to('asset-all')}}">Semua Asset</a>
+                                            <a class="dropdown-item" href="{{URL::to('asset-good')}}">Asset Kondisi Baik</a>
+                                            <a class="dropdown-item" href="{{URL::to('asset-broken')}}">Asset Kondisi Rusak</a>
+                                            <a class="dropdown-item" href="{{URL::to('asset-lost')}}">Asset Kondisi Hilang</a>
+                                        </div>
+                                    </div>
+                                   </p>
                                 </div>
 
                                 <div class="table-responsive m-t-40">
@@ -51,6 +66,12 @@
                                                 <th>No</th>
                                                 <th>Nama Asset</th>
                                                 <th>Kode Registrasi</th>
+                                                <th>Harga</th>
+                                                <th>Material</th>
+                                                <th>Merk</th>
+                                                <th>Spesifikasi</th>
+                                                <th>Voltage</th>
+                                                <th>Kondisi</th>
                                                 <th>Status</th>
                                                 
                                             </tr>
@@ -61,6 +82,12 @@
                                                 <td>{{$no+1}}</td>
                                                 <td>{{$data->ass_name}}</td>
                                                 <td>{{$data->ass_registration_code}}</td>
+                                                <td>{{$data->ass_price}}</td>
+                                                <td>{{$data->asd_inggridient}}</td>
+                                                <td>{{$data->asd_merk}}</td>
+                                                <td>{{$data->asd_spesification}}</td>
+                                                <td>{{$data->asd_voltage}}</td>
+                                                <td>{{$data->asd_condition}}</td>
 
                                                 <td>
                                                 @if($data->ass_status == 0)
@@ -78,11 +105,47 @@
                                                 @endif
 
                                                 </td>
+
+                                                
                                             </tr>                                            
                                         @endforeach
                                         </tbody>
                                     </table>
                                 </div>
+                                    <div id="verticalcenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="vcenter">Total Harta</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            Total Asset
+                                                        </div>
+                                                        <div class="col-15">
+                                                        {{$totalasset}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            Total Harga
+                                                        </div>
+                                                        <div class="col-15">
+                                                           {{{$totalharga}}}
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        <!-- /.modal-content -->
+                                        </div>
+                                    </div>
+
                             </div>
                         </div>
 

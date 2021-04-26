@@ -113,11 +113,11 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('/admin/fix/{id}/{ass_id}', 'BorrowsController@fix');
 
     Route::get('/report-asset', 'ReportController@asset');
-    Route::get('/asset-all', 'ReportController@allconditionPDF');
-    Route::get('/asset-good', 'ReportController@goodconditionPDF');
-    Route::get('/asset-broken', 'ReportController@brokenconditionPDF');
-    Route::get('/asset-lost', 'ReportController@lostconditionPDF');
-    Route::get('/report-borrow', 'ReportController@borrowPDF');
+    Route::get('/asset-all', 'ReportController@allcondition');
+    Route::get('/asset-good', 'ReportController@goodcondition');
+    Route::get('/asset-broken', 'ReportController@brokencondition');
+    Route::get('/asset-lost', 'ReportController@lostcondition');
+    Route::get('/report-borrow', 'ReportController@borrow');
 
 
 

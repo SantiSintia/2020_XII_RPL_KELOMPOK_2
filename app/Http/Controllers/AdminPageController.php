@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Asset;
 use App\Teacher;
 use App\Student;
 use App\User;
@@ -34,7 +35,12 @@ class AdminPageController extends Controller
      */
     public function index()
     {
-        return view('index');
+      $asset = Asset::count();
+      $borrow = Borrow::count();
+      $user = User::count();
+      $dana = Asset::sum('ass_price');
+
+      return view('index', compact('asset','borrow','user','dana'));
     }
 
     public function profile()

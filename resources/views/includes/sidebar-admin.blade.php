@@ -54,7 +54,7 @@
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-server"></i>
+                            <i class="fas fa-print"></i>
                         <span class="hide-menu">Report Inventaris</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('/report-asset')}}">Asset</a></li>

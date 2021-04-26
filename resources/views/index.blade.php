@@ -48,7 +48,7 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
-                 @if(Auth()->user()->hasRole('admin'))
+                @if(Auth()->user()->hasRole('admin'))
                 <div class="row">
                     <!-- Column -->
                     <div class="col-lg-6  col-md-4">
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-4 align-self-center">
-                                        <h2 class="font-light text-white">24 Asset</h2>
+                                        <h2 class="font-light text-white">{{$asset}} Asset</h2>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,45 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8 align-self-center">
-                                        <h2 class="font-light text-white">1 Peminjaman</h2>
+                                        <h2 class="font-light text-white">{{$borrow}} Peminjaman</h2>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-4">
+                        <div class="card card-inverse card-success">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="m-r-20 align-self-center">
+                                        <h1 class="text-white"><i class="mdi mdi-account"></i></h1></div>
+                                    <div>
+                                        <h3 class="card-title">Pengguna</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 align-self-center">
+                                        <h2 class="font-light text-white">{{$user}} Pengguna</h2>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-4">
+                        <div class="card card-inverse card-success">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="m-r-20 align-self-center">
+                                        <h1 class="text-white"><i class="fas fa-dollar-sign"></i></h1></div>
+                                    <div>
+                                        <h3 class="card-title">Total Dana Inventaris</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 align-self-center">
+                                        <h2 class="font-light text-white">Rp. {{$dana}}</h2>
                                     </div>
                                     
                                 </div>
