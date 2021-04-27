@@ -20,7 +20,7 @@ class LocationAssetsTableSeeder extends Seeder
         DB::table('location_assets')->insert([
             'location_name' => "ruangan 1",
             'parent_id' => 1,
-            'la_ass_id' => 2
+            
             ]);
 
         // DB::table('location_assets')->insert([

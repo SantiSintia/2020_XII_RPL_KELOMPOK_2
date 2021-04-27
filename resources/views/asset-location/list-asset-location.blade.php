@@ -54,25 +54,39 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($asset as $asset)
                                             <tr>
                                                 <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>{{$asset->ass_name}}</td>
+                                                <td>{{$asset->ass_registration_code}}</td>
 
                                                 <td>
-                                                </label>
+                                                 @if($asset->ass_status == 0)
+                                                TIdak bisa dipinjam</label>
+
+                                                @elseif($asset->ass_status == 1)
+                                                Bisa dipinjam
+
+                                                @elseif($asset->ass_status == 4)
+                                                Rusak
+                                                
+                                                @elseif($asset->ass_status == 5)
+                                                Hilang
+
+                                                @endif
 
                                                 
                                                 </td>
 
                                                 <td>
-                                                    <a href="#" class="btn btn-sm btn-flat btn-success">Detail</a>
-                                                    <a href="#" class="btn btn-sm btn-flat btn-danger">Hapus</a>
-                                                    <a href="#" class="btn btn-sm btn-flat btn-primary">Edit</a></td>
+                                                     <a href="{{URL::to('asset/'.$asset->ass_id)}}" class="btn btn-sm btn-flat btn-success">Detail</a>
+                                                    <a href="{{URL::to('asset/'.$asset->ass_id.'/destroy')}}" class="btn btn-sm btn-flat btn-danger">Hapus</a>
+                                                    <a href="{{URL::to('asset/'.$asset->ass_id).'/edit'}}" class="btn btn-sm btn-flat btn-primary">Edit</a></td></td>
 
 
                                                 </td>
-                                            </tr>                                            
+                                            </tr>                   
+                                            @endforeach                         
                                         </tbody>
                                     </table>
                                 </div>

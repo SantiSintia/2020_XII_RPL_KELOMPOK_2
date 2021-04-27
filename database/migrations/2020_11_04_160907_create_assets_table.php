@@ -23,10 +23,13 @@ class CreateAssetsTable extends Migration
             $table->string('ass_name');
             $table->string('ass_price')->nullable();
             $table->boolean('ass_status');
+            $table->unsignedBigInteger('ass_la_id');
 
             $table->unsignedBigInteger('ass_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('ass_updated_by')->unsigned()->nullable();
             $table->unsignedBigInteger('ass_deleted_by')->unsigned()->nullable();  
+
+             $table->foreign('ass_la_id')->references('la_id')->on('location_assets')->onDelete('cascade'); 
 
             $table->foreign('ass_asset_category_id')->references('asc_id')->on('asset_categories')->onDelete('cascade');
             $table->foreign('ass_asset_type_id')->references('ast_id')->on('asset_types')->onDelete('cascade');

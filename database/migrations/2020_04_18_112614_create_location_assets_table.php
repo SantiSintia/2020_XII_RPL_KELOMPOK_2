@@ -18,7 +18,7 @@ class CreateLocationAssetsTable extends Migration
             $table->string('location_name');
             
             $table->unsignedBigInteger('parent_id')->nullable();
-            $table->unsignedBigInteger('la_ass_id')->nullable();
+           
             
             $table->unsignedBigInteger('la_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('la_updated_by')->unsigned()->nullable();
@@ -26,7 +26,7 @@ class CreateLocationAssetsTable extends Migration
             
            
             $table->foreign('parent_id')->references('la_id')->on('location_assets')->onDelete('cascade'); 
-            $table->foreign('la_ass_id')->references('ass_id')->on('assets')->onDelete('cascade'); 
+           
             
             $table->foreign('la_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('la_updated_by')->references('usr_id')->on('users')->onDelete('cascade');

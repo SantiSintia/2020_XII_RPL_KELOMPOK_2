@@ -83,7 +83,7 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('/asset-location', 'ReportController@location');
     Route::get('/asset-location/create', 'ReportController@create');
     Route::post('/asset-location/create', 'ReportController@store');
-    Route::get('/asset-location/room', 'ReportController@room');
+    Route::get('/asset-location/{id}/room', 'ReportController@room');
     
 
 

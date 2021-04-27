@@ -138,8 +138,11 @@ class ReportController extends Controller
         }
     }
     }
-    public function room()
-    {
-        return view('asset-location.list-asset-location');
+    public function room($id)
+    {   
+
+        $asset=Asset::where('ass_la_id',$id)->get();
+        // dd($asset);
+        return view('asset-location.list-asset-location',compact(['asset']));
     }
 }
