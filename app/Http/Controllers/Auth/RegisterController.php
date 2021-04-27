@@ -31,6 +31,64 @@ class RegisterController extends Controller
     {
         return view('auth.choose-register');
     }
+
+    public function registerTeacher()
+    {
+        return view('auth.register-teacher');
+    }
+
+      public function registerSaveTeacher()
+    {
+         $nama = $_POST['usr_name'];
+        if ($nama) 
+        {
+            $email = $_POST['usr_email'];
+            if ($email) 
+            {
+                $password   = $_POST['password'];
+                $rePassword = $_POST['password_confirmation'];
+                if ($rePassword == $password)
+                 {
+                    $phone  = $_POST['usr_phone'];
+                    $gender = $_POST['options'];
+                    $nip    = $_POST['nip'];
+
+                    $user = new User();
+                    $user->role_id                = '2';
+                    $user->usr_name               = $nama;
+                    $user->usr_email              = $email;
+                    
+                    $user->usr_password           = Hash::make($password);
+                    //$user->usr_profile_picture  = $picture;
+                    $user->usr_phone              = $phone;
+                    $user->usr_gender             = $gender;
+                    $user->usr_verification_token = str_replace('/', '', Hash::make(Str::random(12)));
+                    $user->usr_is_active          = true;
+                    //dd($user);
+                    $user->save();
+
+                     
+
+                    $student = new Teacher();
+                    $student->tc_usr_id  = $user->usr_id;
+                    $student->tc_nip     = $nip;
+                    $student->save();
+
+                    if($user->role_id == 2){
+                        $user->assignRole('teacher');
+                        $user->created_by = $user->usr_id;
+                    }
+                    
+                    Mail::to($data['usr_email'])->send(new SendMail($user));
+
+                    return redirect ('/');
+                    //return $user;
+                    
+                }
+            }
+         }
+    }
+    
     public function registerStudent()
     {
         return view('auth.register-student');
@@ -74,6 +132,11 @@ class RegisterController extends Controller
                     $student->std_class  = $class;
                     $student->save();
 
+                    if($user->role_id == 3){
+                        $user->assignRole('student');
+                        $user->created_by = $user->usr_id;
+                    }
+
                     Mail::to($email)->send(new SendMail($user));
                     //return $user;
                     return redirect ('/');
@@ -87,57 +150,6 @@ class RegisterController extends Controller
 
   
 
-    public function registerTeacher()
-    {
-        return view('auth.register-teacher');
-    }
-
-      public function registerSaveTeacher()
-    {
-         $nama = $_POST['usr_name'];
-        if ($nama) 
-        {
-            $email = $_POST['usr_email'];
-            if ($email) 
-            {
-                $password   = $_POST['password'];
-                $rePassword = $_POST['password_confirmation'];
-                if ($rePassword == $password)
-                 {
-                    $phone  = $_POST['usr_phone'];
-                    $gender = $_POST['options'];
-                    $nip    = $_POST['nip'];
-
-                    $user = new User();
-                    $user->role_id                = '2';
-                    $user->usr_name               = $nama;
-                    $user->usr_email              = $email;
-                    
-                    $user->usr_password           = Hash::make($password);
-                    //$user->usr_profile_picture  = $picture;
-                    $user->usr_phone              = $phone;
-                    $user->usr_gender             = $gender;
-                    $user->usr_verification_token = str_replace('/', '', Hash::make(Str::random(12)));
-                    $user->usr_is_active          = true;
-                    //dd($user);
-                    $user->save();
-
-                     
-
-                    $student = new Teacher();
-                    $student->tc_usr_id  = $user->usr_id;
-                    $student->tc_nip     = $nip;
-                    $student->save();
-                    
-                    Mail::to($data['usr_email'])->send(new SendMail($user));
-
-                    return redirect ('/');
-                    //return $user;
-                    
-                }
-            }
-         }
-    }
 
 
 

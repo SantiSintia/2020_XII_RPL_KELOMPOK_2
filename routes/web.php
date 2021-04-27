@@ -144,7 +144,7 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('borrows/{id}/lost', '');
     Route::get('laporan', '');*/
 });
-//Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack','role:student|teacher' ]], function () {
+Route::group(['middleware' => ['role:student|teacher' ,'auth', 'verified', 'DisablePreventBack']], function () {
     Route::get('/user/dashboard', 'User\UserController@index')->name('user/dashboard');
     Route::get('/user/profile', 'User\UserController@profile');
     Route::get('/user/change-profile', 'User\UserController@changeProfile');
@@ -157,4 +157,4 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('/borrows-asset/verify/{id}', 'BorrowsController@verify'); */
 
 
-//});
+});
