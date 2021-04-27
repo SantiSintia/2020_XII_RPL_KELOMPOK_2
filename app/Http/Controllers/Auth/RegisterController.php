@@ -65,7 +65,7 @@ class RegisterController extends Controller
                     $user->usr_verification_token = str_replace('/', '', Hash::make(Str::random(12)));
                     $user->usr_is_active          = true;
                     //dd($email);
-                    // $user->save();
+                    $user->save();
 
 
                     $student = new Student();
@@ -74,9 +74,9 @@ class RegisterController extends Controller
                     $student->std_class  = $class;
                     $student->save();
 
-                     Mail::to($email)->send(new SendMail($user));
-                    return $user;
-                    // return redirect ('/');
+                    Mail::to($email)->send(new SendMail($user));
+                    //return $user;
+                    return redirect ('/');
                     
 
                 }
@@ -128,8 +128,10 @@ class RegisterController extends Controller
                     $student->tc_usr_id  = $user->usr_id;
                     $student->tc_nip     = $nip;
                     $student->save();
+                    
+                    Mail::to($data['usr_email'])->send(new SendMail($user));
+
                     return redirect ('/');
-                    //Mail::to($data['usr_email'])->send(new SendMail($user));
                     //return $user;
                     
                 }

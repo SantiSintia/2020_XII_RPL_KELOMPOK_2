@@ -28,11 +28,12 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email')
-            ->with(
-                [
-                    'user' => $this->user
-                ]
-            );
+        return $this->from('inventarisassetmp2@gmail.com')
+                    ->view('email')
+                    ->with(
+                        [
+                            'user' => $this->user
+                        ]
+                    );
     }
 }
