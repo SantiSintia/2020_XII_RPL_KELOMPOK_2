@@ -79,7 +79,7 @@ class BorrowsController extends Controller
 
     public function borrowsItem()
     {
-        $name = user::join('roles', 'role_id', '=', 'id')->where('name', 'student')->select('users.usr_name', 'users.usr_id')->get();
+        $name = user::join('roles', 'role_id', '=', 'id')->where('name', '!=','student')->select('users.usr_name', 'users.usr_id')->get();
         $borrow_asset = borrow_asset::where('bas_status', 1)->get();
         // dd($borrow_asset);
 

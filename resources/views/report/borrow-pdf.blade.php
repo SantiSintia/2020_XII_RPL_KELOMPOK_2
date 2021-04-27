@@ -71,10 +71,12 @@
     <script>
     $(document).ready(function() {
         $('#myTable').DataTable( {
+            "searching": false,
             dom: 'Bfrtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
+
         } );
     } );
 
