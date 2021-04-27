@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-4">
-                        <div class="card card-inverse card-success">
+                        <div class="card card-inverse card-primary">
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="m-r-20 align-self-center">

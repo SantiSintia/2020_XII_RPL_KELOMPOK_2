@@ -38,7 +38,7 @@
                         </li>
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-server"></i>
+                            <i class="mdi mdi-cart-plus"></i>
                         <span class="hide-menu">Peminjaman</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('lists-borrow')}}">Daftar Peminjaman</a></li>
@@ -46,7 +46,7 @@
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-server"></i>
+                            <i class="mdi mdi-loop"></i>
                         <span class="hide-menu">Pengembalian</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('return/list-return')}}">Daftar Pengembalian</a></li>
@@ -54,7 +54,7 @@
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="fas fa-print"></i>
+                            <i class="mdi mdi-printer"></i>
                         <span class="hide-menu">Report Inventaris</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('/report-asset')}}">Asset</a></li>
