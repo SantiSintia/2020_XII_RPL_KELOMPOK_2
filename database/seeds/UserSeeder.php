@@ -74,6 +74,21 @@ class UserSeeder extends Seeder
         $student2->assignRole('student'); 
 
         $student3 = User::create([
+            'usr_name' => 'Nadira',
+            'role_id'  => '3',
+            'usr_email' => 'nadira@gmail.com',
+            'usr_phone' => '08567812347',
+            'usr_gender' => 'female',
+            'usr_password' => Hash::make('nadira123123'),
+            'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
+        ]);
+
+        $student3->assignRole('student'); 
+
+    
+        $student4 = User::create([
             'usr_name' => 'Candra',
             'role_id'  => '3',
             'usr_email' => 'candra@gmail.com',
@@ -85,7 +100,22 @@ class UserSeeder extends Seeder
             'usr_is_active' => true,
         ]);
 
-        $student3->assignRole('student'); 
+        $student4->assignRole('student'); 
+
+        
+        $student5 = User::create([
+            'usr_name' => 'Taufiq',
+            'role_id'  => '3',
+            'usr_email' => 'taufiq@gmail.com',
+            'usr_phone' => '087634157190',
+            'usr_gender' => 'male',
+            'usr_password' => Hash::make('candra123123'),
+            'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
+        ]);
+
+        $student5->assignRole('student'); 
 
 
 

@@ -48,30 +48,9 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
-                 @if(Auth()->user()->hasRole('admin'))
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-6  col-md-4">
-                        <div class="card card-inverse card-primary">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="m-r-20 align-self-center">
-                                        <h1 class="text-white"><i class="mdi mdi-bank"></i></h1></div>
-                                    <div>
-                                        <h3 class="card-title">Jumlah Asset</h3>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 align-self-center">
-                                        <h2 class="font-light text-white">24 Asset</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-6 col-md-4">
+                                        <div class="col-lg-6 col-md-4">
                         <div class="card card-inverse card-success">
                             <div class="card-body">
                                 <div class="d-flex">
@@ -83,7 +62,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8 align-self-center">
-                                        <h2 class="font-light text-white">1 Peminjaman</h2>
+                                        <h2 class="font-light text-white">{{$borrow}} Peminjaman</h2>
                                     </div>
                                     
                                 </div>
@@ -91,37 +70,11 @@
                         </div>
                     </div>
                     <!-- Column -->
-                    <!-- Column -->
-                    <!-- Column -->
-                </div>
-            @elseif(Auth()->user()->hasRole('student'))
-                 <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-6  col-md-4">
-                        <div class="card card-inverse card-primary">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="m-r-20 align-self-center">
-                                        <h1 class="text-white"><i class="mdi mdi-bank"></i></h1></div>
-                                    <div>
-                                        <h3 class="card-title">Barang Yang Sedang Dipinjam</h3>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 align-self-center">
-                                        <h2 class="font-light text-white">2 Barang</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
+                    
                     <!-- Column -->
                     <!-- Column -->
                     <!-- Column -->
                 </div>
-            @endif
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->

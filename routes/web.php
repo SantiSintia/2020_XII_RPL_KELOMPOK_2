@@ -146,11 +146,12 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
 });
 //Route::group(['middleware' => ['auth', 'verified', 'DisablePreventBack','role:student|teacher' ]], function () {
     Route::get('/user/dashboard', 'User\UserController@index')->name('user/dashboard');
-    Route::get('/user/lists-borrow', 'User\UserController@listBorrows');
-    Route::get('/user/lists-borrow/{id}', 'User\UserController@show');
     Route::get('/user/profile', 'User\UserController@profile');
     Route::get('/user/change-profile', 'User\UserController@changeProfile');
     Route::post('/user/change-profile', 'User\UserController@saveChangeProfile');
+    Route::get('/user/lists-borrow', 'User\UserController@listBorrows');
+    Route::get('/user/lists-borrow/{id}', 'User\UserController@show');
+    Route::get('/user/return/history', 'User\UserController@History');
   /*  Route::get('/borrows-asset', 'BorrowsController@borrowsItem');
     Route::post('/borrows-asset', 'BorrowsController@save');
     Route::get('/borrows-asset/verify/{id}', 'BorrowsController@verify'); */
