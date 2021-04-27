@@ -40,7 +40,11 @@
                                 <div class="text-center">
                                       <form action="" method="post" enctype="multipart/form-data">
                                         @csrf
+                                            @if(isset(Auth()->user()->usr_profile_picture))
                                             <img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" id="tampil_picture" style="object-fit: cover; height: 200px; width: 200px; border-radius:5px;" />
+                                            @else
+                                            <img src="{{ asset('usr_profile_picture/avatar-2.png')}}" id="tampil_picture" style="object-fit: cover; height: 200px; width: 200px; border-radius:5px;" />
+                                            @endif
                                                 <input type="file" name="usr_profile_picture" id="preview_gambar" class="img-circle" width="150" style="display:none; border-radius: 5px;" onchange="document.getElementById('usr_profile_picture').value=this.value" /><br>
                                                  <h4 class="card-title m-t-10">{{ Auth::user()->usr_name }}</h4>
                                                     @if(Auth()->user()->hasRole('admin'))

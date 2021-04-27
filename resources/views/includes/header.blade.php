@@ -66,12 +66,24 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" alt="null" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @if(isset(Auth()->user()->usr_profile_picture))
+                                <img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" alt="null" class="profile-pic" />
+                                @else
+                                <img src="{{ asset('usr_profile_picture/avatar-2.png')}}" alt="null" class="profile-pic" />
+                                @endif
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right scale-up">
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
-                                            <div class="u-img"><img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" alt="null"></div>
+                                            <div class="u-img">
+                                                @if(isset(Auth()->user()->usr_profile_picture))
+                                                <img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" alt="null">
+                                                @else
+                                                <img src="{{ asset('usr_profile_picture/avatar-2.png')}}" alt="null">
+                                                @endif
+                                            </div>
                                             <div class="u-text">
                                                 <h4>{{ Auth::user()->usr_name }}</h4>
                                             </div>

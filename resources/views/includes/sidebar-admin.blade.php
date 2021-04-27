@@ -4,7 +4,13 @@
                 <!-- User profile -->
                 <div class="user-profile" style="background: url(/assets/images/background/logo-info.jpg) no-repeat;">
                     <!-- User profile image -->
-                    <div class="profile-img"> <img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" alt="null" /> </div>
+                    <div class="profile-img"> 
+                        @if(isset(Auth()->user()->usr_profile_picture))
+                        <img src="{{ asset('usr_profile_picture/'.Auth()->user()->usr_profile_picture)}}" alt="null" /> 
+                        @else
+                        <img src="{{ asset('usr_profile_picture/avatar-2.png')}}" alt="null" />
+                        @endif
+                    </div>
                     <!-- User profile text-->
                    
                 </div>
