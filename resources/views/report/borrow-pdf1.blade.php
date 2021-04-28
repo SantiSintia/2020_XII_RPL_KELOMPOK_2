@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/logo-atas.png')}}">
-    <title>SMKS MAHAPUTRA</title>
+    <title>SMKS MAHAPUTRA - Peminjaman dan Pengembalian</title>
 
     
     <!-- Bootstrap Core CSS -->

@@ -47,7 +47,7 @@
                         <div class="form-group row">
                             <label class="control-label text-right col-md-3">Nama Aset</label>
                             <div class="col-md-9">
-                                <input name="asset_name" type="text" placeholder="Nama Aset" class="form-control" required="">
+                                <input name="asset_name" type="text" placeholder="Nama Asset" class="form-control" required="">
                             </div>
                         </div>
 

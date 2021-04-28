@@ -47,7 +47,7 @@
                                         <button class="btn btn-primary float-left dropdown-toggle text-center" type="button"
                                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
-                                            laporan
+                                            Laporan
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="{{URL::to('asset-all')}}">Semua Asset</a>

@@ -37,29 +37,40 @@ class ReportController extends Controller
 	public function allcondition()
 	{
 		$assets= Asset::all();
+        $totalharga= Asset::sum('ass_price');
 
-        return view('report.asset-all', compact('assets'));
+        return view('report.asset-all', compact('assets', 'totalharga'));
 	}
 
 	public function goodcondition()
 	{
-		$assets = Asset::where('ass_status', 1)->get();
+        $assets = Asset::where('ass_status', 1)->get();
 
-        return view('report.asset-good', compact('assets'));
+		$totalharga = Asset::where('ass_status', 1)
+                           ->sum('ass_price');
+
+        return view('report.asset-good', compact('assets', 'totalharga'));
 	}
 
 	public function brokencondition()
 	{
 		$assets = Asset::where('ass_status', 4)->get();
 
-        return view('report.asset-broken', compact('assets'));
+        $totalharga = Asset::where('ass_status', 4)
+                           ->sum('ass_price');
+
+
+        return view('report.asset-broken', compact('assets', 'totalharga'));
 	}
 
 	public function lostcondition()
 	{
 		$assets = Asset::where('ass_status', 5)->get();
 
-        return view('report.asset-lost', compact('assets'));
+        $totalharga = Asset::where('ass_status', 5)
+                           ->sum('ass_price');
+
+        return view('report.asset-lost', compact('assets', 'totalharga'));
 
 	}
 

@@ -118,7 +118,7 @@ List Lokasi Asset
             console.log(variable);
                 $('#gg').empty()
             $.each(variable.lokasi, function(val,lokasiObj){
-             $('#gg').append(' <div class="col-lg-3 col-md-6 img-responsive"><!-- Card --><div class="card"> <!-- <img class="card-img-top img-responsive" src="../assets/images/big/img4.jpg" alt="Card image cap"> --><div class="card-body"><h4 class="card-title">'+lokasiObj.location_name+'</h4><p class="card-text">Deskripsi Tentang Ruangan</p><a href="asset-location/'+lokasiObj.la_id+'/room" class="btn btn-primary">Visit</a></div></div> <!-- Card --></div><!-- column -->');
+             $('#gg').append(' <div class="col-lg-3 col-md-6 img-responsive"><!-- Card --><div class="card"> <!-- <img class="card-img-top img-responsive" src="../assets/images/big/img4.jpg" alt="Card image cap"> --><div class="card-body"><h4 class="card-title">'+lokasiObj.location_name+'</h4><p class="card-text">SMK MAHAPUTRA</p><a href="asset-location/'+lokasiObj.la_id+'/room" class="btn btn-primary">Visit</a></div></div> <!-- Card --></div><!-- column -->');
             });
         });
        }); 
