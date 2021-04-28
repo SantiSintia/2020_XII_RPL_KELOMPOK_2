@@ -80,7 +80,7 @@ class ReportController extends Controller
             ->orderBy('bas_id'  , 'DESC')
             ->get();
 
-        return view('report.borrow-pdf', compact('borrow'));
+        return view('report.borrow-pdf1', compact('borrow'));
     }
 
     public function location()

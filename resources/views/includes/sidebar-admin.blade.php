@@ -37,37 +37,46 @@
                         </li>
 
                         <li>
-                        <a class="waves-effect waves-dark" href="{{URL::to('admin/user')}}" aria-expanded="false">
+                            <a class="waves-effect waves-dark" href="{{URL::to('asset-location')}}" aria-expanded="false">
+                                <i class="mdi mdi-google-maps"></i>
+                                <span class="hide-menu">Lokasi Asset</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="waves-effect waves-dark" href="{{URL::to('admin/user')}}" aria-expanded="false">
                                 <i class="mdi mdi-account"></i>
                                 <span class="hide-menu">Kelola User</span>
-                        </a>
+                            </a>
                         </li>
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                             <i class="mdi mdi-cart-plus"></i>
-                        <span class="hide-menu">Peminjaman</span></a>
+                            <span class="hide-menu">Peminjaman</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('lists-borrow')}}">Daftar Peminjaman</a></li>
                                 <li><a href="{{URL::to('borrows-asset')}}">Pinjam Barang</a></li>
                             </ul>
                         </li>
+
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                             <i class="mdi mdi-loop"></i>
-                        <span class="hide-menu">Pengembalian</span></a>
+                            <span class="hide-menu">Pengembalian</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('return/list-return')}}">Daftar Pengembalian</a></li>
                                 <li><a href="{{URL::to('return/history')}}">Histori Pengembalian</a></li>
                             </ul>
                         </li>
+
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
                             <i class="mdi mdi-printer"></i>
-                        <span class="hide-menu">Report Inventaris</span></a>
+                            <span class="hide-menu">Report Inventaris</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::to('/report-asset')}}">Asset</a></li>
-                                <li><a href="{{URL::to('asset-location')}}">Lokasi Asset</a></li>
                                 <li><a href="{{URL::to('report-borrow')}}">Pinjam dan Kembali</a></li>
                             </ul>
                         </li>
+
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
