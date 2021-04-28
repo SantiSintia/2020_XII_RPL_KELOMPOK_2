@@ -178,9 +178,13 @@ class AssetController extends Controller
                       ->join('asset_types','ass_asset_type_id','=','ast_id')
                       ->join('origins','ass_origin_id','=','ori_id')
                       ->join('asset_descriptions','ass_id','=','asd_ass_id')
+                      ->join('location_assets','la_id','=','ass_la_id')
                       ->whereAssId($id)->first();
+
+        $lokasi= location_asset::where('la_id',$asset->parent_id)->first();
+
         // dd($asset);
-        return view('assets.list-detail-asset', compact(['asset']));
+        return view('assets.list-detail-asset', compact(['asset','lokasi']));
     }
 
     /**

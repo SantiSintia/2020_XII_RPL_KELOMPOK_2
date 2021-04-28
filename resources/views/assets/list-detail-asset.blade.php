@@ -88,6 +88,8 @@
                                                 @endif
                                             <small class="text-muted">Kondisi  </small>
                                                 <h6>{{$asset->asd_condition}}</h6> 
+                                                   <small class="text-muted">lokasi  </small>
+                                                    <a href="/asset-location/{{$asset->la_id}}/room"><h6>{{$lokasi->location_name}} > {{$asset->location_name}}</h6></a>
                                         </td>
                                     </tr>
 
