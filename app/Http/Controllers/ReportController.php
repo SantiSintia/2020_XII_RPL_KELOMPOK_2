@@ -142,7 +142,9 @@ class ReportController extends Controller
     {   
 
         $asset=Asset::where('ass_la_id',$id)->get();
+        $room=location_asset::where('la_id',$id)->first();
+        $location=location_asset::where('la_id',$room->parent_id)->first();
         // dd($asset);
-        return view('asset-location.list-asset-location',compact(['asset']));
+        return view('asset-location.list-asset-location',compact(['asset','room','location']));
     }
 }

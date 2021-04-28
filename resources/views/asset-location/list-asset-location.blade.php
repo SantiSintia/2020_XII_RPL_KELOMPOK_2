@@ -25,16 +25,16 @@
 
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor">Asset</h3>
+                        <h3 class="text-themecolor">Lokasi asset</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Asset</a></li>
-                            <li class="breadcrumb-item active">Kelola Asset</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">List Lokasi Asset</a></li>
+                            <li class="breadcrumb-item active">{{$location->location_name}}</li>
                         </ol>
                     </div>
                 </div>
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Asset</h4>
+                                <h4 class="card-title">Data Asset {{$room->location_name}}</h4>
                                 <div class="box-header">
                                     <p>
                                         <a href="{{URL::to('asset/create')}}" class="btn btn-success btn-rounded m-t-10 float-right"><i class="fa fa-plus"></i>Tambah</a>
@@ -55,8 +55,9 @@
                                         </thead>
                                         <tbody>
                                             @foreach($asset as $asset)
+
                                             <tr>
-                                                <td></td>
+                                                <td>{{$loop->iteration}}</td>
                                                 <td>{{$asset->ass_name}}</td>
                                                 <td>{{$asset->ass_registration_code}}</td>
 
