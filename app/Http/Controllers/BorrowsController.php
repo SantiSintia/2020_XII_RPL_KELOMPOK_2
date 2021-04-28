@@ -56,7 +56,7 @@ class BorrowsController extends Controller
         $data ['borrows'] = borrow_asset::where('bas_brw_id', $id)
             ->join('assets', 'borrow_assets.bas_ass_id', '=', 'assets.ass_id')
             ->join('borrows', 'borrow_assets.bas_brw_id', '=', 'borrows.brw_id')
-            ->join('users', 'borrows.brw_created_by', '=', 'users.usr_id')
+            ->join('users', 'borrows.brw_usr_id', '=', 'users.usr_id')
             ->where('bas_status', 1)
             ->select(
                 'borrows.*' , 'borrow_assets.*','assets.*' , 'users.*','borrows.created_at as brw_created_at'
@@ -64,12 +64,15 @@ class BorrowsController extends Controller
             ->get();
         $data ['borrowId'] = Borrow::whereBrwId($id)->first();
         $cek_user = Borrow::whereBrwId($id)->first();
-        $role    = User::join('roles', 'role_id', '=' , 'id')
-                     ->whereUsrId($id)->first();
+        //$role    = User::join('roles', 'role_id', '=' , 'id')
+                     //->whereUsrId($id)->first();
                      //dd($role);
  
             $data ['user'] = Student::whereStdUsrId($cek_user->brw_usr_id)
                 ->join('users' , 'students.std_usr_id' , '=' , 'users.usr_id')
+                ->first();
+                $data ['teacher'] = Teacher::whereTcUsrId($cek_user->brw_usr_id)
+                ->join('users' , 'teachers.tc_usr_id' , '=' , 'users.usr_id')
                 ->first();
 
 
@@ -79,7 +82,7 @@ class BorrowsController extends Controller
 
     public function borrowsItem()
     {
-        $name = user::join('roles', 'role_id', '=', 'id')->where('name', '!=','student')->select('users.usr_name', 'users.usr_id')->get();
+        $name = user::join('roles', 'role_id', '=', 'id')->where('name', '!=','admin')->select('users.usr_name', 'users.usr_id')->get();
         $borrow_asset = borrow_asset::where('bas_status', 1)->get();
         // dd($borrow_asset);
 
@@ -319,7 +322,7 @@ class BorrowsController extends Controller
 
         //Update Borrow Asset
         $brw = borrow_asset::whereBasId($request->bas_id)->first();
-        $brw->bas_status = '5';
+        $brw->bas_status = '7';
         $brw->save();
 
         //Update Asset
