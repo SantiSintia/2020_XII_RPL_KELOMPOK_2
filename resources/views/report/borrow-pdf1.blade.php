@@ -1,12 +1,17 @@
-@extends('layouts.master')
-
-@push('title')
-- Peminjaman dan Pengembalian Assets
-@endpush
-
-@push('styles')
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <!-- Favicon icon -->
-   <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/logo-atas.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/logo-atas.png')}}">
+    <title>SMKS MAHAPUTRA</title>
+
+    
     <!-- Bootstrap Core CSS -->
     <link href="{{URL::to('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- chartist CSS -->
@@ -19,10 +24,15 @@
     <link  href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link  href="{{URL::to('assets/css/colors/default-dark.css')}}" id="theme" rel="stylesheet">
-@endpush
-
-@section('content')
-                <div class="row page-titles">
+</head>
+<body>
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+<div id="main-wrapper">
+        <div class="container-fluid"> 
+            <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor">Peminjaman dan Pengembalian Asset</h3>
                         <ol class="breadcrumb">
@@ -34,9 +44,11 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Data Pinjam dan Kembali Asset</h4>
+                                <center>
+                                <h2 class="card-title">Data Pinjam dan Kembali Asset</h2>
+                                </center>
                                 <div class="table-responsive m-t-40">
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table id="myTable" class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -84,16 +96,16 @@
                                 </div>
                             </div>
                         </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-   
-@push('scripts')
 
- <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
+
+        </div>
+    </div>
+
+         <footer class="footer">
+       © 2020 SMKS MAHAPUTRA CERDAS UTAMA
+    </footer>
+        </tbody>
+     <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
     <script src="{{URL::to('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
@@ -127,8 +139,20 @@
 
     <script src="{{URL::to('assets/plugins/datatables/datatables.min.js')}}"></script>
 
+
+
+
+    <script type="" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="" src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script type="" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script type="" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
     <script>
-    $(document).ready(function() {
+     $(document).ready(function() {
         $('#myTable').DataTable();
         $(document).ready(function() {
             var table = $('#example').DataTable({
@@ -167,12 +191,17 @@
             });
         });
     });
-    $('#example23').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
+    $('#myTable').DataTable( {
+            "searching": false,
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+
+        } );
+
+
     </script>
-@endpush   
-@endsection
+
+</body>
+</html>
