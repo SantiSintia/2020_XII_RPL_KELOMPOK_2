@@ -15,6 +15,14 @@ class TeachersTableSeeder extends Seeder
             'tc_usr_id' => 2,
          
             ]);
+          DB::table('teachers')->insert([
+            'tc_usr_id' => 3,
+         
+            ]);
+          DB::table('teachers')->insert([
+            'tc_usr_id' => 4,
+         
+            ]);
         
           // DB::table('teachers')->insert([
           //   'tc_usr_id' => 5,

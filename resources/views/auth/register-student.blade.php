@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('assets/images/logo-atas.png')}}">
-    <title>Staff Register | INVENTARIS SMKS MAHAPUTRA</title>
+    <title>Student Register | INVENTARIS SMKS MAHAPUTRA</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{URL::to('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->

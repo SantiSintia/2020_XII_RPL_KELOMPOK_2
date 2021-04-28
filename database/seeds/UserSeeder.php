@@ -16,12 +16,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         $admin1 = User::create([
-            'usr_name' => 'admin',
+            'usr_name' => 'Hamdan Firmansyah',
             'role_id' =>'1',
-            'usr_email' => 'admin@gmail.com',
-            'usr_phone' => '089876543212',
+            'usr_email' => 'hamdan@gmail.com',
+            'usr_phone' => '089613272481',
             'usr_gender' => 'male',
-            'usr_password' => Hash::make('admin123123'),
+            'usr_password' => Hash::make('hamdan123123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
             'usr_is_active' => true,
@@ -43,6 +43,36 @@ class UserSeeder extends Seeder
         ]);
 
         $teacher1->assignRole('teacher');
+
+
+        $teacher2 = User::create([
+            'usr_name' => 'Leni Maulani',
+            'role_id'  =>   '2',
+            'usr_email' => 'nielenimaul@gmail.com',
+            'usr_phone' => '084728913456',
+            'usr_gender' => 'female',
+            'usr_password' => Hash::make('leni123123'),
+            'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
+        ]);
+
+        $teacher2->assignRole('teacher');
+
+
+        $teacher3 = User::create([
+            'usr_name' => 'Agfie',
+            'role_id'  =>   '2',
+            'usr_email' => 'agfienurani@gmail.com',
+            'usr_phone' => '087631289052',
+            'usr_gender' => 'female',
+            'usr_password' => Hash::make('agfie123123'),
+            'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
+        ]);
+
+        $teacher3->assignRole('teacher');
 
 
         $student1 = User::create([
@@ -73,37 +103,8 @@ class UserSeeder extends Seeder
 
         $student2->assignRole('student'); 
 
-        $student3 = User::create([
-            'usr_name' => 'Nadira',
-            'role_id'  => '3',
-            'usr_email' => 'nadira@gmail.com',
-            'usr_phone' => '08567812347',
-            'usr_gender' => 'female',
-            'usr_password' => Hash::make('nadira123123'),
-            'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
-            'usr_is_active' => true,
-        ]);
-
-        $student3->assignRole('student'); 
-
-    
-        $student4 = User::create([
-            'usr_name' => 'Candra',
-            'role_id'  => '3',
-            'usr_email' => 'candra@gmail.com',
-            'usr_phone' => '085671344035',
-            'usr_gender' => 'male',
-            'usr_password' => Hash::make('candra123123'),
-            'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
-            'usr_is_active' => true,
-        ]);
-
-        $student4->assignRole('student'); 
-
         
-        $student5 = User::create([
+        $student3 = User::create([
             'usr_name' => 'Taufiq',
             'role_id'  => '3',
             'usr_email' => 'taufiq@gmail.com',
@@ -115,7 +116,7 @@ class UserSeeder extends Seeder
             'usr_is_active' => true,
         ]);
 
-        $student5->assignRole('student'); 
+        $student3->assignRole('student'); 
 
 
 
@@ -148,24 +149,6 @@ class UserSeeder extends Seeder
         // ]);
 
         // $guru->assignRole('teacher');
-
-
-
-        $admin2 = User::create([
-            'usr_name' => 'Hamdan Firmansyah',
-            'role_id' =>'4',
-            'usr_email' => 'odney04@gmail.com',
-            'usr_phone' => '089613272481',
-            'usr_gender' => 'male',
-            'usr_password' => Hash::make('hamdan123123'),
-            'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
-            'usr_is_active' => true,
-        ]);
-
-        $admin2->assignRole('admin');
-
-
 
 
     }

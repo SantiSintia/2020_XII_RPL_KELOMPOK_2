@@ -120,6 +120,8 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
     Route::get('/asset-broken', 'ReportController@brokencondition');
     Route::get('/asset-lost', 'ReportController@lostcondition');
     Route::get('/report-borrow', 'ReportController@borrow');
+    Route::get('/report-location-asset', 'ReportController@reportLocation');
+    
 
 
 

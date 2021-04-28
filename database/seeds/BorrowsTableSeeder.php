@@ -21,6 +21,17 @@ class BorrowsTableSeeder extends Seeder
             'brw_status' => 1,
             ]);
 
+         DB::table('borrows')->insert([
+            'brw_usr_id' => 5,
+            'brw_status' => 1,
+            ]);
+         
+         DB::table('borrows')->insert([
+            'brw_usr_id' => 6,
+            'brw_status' => 1,
+            ]);
+  
+
          // DB::table('borrows')->insert([
          //    'brw_usr_id' => 4,
          //    'brw_status' => 1,

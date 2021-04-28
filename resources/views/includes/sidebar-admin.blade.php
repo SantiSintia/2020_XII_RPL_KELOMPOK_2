@@ -72,8 +72,9 @@
                             <i class="mdi mdi-printer"></i>
                             <span class="hide-menu">Report Inventaris</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{URL::to('/report-asset')}}">Asset</a></li>
+                                <li><a href="{{URL::to('report-asset')}}">Asset</a></li>
                                 <li><a href="{{URL::to('report-borrow')}}">Pinjam dan Kembali</a></li>
+                                <li><a href="{{URL::to('report-location-asset')}}">Lokasi Asset</a></li>                                
                             </ul>
                         </li>
 

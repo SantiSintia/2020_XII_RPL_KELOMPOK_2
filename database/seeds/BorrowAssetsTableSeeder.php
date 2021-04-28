@@ -23,6 +23,18 @@ class BorrowAssetsTableSeeder extends Seeder
             'bas_status' => 1,
             ]);
 
+         DB::table('borrow_assets')->insert([
+            'bas_ass_id' => 4,
+            'bas_brw_id' => 3,
+            'bas_status' => 1,
+            ]);
+
+         DB::table('borrow_assets')->insert([
+            'bas_ass_id' => 4,
+            'bas_brw_id' => 4,
+            'bas_status' => 1,
+            ]);
+
          // DB::table('borrow_assets')->insert([
          //    'bas_ass_id' => 5,
          //    'bas_brw_id' => 3,

@@ -83,6 +83,13 @@ class ReportController extends Controller
         return view('report.borrow-pdf1', compact('borrow'));
     }
 
+    public function reportLocation(){
+     $assets= Asset::join('location_assets' , 'location_assets.la_id' , '=', 'assets.ass_la_id' )
+     ->get();
+
+        return view('report.asset-location', compact('assets'));   
+    }
+
     public function location()
     {
 

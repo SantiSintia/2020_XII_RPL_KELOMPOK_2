@@ -21,7 +21,7 @@
                         
                         <li> 
                         <a class="waves-effect waves-dark" href="{{URL::to('user/lists-borrow')}}" aria-expanded="false">
-                                <i class="mdi mdi-server"></i>
+                                <i class="mdi mdi-cart-plus"></i>
                                 <span class="hide-menu">Daftar Peminjaman</span>
                         </a>
                         </li>
@@ -29,7 +29,7 @@
 
                         <li> 
                         <a class="waves-effect waves-dark" href="{{URL::to('user/return/history')}}" aria-expanded="false">
-                                <i class="mdi mdi-server"></i>
+                                <i class="mdi mdi-loop"></i>
                                 <span class="hide-menu">Histori Pengembalian</span>
                         </a>
                         </li>
