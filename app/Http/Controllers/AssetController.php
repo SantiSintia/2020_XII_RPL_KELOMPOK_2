@@ -10,6 +10,7 @@ use App\Origin;
 use App\asset_description;
 use App\borrow_asset;
 use App\Borrow;
+use App\location_asset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,7 +47,15 @@ class AssetController extends Controller
         $data ['origin'] = Origin::select('ori_id' , 'ori_name')->get();
         $data ['assets'] = asset_types::select('ast_id' , 'ast_name')->get();
         $data ['asset_categories']=asset_categories::select('asc_id','asc_name')->get();
+        $data ['lokasi'] = location_asset::where('parent_id',null)->get();
+        // dd($data['lokasi']);
         return view('assets.create-asset', $data);
+    }
+
+    public function JsonCreateasset($id){
+        $sublokasi=location_asset::where('parent_id',$id)->get();
+        return response()->json(compact(['sublokasi']));
+
     }
 
     /**
@@ -60,6 +69,8 @@ class AssetController extends Controller
 
        
         $jumlah=$request->input('total');
+        $lokasi=$request->input('sublokasi');
+        // dd($lokasi);
         //dd($jumlah);
 
         if ($jumlah < 0) {
@@ -80,6 +91,8 @@ class AssetController extends Controller
         //dd($reg_name);
         
         $check_name = Asset::whereAssName($request->input('assert_name'))->first();
+
+
         //dd($check_name);
 
         
@@ -90,6 +103,7 @@ class AssetController extends Controller
         $asset->ass_year   = $request->input('asset_year') ;
         $asset->ass_registration_code   = $reg_code .'/'. $type->ast_code . '/' . $origin->ori_code . '/' . $request->input('asset_year'); // 001/P01.001/INV.YYS/2016
         $asset->ass_status = $request->input('ass_status');
+        $asset->ass_la_id =$lokasi;
         if ($count > 0) {
             if ($check_name == null) {
         $asset->ass_name   = $request->input('asset_name') . ' ke ' . $reg_name;

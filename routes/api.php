@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/json-categories/{id}','CategoryAssetController@JsonCategories');
 Route::get('/json-lokasi/{id}','ReportController@JsonLokasi');
+Route::get('/json-create/{id}','AssetController@JsonCreateasset');

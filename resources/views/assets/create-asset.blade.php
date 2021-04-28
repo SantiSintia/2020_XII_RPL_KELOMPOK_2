@@ -131,6 +131,32 @@
                             </div>
                         </div>
 
+                         <div class="form-group row" >
+                              <label class="control-label text-right col-md-3">lokasi</label>
+                               <div class="col-md-9">
+                                <select id="h" name="lokasi" required="" class="form-control custom-select">
+                                    <option selected="true" checked="true">Pilih</option>
+                                    @foreach($lokasi as $lokasi)
+                                        <option value="{{$lokasi->la_id}}">{{$lokasi->location_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>                           
+                        </div>
+                        <div class="form-group row" >
+                              <label class="control-label text-right col-md-3">lokasi</label>
+                               <div class="col-md-9">
+                                <select id="sublokasi" name="sublokasi" required="" class="form-control custom-select">
+                                    
+                                    <!-- <option></option> -->
+                                </select>
+                            </div>                           
+                        </div>
+
+
+
+
+
+
                     </div>
                     <div class="form-actions">
                         <div class="row">
@@ -150,6 +176,24 @@
         </div>
     </div>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $('#h').on('change', function (e) {
+        console.log(e);
+        var lokasi_id=e.target.value;
+        $.get('{{URL::to('api/json-create')}}/'+lokasi_id,function (variable){
+            console.log(variable);
+                $('#sublokasi').empty();
+                $('#sublokasi').append('<option selected="true" checked="true">Pilih</option>');
+            $.each(variable.sublokasi, function(val,lokasiObj){
+             $('#sublokasi').append('<option value="'+lokasiObj.la_id+'" >'+lokasiObj.location_name+'</option>');
+            });
+        });
+       }); 
+
+   </script>
+
     <script >
         function myFunction() {
             var x = document.getElementById("kategori").value;
@@ -163,6 +207,8 @@
     </script>
 
     @push('scripts')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{URL::to('assets/js/jquery.min.js')}}"></script>
         <script src="{{URL::to('assets/plugins/jquery/jquery.min.js')}}"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="{{URL::to('assets/plugins/popper/popper.min.js')}}"></script>
