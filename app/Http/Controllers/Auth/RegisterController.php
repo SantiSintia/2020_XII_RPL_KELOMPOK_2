@@ -13,7 +13,7 @@ use App\Mail\SendMail;
 use Illuminate\Support\Str;
 use App\Student;
 use App\Teacher;
-
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -37,8 +37,18 @@ class RegisterController extends Controller
         return view('auth.register-teacher');
     }
 
-      public function registerSaveTeacher()
+      public function registerSaveTeacher(request $request)
     {
+
+       $request->validate( [
+            'usr_name' => ['required', 'string', 'max:255'],
+            'usr_email' => ['required', 'string', 'max:255', 'unique:users,usr_email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'usr_phone' => ['required', 'min:11', 'max:14'],
+        ]);
+
+
+
          $nama = $_POST['usr_name'];
         if ($nama) 
         {
@@ -79,7 +89,7 @@ class RegisterController extends Controller
                         $user->created_by = $user->usr_id;
                     }
                     
-                    Mail::to($data['usr_email'])->send(new SendMail($user));
+                    Mail::to($email)->send(new SendMail($user));
 
                     return redirect ('/');
                     //return $user;
@@ -94,8 +104,16 @@ class RegisterController extends Controller
         return view('auth.register-student');
     }
 
-    public function registerSaveStudent()
+    public function registerSaveStudent(request $request)
     {
+
+         $request->validate( [
+            'usr_name' => ['required', 'string', 'max:255'],
+            'usr_email' => ['required', 'string', 'max:255', 'unique:users,usr_email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'usr_phone' => ['required', 'min:11', 'max:14'],
+        ]);
+
         $nama = $_POST['usr_name'];
         if ($nama) 
         {
