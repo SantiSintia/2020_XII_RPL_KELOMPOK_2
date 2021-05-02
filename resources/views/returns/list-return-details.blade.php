@@ -38,6 +38,8 @@
             <h3 class="card-title text-center">Daftar Peminjaman </h3>
 
         </div>
+       
+            @if($borrow_user->role_id == 3)
         <div class="card-body">
             <div class="row">
                 <div class="col-2">
@@ -63,6 +65,29 @@
                     {{$user->std_class}}
                 </div>
             </div>
+            @elseif($borrow_user->role_id == 2)
+            <div class="card-body">
+            <div class="row">
+                <div class="col-2">
+                    Nip
+                </div>
+                <div class="col-10">
+                    {{$teacher->tc_nip}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    Nama
+                </div>
+                <div class="col-10">
+                    {{$teacher->usr_name}}
+                </div>
+            </div>
+            
+        
+            @endif
+        
+
 
             <hr>
 

@@ -42,7 +42,8 @@ class BorrowsController extends Controller
             ->join('borrows', 'borrow_assets.bas_brw_id', '=', 'borrows.brw_id')
             ->join('users', 'borrows.brw_usr_id', '=', 'users.usr_id')
             ->where('borrows.brw_status', '=', 1)
-            ->select('borrow_assets.bas_brw_id', 'users.usr_name', DB::raw('count(*) as total'))
+            ->where('assets.ass_status','1')
+            ->select('borrow_assets.bas_brw_id', 'users.usr_name', DB::raw('count(*) as total'),'borrows.brw_usr_id')
             ->groupBy('borrow_assets.bas_brw_id')
             ->get();
         //return $borrows;
@@ -51,7 +52,7 @@ class BorrowsController extends Controller
 
     }
 
-    public function show($id)
+    public function show($id,$usr_id)
     {
         $data ['borrows'] = borrow_asset::where('bas_brw_id', $id)
             ->join('assets', 'borrow_assets.bas_ass_id', '=', 'assets.ass_id')
@@ -61,7 +62,22 @@ class BorrowsController extends Controller
             ->select(
                 'borrows.*' , 'borrow_assets.*','assets.*' , 'users.*','borrows.created_at as brw_created_at'
             )
+            ->where('assets.ass_status','1')
             ->get();
+                
+             
+                 $data ['borrow'] = borrow_asset::join('assets', 'borrow_assets.bas_ass_id', '=', 'assets.ass_id')
+            ->join('borrows', 'borrow_assets.bas_brw_id', '=', 'borrows.brw_id')
+            ->join('users', 'borrows.brw_usr_id', '=', 'users.usr_id')
+            
+            ->select(
+                'borrows.*' , 'borrow_assets.*','assets.*' , 'users.*','borrows.created_at as brw_created_at'
+            )
+            ->where('borrows.brw_usr_id',$usr_id)
+            ->first();
+
+           
+
         $data ['borrowId'] = Borrow::whereBrwId($id)->first();
         $cek_user = Borrow::whereBrwId($id)->first();
         //$role    = User::join('roles', 'role_id', '=' , 'id')
@@ -71,6 +87,7 @@ class BorrowsController extends Controller
             $data ['user'] = Student::whereStdUsrId($cek_user->brw_usr_id)
                 ->join('users' , 'students.std_usr_id' , '=' , 'users.usr_id')
                 ->first();
+               // dd($data['borrow']);
                 $data ['teacher'] = Teacher::whereTcUsrId($cek_user->brw_usr_id)
                 ->join('users' , 'teachers.tc_usr_id' , '=' , 'users.usr_id')
                 ->first();
@@ -206,19 +223,34 @@ class BorrowsController extends Controller
         $data ['borrows'] = borrow_asset::where('bas_brw_id', $id)
             ->join('assets', 'borrow_assets.bas_ass_id', '=', 'assets.ass_id')
             ->join('borrows', 'borrow_assets.bas_brw_id', '=', 'borrows.brw_id')
-            ->join('users', 'borrows.brw_created_by', '=', 'users.usr_id')
+            ->join('users', 'borrows.brw_usr_id', '=', 'users.usr_id')
             ->whereNotIn('bas_status', [1])
             ->select(
                 'borrows.*' , 'borrow_assets.*','assets.*' , 'users.*','borrows.created_at as brw_created_at'
             )
             ->get();
+
+        $data ['borrow_user'] = borrow_asset::where('bas_brw_id', $id)
+            ->join('assets', 'borrow_assets.bas_ass_id', '=', 'assets.ass_id')
+            ->join('borrows', 'borrow_assets.bas_brw_id', '=', 'borrows.brw_id')
+            ->join('users', 'borrows.brw_usr_id', '=', 'users.usr_id')
+            ->whereNotIn('bas_status', [1])
+            ->select(
+                'borrows.*' , 'borrow_assets.*','assets.*' , 'users.*','borrows.created_at as brw_created_at'
+            )
+            ->first();
+            //dd($data['borrows']);
+
         $data ['borrowId'] = Borrow::whereBrwId($id)->first();
         $cek_user = Borrow::whereBrwId($id)->first();
         $data ['user'] = Student::whereStdUsrId($cek_user->brw_usr_id)
             ->join('users' , 'students.std_usr_id' , '=' , 'users.usr_id')
             ->first();
+             $data ['teacher'] = Teacher::whereTcUsrId($cek_user->brw_usr_id)
+                ->join('users' , 'teachers.tc_usr_id' , '=' , 'users.usr_id')
+                ->first();
 
-        return view('borrows.detail-borrow', $data);
+        return view('returns.list-return-details', $data);
     }
 
     /**

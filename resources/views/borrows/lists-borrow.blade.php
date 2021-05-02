@@ -55,7 +55,7 @@ List Peminjaman
                                                 <th>{{$borrow->total}}</th>
                                                 <th>Masih dipinjam</th>
                                                 <th>
-                                                    <a href="{{URL::to('lists-borrow/'.$borrow->bas_brw_id)}}" class="btn btn-sm btn-flat btn-success">lihat</a>
+                                                    <a href="{{URL::to('lists-borrow/'.$borrow->bas_brw_id)}}/{{$borrow->brw_usr_id}}" class="btn btn-sm btn-flat btn-success">lihat</a>
                                                 </th>
                                                 <tr>
                                         @endforeach

@@ -153,6 +153,7 @@ class AdminPageController extends Controller
                           ->join('assets','bas_ass_id','=','ass_id')
                           ->join('users','brw_usr_id','=','usr_id')
                           ->where('brw_usr_id',$id)
+                          ->whereNotIn('ass_status',[2])
                           ->select('assets.ass_name','users.usr_name','borrow_assets.bas_status')
                           ->get();
          // dd($user);

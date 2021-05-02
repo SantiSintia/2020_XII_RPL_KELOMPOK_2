@@ -37,8 +37,8 @@
         <div class="card-header">
             <h3 class="card-title text-center">Daftar Peminjaman </h3>
         </div>
-        @foreach($borrows as $roles)
-            @if($roles->role_id == 3)
+      
+            @if($borrow->role_id == 3)
         <div class="card-body">
             <div class="row">
                 <div class="col-2">
@@ -64,7 +64,7 @@
                     {{$user->std_class}}
                 </div>
             </div>
-            @elseif($roles->role_id == 2)
+            @elseif($borrow->role_id == 2)
             <div class="card-body">
             <div class="row">
                 <div class="col-2">
@@ -84,7 +84,8 @@
             </div>
         
             @endif
-        @endforeach
+          
+       
 
 
             <hr>

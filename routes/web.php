@@ -88,7 +88,7 @@ Route::group(['middleware' => ['role:admin','auth', 'verified', 'DisablePreventB
 
 
     Route::get('/lists-borrow', 'BorrowsController@index');
-    Route::get('/lists-borrow/{id}', 'BorrowsController@show');
+    Route::get('/lists-borrow/{id}/{usr_id}', 'BorrowsController@show');
     Route::get('/borrows-asset', 'BorrowsController@borrowsItem');
     Route::post('/borrows-asset', 'BorrowsController@save');
     Route::get('/borrows-asset/verify/{id}', 'BorrowsController@verify');

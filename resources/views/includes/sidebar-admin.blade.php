@@ -25,6 +25,14 @@
                         </a>
                         </li>
 
+                         <li>
+                            <a class="waves-effect waves-dark" href="{{URL::to('asset-location')}}" aria-expanded="false">
+                                <i class="mdi mdi-google-maps"></i>
+                                <span class="hide-menu">Lokasi Asset</span>
+                            </a>
+                        </li>
+
+
                         <li>
                          <a class="has-arrow waves-effect waves-dark" href="" aria-expanded="false">
                                 <i class="mdi mdi-bank"></i>
@@ -36,13 +44,7 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a class="waves-effect waves-dark" href="{{URL::to('asset-location')}}" aria-expanded="false">
-                                <i class="mdi mdi-google-maps"></i>
-                                <span class="hide-menu">Lokasi Asset</span>
-                            </a>
-                        </li>
-
+                       
                         <li>
                             <a class="waves-effect waves-dark" href="{{URL::to('admin/user')}}" aria-expanded="false">
                                 <i class="mdi mdi-account"></i>

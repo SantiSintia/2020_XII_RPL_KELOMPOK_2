@@ -303,8 +303,12 @@ class AssetController extends Controller
      */
     public function destroy($id)
     {
-        $data = Asset::find($id);
-        $data->delete();
+        $edit = Asset::whereAssId($id)->first();
+        $edit->ass_status = '2';
+        $edit->save();
+
+        $delete = Asset::find($id);
+        $delete->delete();
  
         return redirect('/asset');
     }

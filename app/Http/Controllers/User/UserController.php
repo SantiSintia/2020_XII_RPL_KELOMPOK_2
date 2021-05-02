@@ -34,7 +34,8 @@ class UserController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-        $borrow = Borrow::count();
+        $borrow = Borrow::('brw_usr_id', Auth::user()->usr_id)
+                        ->count();
     return view('users.index-user' , compact('borrow'));
     }
 
